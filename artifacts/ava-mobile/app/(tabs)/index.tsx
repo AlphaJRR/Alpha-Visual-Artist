@@ -32,6 +32,9 @@ type Reel = {
 
 const OPENER_VIDEO = require("../../assets/videos/opener.mov");
 const WAYMAKER_VIDEO = require("../../assets/videos/waymaker-promo.mov");
+const IDENTITY_TEENS_VIDEO = require("../../assets/videos/identity-teens.mp4");
+const REEL_A_VIDEO = require("../../assets/videos/reel-a.mov");
+const REEL_B_VIDEO = require("../../assets/videos/reel-b.mov");
 
 type Photo = {
   id: string;
@@ -83,6 +86,37 @@ const REELS: Reel[] = [
     tag: "Waymaker Chicago",
     cover: require("../../assets/images/event-jayellis.jpg"),
     url: `${SITE_URL}/work`,
+  },
+  {
+    id: "rdrose",
+    title: "Derrick Rose",
+    tag: "Waymaker Kid's Summit",
+    cover: require("../../assets/images/event-drose.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "rfaith",
+    title: "Identity Teens · YAHWEH",
+    tag: "Church Anniversary",
+    cover: require("../../assets/images/red-stage-mic.jpg"),
+    url: `${SITE_URL}/work`,
+    video: IDENTITY_TEENS_VIDEO,
+  },
+  {
+    id: "rclipA",
+    title: "From The Vault — Reel A",
+    tag: "Cinematic · Reel",
+    cover: require("../../assets/images/portrait-dada.jpg"),
+    url: `${SITE_URL}/work`,
+    video: REEL_A_VIDEO,
+  },
+  {
+    id: "rclipB",
+    title: "From The Vault — Reel B",
+    tag: "Cinematic · Reel",
+    cover: require("../../assets/images/peace-suit.jpg"),
+    url: `${SITE_URL}/work`,
+    video: REEL_B_VIDEO,
   },
   {
     id: "r4",
