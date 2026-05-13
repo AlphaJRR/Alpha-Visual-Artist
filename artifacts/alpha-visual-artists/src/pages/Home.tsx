@@ -11,7 +11,6 @@ import { Clients } from "@/components/sections/Clients";
 import { BehindTheLens } from "@/components/sections/BehindTheLens";
 import { Podcasts } from "@/components/sections/Podcasts";
 import { Portraits } from "@/components/sections/Portraits";
-import { Merch } from "@/components/sections/Merch";
 import { CTA } from "@/components/sections/CTA";
 
 export default function Home() {
@@ -29,7 +28,6 @@ export default function Home() {
         <Retainers />
         <Podcasts />
         <Portraits />
-        <Merch />
         <CTA />
       </main>
       <Footer />

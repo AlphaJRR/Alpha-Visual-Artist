@@ -9,6 +9,7 @@
     <meta property="og:title" content="Alpha Visual Artists | Chicago Video Production" />
     <meta property="og:description" content="Cinematic video production studio based in Chicago. Short-form reels, commercials, and event coverage designed to stop the scroll and convert." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alphavisualartists.com" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Alpha Visual Artists" />
     <meta name="twitter:description" content="Cinematic video production studio based in Chicago. Short-form reels, commercials, and event coverage designed to stop the scroll and convert." />
@@ -20,5 +21,48 @@
   <body class="dark bg-background text-foreground antialiased selection:bg-primary/30">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Hidden form for Netlify Forms detection (build-time scan) -->
+    <form name="subscribe" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+      <input type="text" name="bot-field" />
+    </form>
+
+    <!-- Email Signup Popup (3 seconds delay) -->
+    <script>
+      (function() {
+        if (sessionStorage.getItem('ava-popup-seen')) return;
+        var popupHTML = '<div id="ava-popup-overlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;"><div id="ava-popup-modal" style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:40px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.8);position:relative;"><button id="ava-popup-close" type="button" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#999;font-size:24px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;">&times;</button><div style="text-align:center;"><h2 style="color:#fff;font-size:24px;font-weight:700;margin:0 0 12px 0;font-family:Sora,sans-serif;">Exclusive Offer</h2><p style="color:#00d4ff;font-size:32px;font-weight:800;margin:0 0 20px 0;letter-spacing:-1px;">15% OFF</p><p style="color:#e0e0e0;font-size:14px;margin:0 0 24px 0;line-height:1.6;">Join our email list for exclusive access to the new <strong>ALPHA CREW Collection</strong> and get 15% off your first order.</p><form id="ava-popup-form" style="display:flex;flex-direction:column;gap:12px;"><input type="email" id="ava-popup-email" placeholder="your@email.com" required style="background:#1a1a1a;border:1px solid #333;border-radius:8px;padding:12px 16px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;"><input type="email" id="ava-popup-email-confirm" placeholder="Confirm email" required style="background:#1a1a1a;border:1px solid #333;border-radius:8px;padding:12px 16px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;"><button type="submit" style="background:#00d4ff;color:#000;border:none;border-radius:8px;padding:12px 24px;font-weight:600;font-size:14px;cursor:pointer;font-family:Inter,sans-serif;margin-top:8px;">Unlock 15% Off</button></form><div id="ava-popup-success" style="display:none;margin-top:20px;"><p style="color:#00d4ff;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px 0;">Your Discount Code:</p><p style="color:#fff;font-size:20px;font-weight:700;background:#1a1a1a;padding:12px;border-radius:6px;margin:0;font-family:Courier New,monospace;letter-spacing:2px;">ALPHACREW15</p><p style="color:#999;font-size:12px;margin:12px 0 0 0;">Use code at shop.alphavisualartists.com</p></div><p style="color:#666;font-size:11px;margin:20px 0 0 0;line-height:1.5;">We\'ll send you updates on new drops and exclusive deals. Unsubscribe anytime.</p></div></div></div>';
+        document.body.insertAdjacentHTML('beforeend', popupHTML);
+        setTimeout(function() {
+          var overlay = document.getElementById('ava-popup-overlay');
+          if (overlay) overlay.style.display = 'flex';
+        }, 3000);
+        document.addEventListener('click', function(e) {
+          if (e.target.id === 'ava-popup-close' || e.target.id === 'ava-popup-overlay') {
+            document.getElementById('ava-popup-overlay').style.display = 'none';
+            sessionStorage.setItem('ava-popup-seen', '1');
+          }
+        });
+        document.addEventListener('submit', function(e) {
+          if (e.target.id !== 'ava-popup-form') return;
+          e.preventDefault();
+          var email = document.getElementById('ava-popup-email').value.trim();
+          var confirm = document.getElementById('ava-popup-email-confirm').value.trim();
+          if (email !== confirm) { alert('Emails do not match'); return; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Invalid email'); return; }
+          var body = 'form-name=subscribe&email=' + encodeURIComponent(email) + '&bot-field=';
+          fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: body
+          }).catch(function(){});
+          document.getElementById('ava-popup-form').style.display = 'none';
+          document.getElementById('ava-popup-success').style.display = 'block';
+          sessionStorage.setItem('ava-popup-seen', '1');
+          setTimeout(function() { document.getElementById('ava-popup-overlay').style.display = 'none'; }, 4000);
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -105,7 +105,7 @@ export function Retainers() {
                     : "bg-white/10 hover:bg-white/20 text-white border border-white/20"
                 }`}
               >
-                <a href="https://calendly.com/alphavisualartists/booking" target="_blank" rel="noreferrer">
+                <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer">
                   Start {tier.name}
                 </a>
               </Button>

@@ -18,7 +18,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-4">
           <Button asChild className="rounded-full bg-primary hover:bg-primary/90 text-black shadow-[0_0_20px_rgba(0,230,255,0.4)] transition-all hover:shadow-[0_0_30px_rgba(0,230,255,0.6)]">
-            <a href="https://calendly.com/alphavisualartists/booking" target="_blank" rel="noreferrer">
+            <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer">
               Book a Call
             </a>
           </Button>

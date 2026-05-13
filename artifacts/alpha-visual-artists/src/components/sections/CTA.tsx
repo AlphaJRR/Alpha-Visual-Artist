@@ -26,7 +26,7 @@ export function CTA() {
           </p>
 
           <Button asChild size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-black px-12 h-16 text-xl font-bold shadow-[0_0_30px_rgba(0,230,255,0.3)] transition-all hover:shadow-[0_0_50px_rgba(0,230,255,0.5)] hover:scale-105 group">
-            <a href="https://calendly.com/alphavisualartists/booking" target="_blank" rel="noreferrer">
+            <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer">
               Book a Call 
               <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </a>

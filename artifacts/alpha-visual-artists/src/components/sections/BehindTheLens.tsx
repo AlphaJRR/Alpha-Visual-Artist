@@ -76,7 +76,7 @@ export function BehindTheLens() {
               size="lg"
               className="rounded-full bg-primary hover:bg-primary/90 text-black px-8 h-14 text-base font-bold shadow-[0_0_25px_rgba(0,230,255,0.4)] hover:shadow-[0_0_35px_rgba(0,230,255,0.6)] transition-all"
             >
-              <a href="https://calendly.com/alphavisualartists/booking" target="_blank" rel="noreferrer">
+              <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer">
                 Work With Us
               </a>
             </Button>

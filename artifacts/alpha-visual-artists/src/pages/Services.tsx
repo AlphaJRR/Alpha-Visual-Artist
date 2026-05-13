@@ -150,7 +150,7 @@ export default function Services() {
                       size="lg"
                       className="rounded-full bg-primary hover:bg-primary/90 text-black px-8 h-14 text-base font-bold shadow-[0_0_30px_rgba(0,230,255,0.4)] hover:shadow-[0_0_40px_rgba(0,230,255,0.6)] transition-all"
                     >
-                      <a href="https://calendly.com/alphavisualartists/booking" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                      <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
                         {s.cta}
                         <ArrowRight className="w-4 h-4" />
                       </a>
@@ -178,7 +178,7 @@ export default function Services() {
               size="lg"
               className="rounded-full bg-primary hover:bg-primary/90 text-black px-10 h-14 text-base font-bold shadow-[0_0_30px_rgba(0,230,255,0.4)]"
             >
-              <a href="https://calendly.com/alphavisualartists/booking" target="_blank" rel="noreferrer">
+              <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer">
                 Get a Free Consultation
               </a>
             </Button>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Alpha Visual Artists | Chicago Video Production & Short-Form Content</title>
+    <meta name="description" content="Cinematic video production studio based in Chicago. Short-form reels, commercials, and event coverage designed to stop the scroll and convert." />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Alpha Visual Artists | Chicago Video Production" />
+    <meta property="og:description" content="Cinematic video production studio based in Chicago. Short-form reels, commercials, and event coverage designed to stop the scroll and convert." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/opengraph.jpg" />
+    <meta property="og:url" content="https://alphavisualartists.com" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alpha Visual Artists" />
+    <meta name="twitter:description" content="Cinematic video production studio based in Chicago. Short-form reels, commercials, and event coverage designed to stop the scroll and convert." />
+    <meta name="twitter:image" content="/opengraph.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Build Assets -->
+    <script type="module" crossorigin src="/assets/index-fqGbMV6y.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C0myPVes.css">
+  </head>
+  <body class="dark bg-background text-foreground antialiased selection:bg-primary/30">
+    <div id="root"></div>
+    
+    <!-- Email Signup Popup (3 seconds delay) -->
+    <script>
+      (function() {
+        const popupHTML = `
+          <div id="ava-popup-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9999; align-items: center; justify-content: center;">
+            <div id="ava-popup-modal" style="background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 12px; padding: 40px; max-width: 420px; width: 90%; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); position: relative;">
+              <button id="ava-popup-close" style="position: absolute; top: 16px; right: 16px; background: none; border: none; color: #999; font-size: 24px; cursor: pointer; padding: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">×</button>
+              <div style="text-align: center;">
+                <h2 style="color: #ffffff; font-size: 24px; font-weight: 700; margin: 0 0 12px 0; font-family: 'Sora', sans-serif;">Exclusive Offer</h2>
+                <p style="color: #00d4ff; font-size: 32px; font-weight: 800; margin: 0 0 20px 0; letter-spacing: -1px;">15% OFF</p>
+                <p style="color: #e0e0e0; font-size: 14px; margin: 0 0 24px 0; line-height: 1.6;">Join our email list for exclusive access to the new <strong>ALPHA CREW Collection</strong> and get 15% off your first order.</p>
+                <form id="ava-popup-form" style="display: flex; flex-direction: column; gap: 12px;">
+                  <input type="email" id="ava-popup-email" placeholder="your@email.com" required style="background: #1a1a1a; border: 1px solid #333; border-radius: 8px; padding: 12px 16px; color: #fff; font-size: 14px; font-family: 'Inter', sans-serif; outline: none;" />
+                  <input type="email" id="ava-popup-email-confirm" placeholder="Confirm email" required style="background: #1a1a1a; border: 1px solid #333; border-radius: 8px; padding: 12px 16px; color: #fff; font-size: 14px; font-family: 'Inter', sans-serif; outline: none;" />
+                  <button type="submit" style="background: #00d4ff; color: #000; border: none; border-radius: 8px; padding: 12px 24px; font-weight: 600; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; margin-top: 8px;">Unlock 15% Off</button>
+                </form>
+                <div id="ava-popup-success" style="display: none; margin-top: 20px;">
+                  <p style="color: #00d4ff; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 8px 0;">Your Discount Code:</p>
+                  <p id="ava-popup-code" style="color: #ffffff; font-size: 20px; font-weight: 700; background: #1a1a1a; padding: 12px; border-radius: 6px; margin: 0; font-family: 'Courier New', monospace; letter-spacing: 2px;">ALPHACREW15</p>
+                  <p style="color: #999; font-size: 12px; margin: 12px 0 0 0;">Use code at shop.alphavisualartists.com</p>
+                </div>
+                <p style="color: #666; font-size: 11px; margin: 20px 0 0 0; line-height: 1.5;">We'll send you updates on new drops and exclusive deals. Unsubscribe anytime.</p>
+              </div>
+            </div>
+          </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', popupHTML);
+        setTimeout(() => {
+          const overlay = document.getElementById('ava-popup-overlay');
+          if (overlay) overlay.style.display = 'flex';
+        }, 3000);
+        document.addEventListener('click', (e) => {
+          if (e.target.id === 'ava-popup-close') {
+            document.getElementById('ava-popup-overlay').style.display = 'none';
+          }
+          if (e.target.id === 'ava-popup-overlay') {
+            e.target.style.display = 'none';
+          }
+        });
+        document.addEventListener('submit', (e) => {
+          if (e.target.id === 'ava-popup-form') {
+            e.preventDefault();
+            const email = document.getElementById('ava-popup-email').value.trim();
+            const confirm = document.getElementById('ava-popup-email-confirm').value.trim();
+            if (email !== confirm) { alert('Emails do not match'); return; }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Invalid email'); return; }
+            fetch('https://alphavisualartists.com/api/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: email })
+            }).catch(() => {});
+            document.getElementById('ava-popup-form').style.display = 'none';
+            document.getElementById('ava-popup-success').style.display = 'block';
+            setTimeout(() => { document.getElementById('ava-popup-overlay').style.display = 'none'; }, 4000);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
