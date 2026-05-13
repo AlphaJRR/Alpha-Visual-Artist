@@ -24,3 +24,9 @@ id = "OZQ_xSvE7jky3C1xFiEEX"
 uri = "file://ava-netlify-v3-may13.zip"
 type = "unspecified"
 title = "ava-netlify-v3-may13.zip — newest build, drop into Netlify"
+
+[[outputs]]
+id = "PDEtUzQ3T5yTT1w_C3DX-"
+uri = "file://ava-netlify-v4-photos.zip"
+type = "unspecified"
+title = "ava-netlify-v4-photos.zip — your photos now in the apparel section"

@@ -1,4 +1,10 @@
 import React from "react";
+import apparelHero from "@/assets/silhouette-spotlight.jpg";
+import lookFloral from "@/assets/portrait-floral.jpeg";
+import lookCrew from "@/assets/family-bw.jpeg";
+import lookRed from "@/assets/portrait-redlight.jpg";
+import lookCouple from "@/assets/couple-chicago.jpeg";
+import lookMentor from "@/assets/with-mentor.jpeg";
 
 export function ApparelSection() {
   return (
@@ -102,7 +108,7 @@ export function ApparelSection() {
         <section className="apparel-section">
           <div className="hero-banner">
             <img
-              src="https://cdn.shopify.com/s/files/1/0813/1166/2300/files/hero_banner.jpg?v=1778629213"
+              src={apparelHero}
               alt="Alpha Visual Artists — Concrete Vision"
             />
             <div className="hero-overlay"></div>
@@ -117,17 +123,17 @@ export function ApparelSection() {
           <div className="lifestyle-grid">
             <div className="grid-item top">
               <img
-                src="https://cdn.shopify.com/s/files/1/0813/1166/2300/files/eden_solo2_79c9e55f-4f71-4396-bc06-e3c7d8b15b2b.jpg?v=1778629300"
-                alt="Eden solo green tee Chicago el tracks"
-                style={{ objectPosition: "center 40%" }}
+                src={lookFloral}
+                alt="Alpha Crew — floral lifestyle look"
+                style={{ objectPosition: "center 30%" }}
               />
               <div className="grid-overlay"><span className="grid-label">Forest Green Tee</span></div>
             </div>
 
             <div className="grid-item top">
               <img
-                src="https://cdn.shopify.com/s/files/1/0813/1166/2300/files/ava_ashie_eden_grade1_8bb1ab5a-92df-4e85-83a5-d37a4402a0d8.jpg?v=1778629299"
-                alt="AVA crew laughing blue garage"
+                src={lookCrew}
+                alt="The Alpha Crew — family"
                 style={{ objectPosition: "center 30%" }}
               />
               <div className="grid-overlay"><span className="grid-label">The Crew</span></div>
@@ -135,8 +141,8 @@ export function ApparelSection() {
 
             <div className="grid-item top">
               <img
-                src="https://cdn.shopify.com/s/files/1/0813/1166/2300/files/SOLO_SIT_KOIBE_WALL_061ff942-5535-46d9-9316-cea0c38ba9da.jpg?v=1778629241"
-                alt="Alpha Crew hoodie PEACE mural"
+                src={lookRed}
+                alt="Alpha Crew — red light editorial"
                 className="img-solo"
               />
               <div className="grid-overlay"><span className="grid-label">Alpha Hoodie</span></div>
@@ -144,8 +150,8 @@ export function ApparelSection() {
 
             <div className="grid-item bottom bottom-left">
               <img
-                src="https://cdn.shopify.com/s/files/1/0813/1166/2300/files/PAPI_W__FOOTBALL_bd7ec3b7-0e3e-4400-b85b-137844bfe637.jpg?v=1778629271"
-                alt="Girl golden hour green AVA tee"
+                src={lookCouple}
+                alt="Couple — Chicago golden hour"
                 style={{ objectPosition: "center 35%" }}
               />
               <div className="grid-overlay"><span className="grid-label">Golden Hour</span></div>
@@ -153,8 +159,8 @@ export function ApparelSection() {
 
             <div className="grid-item bottom bottom-right">
               <img
-                src="https://shopify-staged-uploads.storage.googleapis.com/tmp/81311662300/products/b97df512-2715-414c-bc97-487fb9c370ae/justice_tree_flex.jpg"
-                alt="Justice flexing tree pink tee golden hour"
+                src={lookMentor}
+                alt="Alpha Crew — with the mentor"
                 className="img-justice"
               />
               <div className="grid-overlay"><span className="grid-label">Justice</span></div>
