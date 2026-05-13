@@ -2,14 +2,10 @@ import React from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { Showreel } from "@/components/sections/Showreel";
-import { WorkGallery } from "@/components/sections/WorkGallery";
+import { ApparelTeaser } from "@/components/sections/ApparelTeaser";
 import { Services } from "@/components/sections/Services";
 import { Retainers } from "@/components/sections/Retainers";
-import { Clients } from "@/components/sections/Clients";
-import { BehindTheLens } from "@/components/sections/BehindTheLens";
 import { Podcasts } from "@/components/sections/Podcasts";
-import { Portraits } from "@/components/sections/Portraits";
 import { CTA } from "@/components/sections/CTA";
 
 export default function Home() {
@@ -18,14 +14,10 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <Showreel />
-        <WorkGallery />
-        <Clients />
-        <BehindTheLens />
+        <ApparelTeaser />
+        <Podcasts />
         <Services />
         <Retainers />
-        <Podcasts />
-        <Portraits />
         <CTA />
       </main>
       <Footer />
