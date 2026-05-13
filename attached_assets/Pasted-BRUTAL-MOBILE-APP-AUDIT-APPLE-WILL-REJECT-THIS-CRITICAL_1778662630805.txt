@@ -1,0 +1,362 @@
+BRUTAL MOBILE APP AUDIT — APPLE WILL REJECT THIS
+
+🔴 CRITICAL — APP STORE REJECTION RISK
+1. APPLE GUIDELINE 4.2: PURE WEBVIEW WRAPPER
+
+File: app/(tabs)/index.tsx
+Issue: Entire app is just <WebView source={{ uri: SITE_URL }}/> wrapping the website
+Why Apple rejects this:
+
+No native value beyond the website
+Users could just visit the URL in Safari
+Appears to be circumventing App Store review process
+
+
+
+SOLUTION — Add native functionality:
+tsx// Option A: Offline mode + service worker
+// Option B: Deep linking with native routing
+// Option C: Native features (haptics, notifications, camera)
+// Option D: Proprietary content (exclusive videos, offline downloads)
+
+// MINIMUM FIX for now — add offline cache:
+import * as FileSystem from "expo-file-system";
+import * as SecureStore from "expo-secure-store";
+
+// Cache critical resources
+const cacheWebContent = async () => {
+  const cacheDir = `${FileSystem.documentDirectory}webview-cache/`;
+  await FileSystem.makeDirectoryAsync(cacheDir, { intermediates: true });
+  // Store offline HTML snapshot
+};
+
+// Then add to WebView:
+<WebView
+  ref={webRef}
+  source={{ uri: hasInternet ? SITE_URL : offlineHtmlPath }}
+  // ...
+/>
+Alternative: Deep Linking (better for App Store)
+tsx// Make the app a real deep-link handler, not just a wrapper
+// app/(tabs)/index.tsx should route to specific pages based on URL params
+
+import * as Linking from "expo-linking";
+
+export default function HomeScreen() {
+  // Handle deep links from URLs like: ava-mobile://apparel
+  const [initialUrl] = useState(() => {
+    const url = Linking.useURL();
+    return url || SITE_URL;
+  });
+
+  return (
+    <WebView
+      ref={webRef}
+      source={{ uri: initialUrl }} // Routes deep links to specific pages
+      // ...
+    />
+  );
+}
+
+2. PRIVACY MANIFEST INCOMPLETE
+
+File: app.json, line ~30-40
+Issue: Privacy manifest exists but is missing required declarations
+iOS 17+ Requirement: Must declare ALL data collected, accessed APIs, and tracking
+
+CURRENT (INCOMPLETE):
+json"ios": {
+  "infoPlist": {
+    "ITSAppUsesNonExemptEncryption": false,
+    "NSAppTransportSecurity": { "NSAllowsArbitraryLoads": false }
+  },
+  "privacyManifests": {
+    "NSPrivacyTracking": false,
+    "NSPrivacyCollectedDataTypes": [],
+    "NSPrivacyAccessedAPITypes": [
+      {
+        "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+        "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+      }
+    ]
+  }
+}
+FIX (REQUIRED FOR APP STORE):
+json"ios": {
+  "infoPlist": {
+    "ITSAppUsesNonExemptEncryption": false,
+    "NSAppTransportSecurity": {
+      "NSAllowsArbitraryLoads": false,
+      "NSExceptionDomains": {
+        "alphavisualartists.com": {
+          "NSIncludesSubdomains": true,
+          "NSTemporaryExceptionAllowsInsecureHTTPLoads": false,
+          "NSTemporaryExceptionMinimumTLSVersion": "TLSv1.2"
+        }
+      }
+    },
+    "NSPrivacyPolicy": "https://alphavisualartists.com/privacy",
+    "NSBonjourServices": []
+  },
+  "privacyManifests": {
+    "NSPrivacyTracking": false,
+    "NSPrivacyTracking: false,
+    "NSPrivacyCollectedDataTypes": [
+      {
+        "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeUserID",
+        "NSPrivacyCollectedDataTypeLinked": false,
+        "NSPrivacyCollectedDataTypeTracking": false,
+        "NSPrivacyCollectedDataTypePurposes": [
+          "NSPrivacyCollectedDataTypePurposeAppFunctionality"
+        ]
+      }
+    ],
+    "NSPrivacyAccessedAPITypes": [
+      {
+        "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+        "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+      },
+      {
+        "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryWebKit",
+        "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+      },
+      {
+        "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryFileSystemAPIs",
+        "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+      }
+    ]
+  }
+}
+Why: Apple will reject without complete privacy declarations (required since iOS 17.2).
+
+3. NO NATIVE VALUE — NEED UNIQUE FEATURE
+
+File: All of app/(tabs)/index.tsx
+Issue: App provides zero functionality the web doesn't have
+Apple guideline: Apps must provide unique, valuable experience over web
+
+ADD ONE OF THESE:
+tsx// OPTION 1: Exclusive offline content
+import * as FileSystem from "expo-file-system";
+
+<WebView 
+  // Cache first 5 pages for offline viewing
+  onLoadEnd={async () => {
+    const html = await webRef.current?.injectJavaScript("document.documentElement.innerHTML");
+    await FileSystem.writeAsStringAsync(cacheFile, html);
+  }}
+/>
+
+// OPTION 2: Native push notifications
+import * as Notifications from "expo-notifications";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+  }),
+});
+
+// Notify users of booking confirmations
+const setupPushNotifications = async () => {
+  const { status } = await Notifications.requestPermissionsAsync();
+  if (status !== "granted") return;
+  
+  const token = (await Notifications.getExpoPushTokenAsync()).data;
+  // Send token to backend for booking notifications
+};
+
+// OPTION 3: Native haptic feedback
+import * as Haptics from "expo-haptics";
+
+// On book call button:
+const onBookCall = async () => {
+  await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+  // Navigate to booking
+};
+
+// OPTION 4: Share to social with custom image
+import * as Sharing from "expo-sharing";
+
+const onShareWork = async (projectUrl: string) => {
+  await Sharing.shareAsync(projectUrl, {
+    mimeType: "text/plain",
+    message: "Check out this work from Alpha Visual Artists",
+  });
+};
+Why: Apple 4.2 requires the app to do something the web can't. Pick ONE and implement it properly.
+
+🟠 MAJOR ISSUES
+4. NO ERROR BOUNDARY WRAPPING WEBVIEW
+
+File: app/_layout.tsx, line ~20
+Issue: If WebView crashes, entire app crashes
+Current: ErrorBoundary exists but WebView has no fallback
+
+FIX:
+tsx// Create dedicated error boundary for WebView
+// components/WebViewError.tsx
+export function WebViewErrorBoundary({ children }: { children: React.ReactNode }) {
+  const [error, setError] = useState(false);
+  
+  if (error) {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>WebView crashed</Text>
+        <Button onPress={() => setError(false)} title="Reload" />
+      </View>
+    );
+  }
+  
+  return (
+    <ErrorBoundary onError={() => setError(true)}>
+      {children}
+    </ErrorBoundary>
+  );
+}
+
+// Then wrap:
+<WebViewErrorBoundary>
+  <WebView ... />
+</WebViewErrorBoundary>
+
+5. SESSION/COOKIE PERSISTENCE NOT GUARANTEED
+
+File: app/(tabs)/index.tsx
+Issue: If user books a call via web form, closes app, reopens — cookies gone?
+Missing: sharedCookiesEnabled + useWebKit flags
+
+FIX:
+tsx<WebView
+  ref={webRef}
+  source={{ uri: SITE_URL }}
+  // ... existing props ...
+  
+  // Add cookie persistence:
+  useWebKit={true}
+  sharedCookiesEnabled={true}
+  
+  // Inject script to store session in secure storage
+  onLoadStart={async () => {
+    const sessionToken = await SecureStore.getItemAsync("session_token");
+    if (sessionToken) {
+      webRef.current?.injectJavaScript(
+        `localStorage.setItem('session_token', '${sessionToken}');`
+      );
+    }
+  }}
+  
+  // Save session on app close
+  onLoadEnd={async () => {
+    webRef.current?.injectJavaScript(
+      `(function() { 
+        window.saveSession = async (token) => { 
+          // React Native Bridge call
+        };
+      })()`
+    );
+  }}
+/>
+
+6. URLSCHEME NOT REGISTERED FOR DEEP LINKING
+
+File: app.json, line ~9
+Issue: "scheme": "ava-mobile" is defined but not used anywhere
+Problem: Deep links like ava-mobile://apparel won't route properly
+
+FIX:
+json{
+  "expo": {
+    "scheme": "ava-mobile",
+    "plugins": [
+      ["expo-router", {
+        "origin": "https://alphavisualartists.com/",
+        "schemes": ["ava-mobile"]  // ADD THIS
+      }],
+      // ...
+    ]
+  }
+}
+Then handle in app:
+tsx// app/_layout.tsx
+import { useEffect } from "react";
+import * as Linking from "expo-linking";
+
+export default function RootLayout() {
+  useEffect(() => {
+    const sub = Linking.addEventListener("url", ({ url }) => {
+      // Route to /apparel, /work, etc. based on deep link
+      const route = url.replace("ava-mobile://", "");
+      router.push(`/${route}`);
+    });
+    return () => sub.remove();
+  }, []);
+  
+  // ... rest of layout
+}
+Why: Without deep linking, the app can't handle push notifications or URL schemes. App Store will check for this.
+
+🟡 MINOR ISSUES
+7. SPLASH SCREEN REUSES ICON (BAD UX)
+
+File: app.json, line ~15-20
+Issue: "image": "./assets/images/icon.png" — same as app icon
+Problem: Users see app icon for 2-3 seconds, then WebView loads = poor splash experience
+
+FIX:
+json"splash": {
+  "image": "./assets/images/splash.png",  // Custom splash, not icon
+  "resizeMode": "cover",  // Not "contain"
+  "backgroundColor": "#0a0a0a"
+}
+Create a proper splash image (1242x2688px for iPhone) with AVA branding.
+
+8. NO LOADING INDICATOR TEXT
+
+File: app/(tabs)/index.tsx, line ~95
+Issue: Loading spinner exists but no message
+Problem: Users don't know if app is loading or frozen
+
+FIX:
+tsx{loading && !hasError && (
+  <View style={styles.loader} pointerEvents="none">
+    <ActivityIndicator size="large" color="#00d4ff" />
+    <Text style={{ color: "#999", marginTop: 16, fontSize: 12 }}>
+      Loading Alpha Visual Artists...
+    </Text>
+  </View>
+)}
+
+9. ANDROID BACK BUTTON ONLY GOES BACK IN HISTORY
+
+File: app/(tabs)/index.tsx, line ~22-26
+Issue: Hardware back button never closes the app
+Problem: Users get stuck if they go 3+ pages deep
+
+FIX:
+tsxuseFocusEffect(useCallback(() => {
+  if (Platform.OS !== "android") return;
+  
+  const sub = BackHandler.addEventListener("hardwareBackPress", () => {
+    if (canGoBack && webRef.current) {
+      webRef.current.goBack();
+      return true;
+    }
+    // Exit app if at root
+    return false;  // This already works, but add comment
+  });
+  
+  return () => sub.remove();
+}, [canGoBack]));
+
+10. APPLICATIONNAME FOR USER AGENT
+
+File: app/(tabs)/index.tsx, line ~50
+Issue: applicationNameForUserAgent="AVAMobile/1.0" is good, but doesn't help analytics
+Improvement: Make it meaningful for backend logging
+
+tsx<WebView
+  applicationNameForUserAgent={`AVAMobile/1.0 (iOS ${Platform.Version}; ${Platform.OS})`}
+  // Helps backend distinguish app traffic from web traffic
+/>

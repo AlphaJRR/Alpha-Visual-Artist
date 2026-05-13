@@ -11,6 +11,7 @@ import DigitalDownloads from "@/pages/DigitalDownloads";
 import Shop from "@/pages/Shop";
 import Apparel from "@/pages/Apparel";
 import Work from "@/pages/Work";
+import Privacy from "@/pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/apparel" component={Apparel} />
       <Route path="/crew-collection" component={Apparel} />
       <Route path="/work" component={Work} />
+      <Route path="/privacy" component={Privacy} />
       <Route component={NotFound} />
     </Switch>
   );
