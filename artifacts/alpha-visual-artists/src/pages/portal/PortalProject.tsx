@@ -175,7 +175,7 @@ function VideoBlock({ video }: { video: PortalVideo }) {
                 </span>
                 {c.userRole === "admin" && (
                   <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-primary/20 text-primary">
-                    AVA
+                    Alpha
                   </span>
                 )}
                 {c.isApproval && (

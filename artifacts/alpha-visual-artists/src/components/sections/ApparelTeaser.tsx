@@ -30,13 +30,22 @@ export function ApparelTeaser() {
               Built for the crew, the creators, and everyone behind the lens.
               Limited run, premium fabric, signature Alpha details.
             </p>
-            <Link
-              href="/apparel"
-              className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-black font-semibold uppercase tracking-wider text-sm shadow-[0_0_30px_rgba(0,212,255,0.4)] hover:shadow-[0_0_40px_rgba(0,212,255,0.6)] transition-all"
-            >
-              Shop the Collection
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/apparel"
+                className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-black font-semibold uppercase tracking-wider text-sm shadow-[0_0_30px_rgba(0,212,255,0.4)] hover:shadow-[0_0_40px_rgba(0,212,255,0.6)] transition-all"
+              >
+                View Apparel
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/shop"
+                className="group inline-flex items-center gap-3 rounded-full border border-primary/40 px-8 py-4 text-primary font-semibold uppercase tracking-wider text-sm hover:bg-primary/10 transition-all"
+              >
+                Shop the Store
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

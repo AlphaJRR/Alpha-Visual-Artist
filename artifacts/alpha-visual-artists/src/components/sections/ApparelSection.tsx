@@ -82,7 +82,7 @@ export function ApparelSection() {
       <div className="ava-crew" id="apparel">
         <div className="container">
           <div className="hero">
-            <p className="hero-tag">AVA Apparel — Crew Collection</p>
+            <p className="hero-tag">Alpha Apparel — Crew Collection</p>
             <h1>Made for the crew &amp;<br />creators.<br /><span>Worn by everyone.</span></h1>
             <p>Built for production days. Designed for those who create. Apparel built for discipline, precision, and the standard of excellence required when the lights come on.</p>
             <div className="cta-group">
@@ -95,7 +95,7 @@ export function ApparelSection() {
             <div className="stat"><div className="stat-number">17</div><div className="stat-label">Styles available</div></div>
             <div className="stat"><div className="stat-number">100%</div><div className="stat-label">Cotton heavyweight</div></div>
             <div className="stat"><div className="stat-number">Set</div><div className="stat-label">Tested &amp; approved</div></div>
-            <div className="stat"><div className="stat-number">AVA15</div><div className="stat-label">15% off first order</div></div>
+            <div className="stat"><div className="stat-number">ALPHA15</div><div className="stat-label">15% off first order</div></div>
           </div>
 
           <div className="quote-section">
@@ -194,7 +194,7 @@ export function ApparelSection() {
             <p>ALPHA CREW doesn't care if you're directing a feature or a first date. Show up like you mean it.</p>
             <div className="cta-group">
               <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="btn btn-primary">Shop all styles</a>
-              <a href="/" className="btn btn-secondary">Back to AVA</a>
+              <a href="/" className="btn btn-secondary">Back to Alpha</a>
             </div>
           </div>
         </div>

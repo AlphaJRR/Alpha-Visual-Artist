@@ -27,7 +27,7 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
               <div className="flex items-center gap-6">
                 <Link href="/portal" className="font-display font-bold text-lg tracking-tight">
-                  AVA <span className="text-primary">Portal</span>
+                  Alpha <span className="text-primary">Portal</span>
                 </Link>
                 <nav className="hidden sm:flex items-center gap-5 text-sm">
                   <Link
