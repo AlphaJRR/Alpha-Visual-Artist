@@ -2,7 +2,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Smartphone, Video, Film } from "lucide-react";
 
-const services = [
+type Service = {
+  title: string;
+  price?: string;
+  description: string;
+  icon: React.ReactNode;
+  features: string[];
+};
+
+const services: Service[] = [
   {
     title: "Short-Form Reels",
     price: "Starting at $950",
@@ -19,7 +27,6 @@ const services = [
   },
   {
     title: "Commercials & Brand Films",
-    price: "Custom Quotes",
     description: "Premium horizontal content for websites, YouTube, and ad campaigns. Narrative-driven storytelling with cinema-grade production.",
     icon: <Film className="w-8 h-8 text-primary" />,
     features: ["Creative direction", "Full crew & casting", "Color grading & sound design", "Broadcast ready"]
@@ -61,7 +68,9 @@ export function Services() {
               </div>
               
               <h3 className="text-2xl font-bold mb-2 text-white">{service.title}</h3>
-              <div className="text-primary font-mono text-sm mb-6">{service.price}</div>
+              {service.price && (
+                <div className="text-primary font-mono text-sm mb-6">{service.price}</div>
+              )}
               <p className="text-white/60 mb-8 leading-relaxed">
                 {service.description}
               </p>

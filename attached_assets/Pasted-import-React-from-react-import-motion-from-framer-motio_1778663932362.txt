@@ -1,0 +1,54 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+
+export function BehindTheLens() {
+  return (
+    <section id="behind-the-lens" className="py-32 bg-black relative border-t border-white/5 overflow-hidden">
+      <div className="container mx-auto px-4">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-center mb-16 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-mono text-xs uppercase tracking-widest mb-6">
+            Behind The Lens
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">
+            The <span className="text-primary">Process</span> Behind Every Frame
+          </h2>
+          <p className="text-white/60 text-lg">Creative direction, technical precision, and strategic storytelling in every project we touch.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-primary/30 transition-all">
+            <div className="text-4xl font-bold text-primary mb-4">01</div>
+            <h3 className="text-2xl font-bold text-white mb-4">Concept</h3>
+            <p className="text-white/60 leading-relaxed">We start with strategy. Understanding your brand, audience, and goals before a single frame is shot.</p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-primary/30 transition-all">
+            <div className="text-4xl font-bold text-primary mb-4">02</div>
+            <h3 className="text-2xl font-bold text-white mb-4">Production</h3>
+            <p className="text-white/60 leading-relaxed">Multi-cam setups, professional crew, cinema-grade lighting. We bring the concept to life with technical excellence.</p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-primary/30 transition-all">
+            <div className="text-4xl font-bold text-primary mb-4">03</div>
+            <h3 className="text-2xl font-bold text-white mb-4">Post-Production</h3>
+            <p className="text-white/60 leading-relaxed">Color grading, sound design, motion graphics. We refine every detail until it's broadcast-ready.</p>
+          </motion.div>
+        </div>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="mt-16 text-center">
+          <Button asChild className="rounded-full bg-primary hover:bg-primary/90 text-black px-12 h-14 text-lg font-bold">
+            <a href="/work">See Our Work</a>
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
