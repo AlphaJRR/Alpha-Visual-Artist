@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  FlatList,
   Image,
   ImageSourcePropType,
   Pressable,
@@ -7,6 +8,7 @@ import {
   StyleSheet,
   Text,
   View,
+  ViewToken,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -249,6 +251,9 @@ export default function HomeScreen() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [activeVideo, setActiveVideo] = useState<any | null>(null);
 
+  // NEW: Track which reel IDs are currently visible
+  const [visibleReelIds, setVisibleReelIds] = useState<Set<string>>(new Set());
+
   const open = (url: string) => {
     Haptics.selectionAsync().catch(() => {});
     WebBrowser.openBrowserAsync(url, {
@@ -265,6 +270,53 @@ export default function HomeScreen() {
       open(r.url);
     }
   };
+
+  // NEW: Callback for FlatList viewability changes
+  const handleViewableItemsChanged = (info: { viewableItems: ViewToken[] }) => {
+    const visibleIds = new Set(
+      info.viewableItems.map((item) => item.key as string)
+    );
+    setVisibleReelIds(visibleIds);
+  };
+
+  // Reel card component (extracted for clarity)
+  const renderReelCard = ({ item: r }: { item: Reel }) => (
+    <Pressable
+      onPress={() => handleReel(r)}
+      style={styles.reelCard}
+      key={r.id}
+    >
+      {r.video ? (
+        <>
+          <ReelVideoCover
+            source={r.video}
+            isVisible={visibleReelIds.has(r.id)} // NEW: gate playback
+          />
+          <View style={styles.reelOverlay}>
+            <View style={[styles.playBadge, styles.playBadgeVideo]}>
+              <Ionicons name="play" size={24} color="#00d4ff" />
+            </View>
+          </View>
+          <View style={styles.videoBadge}>
+            <Text style={styles.videoBadgeTxt}>VIDEO</Text>
+          </View>
+        </>
+      ) : (
+        <>
+          <Image source={r.cover} style={styles.reelCover} />
+          <View style={styles.reelOverlay}>
+            <View style={styles.playBadge}>
+              <Ionicons name="arrow-forward" size={24} color="#000" />
+            </View>
+          </View>
+        </>
+      )}
+      <View style={styles.reelMeta}>
+        <Text style={styles.reelTag}>{r.tag}</Text>
+        <Text style={styles.reelTitle}>{r.title}</Text>
+      </View>
+    </Pressable>
+  );
 
   return (
     <>
@@ -302,89 +354,50 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        {/* RECENT WORK */}
+        {/* RECENT WORK — now virtualized with FlatList */}
         <SectionHeader
           eyebrow="Latest"
           title="Recent Work"
           action="See All"
           onAction={() => open(`${SITE_URL}/work`)}
         />
-        <ScrollView
+        <FlatList
+          data={REELS}
           horizontal
+          scrollEnabled
           showsHorizontalScrollIndicator={false}
+          keyExtractor={(item) => item.id}
           contentContainerStyle={styles.reelRow}
-        >
-          {REELS.map((r) => (
-            <Pressable
-              key={r.id}
-              onPress={() => handleReel(r)}
-              style={styles.reelCard}
-            >
-              {r.video ? (
-                <ReelVideoCover source={r.video} />
-              ) : (
-                <Image source={r.cover} style={styles.reelCover} />
-              )}
-              <View style={styles.reelOverlay} pointerEvents="none">
-                <View
-                  style={[
-                    styles.playBadge,
-                    r.video && styles.playBadgeVideo,
-                  ]}
-                >
-                  <Ionicons
-                    name="play"
-                    size={18}
-                    color={r.video ? "#fff" : "#000"}
-                  />
-                </View>
-                {r.video && (
-                  <View style={styles.videoBadge}>
-                    <Text style={styles.videoBadgeTxt}>WATCH</Text>
-                  </View>
-                )}
-              </View>
-              <View style={styles.reelMeta}>
-                <Text style={styles.reelTag}>{r.tag}</Text>
-                <Text style={styles.reelTitle} numberOfLines={2}>
-                  {r.title}
-                </Text>
-              </View>
-            </Pressable>
-          ))}
-        </ScrollView>
-
-        {/* BTS GRID */}
-        <SectionHeader
-          eyebrow="Behind The Scenes"
-          title="From The Set"
+          renderItem={renderReelCard}
+          onViewableItemsChanged={handleViewableItemsChanged}
+          viewabilityConfig={{
+            itemVisiblePercentThreshold: 50, // Show as visible when 50%+ on screen
+          }}
+          scrollEventThrottle={16}
+          decelerationRate="fast"
         />
+
+        {/* GALLERY */}
+        <SectionHeader eyebrow="Craft" title="Behind The Lens" />
         <View style={styles.grid}>
           {PHOTOS.map((p) => (
-            <Pressable
-              key={p.id}
-              style={styles.gridItem}
-              onPress={() => open(`${SITE_URL}/work`)}
-            >
+            <View key={p.id} style={styles.gridItem}>
               <Image source={p.src} style={styles.gridImg} />
               <View style={styles.gridGradient} />
               <Text style={styles.gridCaption}>{p.caption}</Text>
-            </Pressable>
+            </View>
           ))}
         </View>
 
-        {/* TEACHING TIPS */}
-        <SectionHeader
-          eyebrow="From The Mentor"
-          title="Tips From The Set"
-        />
+        {/* TIPS */}
+        <SectionHeader eyebrow="Knowledge" title="Production Tips" />
         <View style={styles.tipsList}>
-          {TIPS.map((t) => (
-            <View key={t.id} style={styles.tipCard}>
-              <Image source={t.cover} style={styles.tipCover} />
+          {TIPS.map((tip) => (
+            <View key={tip.id} style={styles.tipCard}>
+              <Image source={tip.cover} style={styles.tipCover} />
               <View style={styles.tipBody}>
-                <Text style={styles.tipTitle}>{t.title}</Text>
-                <Text style={styles.tipText}>{t.body}</Text>
+                <Text style={styles.tipTitle}>{tip.title}</Text>
+                <Text style={styles.tipText}>{tip.body}</Text>
               </View>
             </View>
           ))}
@@ -392,14 +405,14 @@ export default function HomeScreen() {
 
         {/* FOOTER CTA */}
         <View style={styles.footerCta}>
-          <Text style={styles.footerEyebrow}>Ready to shoot?</Text>
-          <Text style={styles.footerH}>Book a session.</Text>
+          <Text style={styles.footerEyebrow}>Ready To Create</Text>
+          <Text style={styles.footerH}>Let's Make Magic</Text>
           <Pressable
             onPress={() => open(`${SITE_URL}/contact`)}
             style={styles.bigBtn}
           >
             <Text style={styles.bigBtnTxt}>Get In Touch</Text>
-            <Ionicons name="arrow-forward" size={18} color="#000" />
+            <Ionicons name="arrow-forward" size={16} color="#000" />
           </Pressable>
         </View>
       </ScrollView>
@@ -584,26 +597,6 @@ const styles = StyleSheet.create({
   },
   reelMeta: { padding: 12 },
 
-  // VIDEO MODAL
-  videoModalRoot: {
-    flex: 1,
-    backgroundColor: "#000",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  videoPlayer: { width: "100%", height: "100%" },
-  videoCloseBtn: {
-    position: "absolute",
-    right: 16,
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: "rgba(0,0,0,0.6)",
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.2)",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   reelTag: {
     color: "#00d4ff",
     fontSize: 10,

@@ -12,10 +12,8 @@ type Props = {
 };
 
 /**
- * Fullscreen modal video player. NOTE: lifecycle is currently implicit —
- * playback stops when VideoView unmounts. Harden by calling `player.pause()`
- * explicitly on close, and pause any background reel preview players while
- * this modal is open.
+ * Fullscreen modal video player with explicit lifecycle management.
+ * Calls player.pause() on close to prevent memory leaks and background playback.
  */
 export function VideoModal({ source, onClose }: Props) {
   const insets = useSafeAreaInsets();
@@ -24,12 +22,17 @@ export function VideoModal({ source, onClose }: Props) {
     if (source) p.play();
   });
 
+  const handleClose = () => {
+    player.pause(); // EXPLICIT: stop playback on modal close
+    onClose();
+  };
+
   return (
     <Modal
       visible={!!source}
       animationType="fade"
       transparent={false}
-      onRequestClose={onClose}
+      onRequestClose={handleClose}
       statusBarTranslucent
     >
       <View style={styles.root}>
@@ -45,7 +48,7 @@ export function VideoModal({ source, onClose }: Props) {
           />
         )}
         <Pressable
-          onPress={onClose}
+          onPress={handleClose}
           style={[styles.closeBtn, { top: insets.top + 12 }]}
           hitSlop={12}
         >

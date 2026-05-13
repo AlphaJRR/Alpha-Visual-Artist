@@ -28,9 +28,20 @@ localPort = 8081
 externalPort = 80
 
 [[ports]]
+localPort = 8082
+externalPort = 3002
+
+[[ports]]
 localPort = 18606
 externalPort = 3000
 
 [[ports]]
 localPort = 22224
 externalPort = 3001
+
+[[ports]]
+localPort = 22225
+externalPort = 3003
+
+[objectStorage]
+defaultBucketID = "replit-objstore-14ba33d3-e0db-4771-a393-3b8ea23c2794"
