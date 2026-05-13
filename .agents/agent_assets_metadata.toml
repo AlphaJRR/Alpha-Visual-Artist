@@ -1,12 +1,6 @@
 uploads = []
 
 [[generated]]
-id = "XlZKFg5EcjXBKfdzAWGTt"
-uri = "file://artifacts/alpha-visual-artists/src/assets/product-hoodie.png"
-type = "image"
-title = "generated_image"
-
-[[generated]]
 id = "_iAvtui35W-au2KpCuQ-a"
 uri = "file://artifacts/alpha-visual-artists/src/assets/product-tee.png"
 type = "image"
