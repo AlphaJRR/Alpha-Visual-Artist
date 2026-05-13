@@ -1,231 +1,293 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import {
-  ActivityIndicator,
-  BackHandler,
-  Linking,
-  Platform,
+  Image,
+  ImageSourcePropType,
   Pressable,
-  Share,
+  ScrollView,
   StyleSheet,
   Text,
   View,
 } from "react-native";
-import * as Haptics from "expo-haptics";
-import * as ExpoLinking from "expo-linking";
-import * as WebBrowser from "expo-web-browser";
-import { useFocusEffect } from "expo-router";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import { WebView, type WebViewNavigation } from "react-native-webview";
-import type { ShouldStartLoadRequest } from "react-native-webview/lib/WebViewTypes";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Ionicons } from "@expo/vector-icons";
+import * as Haptics from "expo-haptics";
+import * as WebBrowser from "expo-web-browser";
+import * as ExpoLinking from "expo-linking";
 
 const SITE_URL = "https://alphavisualartists.com";
-const SITE_HOSTS = ["alphavisualartists.com", "www.alphavisualartists.com"];
 
-// Map deep-link paths from ava:// scheme to website routes.
-function resolveInitialUrl(linkUrl: string | null): string {
-  if (!linkUrl) return SITE_URL;
-  try {
-    if (linkUrl.startsWith("https://alphavisualartists.com")) return linkUrl;
-    const parsed = ExpoLinking.parse(linkUrl);
-    const path = parsed.path ? `/${parsed.path.replace(/^\/+/, "")}` : "/";
-    return `${SITE_URL}${path}`;
-  } catch {
-    return SITE_URL;
-  }
-}
+const LOGO = require("../../assets/images/logo.png") as ImageSourcePropType;
+
+type Reel = {
+  id: string;
+  title: string;
+  tag: string;
+  cover: ImageSourcePropType;
+  url: string;
+};
+
+type Photo = {
+  id: string;
+  src: ImageSourcePropType;
+  caption: string;
+};
+
+type Tip = {
+  id: string;
+  title: string;
+  body: string;
+  cover: ImageSourcePropType;
+};
+
+const REELS: Reel[] = [
+  {
+    id: "r1",
+    title: "On Set With Papi",
+    tag: "BTS · Commercial",
+    cover: require("../../assets/images/bts-papi.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "r2",
+    title: "Studio Session — Ashie",
+    tag: "BTS · Music Video",
+    cover: require("../../assets/images/bts-ashie.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "r3",
+    title: "Red Light Portrait",
+    tag: "Lookbook",
+    cover: require("../../assets/images/portrait-redlight.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "r4",
+    title: "Spotlight Silhouette",
+    tag: "Music Video",
+    cover: require("../../assets/images/silhouette-spotlight.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+];
+
+const PHOTOS: Photo[] = [
+  { id: "p1", src: require("../../assets/images/bts-cameras.jpg"), caption: "Two-cam setup" },
+  { id: "p2", src: require("../../assets/images/bts-monitor.jpg"), caption: "Monitor village" },
+  { id: "p3", src: require("../../assets/images/bts-set.jpg"), caption: "Set lighting" },
+  { id: "p4", src: require("../../assets/images/crew-group.jpg"), caption: "The crew" },
+  { id: "p5", src: require("../../assets/images/portrait-suit.jpg"), caption: "Editorial" },
+  { id: "p6", src: require("../../assets/images/with-mentor.jpg"), caption: "Passing it down" },
+];
+
+const TIPS: Tip[] = [
+  {
+    id: "t1",
+    title: "Light The Eyes First",
+    body: "If your subject's eyes catch a small specular highlight, the whole frame reads alive. Place a soft key 30° off-axis at eye level — adjust until you see a 2 o'clock catchlight.",
+    cover: require("../../assets/images/portrait-redlight.jpg"),
+  },
+  {
+    id: "t2",
+    title: "Audio Is 70% Of Video",
+    body: "A blurry shot with crisp audio plays. A sharp shot with bad audio dies in 3 seconds. Lav your subject, set levels at -12dB peaks, and always run a backup recorder.",
+    cover: require("../../assets/images/bts-monitor.jpg"),
+  },
+  {
+    id: "t3",
+    title: "Shoot The Cutaway",
+    body: "Every interview needs B-roll. Hands, environment, gear, gestures — anything. It saves your edit when you need to cut a stutter or cover a jump cut.",
+    cover: require("../../assets/images/bts-cameras.jpg"),
+  },
+  {
+    id: "t4",
+    title: "Frame For The Crop",
+    body: "Shooting in 16:9 but delivering 9:16? Compose with the vertical safe area in mind from day one. Place subjects on the center third — never the edges.",
+    cover: require("../../assets/images/silhouette-spotlight.jpg"),
+  },
+];
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
-  const webRef = useRef<WebView>(null);
-  const initialLink = ExpoLinking.useURL();
-  const [currentUrl, setCurrentUrl] = useState<string>(SITE_URL);
-  const [loading, setLoading] = useState(true);
-  const [canGoBack, setCanGoBack] = useState(false);
-  const [hasError, setHasError] = useState(false);
 
-  // Resolve deep link on first load.
+  // Handle ava:// deep links by opening the resolved web URL in an in-app browser.
   useEffect(() => {
-    if (initialLink) {
-      const resolved = resolveInitialUrl(initialLink);
-      if (resolved !== currentUrl) setCurrentUrl(resolved);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialLink]);
-
-  // Handle deep links while app is running.
-  useEffect(() => {
-    const sub = ExpoLinking.addEventListener("url", ({ url }) => {
-      const resolved = resolveInitialUrl(url);
-      webRef.current?.injectJavaScript(
-        `window.location.href = ${JSON.stringify(resolved)}; true;`,
-      );
-    });
+    const handle = (linkUrl: string | null) => {
+      if (!linkUrl) return;
+      try {
+        let target = linkUrl;
+        if (!linkUrl.startsWith("http")) {
+          const parsed = ExpoLinking.parse(linkUrl);
+          const path = parsed.path
+            ? `/${parsed.path.replace(/^\/+/, "")}`
+            : "/";
+          target = `${SITE_URL}${path}`;
+        }
+        WebBrowser.openBrowserAsync(target, {
+          toolbarColor: "#0a0a0a",
+          controlsColor: "#00d4ff",
+        }).catch(() => {});
+      } catch {
+        /* noop */
+      }
+    };
+    ExpoLinking.getInitialURL().then(handle);
+    const sub = ExpoLinking.addEventListener("url", (e) => handle(e.url));
     return () => sub.remove();
   }, []);
 
-  useFocusEffect(
-    useCallback(() => {
-      if (Platform.OS !== "android") return;
-      const sub = BackHandler.addEventListener("hardwareBackPress", () => {
-        if (canGoBack && webRef.current) {
-          webRef.current.goBack();
-          return true;
-        }
-        return false;
-      });
-      return () => sub.remove();
-    }, [canGoBack]),
-  );
-
-  const onNav = (e: WebViewNavigation) => {
-    setCanGoBack(e.canGoBack);
-    if (e.url && /^https?:\/\//i.test(e.url)) setCurrentUrl(e.url);
-  };
-
-  // External links (mailto, tel, App Store, social, 3rd-party) -> system handler.
-  const onShouldStart = (req: ShouldStartLoadRequest): boolean => {
-    const url = req.url;
-    if (url.startsWith("about:") || url === "about:blank") return true;
-    if (!/^https?:\/\//i.test(url)) {
-      Linking.openURL(url).catch(() => {});
-      return false;
-    }
-    try {
-      const host = new URL(url).hostname.replace(/^www\./, "");
-      const isOurSite = SITE_HOSTS.some(
-        (h) => h.replace(/^www\./, "") === host,
-      );
-      if (!isOurSite) {
-        WebBrowser.openBrowserAsync(url).catch(() => Linking.openURL(url));
-        return false;
-      }
-    } catch {}
-    return true;
-  };
-
-  const reload = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
-    setHasError(false);
-    setLoading(true);
-    webRef.current?.reload();
-  };
-
-  const onShare = async () => {
-    try {
-      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-      await Share.share({
-        message: `Check out Alpha Visual Artists: ${currentUrl}`,
-        url: currentUrl,
-      });
-    } catch {}
-  };
-
-  const onBack = () => {
+  const open = (url: string) => {
     Haptics.selectionAsync().catch(() => {});
-    webRef.current?.goBack();
+    WebBrowser.openBrowserAsync(url, {
+      toolbarColor: "#0a0a0a",
+      controlsColor: "#00d4ff",
+    }).catch(() => {});
   };
 
   return (
-    <View style={[styles.root, { paddingTop: insets.top }]}>
+    <>
       <StatusBar style="light" />
-      {hasError ? (
-        <View style={styles.errorWrap}>
-          <Text style={styles.errorTitle}>Connection Lost</Text>
-          <Text style={styles.errorBody}>
-            We can't reach Alpha Visual Artists right now. Check your connection
-            and try again.
-          </Text>
-          <Pressable onPress={reload} style={styles.retryBtn}>
-            <Text style={styles.retryTxt}>Retry</Text>
-          </Pressable>
-        </View>
-      ) : (
-        <WebView
-          ref={webRef}
-          source={{ uri: currentUrl }}
-          style={styles.web}
-          onNavigationStateChange={onNav}
-          onShouldStartLoadWithRequest={onShouldStart}
-          onLoadStart={() => setLoading(true)}
-          onLoadEnd={() => setLoading(false)}
-          onError={() => {
-            setLoading(false);
-            setHasError(true);
-          }}
-          onHttpError={(e) => {
-            if (e.nativeEvent.statusCode >= 500) {
-              setLoading(false);
-              setHasError(true);
-            }
-          }}
-          allowsBackForwardNavigationGestures
-          decelerationRate="normal"
-          javaScriptEnabled
-          domStorageEnabled
-          sharedCookiesEnabled
-          thirdPartyCookiesEnabled
-          cacheEnabled
-          cacheMode="LOAD_DEFAULT"
-          originWhitelist={["*"]}
-          setSupportMultipleWindows={false}
-          injectedJavaScript={`
-            (function() {
-              document.addEventListener('click', function(e) {
-                var a = e.target.closest && e.target.closest('a');
-                if (a && a.target === '_blank' && a.href) {
-                  e.preventDefault();
-                  window.location.href = a.href;
-                }
-              }, true);
-            })(); true;
-          `}
-          pullToRefreshEnabled
-          mediaPlaybackRequiresUserAction={false}
-          allowsInlineMediaPlayback
-          allowsFullscreenVideo
-          applicationNameForUserAgent={`AVAMobile/1.0 (${Platform.OS} ${Platform.Version})`}
-        />
-      )}
+      <ScrollView
+        style={styles.root}
+        contentContainerStyle={{ paddingBottom: 40 }}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* HERO */}
+        <View style={[styles.hero, { paddingTop: insets.top + 24 }]}>
+          <Image
+            source={LOGO}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+          <Text style={styles.brand}>ALPHA VISUAL ARTISTS</Text>
+          <Text style={styles.tag}>Chicago · Cinematic · Stop The Scroll</Text>
 
-      {/* Floating native controls — gives the app real native value-add */}
-      {!hasError && (
-        <View
-          style={[styles.fab, { bottom: 24 + insets.bottom }]}
-          pointerEvents="box-none"
-        >
-          {canGoBack && (
+          <View style={styles.heroBtnRow}>
             <Pressable
-              onPress={onBack}
-              style={({ pressed }) => [
-                styles.fabBtn,
-                pressed && styles.fabBtnPressed,
-              ]}
-              hitSlop={8}
-              accessibilityLabel="Go back"
+              onPress={() => open(`${SITE_URL}/portal`)}
+              style={styles.primaryBtn}
             >
-              <Text style={styles.fabIcon}>‹</Text>
+              <Ionicons name="lock-closed-outline" size={16} color="#000" />
+              <Text style={styles.primaryBtnTxt}>Client Portal</Text>
             </Pressable>
-          )}
+            <Pressable
+              onPress={() => open(SITE_URL)}
+              style={styles.secondaryBtn}
+            >
+              <Text style={styles.secondaryBtnTxt}>Visit Site</Text>
+              <Ionicons name="arrow-forward" size={14} color="#00d4ff" />
+            </Pressable>
+          </View>
+        </View>
+
+        {/* RECENT WORK */}
+        <SectionHeader
+          eyebrow="Latest"
+          title="Recent Work"
+          action="See All"
+          onAction={() => open(`${SITE_URL}/work`)}
+        />
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.reelRow}
+        >
+          {REELS.map((r) => (
+            <Pressable
+              key={r.id}
+              onPress={() => open(r.url)}
+              style={styles.reelCard}
+            >
+              <Image source={r.cover} style={styles.reelCover} />
+              <View style={styles.reelOverlay}>
+                <View style={styles.playBadge}>
+                  <Ionicons name="play" size={18} color="#000" />
+                </View>
+              </View>
+              <View style={styles.reelMeta}>
+                <Text style={styles.reelTag}>{r.tag}</Text>
+                <Text style={styles.reelTitle} numberOfLines={2}>
+                  {r.title}
+                </Text>
+              </View>
+            </Pressable>
+          ))}
+        </ScrollView>
+
+        {/* BTS GRID */}
+        <SectionHeader
+          eyebrow="Behind The Scenes"
+          title="From The Set"
+        />
+        <View style={styles.grid}>
+          {PHOTOS.map((p) => (
+            <Pressable
+              key={p.id}
+              style={styles.gridItem}
+              onPress={() => open(`${SITE_URL}/work`)}
+            >
+              <Image source={p.src} style={styles.gridImg} />
+              <View style={styles.gridGradient} />
+              <Text style={styles.gridCaption}>{p.caption}</Text>
+            </Pressable>
+          ))}
+        </View>
+
+        {/* TEACHING TIPS */}
+        <SectionHeader
+          eyebrow="From The Mentor"
+          title="Tips From The Set"
+        />
+        <View style={styles.tipsList}>
+          {TIPS.map((t) => (
+            <View key={t.id} style={styles.tipCard}>
+              <Image source={t.cover} style={styles.tipCover} />
+              <View style={styles.tipBody}>
+                <Text style={styles.tipTitle}>{t.title}</Text>
+                <Text style={styles.tipText}>{t.body}</Text>
+              </View>
+            </View>
+          ))}
+        </View>
+
+        {/* FOOTER CTA */}
+        <View style={styles.footerCta}>
+          <Text style={styles.footerEyebrow}>Ready to shoot?</Text>
+          <Text style={styles.footerH}>Book a session.</Text>
           <Pressable
-            onPress={onShare}
-            style={({ pressed }) => [
-              styles.fabBtn,
-              pressed && styles.fabBtnPressed,
-            ]}
-            hitSlop={8}
-            accessibilityLabel="Share this page"
+            onPress={() => open(`${SITE_URL}/contact`)}
+            style={styles.bigBtn}
           >
-            <Text style={styles.fabIconSmall}>↗</Text>
+            <Text style={styles.bigBtnTxt}>Get In Touch</Text>
+            <Ionicons name="arrow-forward" size={18} color="#000" />
           </Pressable>
         </View>
-      )}
+      </ScrollView>
+    </>
+  );
+}
 
-      {loading && !hasError && (
-        <View style={styles.loader} pointerEvents="none">
-          <ActivityIndicator size="large" color="#00d4ff" />
-          <Text style={styles.loaderTxt}>Loading Alpha Visual Artists…</Text>
-        </View>
+function SectionHeader({
+  eyebrow,
+  title,
+  action,
+  onAction,
+}: {
+  eyebrow: string;
+  title: string;
+  action?: string;
+  onAction?: () => void;
+}) {
+  return (
+    <View style={styles.sectionHead}>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.sectionEyebrow}>{eyebrow}</Text>
+        <Text style={styles.sectionTitle}>{title}</Text>
+      </View>
+      {action && (
+        <Pressable onPress={onAction} hitSlop={10}>
+          <Text style={styles.sectionAction}>{action} →</Text>
+        </Pressable>
       )}
     </View>
   );
@@ -233,90 +295,233 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: "#0a0a0a" },
-  web: { flex: 1, backgroundColor: "#0a0a0a" },
-  loader: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+
+  // HERO
+  hero: {
+    paddingHorizontal: 20,
+    paddingBottom: 28,
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#0a0a0a",
+    borderBottomWidth: 1,
+    borderBottomColor: "rgba(255,255,255,0.05)",
   },
-  loaderTxt: {
-    color: "#999",
-    marginTop: 16,
-    fontSize: 12,
+  logo: { width: 110, height: 110, marginBottom: 4 },
+  brand: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "800",
+    letterSpacing: 3,
+    textAlign: "center",
+  },
+  tag: {
+    color: "#00d4ff",
+    fontSize: 11,
+    fontWeight: "600",
+    letterSpacing: 1.5,
+    textTransform: "uppercase",
+    marginTop: 6,
+    marginBottom: 20,
+  },
+  heroBtnRow: { flexDirection: "row", gap: 10 },
+  primaryBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    backgroundColor: "#00d4ff",
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    borderRadius: 999,
+  },
+  primaryBtnTxt: {
+    color: "#000",
+    fontSize: 13,
+    fontWeight: "800",
     letterSpacing: 0.5,
+    textTransform: "uppercase",
   },
-  errorWrap: {
-    flex: 1,
+  secondaryBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: "rgba(0,212,255,0.4)",
+  },
+  secondaryBtnTxt: {
+    color: "#00d4ff",
+    fontSize: 13,
+    fontWeight: "700",
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
+  },
+
+  // SECTION HEADERS
+  sectionHead: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    paddingHorizontal: 20,
+    paddingTop: 28,
+    paddingBottom: 14,
+  },
+  sectionEyebrow: {
+    color: "#00d4ff",
+    fontSize: 10,
+    fontWeight: "700",
+    letterSpacing: 2,
+    textTransform: "uppercase",
+    marginBottom: 4,
+  },
+  sectionTitle: {
+    color: "#fff",
+    fontSize: 22,
+    fontWeight: "800",
+    letterSpacing: -0.3,
+  },
+  sectionAction: {
+    color: "#00d4ff",
+    fontSize: 12,
+    fontWeight: "700",
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
+  },
+
+  // REELS
+  reelRow: { paddingHorizontal: 20, gap: 12 },
+  reelCard: {
+    width: 220,
+    marginRight: 12,
+    borderRadius: 16,
+    overflow: "hidden",
+    backgroundColor: "rgba(255,255,255,0.04)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.06)",
+  },
+  reelCover: { width: "100%", height: 280, backgroundColor: "#111" },
+  reelOverlay: {
+    ...StyleSheet.absoluteFillObject,
     alignItems: "center",
     justifyContent: "center",
-    padding: 32,
-    backgroundColor: "#0a0a0a",
+    height: 280,
   },
-  errorTitle: {
+  playBadge: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: "#00d4ff",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingLeft: 4,
+    shadowColor: "#00d4ff",
+    shadowOpacity: 0.6,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 0 },
+  },
+  reelMeta: { padding: 12 },
+  reelTag: {
+    color: "#00d4ff",
+    fontSize: 10,
+    fontWeight: "700",
+    letterSpacing: 1.2,
+    textTransform: "uppercase",
+    marginBottom: 4,
+  },
+  reelTitle: {
+    color: "#fff",
+    fontSize: 14,
+    fontWeight: "700",
+    lineHeight: 18,
+  },
+
+  // GRID
+  grid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    paddingHorizontal: 16,
+    gap: 8,
+  },
+  gridItem: {
+    width: "48.5%",
+    aspectRatio: 1,
+    borderRadius: 12,
+    overflow: "hidden",
+    backgroundColor: "#111",
+  },
+  gridImg: { width: "100%", height: "100%" },
+  gridGradient: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0,0,0,0.35)",
+  },
+  gridCaption: {
+    position: "absolute",
+    left: 10,
+    bottom: 8,
+    color: "#fff",
+    fontSize: 11,
+    fontWeight: "700",
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
+  },
+
+  // TIPS
+  tipsList: { paddingHorizontal: 20, gap: 12 },
+  tipCard: {
+    flexDirection: "row",
+    backgroundColor: "rgba(255,255,255,0.04)",
+    borderRadius: 16,
+    overflow: "hidden",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.06)",
+  },
+  tipCover: { width: 100, height: 130, backgroundColor: "#111" },
+  tipBody: { flex: 1, padding: 14 },
+  tipTitle: {
+    color: "#fff",
+    fontSize: 14,
+    fontWeight: "800",
+    marginBottom: 6,
+  },
+  tipText: { color: "#aaa", fontSize: 12, lineHeight: 18 },
+
+  // FOOTER CTA
+  footerCta: {
+    margin: 20,
+    marginTop: 32,
+    padding: 24,
+    backgroundColor: "rgba(0,212,255,0.08)",
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: "rgba(0,212,255,0.25)",
+    alignItems: "center",
+  },
+  footerEyebrow: {
+    color: "#00d4ff",
+    fontSize: 11,
+    fontWeight: "700",
+    letterSpacing: 2,
+    textTransform: "uppercase",
+    marginBottom: 8,
+  },
+  footerH: {
     color: "#fff",
     fontSize: 24,
-    fontWeight: "700",
-    marginBottom: 12,
-    textAlign: "center",
+    fontWeight: "800",
+    marginBottom: 18,
   },
-  errorBody: {
-    color: "#999",
-    fontSize: 15,
-    lineHeight: 22,
-    textAlign: "center",
-    marginBottom: 28,
-    maxWidth: 320,
-  },
-  retryBtn: {
+  bigBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
     backgroundColor: "#00d4ff",
-    paddingHorizontal: 32,
+    paddingHorizontal: 24,
     paddingVertical: 14,
     borderRadius: 999,
   },
-  retryTxt: {
+  bigBtnTxt: {
     color: "#000",
-    fontWeight: "700",
     fontSize: 14,
-    letterSpacing: 1,
+    fontWeight: "800",
+    letterSpacing: 0.5,
     textTransform: "uppercase",
-  },
-  fab: {
-    position: "absolute",
-    right: 16,
-    flexDirection: "column",
-    gap: 12,
-  },
-  fabBtn: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: "rgba(0, 212, 255, 0.95)",
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "#00d4ff",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 8,
-  },
-  fabBtnPressed: {
-    transform: [{ scale: 0.92 }],
-    backgroundColor: "rgba(0, 212, 255, 0.7)",
-  },
-  fabIcon: {
-    color: "#000",
-    fontSize: 28,
-    fontWeight: "700",
-    marginBottom: 2,
-  },
-  fabIconSmall: {
-    color: "#000",
-    fontSize: 22,
-    fontWeight: "700",
   },
 });
