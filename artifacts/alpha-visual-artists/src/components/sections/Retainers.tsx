@@ -57,7 +57,7 @@ export function Retainers() {
             Monthly Retainers
           </div>
           <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">
-            Tiered <span className="text-primary">Retainers</span>
+            Production <span className="text-primary">Retainers</span>
           </h2>
           <p className="text-white/60">
             Consistent content, predictable budget. Lock in monthly capacity and skip the project-by-project chase.
