@@ -11,10 +11,10 @@ export function Header() {
           <img src={logo} alt="Alpha Visual Artists" className="h-8 object-contain" />
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="#work" className="text-white/70 hover:text-primary transition-colors">Work</a>
-          <a href="#services" className="text-white/70 hover:text-primary transition-colors">Services</a>
-          <a href="#podcasts" className="text-white/70 hover:text-primary transition-colors">Podcasts</a>
-          <a href="#merch" className="text-white/70 hover:text-primary transition-colors">Shop the Collection</a>
+          <Link href="/services" className="text-white/70 hover:text-primary transition-colors">Services</Link>
+          <Link href="/podcast" className="text-white/70 hover:text-primary transition-colors">Podcast</Link>
+          <Link href="/digital-downloads" className="text-white/70 hover:text-primary transition-colors">Downloads</Link>
+          <Link href="/#merch" className="text-white/70 hover:text-primary transition-colors">Shop the Collection</Link>
         </nav>
         <div className="flex items-center gap-4">
           <Button asChild className="rounded-full bg-primary hover:bg-primary/90 text-black shadow-[0_0_20px_rgba(0,230,255,0.4)] transition-all hover:shadow-[0_0_30px_rgba(0,230,255,0.6)]">
