@@ -71,3 +71,8 @@ When that work happens, the right approach is:
 
 - See the `pnpm-workspace` skill for workspace structure
 - See the `clerk-auth`, `object-storage`, `artifacts` skills for integration patterns
+import siteRoutes from "./site.js";
+// ... 
+router.use(siteRoutes);
+pnpm run typecheck
+# Push to Replit
