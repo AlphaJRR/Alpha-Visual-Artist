@@ -8,6 +8,7 @@ import Services from "@/pages/Services";
 import Podcast from "@/pages/Podcast";
 import DigitalDownloads from "@/pages/DigitalDownloads";
 import Shop from "@/pages/Shop";
+import Apparel from "@/pages/Apparel";
 import Work from "@/pages/Work";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,8 @@ function Router() {
       <Route path="/podcast" component={Podcast} />
       <Route path="/digital-downloads" component={DigitalDownloads} />
       <Route path="/shop" component={Shop} />
+      <Route path="/apparel" component={Apparel} />
+      <Route path="/crew-collection" component={Apparel} />
       <Route path="/work" component={Work} />
       <Route component={NotFound} />
     </Switch>
