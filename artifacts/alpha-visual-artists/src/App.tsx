@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import Podcast from "@/pages/Podcast";
 import DigitalDownloads from "@/pages/DigitalDownloads";
+import Shop from "@/pages/Shop";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/services" component={Services} />
       <Route path="/podcast" component={Podcast} />
       <Route path="/digital-downloads" component={DigitalDownloads} />
+      <Route path="/shop" component={Shop} />
       <Route component={NotFound} />
     </Switch>
   );
