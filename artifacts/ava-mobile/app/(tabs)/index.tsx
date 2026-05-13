@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Image,
   ImageSourcePropType,
@@ -13,7 +13,6 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
 import * as WebBrowser from "expo-web-browser";
-import * as ExpoLinking from "expo-linking";
 
 const SITE_URL = "https://alphavisualartists.com";
 
@@ -109,32 +108,6 @@ const TIPS: Tip[] = [
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
-
-  // Handle ava:// deep links by opening the resolved web URL in an in-app browser.
-  useEffect(() => {
-    const handle = (linkUrl: string | null) => {
-      if (!linkUrl) return;
-      try {
-        let target = linkUrl;
-        if (!linkUrl.startsWith("http")) {
-          const parsed = ExpoLinking.parse(linkUrl);
-          const path = parsed.path
-            ? `/${parsed.path.replace(/^\/+/, "")}`
-            : "/";
-          target = `${SITE_URL}${path}`;
-        }
-        WebBrowser.openBrowserAsync(target, {
-          toolbarColor: "#0a0a0a",
-          controlsColor: "#00d4ff",
-        }).catch(() => {});
-      } catch {
-        /* noop */
-      }
-    };
-    ExpoLinking.getInitialURL().then(handle);
-    const sub = ExpoLinking.addEventListener("url", (e) => handle(e.url));
-    return () => sub.remove();
-  }, []);
 
   const open = (url: string) => {
     Haptics.selectionAsync().catch(() => {});
