@@ -55,10 +55,10 @@ const PRODUCTS: Product[] = [
 ];
 
 const LIFESTYLE: ImageSourcePropType[] = [
+  require("../../assets/images/blackaf-walk.jpg"),
   require("../../assets/images/tee-flex.jpg"),
   require("../../assets/images/tee-trees.jpg"),
   require("../../assets/images/bts-papi.jpg"),
-  require("../../assets/images/bts-ashie.jpg"),
 ];
 
 const STATS = [

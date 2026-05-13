@@ -70,16 +70,37 @@ const REELS: Reel[] = [
   },
   {
     id: "r5",
-    title: "Couples Editorial",
-    tag: "Portrait · Event",
-    cover: require("../../assets/images/couple-kiss.jpg"),
+    title: "Lakefront Engagement",
+    tag: "Couples · Chicago",
+    cover: require("../../assets/images/couple-skyline.jpg"),
     url: `${SITE_URL}/work`,
   },
   {
     id: "r6",
-    title: "Editorial — B&W",
-    tag: "Lookbook",
-    cover: require("../../assets/images/portrait-bw.jpg"),
+    title: "Garden Editorial",
+    tag: "B&W · Lookbook",
+    cover: require("../../assets/images/editorial-flowers.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "r7",
+    title: "Red Room Series",
+    tag: "Studio · Portrait",
+    cover: require("../../assets/images/portrait-dada.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "r8",
+    title: "Peace & Tailoring",
+    tag: "Editorial · Studio",
+    cover: require("../../assets/images/peace-suit.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "r9",
+    title: "Nail Tech Campaign",
+    tag: "Beauty · Brand",
+    cover: require("../../assets/images/nail-tech.jpg"),
     url: `${SITE_URL}/work`,
   },
 ];
@@ -93,6 +114,7 @@ const PHOTOS: Photo[] = [
   { id: "p6", src: require("../../assets/images/dzo-lenses.jpg"), caption: "Prime time" },
   { id: "p7", src: require("../../assets/images/marriage-clapper.jpg"), caption: "Action!" },
   { id: "p8", src: require("../../assets/images/chicago-sunset.jpg"), caption: "Chicago golden hour" },
+  { id: "p9", src: require("../../assets/images/chicago-highway.jpg"), caption: "Sears tower commute" },
 ];
 
 const TIPS: Tip[] = [
