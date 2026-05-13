@@ -1,34 +1,5 @@
 uploads = []
-
-[[generated]]
-id = "PtFnU6mTJjfN1oFas09PV"
-uri = "file://artifacts/alpha-visual-artists/src/assets/portrait-1.png"
-type = "image"
-title = "portrait of a creative director"
-
-[[generated]]
-id = "o4h_Q9vZ168uubgnJxezX"
-uri = "file://artifacts/alpha-visual-artists/src/assets/portrait-2.png"
-type = "image"
-title = "portrait of a cinematographer"
-
-[[generated]]
-id = "tYnZuIIfHlvIPLHLvLkOx"
-uri = "file://artifacts/alpha-visual-artists/src/assets/portrait-3.png"
-type = "image"
-title = "portrait of a producer"
-
-[[generated]]
-id = "kvOajjunZS_UNhYZkajJa"
-uri = "file://artifacts/alpha-visual-artists/src/assets/portrait-4.png"
-type = "image"
-title = "portrait of a lighting tech"
-
-[[generated]]
-id = "G55BvTl6uvL2STJ1MQWyS"
-uri = "file://artifacts/alpha-visual-artists/src/assets/merch-bg.png"
-type = "image"
-title = "premium streetwear merch"
+generated = []
 
 [[outputs]]
 id = "w0lr5RtPxZOKVr7v21wOu"
