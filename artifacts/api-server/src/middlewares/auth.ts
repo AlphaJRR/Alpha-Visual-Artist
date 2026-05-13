@@ -64,12 +64,27 @@ export async function requireAuth(
       ? "admin"
       : "client";
 
-    const [created] = await db
+    const inserted = await db
       .insert(usersTable)
       .values({ clerkUserId, email, name, role })
+      .onConflictDoNothing({ target: usersTable.clerkUserId })
       .returning();
 
-    req.user = created;
+    let user = inserted[0];
+    if (!user) {
+      const found = await db
+        .select()
+        .from(usersTable)
+        .where(eq(usersTable.clerkUserId, clerkUserId))
+        .limit(1);
+      user = found[0];
+    }
+    if (!user) {
+      res.status(500).json({ error: "Failed to provision user" });
+      return;
+    }
+
+    req.user = user;
     next();
   } catch (err) {
     req.log?.error({ err }, "auth middleware failed");

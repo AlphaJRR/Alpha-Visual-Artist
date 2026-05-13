@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { X, Copy, Check } from "lucide-react";
 
-const STORAGE_KEY = "ava_popup_dismissed_v1";
+const STORAGE_KEY = "ava_popup_dismissed_v2";
 const DISCOUNT_CODE = "ALPHACREW15";
+
+let popupShownThisSession = false;
 
 export function EmailPopup() {
   const [open, setOpen] = useState(false);
@@ -12,18 +14,28 @@ export function EmailPopup() {
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const armed = useRef(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(STORAGE_KEY)) return;
-    const t = setTimeout(() => setOpen(true), 3000);
+    if (armed.current) return;
+    armed.current = true;
+    if (popupShownThisSession) return;
+    try {
+      if (localStorage.getItem(STORAGE_KEY)) return;
+    } catch {}
+    const t = setTimeout(() => {
+      popupShownThisSession = true;
+      setOpen(true);
+    }, 3000);
     return () => clearTimeout(t);
   }, []);
 
   const close = () => {
     setOpen(false);
+    popupShownThisSession = true;
     try {
-      sessionStorage.setItem(STORAGE_KEY, "1");
+      localStorage.setItem(STORAGE_KEY, String(Date.now()));
     } catch {}
   };
 
