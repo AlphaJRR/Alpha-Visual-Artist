@@ -12,6 +12,11 @@ import Shop from "@/pages/Shop";
 import Apparel from "@/pages/Apparel";
 import Work from "@/pages/Work";
 import Privacy from "@/pages/Privacy";
+import SignInPage from "@/pages/SignIn";
+import SignUpPage from "@/pages/SignUp";
+import PortalIndex from "@/pages/portal/PortalIndex";
+import PortalProjectPage from "@/pages/portal/PortalProject";
+import AdminIndex from "@/pages/admin/AdminIndex";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +32,13 @@ function Router() {
       <Route path="/crew-collection" component={Apparel} />
       <Route path="/work" component={Work} />
       <Route path="/privacy" component={Privacy} />
+      <Route path="/sign-in" component={SignInPage} />
+      <Route path="/sign-in/:rest*" component={SignInPage} />
+      <Route path="/sign-up" component={SignUpPage} />
+      <Route path="/sign-up/:rest*" component={SignUpPage} />
+      <Route path="/portal" component={PortalIndex} />
+      <Route path="/portal/projects/:id" component={PortalProjectPage} />
+      <Route path="/admin" component={AdminIndex} />
       <Route component={NotFound} />
     </Switch>
   );

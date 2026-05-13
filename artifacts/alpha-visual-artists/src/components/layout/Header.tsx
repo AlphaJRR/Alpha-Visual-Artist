@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
+import { Show, UserButton } from "@clerk/react";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 
@@ -46,6 +47,23 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
+          <Show when="signed-out">
+            <Link
+              href="/sign-in"
+              className="text-sm font-medium text-white/70 hover:text-primary transition-colors"
+            >
+              Client Login
+            </Link>
+          </Show>
+          <Show when="signed-in">
+            <Link
+              href="/portal"
+              className="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+            >
+              My Portal
+            </Link>
+            <UserButton />
+          </Show>
           <Button
             asChild
             className="rounded-full bg-primary hover:bg-primary/90 text-black shadow-[0_0_20px_rgba(0,230,255,0.4)] transition-all hover:shadow-[0_0_30px_rgba(0,230,255,0.6)]"
@@ -79,6 +97,22 @@ export function Header() {
                 {n.label}
               </Link>
             ))}
+            <Show when="signed-out">
+              <Link
+                href="/sign-in"
+                className="px-3 py-3 rounded-lg text-white/80 hover:text-primary hover:bg-white/5 text-base font-medium transition-colors"
+              >
+                Client Login
+              </Link>
+            </Show>
+            <Show when="signed-in">
+              <Link
+                href="/portal"
+                className="px-3 py-3 rounded-lg text-white/80 hover:text-primary hover:bg-white/5 text-base font-medium transition-colors"
+              >
+                My Portal
+              </Link>
+            </Show>
             <a
               href="https://cal.com/alphavisualartists/video-call"
               target="_blank"

@@ -1,45 +1,64 @@
-# [Project name]
+# Alpha Visual Artists
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Chicago video production studio site + Expo mobile app + private client portal (galleries, comments, approvals, reference uploads).
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/api-server run dev` — API server (port 5000)
+- `pnpm --filter @workspace/alpha-visual-artists run dev` — public website + portal
+- `pnpm --filter @workspace/ava-mobile run dev` — Expo mobile WebView app
 - `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks/Zod schemas
+- `pnpm --filter @workspace/db run push` — push DB schema (dev)
+
+Required env: `DATABASE_URL`, `CLERK_SECRET_KEY`, `CLERK_PUBLISHABLE_KEY`, `VITE_CLERK_PUBLISHABLE_KEY`, `DEFAULT_OBJECT_STORAGE_BUCKET_ID`, `PUBLIC_OBJECT_SEARCH_PATHS`, `PRIVATE_OBJECT_DIR`, `SESSION_SECRET`, `AVA_ADMIN_EMAILS` (comma-separated emails — first sign-in with that email becomes admin).
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- API: Express 5 + Clerk (`@clerk/express`) + Drizzle ORM
+- DB: PostgreSQL
+- Object Storage: GCS via Replit App Storage (presigned URLs + ACL)
+- Web: React 19 + Vite + Tailwind v4 + wouter + @clerk/react
+- Mobile: Expo SDK 54 (WebView with `sharedCookiesEnabled` so portal session works)
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- DB schema: `lib/db/src/schema/portal.ts`
+- API spec (storage endpoints): `lib/api-spec/openapi.yaml`
+- Portal API routes: `artifacts/api-server/src/routes/portal.ts`
+- Storage routes: `artifacts/api-server/src/routes/storage.ts`
+- Auth middleware (Clerk + JIT user provisioning): `artifacts/api-server/src/middlewares/auth.ts`
+- Web portal pages: `artifacts/alpha-visual-artists/src/pages/portal/*` and `pages/admin/*`
+- Site theme: cyan `#00E6FF` on `#0D0D0D`; Sora display, Inter body
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Single origin: site + `/api` are served via the same Replit proxy domain so cookie-based Clerk sessions Just Work in the WebView.
+- JIT user provisioning: first authenticated request creates a `users` row from the Clerk profile; admin role is assigned by matching email against `AVA_ADMIN_EMAILS`.
+- Object storage: clients upload via presigned URLs; uploads + finished videos are stored under `PRIVATE_OBJECT_DIR` and ACL-locked to the uploader. Reads through `/api/storage/objects/*` require auth + ACL.
+- Portal routes use inline Zod (not OpenAPI codegen) for speed; storage routes use generated schemas.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Public site: services, podcast, downloads, apparel, work, privacy
+- Client portal (`/portal`): list of projects, per-project video player with threaded comments + approvals, per-project reference file upload
+- Admin (`/admin`): create projects, assign to clients, upload final videos to projects
+- Auth: `/sign-in`, `/sign-up` (email + password via Clerk Whitelabel)
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Prefers short, direct ALL-CAPS commands.
+- Cyan-on-black brand. Sora display + Inter body. Tailwind v4 (CSS config, no `.ts`).
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- After editing `lib/api-spec/openapi.yaml`, run `pnpm --filter @workspace/api-spec run codegen`.
+- After editing `lib/db/src/schema/*`, run `pnpm --filter @workspace/db run push`.
+- `AVA_ADMIN_EMAILS` must be set before the first admin user signs in, or they'll be provisioned as `client` and need a manual DB update.
+- The mobile workflow can fail transiently after a `pnpm install` because Metro was watching a temp file that got deleted — just restart the workflow.
 
 ## Pointers
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- See the `pnpm-workspace` skill for workspace structure
+- See the `clerk-auth`, `object-storage`, `artifacts` skills for integration patterns
