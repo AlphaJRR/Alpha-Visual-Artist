@@ -60,8 +60,7 @@ export function Services() {
                 {service.icon}
               </div>
               
-              <h3 className="text-2xl font-bold mb-2 text-white">{service.title}</h3>
-              <div className="text-primary font-mono text-sm mb-6">{service.price}</div>
+              <h3 className="text-2xl font-bold mb-6 text-white">{service.title}</h3>
               <p className="text-white/60 mb-8 leading-relaxed">
                 {service.description}
               </p>
