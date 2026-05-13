@@ -42,22 +42,22 @@ type Tip = {
 const REELS: Reel[] = [
   {
     id: "r1",
-    title: "Waymaker Chicago",
-    tag: "Louis Carr · BET",
+    title: "Dwyane Wade",
+    tag: "Waymaker Chicago",
     cover: require("../../assets/images/event-wade.jpg"),
     url: `${SITE_URL}/work`,
   },
   {
     id: "r2",
-    title: "Waymaker Chicago",
-    tag: "Louis Carr · BET",
+    title: "Nick Cannon",
+    tag: "Waymaker Chicago",
     cover: require("../../assets/images/event-cannon.jpg"),
     url: `${SITE_URL}/work`,
   },
   {
     id: "r3",
-    title: "Waymaker Chicago",
-    tag: "Louis Carr · BET",
+    title: "Louis Carr",
+    tag: "Waymaker Chicago",
     cover: require("../../assets/images/event-jayellis.jpg"),
     url: `${SITE_URL}/work`,
   },
