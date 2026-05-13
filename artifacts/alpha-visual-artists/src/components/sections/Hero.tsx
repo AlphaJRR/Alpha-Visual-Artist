@@ -25,7 +25,13 @@ export function Hero() {
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 uppercase">
             Cinematic <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500 drop-shadow-[0_0_15px_rgba(0,230,255,0.5)]">
+            <span
+              className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500 drop-shadow-[0_0_15px_rgba(0,230,255,0.5)]"
+              style={{
+                WebkitTextStroke: "0.5px rgba(0, 230, 255, 0.25)",
+                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.6))",
+              }}
+            >
               Content That Sells.
             </span>
           </h1>

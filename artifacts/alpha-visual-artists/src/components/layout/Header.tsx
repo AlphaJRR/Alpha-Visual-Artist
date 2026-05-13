@@ -6,6 +6,8 @@ import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 
 const NAV = [
+  { href: "/", label: "Home" },
+  { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
   { href: "/podcast", label: "Podcast" },
   { href: "/digital-downloads", label: "Downloads" },
