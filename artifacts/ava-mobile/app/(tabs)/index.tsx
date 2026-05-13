@@ -32,12 +32,19 @@ type Reel = {
   video?: any;
 };
 
-const OPENER_VIDEO = require("../../assets/videos/opener.mov");
-const WAYMAKER_VIDEO = require("../../assets/videos/waymaker-promo.mov");
-const IDENTITY_TEENS_VIDEO = require("../../assets/videos/identity-teens.mp4");
-const REEL_A_VIDEO = require("../../assets/videos/reel-a.mov");
-const REEL_B_VIDEO = require("../../assets/videos/reel-b.mov");
-const REEL_C_VIDEO = require("../../assets/videos/reel-c.mov");
+const VIDEO_HOST = process.env.EXPO_PUBLIC_DOMAIN
+  ? `https://${process.env.EXPO_PUBLIC_DOMAIN}`
+  : SITE_URL;
+const videoUri = (filename: string) => ({
+  uri: `${VIDEO_HOST}/api/storage/public-objects/videos/${filename}`,
+});
+
+const OPENER_VIDEO = videoUri("opener.mov");
+const WAYMAKER_VIDEO = videoUri("waymaker-promo.mov");
+const IDENTITY_TEENS_VIDEO = videoUri("identity-teens.mp4");
+const REEL_A_VIDEO = videoUri("reel-a.mov");
+const REEL_B_VIDEO = videoUri("reel-b.mov");
+const REEL_C_VIDEO = videoUri("reel-c.mov");
 
 type Photo = {
   id: string;
