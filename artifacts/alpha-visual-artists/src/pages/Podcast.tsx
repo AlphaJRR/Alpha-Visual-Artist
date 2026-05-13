@@ -2,6 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import btsSet from "@/assets/bts-set.jpeg";
+import btsMonitor from "@/assets/bts-monitor.jpeg";
+import reneeRose from "@/assets/renee-rose.jpeg";
 
 type Episode = {
   id: string;
@@ -15,6 +18,7 @@ type Show = {
   name: string;
   tagline: string;
   episodes: Episode[];
+  portrait?: string;
 };
 
 const shows: Show[] = [
@@ -82,6 +86,7 @@ const shows: Show[] = [
   {
     name: "Business Breakthrough with Renee Rose",
     tagline: "Empowering entrepreneurs with expert advice and actionable strategies for growth.",
+    portrait: reneeRose,
     episodes: [
       {
         id: "T8vl7oT2b08",
@@ -130,7 +135,7 @@ export default function Podcast() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-20 text-center max-w-3xl mx-auto"
+            className="mb-12 text-center max-w-3xl mx-auto"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-mono text-xs uppercase tracking-widest mb-6">
               Now Streaming
@@ -143,6 +148,24 @@ export default function Podcast() {
             </p>
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-20"
+          >
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <img src={btsSet} alt="On set with talent" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.25em] font-mono text-white/80">On Set</div>
+            </div>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <img src={btsMonitor} alt="Behind the monitor" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.25em] font-mono text-white/80">Through The Lens</div>
+            </div>
+          </motion.div>
+
           <div className="space-y-24">
             {shows.map((show, si) => (
               <motion.section
@@ -152,10 +175,17 @@ export default function Podcast() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="mb-10 max-w-2xl">
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-primary font-mono mb-3">Show {String(si + 1).padStart(2, "0")}</div>
-                  <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight text-white mb-3">{show.name}</h2>
-                  <p className="text-white/65 text-lg">{show.tagline}</p>
+                <div className="mb-10 flex items-start gap-6">
+                  {show.portrait && (
+                    <div className="hidden md:block flex-shrink-0 w-28 h-28 rounded-full overflow-hidden ring-2 ring-primary/30">
+                      <img src={show.portrait} alt={show.name} className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                  <div className="max-w-2xl">
+                    <div className="text-[10px] uppercase tracking-[0.3em] text-primary font-mono mb-3">Show {String(si + 1).padStart(2, "0")}</div>
+                    <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight text-white mb-3">{show.name}</h2>
+                    <p className="text-white/65 text-lg">{show.tagline}</p>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

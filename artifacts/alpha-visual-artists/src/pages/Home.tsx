@@ -8,6 +8,7 @@ import { WorkGallery } from "@/components/sections/WorkGallery";
 import { Services } from "@/components/sections/Services";
 import { Retainers } from "@/components/sections/Retainers";
 import { Clients } from "@/components/sections/Clients";
+import { BehindTheLens } from "@/components/sections/BehindTheLens";
 import { Podcasts } from "@/components/sections/Podcasts";
 import { Portraits } from "@/components/sections/Portraits";
 import { Merch } from "@/components/sections/Merch";
@@ -23,6 +24,7 @@ export default function Home() {
         <Showreel />
         <WorkGallery />
         <Clients />
+        <BehindTheLens />
         <Services />
         <Retainers />
         <Podcasts />
