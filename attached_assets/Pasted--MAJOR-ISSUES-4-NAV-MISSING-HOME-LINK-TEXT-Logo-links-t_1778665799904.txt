@@ -1,0 +1,90 @@
+🟠 MAJOR ISSUES
+4. NAV MISSING HOME LINK TEXT
+
+Logo links to home but no explicit "Home" text
+Mobile users might not realize logo is clickable
+Status: Low priority but polish
+
+5. CTA SECTION NOW REDUNDANT
+
+Hero already has "Book a Call"
+CTA section at bottom = duplicate
+Option A: Delete it
+Option B: Change it to secondary CTA (e.g., "View case studies" or "Join our crew")
+
+6. BUTTON STYLING INCONSISTENT
+
+Some have shadows, some don't
+Create CSS utility for consistency
+
+
+🟡 MINOR/POLISH
+7. HERO GRADIENT TEXT CONTRAST
+
+Might fail WCAG AA on certain screens
+Add text-shadow fallback
+
+8. WORK PAGE NOW ORPHANED
+
+/work page exists but no homepage link
+Only reachable via direct URL or "View Work" button
+Add explicit link in nav or CTA
+
+
+MOBILE APP STATUS: 🚨 REJECTION RISK (35/100)
+🔴 CRITICAL — WILL BE REJECTED
+1. PURE WEBVIEW WRAPPER (Apple 4.2)
+
+App = just <WebView source={{ uri: SITE_URL }}/>
+MUST ADD: One native feature
+Options:
+
+Offline mode (easiest)
+Push notifications (most valuable)
+Deep linking (technical)
+
+
+
+Status: ⏳ NOT STARTED
+2. PRIVACY MANIFEST INCOMPLETE
+
+Missing required iOS 17.2+ declarations
+Missing WebKit + FileSystem API types
+Status: ⏳ NEEDS UPDATE to app.json
+
+3. NO DEEP LINKING
+
+URL scheme ava-mobile:// defined but not used
+Can't handle push notifications or deep links
+Status: ⏳ NOT IMPLEMENTED
+
+
+🟠 MAJOR
+4. NO CUSTOM SPLASH SCREEN
+
+Currently shows app icon for 2-3 seconds
+Users see icon twice = poor UX
+Status: ⏳ NEEDS CUSTOM IMAGE (1242x2688px)
+
+5. SESSION PERSISTENCE UNTESTED
+
+If user books call, closes app, reopens = cookies lost?
+No code to handle session storage
+Status: ⏳ NEEDS TESTING + FIX
+
+6. NO ERROR BOUNDARY AROUND WEBVIEW
+
+If WebView crashes, entire app crashes
+Status: ⏳ NEEDS CODE
+
+
+FINAL SCORECARD
+CategoryScoreStatusWebsite ConversionA- (88)✅ READY TO DEPLOYWebsite BrandA (90)✅ CONSISTENTWebsite UXB+ (85)⚠️ Minor polish neededMobile App ArchitectureD (40)🔴 CRITICAL FIXES NEEDEDMobile App Store ReadinessF (35)🔴 WILL BE REJECTED
+
+RECOMMENDED NEXT STEPS
+PRIORITY 1 — Website (Do Today)
+
+✅ Deploy current homepage changes (Showreel + BehindTheLens + Services)
+Add turnaround times to Services
+Add CTA to Podcasts (Spotify + YouTube links)
+Review ApparelTeaser component
