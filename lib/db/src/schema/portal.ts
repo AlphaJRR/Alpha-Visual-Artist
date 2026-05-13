@@ -186,21 +186,3 @@ export type InsertVideo = z.infer<typeof insertVideoSchema>;
 export type InsertComment = z.infer<typeof insertCommentSchema>;
 export type InsertClientUpload = z.infer<typeof insertClientUploadSchema>;
 export type InsertPost = z.infer<typeof insertPostSchema>;
-pnpm --filter @workspace/db run typecheck
-
-
-filter @workspace/api-server run dev
-pnpm --filter @workspace/alpha-visual-artists run dev
-pnpm --filter @workspace/api-server run dev
-pnpm --filter @workspace/db run typecheck
-pnpm --filter @workspace/ava-mobile run dev
-pnpm --filter @workspace/ava-mobile run ios
-pnpm --filter @workspace/ava-mobile run android
-pnpm --filter @workspace/db run push
-pnpm --filter @workspace/db run push
-pnpm --filter @workspace/api-server run dev
-curl http://localhost:8080/api/healthz
-pnpm --filter @workspace/db run push
-pnpm --filter @workspace/db run push-force
-pnpm --filter @workspace/db run push
-pnpm --filter @workspace/db run push-force

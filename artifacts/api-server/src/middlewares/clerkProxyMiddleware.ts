@@ -89,19 +89,3 @@ export function clerkProxyMiddleware(): RequestHandler {
     },
   }) as RequestHandler;
 }
-# Check if migration file exists
-ls packages/db/migrations/
-
-# If it doesn't exist, I'll create it for you
-cat artifacts/api-server/src/routes/index.ts
-# The blog.ts file is in src/ but should be in src/routes/
-mv artifacts/api-server/src/blog.ts artifacts/api-server/src/routes/blog.ts
-import { Router, type IRouter } from "express";
-import healthRouter from "./health";
-import storageRouter from "./storage";
-import portalRouter from "./portal";
-
-artifacts/api-server/src/blog.ts artifacts/api-server/src/routes/blog.ts
-mv artifacts/api-server/src/blog.ts artifacts/api-server/src/routes/blog.ts
-psql $DATABASE_URL -f packages/db/migrations/0001_add_blog_posts.sql
-cat artifacts/api-server/src/routes/index.ts

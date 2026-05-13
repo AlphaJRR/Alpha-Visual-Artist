@@ -17,6 +17,9 @@ import SignUpPage from "@/pages/SignUp";
 import PortalIndex from "@/pages/portal/PortalIndex";
 import PortalProjectPage from "@/pages/portal/PortalProject";
 import AdminIndex from "@/pages/admin/AdminIndex";
+import { BlogListPage } from "@/pages/blog/BlogListPage";
+import { BlogPostPage } from "@/pages/blog/BlogPostPage";
+import { BlogEditorPage } from "@/pages/blog/BlogEditorPage";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +42,9 @@ function Router() {
       <Route path="/portal" component={PortalIndex} />
       <Route path="/portal/projects/:id" component={PortalProjectPage} />
       <Route path="/admin" component={AdminIndex} />
+      <Route path="/blog" component={BlogListPage} />
+      <Route path="/blog/new" component={BlogEditorPage} />
+      <Route path="/blog/:slug" component={BlogPostPage} />
       <Route component={NotFound} />
     </Switch>
   );

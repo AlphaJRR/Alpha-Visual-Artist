@@ -1,26 +1,31 @@
-import { Router, Request, Response } from "express";
-import { db } from "../db/index.js";
-import { postsTable, commentsTable, usersTable } from "../db/schema.js";
-import { eq, desc, and, isNotNull } from "drizzle-orm";
-import { requireAuth, requireAdmin } from "../middleware/auth.js";
-import { insertPostSchema, insertCommentSchema } from "../db/schema.js";
+import { Router, type IRouter, type Request, type Response } from "express";
+import { eq, desc, and } from "drizzle-orm";
+import { z } from "zod/v4";
+import { db, postsTable, commentsTable, usersTable } from "@workspace/db";
+import { requireAuth, requireAdmin } from "../middlewares/auth";
 
-const router = Router();
+const insertPostSchema = z.object({
+  slug: z.string().min(1),
+  title: z.string().min(1),
+  excerpt: z.string().nullable().optional(),
+  content: z.string().min(1),
+  coverImagePath: z.string().nullable().optional(),
+  featured: z.boolean().optional(),
+  published: z.boolean().optional(),
+  publishedAt: z.coerce.date().nullable().optional(),
+});
 
-// ============================================================================
-// BLOG POSTS ENDPOINTS
-// ============================================================================
+const router: IRouter = Router();
 
-/**
- * GET /api/blog
- * List all published blog posts (public endpoint)
- * Query params: featured=true (optional)
- */
-router.get("/blog", async (req: Request, res: Response) => {
+router.get("/blog", async (req: Request, res: Response): Promise<void> => {
   try {
     const featured = req.query.featured === "true";
 
-    let query = db
+    const where = featured
+      ? and(eq(postsTable.published, true), eq(postsTable.featured, true))
+      : eq(postsTable.published, true);
+
+    const posts = await db
       .select({
         id: postsTable.id,
         slug: postsTable.slug,
@@ -33,36 +38,19 @@ router.get("/blog", async (req: Request, res: Response) => {
         createdAt: postsTable.createdAt,
       })
       .from(postsTable)
-      .where(eq(postsTable.published, true))
+      .where(where)
       .orderBy(desc(postsTable.publishedAt));
 
-    if (featured) {
-      query = query.where(eq(postsTable.featured, true));
-    }
-
-    const posts = await query;
-
-    res.json({
-      success: true,
-      data: posts,
-    });
+    res.json({ success: true, data: posts });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch blog posts",
-    });
+    req.log.error({ err }, "Failed to fetch blog posts");
+    res.status(500).json({ success: false, error: "Failed to fetch blog posts" });
   }
 });
 
-/**
- * GET /api/blog/:slug
- * Get a single published blog post by slug (public endpoint)
- */
-router.get("/blog/:slug", async (req: Request, res: Response) => {
+router.get("/blog/:slug", async (req: Request, res: Response): Promise<void> => {
   try {
-    const { slug } = req.params;
-
+    const slug = String(req.params.slug);
     const post = await db
       .select()
       .from(postsTable)
@@ -70,173 +58,112 @@ router.get("/blog/:slug", async (req: Request, res: Response) => {
       .limit(1);
 
     if (!post || post.length === 0) {
-      return res.status(404).json({
-        success: false,
-        error: "Post not found",
-      });
+      res.status(404).json({ success: false, error: "Post not found" });
+      return;
     }
-
-    res.json({
-      success: true,
-      data: post[0],
-    });
+    res.json({ success: true, data: post[0] });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch blog post",
-    });
+    req.log.error({ err }, "Failed to fetch blog post");
+    res.status(500).json({ success: false, error: "Failed to fetch blog post" });
   }
 });
 
-/**
- * POST /api/blog
- * Create a new blog post (admin only)
- */
-router.post("/blog", requireAuth, requireAdmin, async (req: Request, res: Response) => {
-  try {
-    const validation = insertPostSchema.safeParse(req.body);
-
-    if (!validation.success) {
-      return res.status(400).json({
-        success: false,
-        error: "Invalid blog post data",
-        details: validation.error.flatten(),
-      });
-    }
-
-    const data = {
-      ...validation.data,
-      authorId: req.auth.userId as string, // Clerk user ID
-    };
-
-    const newPost = await db
-      .insert(postsTable)
-      .values(data)
-      .returning();
-
-    res.status(201).json({
-      success: true,
-      data: newPost[0],
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      success: false,
-      error: "Failed to create blog post",
-    });
-  }
-});
-
-/**
- * PUT /api/blog/:postId
- * Update a blog post (admin only)
- */
-router.put(
-  "/blog/:postId",
+router.post(
+  "/blog",
   requireAuth,
   requireAdmin,
-  async (req: Request, res: Response) => {
+  async (req: Request, res: Response): Promise<void> => {
     try {
-      const { postId } = req.params;
-
-      const validation = insertPostSchema.partial().safeParse(req.body);
-
+      const validation = insertPostSchema.safeParse(req.body);
       if (!validation.success) {
-        return res.status(400).json({
+        res.status(400).json({
           success: false,
           error: "Invalid blog post data",
           details: validation.error.flatten(),
         });
+        return;
       }
 
-      const updated = await db
-        .update(postsTable)
-        .set({
-          ...validation.data,
-          updatedAt: new Date(),
-        })
-        .where(eq(postsTable.id, postId))
+      const newPost = await db
+        .insert(postsTable)
+        .values({ ...validation.data, authorId: req.user!.id })
         .returning();
 
-      if (!updated || updated.length === 0) {
-        return res.status(404).json({
-          success: false,
-          error: "Post not found",
-        });
-      }
-
-      res.json({
-        success: true,
-        data: updated[0],
-      });
+      res.status(201).json({ success: true, data: newPost[0] });
     } catch (err) {
-      console.error(err);
-      res.status(500).json({
-        success: false,
-        error: "Failed to update blog post",
-      });
+      req.log.error({ err }, "Failed to create blog post");
+      res.status(500).json({ success: false, error: "Failed to create blog post" });
     }
   },
 );
 
-/**
- * DELETE /api/blog/:postId
- * Delete a blog post (admin only)
- */
+router.put(
+  "/blog/:postId",
+  requireAuth,
+  requireAdmin,
+  async (req: Request, res: Response): Promise<void> => {
+    try {
+      const postId = String(req.params.postId);
+      const validation = insertPostSchema.partial().safeParse(req.body);
+      if (!validation.success) {
+        res.status(400).json({
+          success: false,
+          error: "Invalid blog post data",
+          details: validation.error.flatten(),
+        });
+        return;
+      }
+
+      const updated = await db
+        .update(postsTable)
+        .set({ ...validation.data, updatedAt: new Date() })
+        .where(eq(postsTable.id, postId))
+        .returning();
+
+      if (!updated || updated.length === 0) {
+        res.status(404).json({ success: false, error: "Post not found" });
+        return;
+      }
+      res.json({ success: true, data: updated[0] });
+    } catch (err) {
+      req.log.error({ err }, "Failed to update blog post");
+      res.status(500).json({ success: false, error: "Failed to update blog post" });
+    }
+  },
+);
+
 router.delete(
   "/blog/:postId",
   requireAuth,
   requireAdmin,
-  async (req: Request, res: Response) => {
+  async (req: Request, res: Response): Promise<void> => {
     try {
-      const { postId } = req.params;
-
+      const postId = String(req.params.postId);
       const deleted = await db
         .delete(postsTable)
         .where(eq(postsTable.id, postId))
         .returning();
 
       if (!deleted || deleted.length === 0) {
-        return res.status(404).json({
-          success: false,
-          error: "Post not found",
-        });
+        res.status(404).json({ success: false, error: "Post not found" });
+        return;
       }
-
-      res.json({
-        success: true,
-        message: "Post deleted successfully",
-      });
+      res.json({ success: true, message: "Post deleted successfully" });
     } catch (err) {
-      console.error(err);
-      res.status(500).json({
-        success: false,
-        error: "Failed to delete blog post",
-      });
+      req.log.error({ err }, "Failed to delete blog post");
+      res.status(500).json({ success: false, error: "Failed to delete blog post" });
     }
   },
 );
 
-// ============================================================================
-// COMMENTS ON POSTS ENDPOINTS
-// ============================================================================
-
-/**
- * GET /api/blog/:postId/comments
- * Get all comments for a blog post (public endpoint)
- */
-router.get("/blog/:postId/comments", async (req: Request, res: Response) => {
+router.get("/blog/:postId/comments", async (req: Request, res: Response): Promise<void> => {
   try {
-    const { postId } = req.params;
-
+    const postId = String(req.params.postId);
     const comments = await db
       .select({
         id: commentsTable.id,
         body: commentsTable.body,
-        userId: commentsTable.userId,
         userName: usersTable.name,
-        userEmail: usersTable.email,
         createdAt: commentsTable.createdAt,
       })
       .from(commentsTable)
@@ -244,88 +171,49 @@ router.get("/blog/:postId/comments", async (req: Request, res: Response) => {
       .where(eq(commentsTable.postId, postId))
       .orderBy(desc(commentsTable.createdAt));
 
-    res.json({
-      success: true,
-      data: comments,
-    });
+    res.json({ success: true, data: comments });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      success: false,
-      error: "Failed to fetch comments",
-    });
+    req.log.error({ err }, "Failed to fetch comments");
+    res.status(500).json({ success: false, error: "Failed to fetch comments" });
   }
 });
 
-/**
- * POST /api/blog/:postId/comments
- * Create a comment on a blog post (authenticated users only)
- */
 router.post(
   "/blog/:postId/comments",
   requireAuth,
-  async (req: Request, res: Response) => {
+  async (req: Request, res: Response): Promise<void> => {
     try {
-      const { postId } = req.params;
+      const postId = String(req.params.postId);
       const { body } = req.body;
-
       if (!body || body.trim().length === 0) {
-        return res.status(400).json({
-          success: false,
-          error: "Comment body is required",
-        });
-      }
-
-      // Get user ID from Clerk
-      const user = await db
-        .select()
-        .from(usersTable)
-        .where(eq(usersTable.clerkUserId, req.auth.userId as string))
-        .limit(1);
-
-      if (!user || user.length === 0) {
-        return res.status(401).json({
-          success: false,
-          error: "User not found",
-        });
+        res.status(400).json({ success: false, error: "Comment body is required" });
+        return;
       }
 
       const newComment = await db
         .insert(commentsTable)
         .values({
           postId,
-          userId: user[0].id,
+          userId: req.user!.id,
           body: body.trim(),
           isApproval: false,
         })
         .returning();
 
-      res.status(201).json({
-        success: true,
-        data: newComment[0],
-      });
+      res.status(201).json({ success: true, data: newComment[0] });
     } catch (err) {
-      console.error(err);
-      res.status(500).json({
-        success: false,
-        error: "Failed to create comment",
-      });
+      req.log.error({ err }, "Failed to create comment");
+      res.status(500).json({ success: false, error: "Failed to create comment" });
     }
   },
 );
 
-/**
- * DELETE /api/comments/:commentId
- * Delete a comment (admin or comment author only)
- */
 router.delete(
   "/comments/:commentId",
   requireAuth,
-  async (req: Request, res: Response) => {
+  async (req: Request, res: Response): Promise<void> => {
     try {
-      const { commentId } = req.params;
-
-      // Get comment
+      const commentId = String(req.params.commentId);
       const comment = await db
         .select()
         .from(commentsTable)
@@ -333,49 +221,24 @@ router.delete(
         .limit(1);
 
       if (!comment || comment.length === 0) {
-        return res.status(404).json({
-          success: false,
-          error: "Comment not found",
-        });
+        res.status(404).json({ success: false, error: "Comment not found" });
+        return;
       }
 
-      // Get user
-      const user = await db
-        .select()
-        .from(usersTable)
-        .where(eq(usersTable.clerkUserId, req.auth.userId as string))
-        .limit(1);
-
-      if (!user || user.length === 0) {
-        return res.status(401).json({
-          success: false,
-          error: "User not found",
-        });
-      }
-
-      // Check if user is admin or comment author
-      if (user[0].role !== "admin" && comment[0].userId !== user[0].id) {
-        return res.status(403).json({
+      const user = req.user!;
+      if (user.role !== "admin" && comment[0].userId !== user.id) {
+        res.status(403).json({
           success: false,
           error: "Not authorized to delete this comment",
         });
+        return;
       }
 
-      const deleted = await db
-        .delete(commentsTable)
-        .where(eq(commentsTable.id, commentId))
-        .returning();
-
-      res.json({
-        success: true,
-        message: "Comment deleted successfully",
-      });
+      await db.delete(commentsTable).where(eq(commentsTable.id, commentId));
+      res.json({ success: true, message: "Comment deleted successfully" });
     } catch (err) {
-      console.error(err);
-      res.status(500).json({
-        success: false,
-        error: "Failed to delete comment",
-      });
+      req.log.error({ err }, "Failed to delete comment");
+      res.status(500).json({ success: false, error: "Failed to delete comment" });
     }
   },
 );
