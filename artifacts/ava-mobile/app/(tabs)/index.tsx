@@ -320,8 +320,12 @@ export default function HomeScreen() {
               onPress={() => handleReel(r)}
               style={styles.reelCard}
             >
-              <Image source={r.cover} style={styles.reelCover} />
-              <View style={styles.reelOverlay}>
+              {r.video ? (
+                <ReelVideoCover source={r.video} />
+              ) : (
+                <Image source={r.cover} style={styles.reelCover} />
+              )}
+              <View style={styles.reelOverlay} pointerEvents="none">
                 <View
                   style={[
                     styles.playBadge,
@@ -405,6 +409,24 @@ export default function HomeScreen() {
         onClose={() => setActiveVideo(null)}
       />
     </>
+  );
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function ReelVideoCover({ source }: { source: any }) {
+  const player = useVideoPlayer(source, (p) => {
+    p.loop = true;
+    p.muted = true;
+    p.play();
+  });
+  return (
+    <VideoView
+      player={player}
+      style={styles.reelCover}
+      contentFit="cover"
+      nativeControls={false}
+      pointerEvents="none"
+    />
   );
 }
 
