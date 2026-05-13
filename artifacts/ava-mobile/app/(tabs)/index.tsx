@@ -35,6 +35,7 @@ const WAYMAKER_VIDEO = require("../../assets/videos/waymaker-promo.mov");
 const IDENTITY_TEENS_VIDEO = require("../../assets/videos/identity-teens.mp4");
 const REEL_A_VIDEO = require("../../assets/videos/reel-a.mov");
 const REEL_B_VIDEO = require("../../assets/videos/reel-b.mov");
+const REEL_C_VIDEO = require("../../assets/videos/reel-c.mov");
 
 type Photo = {
   id: string;
@@ -117,6 +118,21 @@ const REELS: Reel[] = [
     cover: require("../../assets/images/peace-suit.jpg"),
     url: `${SITE_URL}/work`,
     video: REEL_B_VIDEO,
+  },
+  {
+    id: "rclipC",
+    title: "From The Vault — Reel C",
+    tag: "Cinematic · Reel",
+    cover: require("../../assets/images/kids-plaid.jpg"),
+    url: `${SITE_URL}/work`,
+    video: REEL_C_VIDEO,
+  },
+  {
+    id: "rkids",
+    title: "Cozy Plaid — Kids Editorial",
+    tag: "Editorial · Family",
+    cover: require("../../assets/images/kids-plaid.jpg"),
+    url: `${SITE_URL}/work`,
   },
   {
     id: "r4",
