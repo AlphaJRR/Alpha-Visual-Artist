@@ -5,7 +5,7 @@ import { Smartphone, Video, Film } from "lucide-react";
 const services = [
   {
     title: "Short-Form Reels",
-    price: "Starting at $2,500",
+    price: "Starting at $950",
     description: "High-energy vertical video optimized for Instagram Reels, TikTok, and YouTube Shorts. We build content that stops the scroll.",
     icon: <Smartphone className="w-8 h-8 text-primary" />,
     features: ["Trend-driven editing", "Platform-native hooks", "Rapid turnaround", "Custom motion graphics"]
@@ -60,7 +60,8 @@ export function Services() {
                 {service.icon}
               </div>
               
-              <h3 className="text-2xl font-bold mb-6 text-white">{service.title}</h3>
+              <h3 className="text-2xl font-bold mb-2 text-white">{service.title}</h3>
+              <div className="text-primary font-mono text-sm mb-6">{service.price}</div>
               <p className="text-white/60 mb-8 leading-relaxed">
                 {service.description}
               </p>

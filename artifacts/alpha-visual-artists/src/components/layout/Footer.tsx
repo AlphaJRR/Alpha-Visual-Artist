@@ -9,7 +9,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-4">
             <img src={logo} alt="Alpha Visual Artists" className="h-10 object-contain opacity-80" />
-            <p className="text-white/50 text-sm">Chicago, IL</p>
+            <p className="text-white/50 text-sm">Based in Chicago — available for travel worldwide</p>
           </div>
           <div className="flex items-center gap-6">
             <a href="#" className="text-white/50 hover:text-primary transition-colors">

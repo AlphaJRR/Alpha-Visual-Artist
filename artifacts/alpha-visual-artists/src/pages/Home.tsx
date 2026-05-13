@@ -6,6 +6,8 @@ import ApparelSection from "@/components/sections/ApparelSection";
 import { Showreel } from "@/components/sections/Showreel";
 import { WorkGallery } from "@/components/sections/WorkGallery";
 import { Services } from "@/components/sections/Services";
+import { Retainers } from "@/components/sections/Retainers";
+import { Clients } from "@/components/sections/Clients";
 import { Podcasts } from "@/components/sections/Podcasts";
 import { Portraits } from "@/components/sections/Portraits";
 import { Merch } from "@/components/sections/Merch";
@@ -20,7 +22,9 @@ export default function Home() {
         <ApparelSection />
         <Showreel />
         <WorkGallery />
+        <Clients />
         <Services />
+        <Retainers />
         <Podcasts />
         <Portraits />
         <Merch />
