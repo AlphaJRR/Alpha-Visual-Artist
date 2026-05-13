@@ -59,3 +59,9 @@ id = "yk_suSqPi-Hke5kH8GS-v"
 uri = "file://ava-netlify-v5-crew.zip"
 type = "unspecified"
 title = "ava-netlify-v5-crew.zip — your exact Crew Collection HTML, with your photos"
+
+[[outputs]]
+id = "6-pWGOeKi6JF0xr_pZe2o"
+uri = "file://ava-site-v3.zip"
+type = "unspecified"
+title = "AVA Site v3 - Netlify Drop Zip"
