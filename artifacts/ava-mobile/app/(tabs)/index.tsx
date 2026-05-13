@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Image,
   ImageSourcePropType,
+  Modal,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -13,6 +14,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
 import * as WebBrowser from "expo-web-browser";
+import { useVideoPlayer, VideoView } from "expo-video";
 
 const SITE_URL = "https://alphavisualartists.com";
 
@@ -24,7 +26,12 @@ type Reel = {
   tag: string;
   cover: ImageSourcePropType;
   url: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  video?: any;
 };
+
+const OPENER_VIDEO = require("../../assets/videos/opener.mov");
+const WAYMAKER_VIDEO = require("../../assets/videos/waymaker-promo.mov");
 
 type Photo = {
   id: string;
@@ -40,6 +47,22 @@ type Tip = {
 };
 
 const REELS: Reel[] = [
+  {
+    id: "r0",
+    title: "Arguably The Best",
+    tag: "Featured · Reel",
+    cover: require("../../assets/images/event-wade.jpg"),
+    url: `${SITE_URL}/work`,
+    video: OPENER_VIDEO,
+  },
+  {
+    id: "rwm",
+    title: "Waymaker Chicago Promo",
+    tag: "Event · Promo",
+    cover: require("../../assets/images/event-cannon.jpg"),
+    url: `${SITE_URL}/work`,
+    video: WAYMAKER_VIDEO,
+  },
   {
     id: "r1",
     title: "Dwyane Wade",
@@ -66,6 +89,27 @@ const REELS: Reel[] = [
     title: "Live From The Stage",
     tag: "Music · Performance",
     cover: require("../../assets/images/live-singer.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "rconcert1",
+    title: "Festival Headliner",
+    tag: "Concert · Live",
+    cover: require("../../assets/images/stage-performer.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "rconcert2",
+    title: "Red Lights, Big Stage",
+    tag: "Concert · Live",
+    cover: require("../../assets/images/red-stage-mic.jpg"),
+    url: `${SITE_URL}/work`,
+  },
+  {
+    id: "rlegends",
+    title: "Rap Legends",
+    tag: "Music · Tour",
+    cover: require("../../assets/images/rap-legends.jpg"),
     url: `${SITE_URL}/work`,
   },
   {
@@ -152,6 +196,8 @@ const TIPS: Tip[] = [
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [activeVideo, setActiveVideo] = useState<any | null>(null);
 
   const open = (url: string) => {
     Haptics.selectionAsync().catch(() => {});
@@ -159,6 +205,15 @@ export default function HomeScreen() {
       toolbarColor: "#0a0a0a",
       controlsColor: "#00d4ff",
     }).catch(() => {});
+  };
+
+  const handleReel = (r: Reel) => {
+    Haptics.selectionAsync().catch(() => {});
+    if (r.video) {
+      setActiveVideo(r.video);
+    } else {
+      open(r.url);
+    }
   };
 
   return (
@@ -212,14 +267,28 @@ export default function HomeScreen() {
           {REELS.map((r) => (
             <Pressable
               key={r.id}
-              onPress={() => open(r.url)}
+              onPress={() => handleReel(r)}
               style={styles.reelCard}
             >
               <Image source={r.cover} style={styles.reelCover} />
               <View style={styles.reelOverlay}>
-                <View style={styles.playBadge}>
-                  <Ionicons name="play" size={18} color="#000" />
+                <View
+                  style={[
+                    styles.playBadge,
+                    r.video && styles.playBadgeVideo,
+                  ]}
+                >
+                  <Ionicons
+                    name="play"
+                    size={18}
+                    color={r.video ? "#fff" : "#000"}
+                  />
                 </View>
+                {r.video && (
+                  <View style={styles.videoBadge}>
+                    <Text style={styles.videoBadgeTxt}>WATCH</Text>
+                  </View>
+                )}
               </View>
               <View style={styles.reelMeta}>
                 <Text style={styles.reelTag}>{r.tag}</Text>
@@ -280,7 +349,52 @@ export default function HomeScreen() {
           </Pressable>
         </View>
       </ScrollView>
+
+      <VideoModal
+        source={activeVideo}
+        onClose={() => setActiveVideo(null)}
+      />
     </>
+  );
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function VideoModal({ source, onClose }: { source: any | null; onClose: () => void }) {
+  const insets = useSafeAreaInsets();
+  const player = useVideoPlayer(source ?? null, (p) => {
+    p.loop = false;
+    if (source) p.play();
+  });
+
+  return (
+    <Modal
+      visible={!!source}
+      animationType="fade"
+      transparent={false}
+      onRequestClose={onClose}
+      statusBarTranslucent
+    >
+      <View style={styles.videoModalRoot}>
+        <StatusBar style="light" />
+        {source && (
+          <VideoView
+            player={player}
+            style={styles.videoPlayer}
+            contentFit="contain"
+            allowsFullscreen
+            allowsPictureInPicture
+            nativeControls
+          />
+        )}
+        <Pressable
+          onPress={onClose}
+          style={[styles.videoCloseBtn, { top: insets.top + 12 }]}
+          hitSlop={12}
+        >
+          <Ionicons name="close" size={22} color="#fff" />
+        </Pressable>
+      </View>
+    </Modal>
   );
 }
 
@@ -434,7 +548,48 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 0 },
   },
+  playBadgeVideo: {
+    backgroundColor: "rgba(0,0,0,0.55)",
+    borderWidth: 2,
+    borderColor: "#00d4ff",
+  },
+  videoBadge: {
+    position: "absolute",
+    top: 10,
+    left: 10,
+    backgroundColor: "#00d4ff",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 4,
+  },
+  videoBadgeTxt: {
+    color: "#000",
+    fontSize: 9,
+    fontWeight: "900",
+    letterSpacing: 1.2,
+  },
   reelMeta: { padding: 12 },
+
+  // VIDEO MODAL
+  videoModalRoot: {
+    flex: 1,
+    backgroundColor: "#000",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  videoPlayer: { width: "100%", height: "100%" },
+  videoCloseBtn: {
+    position: "absolute",
+    right: 16,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "rgba(0,0,0,0.6)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.2)",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   reelTag: {
     color: "#00d4ff",
     fontSize: 10,
