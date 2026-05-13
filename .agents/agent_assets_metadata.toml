@@ -1,5 +1,28 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "XlZKFg5EcjXBKfdzAWGTt"
+uri = "file://artifacts/alpha-visual-artists/src/assets/product-hoodie.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "_iAvtui35W-au2KpCuQ-a"
+uri = "file://artifacts/alpha-visual-artists/src/assets/product-tee.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "GqGF8m_b4U_7VODRqg1XU"
+uri = "file://artifacts/alpha-visual-artists/src/assets/product-pants.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "BRc2gq8YXnhb4z2nlfJeH"
+uri = "file://artifacts/alpha-visual-artists/src/assets/product-jacket.png"
+type = "image"
+title = "generated_image"
 
 [[outputs]]
 id = "w0lr5RtPxZOKVr7v21wOu"
@@ -17,7 +40,7 @@ title = "Final build — cal.com, /work page, popup w/ Netlify Forms"
 id = "dYHh17X8_Gk0vOLfsyRBs"
 uri = "file://ava-site-final.zip"
 type = "unspecified"
-title = "AVA site — final build (drop into Netlify)"
+title = "AVA Site - Fixed Product Images"
 
 [[outputs]]
 id = "OZQ_xSvE7jky3C1xFiEEX"

@@ -1,8 +1,8 @@
 import React from "react";
-import productHoodie from "@/assets/portrait-redlight.jpg";
-import productTee from "@/assets/family-bw.jpeg";
-import productPants from "@/assets/with-mentor.jpeg";
-import productJacket from "@/assets/silhouette-spotlight.jpg";
+import productHoodie from "@/assets/product-hoodie.png";
+import productTee from "@/assets/product-tee.png";
+import productPants from "@/assets/product-pants.png";
+import productJacket from "@/assets/product-jacket.png";
 
 export function ApparelSection() {
   return (
