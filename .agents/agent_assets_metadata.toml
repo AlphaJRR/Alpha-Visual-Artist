@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "PtFnU6mTJjfN1oFas09PV"
@@ -30,3 +29,9 @@ id = "G55BvTl6uvL2STJ1MQWyS"
 uri = "file://artifacts/alpha-visual-artists/src/assets/merch-bg.png"
 type = "image"
 title = "premium streetwear merch"
+
+[[outputs]]
+id = "w0lr5RtPxZOKVr7v21wOu"
+uri = "file://alpha-visual-artists-dist.tar.gz"
+type = "unspecified"
+title = "Alpha Visual Artists — built site (upload to your host)"
