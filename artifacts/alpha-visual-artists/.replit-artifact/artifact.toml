@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Alpha Visual Artists"
+version = "1.0.0"
+id = "artifacts/alpha-visual-artists"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18606
+
+[services.development]
+run = "pnpm --filter @workspace/alpha-visual-artists run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/alpha-visual-artists", "run", "build" ]
+publicDir = "artifacts/alpha-visual-artists/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18606"
+BASE_PATH = "/"
