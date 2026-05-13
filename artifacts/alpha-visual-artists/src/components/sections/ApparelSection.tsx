@@ -1,193 +1,189 @@
 import React from "react";
-import apparelHero from "@/assets/silhouette-spotlight.jpg";
-import lookFloral from "@/assets/portrait-floral.jpeg";
-import lookCrew from "@/assets/family-bw.jpeg";
-import lookRed from "@/assets/portrait-redlight.jpg";
-import lookCouple from "@/assets/couple-chicago.jpeg";
-import lookMentor from "@/assets/with-mentor.jpeg";
+import productHoodie from "@/assets/portrait-redlight.jpg";
+import productTee from "@/assets/family-bw.jpeg";
+import productPants from "@/assets/with-mentor.jpeg";
+import productJacket from "@/assets/silhouette-spotlight.jpg";
 
 export function ApparelSection() {
   return (
     <>
       <style>{`
-        .ava-apparel *, .ava-apparel *::before, .ava-apparel *::after { box-sizing: border-box; }
+        .ava-crew * { margin: 0; padding: 0; box-sizing: border-box; }
+        .ava-crew { background: #0a0a0a; color: #e0e0e0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+        .ava-crew .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
 
-        .ava-apparel { background: #080808; color: #fff; font-family: 'Inter', sans-serif; }
+        .ava-crew .hero { padding: 100px 0 80px; text-align: center; }
+        .ava-crew .hero-tag { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: #00d4ff; margin-bottom: 24px; font-weight: 600; }
+        .ava-crew .hero h1 { font-size: clamp(42px, 8vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 24px; color: #fff; font-family: 'Sora', sans-serif; }
+        .ava-crew .hero h1 span { color: #00d4ff; }
+        .ava-crew .hero p { font-size: 18px; color: #b0b0b0; max-width: 700px; margin: 0 auto 40px; line-height: 1.7; }
 
-        .ava-apparel .section-rule { width: 100%; height: 1px; background: rgba(255,255,255,.07); }
+        .ava-crew .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+        .ava-crew .btn { padding: 14px 32px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; text-decoration: none; }
+        .ava-crew .btn-primary { background: #00d4ff; color: #000; }
+        .ava-crew .btn-primary:hover { background: #00c9ff; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0, 212, 255, 0.2); }
+        .ava-crew .btn-secondary { background: transparent; color: #00d4ff; border: 2px solid #00d4ff; }
+        .ava-crew .btn-secondary:hover { background: #00d4ff; color: #000; transform: translateY(-2px); }
 
-        .ava-apparel .apparel-section { padding: 80px 48px; background: #080808; }
+        .ava-crew .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin: 100px 0; padding: 60px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+        .ava-crew .stat { text-align: center; }
+        .ava-crew .stat-number { font-size: 48px; font-weight: 700; color: #00d4ff; margin-bottom: 8px; font-family: 'Sora', sans-serif; }
+        .ava-crew .stat-label { font-size: 13px; color: #999; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
 
-        .ava-apparel .hero-banner {
-          position: relative; width: 100%; height: 520px;
-          overflow: hidden; margin-bottom: 56px;
-        }
-        .ava-apparel .hero-banner img {
-          width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
-          display: block; transition: transform .7s ease;
-        }
-        .ava-apparel .hero-banner:hover img { transform: scale(1.03); }
-        .ava-apparel .hero-overlay {
-          position: absolute; inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 50%, transparent 100%);
-        }
-        .ava-apparel .hero-text { position: absolute; bottom: 40px; left: 48px; }
-        .ava-apparel .eyebrow {
-          font-size: 10px; letter-spacing: .35em; text-transform: uppercase;
-          color: rgba(255,255,255,.4); margin-bottom: 10px; font-weight: 300;
-        }
-        .ava-apparel .hero-title {
-          font-family: 'Sora', sans-serif; font-size: clamp(40px, 5vw, 68px);
-          font-weight: 800; line-height: 1; letter-spacing: -.02em; margin: 0;
-        }
+        .ava-crew .quote-section { margin: 100px 0; padding: 60px 40px; background: #111; border-left: 4px solid #00d4ff; border-radius: 4px; }
+        .ava-crew .quote-section h2 { font-size: clamp(32px, 5vw, 48px); font-weight: 700; line-height: 1.2; margin-bottom: 16px; color: #fff; font-family: 'Sora', sans-serif; }
+        .ava-crew .quote-section h2 span { color: #00d4ff; }
+        .ava-crew .quote-section p { font-size: 13px; color: #999; margin-top: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        .ava-apparel .lifestyle-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: auto auto;
-          gap: 10px;
-          margin-bottom: 52px;
-        }
-        .ava-apparel .grid-item { position: relative; overflow: hidden; cursor: pointer; }
-        .ava-apparel .grid-item img {
-          width: 100%; height: 100%; object-fit: cover;
-          display: block; transition: transform .5s ease;
-        }
-        .ava-apparel .grid-item:hover img { transform: scale(1.06); }
-        .ava-apparel .grid-overlay {
-          position: absolute; inset: 0; background: rgba(0,0,0,0);
-          transition: background .3s; display: flex; align-items: flex-end; padding: 14px;
-        }
-        .ava-apparel .grid-item:hover .grid-overlay { background: rgba(0,0,0,.35); }
-        .ava-apparel .grid-label {
-          font-size: 9px; letter-spacing: .25em; text-transform: uppercase;
-          color: rgba(255,255,255,0); transition: color .3s;
-        }
-        .ava-apparel .grid-item:hover .grid-label { color: rgba(255,255,255,.85); }
+        .ava-crew .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; margin: 100px 0; }
+        .ava-crew .product { background: #111; border-radius: 12px; overflow: hidden; transition: all 0.3s ease; border: 1px solid #1a1a1a; }
+        .ava-crew .product:hover { transform: translateY(-8px); border-color: #00d4ff; box-shadow: 0 12px 32px rgba(0, 212, 255, 0.15); }
+        .ava-crew .product-image { width: 100%; height: 300px; object-fit: cover; background: linear-gradient(135deg, #1a1a1a 0%, #222 100%); display: block; }
+        .ava-crew .product-info { padding: 20px; }
+        .ava-crew .product-name { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: #fff; font-family: 'Sora', sans-serif; }
+        .ava-crew .product-desc { font-size: 12px; color: #999; margin-bottom: 12px; }
+        .ava-crew .product-price { font-size: 18px; font-weight: 700; color: #00d4ff; margin-bottom: 16px; }
+        .ava-crew .product-btn { width: 100%; padding: 10px; background: #00d4ff; color: #000; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+        .ava-crew .product-btn:hover { background: #00c9ff; transform: translateY(-2px); }
 
-        .ava-apparel .grid-item.top { aspect-ratio: 3/4; }
-        .ava-apparel .grid-item.bottom { aspect-ratio: 16/9; }
-        .ava-apparel .grid-item.bottom-left { grid-column: 1 / 2; grid-row: 2; }
-        .ava-apparel .grid-item.bottom-right { grid-column: 2 / 4; grid-row: 2; }
+        .ava-crew .three-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin: 100px 0; }
+        .ava-crew .col-item { background: #111; padding: 40px; border-radius: 12px; text-align: center; border: 1px solid #1a1a1a; transition: all 0.3s; }
+        .ava-crew .col-item:hover { border-color: #00d4ff; box-shadow: 0 8px 24px rgba(0, 212, 255, 0.1); }
+        .ava-crew .col-item h4 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #fff; font-family: 'Sora', sans-serif; }
+        .ava-crew .col-item p { font-size: 13px; color: #999; margin-bottom: 20px; line-height: 1.6; }
+        .ava-crew .col-item .badge { display: inline-block; background: #00d4ff; color: #000; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        .ava-apparel .img-solo { object-position: center 70% !important; }
-        .ava-apparel .img-justice { object-position: center 45% !important; }
+        .ava-crew .divider { text-align: center; margin: 100px 0; }
+        .ava-crew .divider h3 { font-size: clamp(32px, 5vw, 56px); font-weight: 700; color: #fff; font-family: 'Sora', sans-serif; line-height: 1.2; }
+        .ava-crew .divider h3 span { color: #00d4ff; }
 
-        .ava-apparel .bottom-row {
-          display: flex; align-items: flex-end;
-          justify-content: space-between; gap: 48px;
-        }
-        .ava-apparel .copy-block { max-width: 520px; }
-        .ava-apparel .copy-body { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,.65); font-weight: 300; }
-        .ava-apparel .cta-btn {
-          display: inline-flex; align-items: center; gap: 12px;
-          border: 1px solid rgba(255,255,255,.25); color: #fff;
-          padding: 16px 32px; font-size: 11px; letter-spacing: .2em;
-          text-transform: uppercase; text-decoration: none;
-          transition: background .3s, color .3s, border-color .3s;
-          white-space: nowrap; flex-shrink: 0;
-        }
-        .ava-apparel .cta-btn:hover { background: #fff; color: #000; border-color: #fff; }
-        .ava-apparel .cta-btn:hover svg { transform: translateX(4px); }
-        .ava-apparel .cta-btn svg { transition: transform .3s; }
+        .ava-crew .footer-cta { text-align: center; padding: 100px 0; }
+        .ava-crew .footer-cta h2 { font-size: clamp(40px, 8vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 32px; color: #fff; font-family: 'Sora', sans-serif; }
+        .ava-crew .footer-cta h2 span { color: #00d4ff; }
+        .ava-crew .footer-cta p { font-size: 16px; color: #999; max-width: 700px; margin: 0 auto 40px; line-height: 1.7; }
 
         @media (max-width: 768px) {
-          .ava-apparel .apparel-section { padding: 48px 20px; }
-          .ava-apparel .hero-banner { height: 360px; }
-          .ava-apparel .hero-text { left: 20px; bottom: 24px; }
-          .ava-apparel .lifestyle-grid { grid-template-columns: repeat(2, 1fr); }
-          .ava-apparel .grid-item.bottom-left { grid-column: 1 / 2; grid-row: auto; }
-          .ava-apparel .grid-item.bottom-right { grid-column: 2 / 3; grid-row: auto; }
-          .ava-apparel .grid-item.bottom { aspect-ratio: 3/4; }
-          .ava-apparel .bottom-row { flex-direction: column; align-items: flex-start; gap: 28px; }
+          .ava-crew .hero { padding: 60px 0 40px; }
+          .ava-crew .hero h1 { margin-bottom: 16px; }
+          .ava-crew .hero p { font-size: 16px; }
+          .ava-crew .stats { gap: 24px; padding: 40px 0; }
+          .ava-crew .quote-section { padding: 40px 24px; }
+          .ava-crew .products { gap: 20px; }
+          .ava-crew .product-image { height: 250px; }
+          .ava-crew .three-col { gap: 20px; }
+          .ava-crew .col-item { padding: 28px; }
         }
       `}</style>
 
-      <div className="ava-apparel" id="apparel">
-        <div className="section-rule"></div>
-        <section className="apparel-section">
-          <div className="hero-banner">
-            <img
-              src={apparelHero}
-              alt="Alpha Visual Artists — Concrete Vision"
-            />
-            <div className="hero-overlay"></div>
-            <div className="hero-text">
-              <p className="eyebrow">Alpha Visual Artists</p>
-              <h2 className="hero-title">
-                Alpha Crew<br />Collection
-              </h2>
+      <div className="ava-crew" id="apparel">
+        <div className="container">
+          <div className="hero">
+            <p className="hero-tag">AVA Apparel — Crew Collection</p>
+            <h1>Made for the crew &amp;<br />creators.<br /><span>Worn by everyone.</span></h1>
+            <p>Built for production days. Designed for those who create. Apparel built for discipline, precision, and the standard of excellence required when the lights come on.</p>
+            <div className="cta-group">
+              <a href="#products" className="btn btn-primary">Shop the collection</a>
+              <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="btn btn-secondary">Browse all</a>
             </div>
           </div>
 
-          <div className="lifestyle-grid">
-            <div className="grid-item top">
-              <img
-                src={lookFloral}
-                alt="Alpha Crew — floral lifestyle look"
-                style={{ objectPosition: "center 30%" }}
-              />
-              <div className="grid-overlay"><span className="grid-label">Forest Green Tee</span></div>
-            </div>
+          <div className="stats">
+            <div className="stat"><div className="stat-number">17</div><div className="stat-label">Styles available</div></div>
+            <div className="stat"><div className="stat-number">100%</div><div className="stat-label">Cotton heavyweight</div></div>
+            <div className="stat"><div className="stat-number">Set</div><div className="stat-label">Tested &amp; approved</div></div>
+            <div className="stat"><div className="stat-number">AVA15</div><div className="stat-label">15% off first order</div></div>
+          </div>
 
-            <div className="grid-item top">
-              <img
-                src={lookCrew}
-                alt="The Alpha Crew — family"
-                style={{ objectPosition: "center 30%" }}
-              />
-              <div className="grid-overlay"><span className="grid-label">The Crew</span></div>
-            </div>
+          <div className="quote-section">
+            <h2>Creators don't just<br />make things.<br />They make the world<br /><span>make sense.</span></h2>
+            <p>For everyone who stays creating.</p>
+          </div>
 
-            <div className="grid-item top">
-              <img
-                src={lookRed}
-                alt="Alpha Crew — red light editorial"
-                className="img-solo"
-              />
-              <div className="grid-overlay"><span className="grid-label">Alpha Hoodie</span></div>
+          <div id="products" className="products">
+            <div className="product">
+              <img src={productHoodie} alt="ALPHA CREW Hoodie" className="product-image" />
+              <div className="product-info">
+                <div className="product-name">ALPHA CREW Hoodie</div>
+                <div className="product-desc">Premium heavyweight hoodie</div>
+                <div className="product-price">$87.50</div>
+                <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="product-btn" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>Shop now</a>
+              </div>
             </div>
-
-            <div className="grid-item bottom bottom-left">
-              <img
-                src={lookCouple}
-                alt="Couple — Chicago golden hour"
-                style={{ objectPosition: "center 35%" }}
-              />
-              <div className="grid-overlay"><span className="grid-label">Golden Hour</span></div>
+            <div className="product">
+              <img src={productTee} alt="Oversized T-Shirt" className="product-image" />
+              <div className="product-info">
+                <div className="product-name">Oversized T-Shirt</div>
+                <div className="product-desc">100% cotton, classic fit</div>
+                <div className="product-price">$45.00</div>
+                <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="product-btn" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>Shop now</a>
+              </div>
             </div>
-
-            <div className="grid-item bottom bottom-right">
-              <img
-                src={lookMentor}
-                alt="Alpha Crew — with the mentor"
-                className="img-justice"
-              />
-              <div className="grid-overlay"><span className="grid-label">Justice</span></div>
+            <div className="product">
+              <img src={productPants} alt="CREW Sweatpants" className="product-image" />
+              <div className="product-info">
+                <div className="product-name">CREW Sweatpants</div>
+                <div className="product-desc">Comfort for set days</div>
+                <div className="product-price">$67.50</div>
+                <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="product-btn" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>Shop now</a>
+              </div>
+            </div>
+            <div className="product">
+              <img src={productJacket} alt="Canvas Work Jacket" className="product-image" />
+              <div className="product-info">
+                <div className="product-name">Canvas Work Jacket</div>
+                <div className="product-desc">Built for all conditions</div>
+                <div className="product-price">$125.00</div>
+                <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="product-btn" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>Shop now</a>
+              </div>
             </div>
           </div>
 
-          <div className="bottom-row">
-            <div className="copy-block">
-              <p className="eyebrow" style={{ marginBottom: 16 }}>Concrete Vision</p>
-              <p className="copy-body">
-                Wearable documentation. Shot on location across Chicago —
-                garments built for creators who move through the world with intention.
-              </p>
-            </div>
-            <a
-              href="https://shop.alphavisualartists.com"
-              target="_blank"
-              rel="noreferrer"
-              className="cta-btn"
-            >
-              Shop the Collection
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
+          <div className="quote-section">
+            <h2>The streets don't care<br />what you make.<br /><span>Neither do we.</span></h2>
+            <p>Real recognizes real.</p>
           </div>
-        </section>
+
+          <div className="three-col">
+            <div className="col-item">
+              <h4>On the clock</h4>
+              <p>Wear ALPHA when you're directing, shooting, or building something real.</p>
+              <span className="badge">Set wear</span>
+            </div>
+            <div className="col-item">
+              <h4>Off the clock</h4>
+              <p>Crew apparel for everything else. Studio, coffee shop, anywhere else.</p>
+              <span className="badge">Street wear</span>
+            </div>
+            <div className="col-item">
+              <h4>For anyone</h4>
+              <p>You don't have to be on set to wear ALPHA. Just create.</p>
+              <span className="badge">Creator wear</span>
+            </div>
+          </div>
+
+          <div className="quote-section">
+            <h2>Every great artist was<br />once a kid who<br /><span>refused to stop.</span></h2>
+            <p>Keep creating.</p>
+          </div>
+
+          <div className="divider">
+            <h3>Built for the <span>set.</span><br />Made for<br /><span>everything else.</span></h3>
+          </div>
+
+          <div className="quote-section">
+            <h2>The next generation<br />of creators<br /><span>is already here.</span></h2>
+            <p>Are you with them?</p>
+          </div>
+
+          <div className="footer-cta">
+            <h2>Wear the<br /><span>vision.</span></h2>
+            <p>ALPHA CREW doesn't care if you're directing a feature or a first date. Show up like you mean it.</p>
+            <div className="cta-group">
+              <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="btn btn-primary">Shop all styles</a>
+              <a href="/" className="btn btn-secondary">Back to AVA</a>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

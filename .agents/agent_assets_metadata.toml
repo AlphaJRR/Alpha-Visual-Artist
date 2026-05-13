@@ -30,3 +30,9 @@ id = "PDEtUzQ3T5yTT1w_C3DX-"
 uri = "file://ava-netlify-v4-photos.zip"
 type = "unspecified"
 title = "ava-netlify-v4-photos.zip — your photos now in the apparel section"
+
+[[outputs]]
+id = "yk_suSqPi-Hke5kH8GS-v"
+uri = "file://ava-netlify-v5-crew.zip"
+type = "unspecified"
+title = "ava-netlify-v5-crew.zip — your exact Crew Collection HTML, with your photos"
