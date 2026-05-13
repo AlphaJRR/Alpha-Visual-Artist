@@ -18,9 +18,9 @@ export default function TabLayout() {
           paddingTop: 8,
         },
         tabBarLabelStyle: {
-          fontSize: 11,
+          fontSize: 10,
           fontWeight: "600",
-          letterSpacing: 0.5,
+          letterSpacing: 0.4,
           textTransform: "uppercase",
         },
         sceneStyle: { backgroundColor: "#0a0a0a" },
@@ -29,9 +29,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Site",
+          title: "Home",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="globe-outline" size={size} color={color} />
+            <Ionicons name="home-outline" size={size} color={color} />
           ),
         }}
       />
@@ -49,7 +49,25 @@ export default function TabLayout() {
         options={{
           title: "Shoot",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="film-outline" size={size} color={color} />
+            <Ionicons name="videocam-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="edit"
+        options={{
+          title: "Edit",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="cut-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="shop"
+        options={{
+          title: "Shop",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="bag-outline" size={size} color={color} />
           ),
         }}
       />

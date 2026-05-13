@@ -15,191 +15,120 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 import { Ionicons } from "@expo/vector-icons";
 
-type Phase = "pre" | "day" | "post";
+type Item = { id: string; text: string; done: boolean };
 
-type Shot = { id: string; text: string; done: boolean };
+const STORAGE_KEY = "ava_edit_v1";
 
-const PHASES: { key: Phase; label: string; subtitle: string }[] = [
-  { key: "pre", label: "Pre-Prod", subtitle: "Plan the shoot" },
-  { key: "day", label: "Day Of", subtitle: "Roll cameras" },
-  { key: "post", label: "Post", subtitle: "Wrap & deliver" },
+const SEED = [
+  "Offload + back up all cards (3-2-1 rule)",
+  "Create project, set sequence to delivery res/fps",
+  "Import & label bins: A-cam, B-cam, audio, B-roll, music",
+  "Sync audio with PluralEyes / multicam clip",
+  "Watch every clip — flag selects + circle takes",
+  "Build storyboard / paper edit on the timeline",
+  "String-out rough cut to music",
+  "Tighten to picture lock — kill 20% of length",
+  "Send v1 to client for notes",
+  "Apply color: balance → contrast → grade → look",
+  "Mix audio: dialogue -12 LUFS, music -24, SFX taste",
+  "Add titles, lower thirds, end card",
+  "Sound design pass + room tone fills",
+  "Final QC: full-screen watch, headphones on",
+  "Export masters: 16:9 H.264, 9:16, 1:1, ProRes archive",
+  "Upload deliverables to portal + archive project",
 ];
 
-const STORAGE_KEYS: Record<Phase, string> = {
-  pre: "ava_shoot_pre_v1",
-  day: "ava_shoot_day_v1",
-  post: "ava_shoot_post_v1",
-};
-
-const SEEDS: Record<Phase, string[]> = {
-  pre: [
-    "Lock concept + creative brief with client",
-    "Build shot list / storyboard",
-    "Scout location (light, sound, power)",
-    "Confirm talent + wardrobe",
-    "Pull permits + insurance if needed",
-    "Send call sheet 24h ahead",
-    "Pack gear: cameras, lenses, audio, lights",
-    "Charge ALL batteries, format ALL cards",
-  ],
-  day: [
-    "Arrive 30 min early — scout sun + outlets",
-    "Set up audio first, monitor levels",
-    "White balance + expose for skin tones",
-    "Slate every take (scene + take #)",
-    "Capture B-roll: wide, medium, detail",
-    "Get safety takes — always one more",
-    "Back up cards to SSD before leaving set",
-    "Confirm talent release signed",
-  ],
-  post: [
-    "Offload + back up footage (3-2-1 rule)",
-    "Sync audio, organize bins by scene",
-    "String-out selects, build rough cut",
-    "Lock picture, send to client for notes",
-    "Color grade + mix audio",
-    "Render masters: 16:9, 9:16, 1:1",
-    "Upload to client portal for approval",
-    "Archive project to cold storage",
-  ],
-};
-
-export default function ShootScreen() {
+export default function EditScreen() {
   const insets = useSafeAreaInsets();
-  const [phase, setPhase] = useState<Phase>("pre");
-  const [data, setData] = useState<Record<Phase, Shot[]>>({
-    pre: [],
-    day: [],
-    post: [],
-  });
-  const [loaded, setLoaded] = useState<Record<Phase, boolean>>({
-    pre: false,
-    day: false,
-    post: false,
-  });
+  const [items, setItems] = useState<Item[]>([]);
+  const [loaded, setLoaded] = useState(false);
   const [draft, setDraft] = useState("");
 
-  // Load each phase from storage on mount
   useEffect(() => {
     (async () => {
-      const next: Record<Phase, Shot[]> = { pre: [], day: [], post: [] };
-      for (const p of ["pre", "day", "post"] as Phase[]) {
-        try {
-          const raw = await AsyncStorage.getItem(STORAGE_KEYS[p]);
-          if (raw) {
-            next[p] = JSON.parse(raw);
-          } else {
-            next[p] = SEEDS[p].map((text, i) => ({
-              id: `seed-${p}-${i}`,
+      try {
+        const raw = await AsyncStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          setItems(JSON.parse(raw));
+        } else {
+          setItems(
+            SEED.map((text, i) => ({
+              id: `seed-${i}`,
               text,
               done: false,
-            }));
-          }
-        } catch {
-          next[p] = [];
+            })),
+          );
         }
+      } catch {
+        setItems([]);
+      } finally {
+        setLoaded(true);
       }
-      setData(next);
-      setLoaded({ pre: true, day: true, post: true });
     })();
   }, []);
 
-  // Persist whenever a loaded phase changes
   useEffect(() => {
-    (Object.keys(loaded) as Phase[]).forEach((p) => {
-      if (loaded[p]) {
-        AsyncStorage.setItem(STORAGE_KEYS[p], JSON.stringify(data[p])).catch(
-          () => {},
-        );
-      }
-    });
-  }, [data, loaded]);
+    if (!loaded) return;
+    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(items)).catch(() => {});
+  }, [items, loaded]);
 
-  const items = data[phase];
-  const remaining = useMemo(() => items.filter((i) => !i.done).length, [items]);
+  const remaining = useMemo(
+    () => items.filter((i) => !i.done).length,
+    [items],
+  );
   const total = items.length;
   const pct = total === 0 ? 0 : Math.round(((total - remaining) / total) * 100);
-
-  const switchPhase = (p: Phase) => {
-    Haptics.selectionAsync().catch(() => {});
-    setPhase(p);
-    setDraft("");
-  };
 
   const add = () => {
     const text = draft.trim();
     if (!text) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
-    setData((d) => ({
-      ...d,
-      [phase]: [{ id: `${Date.now()}`, text, done: false }, ...d[phase]],
-    }));
+    setItems((s) => [{ id: `${Date.now()}`, text, done: false }, ...s]);
     setDraft("");
   };
 
   const toggle = (id: string) => {
     Haptics.selectionAsync().catch(() => {});
-    setData((d) => ({
-      ...d,
-      [phase]: d[phase].map((s) =>
-        s.id === id ? { ...s, done: !s.done } : s,
-      ),
-    }));
+    setItems((s) =>
+      s.map((i) => (i.id === id ? { ...i, done: !i.done } : i)),
+    );
   };
 
   const remove = (id: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).catch(() => {});
-    setData((d) => ({
-      ...d,
-      [phase]: d[phase].filter((s) => s.id !== id),
-    }));
+    setItems((s) => s.filter((i) => i.id !== id));
   };
 
   const clearDone = () => {
     const doneCount = items.filter((s) => s.done).length;
     if (doneCount === 0) return;
-    Alert.alert(
-      "Clear completed?",
-      `Remove ${doneCount} checked item${doneCount > 1 ? "s" : ""}.`,
-      [
-        { text: "Cancel", style: "cancel" },
-        {
-          text: "Clear",
-          style: "destructive",
-          onPress: () =>
-            setData((d) => ({
-              ...d,
-              [phase]: d[phase].filter((s) => !s.done),
-            })),
-        },
-      ],
-    );
+    Alert.alert("Clear completed?", `Remove ${doneCount} item(s).`, [
+      { text: "Cancel", style: "cancel" },
+      {
+        text: "Clear",
+        style: "destructive",
+        onPress: () => setItems((s) => s.filter((x) => !x.done)),
+      },
+    ]);
   };
 
   const resetSeed = () => {
-    Alert.alert(
-      "Reset to defaults?",
-      "Replaces this list with the starter checklist.",
-      [
-        { text: "Cancel", style: "cancel" },
-        {
-          text: "Reset",
-          style: "destructive",
-          onPress: () =>
-            setData((d) => ({
-              ...d,
-              [phase]: SEEDS[phase].map((text, i) => ({
-                id: `seed-${phase}-${i}-${Date.now()}`,
-                text,
-                done: false,
-              })),
+    Alert.alert("Reset workflow?", "Replaces list with default edit pipeline.", [
+      { text: "Cancel", style: "cancel" },
+      {
+        text: "Reset",
+        style: "destructive",
+        onPress: () =>
+          setItems(
+            SEED.map((text, i) => ({
+              id: `seed-${i}-${Date.now()}`,
+              text,
+              done: false,
             })),
-        },
-      ],
-    );
+          ),
+      },
+    ]);
   };
-
-  const activePhase = PHASES.find((p) => p.key === phase)!;
 
   return (
     <KeyboardAvoidingView
@@ -208,31 +137,10 @@ export default function ShootScreen() {
       keyboardVerticalOffset={Platform.OS === "ios" ? 90 : 0}
     >
       <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
-        <Text style={styles.eyebrow}>Production</Text>
-        <Text style={styles.h1}>Shoot</Text>
-        <Text style={styles.sub}>{activePhase.subtitle}</Text>
+        <Text style={styles.eyebrow}>Post Production</Text>
+        <Text style={styles.h1}>Edit</Text>
+        <Text style={styles.sub}>Log → cut → color → deliver</Text>
 
-        {/* Segmented control */}
-        <View style={styles.seg}>
-          {PHASES.map((p) => {
-            const active = p.key === phase;
-            return (
-              <Pressable
-                key={p.key}
-                onPress={() => switchPhase(p.key)}
-                style={[styles.segBtn, active && styles.segBtnActive]}
-              >
-                <Text
-                  style={[styles.segTxt, active && styles.segTxtActive]}
-                >
-                  {p.label}
-                </Text>
-              </Pressable>
-            );
-          })}
-        </View>
-
-        {/* Progress */}
         <View style={styles.progressRow}>
           <View style={styles.progressTrack}>
             <View style={[styles.progressFill, { width: `${pct}%` }]} />
@@ -250,12 +158,12 @@ export default function ShootScreen() {
       >
         {items.length === 0 ? (
           <View style={styles.empty}>
-            <Ionicons name="add-circle-outline" size={48} color="#333" />
+            <Ionicons name="cut-outline" size={48} color="#333" />
             <Text style={styles.emptyTxt}>
-              Empty list. Add an item below or reset to defaults.
+              Empty workflow. Add a task or load the default pipeline.
             </Text>
             <Pressable onPress={resetSeed} style={styles.resetBtn}>
-              <Text style={styles.resetTxt}>Load Starter Checklist</Text>
+              <Text style={styles.resetTxt}>Load Default Pipeline</Text>
             </Pressable>
           </View>
         ) : (
@@ -303,7 +211,7 @@ export default function ShootScreen() {
         <TextInput
           value={draft}
           onChangeText={setDraft}
-          placeholder={`Add to ${activePhase.label.toLowerCase()}…`}
+          placeholder="Add an edit task…"
           placeholderTextColor="#555"
           style={styles.input}
           returnKeyType="done"
@@ -338,35 +246,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   h1: { color: "#fff", fontSize: 32, fontWeight: "800", letterSpacing: -0.5 },
-  sub: { color: "#888", fontSize: 13, marginTop: 4, marginBottom: 16 },
-  seg: {
-    flexDirection: "row",
-    backgroundColor: "rgba(255,255,255,0.04)",
-    borderRadius: 12,
-    padding: 4,
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.06)",
-  },
-  segBtn: {
-    flex: 1,
-    paddingVertical: 10,
-    alignItems: "center",
-    borderRadius: 9,
-  },
-  segBtnActive: { backgroundColor: "rgba(0,212,255,0.15)" },
-  segTxt: {
-    color: "#888",
-    fontSize: 12,
-    fontWeight: "700",
-    letterSpacing: 0.5,
-    textTransform: "uppercase",
-  },
-  segTxtActive: { color: "#00d4ff" },
+  sub: { color: "#888", fontSize: 13, marginTop: 4, marginBottom: 14 },
   progressRow: {
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    marginTop: 14,
+    marginTop: 4,
   },
   progressTrack: {
     flex: 1,
