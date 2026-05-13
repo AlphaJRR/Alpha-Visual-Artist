@@ -12,3 +12,9 @@ id = "c_sN6hhpE1GsU4Eq3WZwX"
 uri = "file://alpha-visual-artists-dist.zip"
 type = "unspecified"
 title = "Final build — cal.com, /work page, popup w/ Netlify Forms"
+
+[[outputs]]
+id = "dYHh17X8_Gk0vOLfsyRBs"
+uri = "file://ava-site-final.zip"
+type = "unspecified"
+title = "AVA site — final build (drop into Netlify)"
