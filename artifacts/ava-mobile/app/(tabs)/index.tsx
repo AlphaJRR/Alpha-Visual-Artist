@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Image,
   ImageSourcePropType,
-  Modal,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -14,7 +13,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
 import * as WebBrowser from "expo-web-browser";
-import { useVideoPlayer, VideoView } from "expo-video";
+import { ReelVideoCover } from "../../components/ReelVideoCover";
+import { VideoModal } from "../../components/VideoModal";
 
 const SITE_URL = "https://alphavisualartists.com";
 
@@ -409,64 +409,6 @@ export default function HomeScreen() {
         onClose={() => setActiveVideo(null)}
       />
     </>
-  );
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function ReelVideoCover({ source }: { source: any }) {
-  const player = useVideoPlayer(source, (p) => {
-    p.loop = true;
-    p.muted = true;
-    p.play();
-  });
-  return (
-    <VideoView
-      player={player}
-      style={styles.reelCover}
-      contentFit="cover"
-      nativeControls={false}
-      pointerEvents="none"
-    />
-  );
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function VideoModal({ source, onClose }: { source: any | null; onClose: () => void }) {
-  const insets = useSafeAreaInsets();
-  const player = useVideoPlayer(source ?? null, (p) => {
-    p.loop = false;
-    if (source) p.play();
-  });
-
-  return (
-    <Modal
-      visible={!!source}
-      animationType="fade"
-      transparent={false}
-      onRequestClose={onClose}
-      statusBarTranslucent
-    >
-      <View style={styles.videoModalRoot}>
-        <StatusBar style="light" />
-        {source && (
-          <VideoView
-            player={player}
-            style={styles.videoPlayer}
-            contentFit="contain"
-            allowsFullscreen
-            allowsPictureInPicture
-            nativeControls
-          />
-        )}
-        <Pressable
-          onPress={onClose}
-          style={[styles.videoCloseBtn, { top: insets.top + 12 }]}
-          hitSlop={12}
-        >
-          <Ionicons name="close" size={22} color="#fff" />
-        </Pressable>
-      </View>
-    </Modal>
   );
 }
 

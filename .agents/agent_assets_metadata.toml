@@ -65,3 +65,9 @@ id = "6-pWGOeKi6JF0xr_pZe2o"
 uri = "file://ava-site-v3.zip"
 type = "unspecified"
 title = "AVA Site v3 - Netlify Drop Zip"
+
+[[outputs]]
+id = "3MuEfl89qhVfNI8-V44Nn"
+uri = "file://dist/ava-mobile-handoff.tar.gz"
+type = "unspecified"
+title = "AVA mobile handoff (replit.md + index.tsx + VideoModal.tsx + ReelVideoCover.tsx + 6 videos)"
