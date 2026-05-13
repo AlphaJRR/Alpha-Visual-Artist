@@ -71,3 +71,63 @@ id = "3MuEfl89qhVfNI8-V44Nn"
 uri = "file://dist/ava-mobile-handoff.tar.gz"
 type = "unspecified"
 title = "AVA mobile handoff (replit.md + index.tsx + VideoModal.tsx + ReelVideoCover.tsx + 6 videos)"
+
+[[outputs]]
+id = "lCqLmI_gWQHQB7GfmuUqY"
+uri = "file://replit.md"
+type = "text"
+title = "replit.md (full project context)"
+
+[[outputs]]
+id = "OyX2T6NKOhSItQn8tt2SV"
+uri = "file://dist/handoff/index.tsx.txt"
+type = "text"
+title = "index.tsx (Home tab) — rename to .tsx"
+
+[[outputs]]
+id = "p6fSNIqVUOnzt8FXeQsr3"
+uri = "file://dist/handoff/VideoModal.tsx.txt"
+type = "text"
+title = "VideoModal.tsx — rename to .tsx"
+
+[[outputs]]
+id = "JzBWCjZifk5ZMrVoUHT6a"
+uri = "file://dist/handoff/ReelVideoCover.tsx.txt"
+type = "text"
+title = "ReelVideoCover.tsx — rename to .tsx"
+
+[[outputs]]
+id = "tXeqGZ7rs2n0zdCTyAUx-"
+uri = "file://artifacts/ava-mobile/assets/videos/opener.mov"
+type = "video"
+title = "opener.mov — Arguably The Best (46MB)"
+
+[[outputs]]
+id = "kH9fl8tys9reQvdAJbkpE"
+uri = "file://artifacts/ava-mobile/assets/videos/waymaker-promo.mov"
+type = "video"
+title = "waymaker-promo.mov (34MB)"
+
+[[outputs]]
+id = "veB3ObvJrCu4l81r48jFq"
+uri = "file://artifacts/ava-mobile/assets/videos/identity-teens.mp4"
+type = "video"
+title = "identity-teens.mp4 (177MB)"
+
+[[outputs]]
+id = "F0Mdrubn9QIAwmw0XkU2L"
+uri = "file://artifacts/ava-mobile/assets/videos/reel-a.mov"
+type = "video"
+title = "reel-a.mov — Vault A (28MB)"
+
+[[outputs]]
+id = "Ax7yYBAvjZALuEVDAlcrU"
+uri = "file://artifacts/ava-mobile/assets/videos/reel-b.mov"
+type = "video"
+title = "reel-b.mov — Vault B (15MB)"
+
+[[outputs]]
+id = "ecytyM59xUt7xmqb7ASVg"
+uri = "file://artifacts/ava-mobile/assets/videos/reel-c.mov"
+type = "video"
+title = "reel-c.mov — Vault C (39MB)"
