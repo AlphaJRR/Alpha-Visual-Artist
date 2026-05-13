@@ -18,3 +18,9 @@ id = "dYHh17X8_Gk0vOLfsyRBs"
 uri = "file://ava-site-final.zip"
 type = "unspecified"
 title = "AVA site — final build (drop into Netlify)"
+
+[[outputs]]
+id = "OZQ_xSvE7jky3C1xFiEEX"
+uri = "file://ava-netlify-v3-may13.zip"
+type = "unspecified"
+title = "ava-netlify-v3-may13.zip — newest build, drop into Netlify"
