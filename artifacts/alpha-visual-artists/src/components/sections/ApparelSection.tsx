@@ -1,8 +1,12 @@
 import React from "react";
-import productHoodie from "@/assets/product-hoodie.png";
-import productTee from "@/assets/product-tee.png";
-import productPants from "@/assets/product-pants.png";
-import productJacket from "@/assets/product-jacket.png";
+import productChicago from "@/assets/ava-tee-chicago-back.jpg";
+import productPink from "@/assets/ava-tee-pink.jpg";
+import productGreen from "@/assets/ava-tee-green.jpg";
+import productCrew from "@/assets/ava-crew-group.jpg";
+import lifestyleFlex from "@/assets/ava-tee-flex.jpg";
+import lifestyleTrees from "@/assets/ava-tee-trees.jpg";
+import lifestyleAshie from "@/assets/ava-bts-ashie.jpg";
+import lifestylePapi from "@/assets/ava-bts-papi.jpg";
 
 export function ApparelSection() {
   return (
@@ -101,41 +105,51 @@ export function ApparelSection() {
 
           <div id="products" className="products">
             <div className="product">
-              <img src={productHoodie} alt="ALPHA CREW Hoodie" className="product-image" />
+              <img src={productPink} alt="ALPHA Creative Tee — Pink" className="product-image" />
               <div className="product-info">
-                <div className="product-name">ALPHA CREW Hoodie</div>
-                <div className="product-desc">Premium heavyweight hoodie</div>
-                <div className="product-price">$87.50</div>
-                <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="product-btn" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>Shop now</a>
-              </div>
-            </div>
-            <div className="product">
-              <img src={productTee} alt="Oversized T-Shirt" className="product-image" />
-              <div className="product-info">
-                <div className="product-name">Oversized T-Shirt</div>
-                <div className="product-desc">100% cotton, classic fit</div>
+                <div className="product-name">ALPHA Creative Tee — Pink</div>
+                <div className="product-desc">Heavyweight oversized fit</div>
                 <div className="product-price">$45.00</div>
                 <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="product-btn" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>Shop now</a>
               </div>
             </div>
             <div className="product">
-              <img src={productPants} alt="CREW Sweatpants" className="product-image" />
+              <img src={productGreen} alt="ALPHA Creative Tee — Forest" className="product-image" />
               <div className="product-info">
-                <div className="product-name">CREW Sweatpants</div>
-                <div className="product-desc">Comfort for set days</div>
-                <div className="product-price">$67.50</div>
+                <div className="product-name">ALPHA Creative Tee — Forest</div>
+                <div className="product-desc">Heavyweight oversized fit</div>
+                <div className="product-price">$45.00</div>
                 <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="product-btn" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>Shop now</a>
               </div>
             </div>
             <div className="product">
-              <img src={productJacket} alt="Canvas Work Jacket" className="product-image" />
+              <img src={productChicago} alt="ALPHA Chicago Back Print Tee" className="product-image" />
               <div className="product-info">
-                <div className="product-name">Canvas Work Jacket</div>
-                <div className="product-desc">Built for all conditions</div>
-                <div className="product-price">$125.00</div>
+                <div className="product-name">Chicago Back Print Tee</div>
+                <div className="product-desc">Full back graphic — limited drop</div>
+                <div className="product-price">$55.00</div>
                 <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="product-btn" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>Shop now</a>
               </div>
             </div>
+            <div className="product">
+              <img src={productCrew} alt="Crew Collection Bundle" className="product-image" />
+              <div className="product-info">
+                <div className="product-name">Crew Collection Bundle</div>
+                <div className="product-desc">Mix &amp; match — save on 3+ pieces</div>
+                <div className="product-price">From $120.00</div>
+                <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="product-btn" style={{ display: "block", textAlign: "center", textDecoration: "none" }}>Shop now</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="divider" style={{ margin: "60px 0 32px" }}>
+            <h3>On the <span>streets.</span><br />Worn by the <span>crew.</span></h3>
+          </div>
+          <div className="products" style={{ margin: "0 0 100px" }}>
+            <div className="product"><img src={lifestyleFlex} alt="Alpha tee — tree flex" className="product-image" /></div>
+            <div className="product"><img src={lifestyleTrees} alt="Alpha tee — park" className="product-image" /></div>
+            <div className="product"><img src={lifestylePapi} alt="Alpha — real smile" className="product-image" /></div>
+            <div className="product"><img src={lifestyleAshie} alt="Alpha — close up" className="product-image" /></div>
           </div>
 
           <div className="quote-section">
