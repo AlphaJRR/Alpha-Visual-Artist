@@ -51,6 +51,15 @@ Required env: `DATABASE_URL`, `CLERK_SECRET_KEY`, `CLERK_PUBLISHABLE_KEY`, `VITE
 - Prefers short, direct ALL-CAPS commands.
 - Cyan-on-black brand. Sora display + Inter body. Tailwind v4 (CSS config, no `.ts`).
 
+## Known issues / TODO (mobile)
+
+The mobile Home tab Recent Work reels currently bundle ~5 video files (~330MB) directly into the app via `require()`, and every video reel autoplays a muted preview simultaneously inside a non-virtualized horizontal `ScrollView`. **User is aware** and will fix this properly later through Replit (object storage / CDN streaming + virtualized list with viewable-item-based playback). Do NOT attempt to "fix" by stripping out the videos — they are intentional product placement until then.
+
+When that work happens, the right approach is:
+1. Move full videos to Replit App Storage (object-storage skill) and stream by URL.
+2. Replace the horizontal `ScrollView` with `FlatList` + `onViewableItemsChanged` so only the visible reel(s) play.
+3. Add explicit `player.pause()` on `VideoModal` close + a single-active-playback policy that pauses preview players while the modal is open.
+
 ## Gotchas
 
 - After editing `lib/api-spec/openapi.yaml`, run `pnpm --filter @workspace/api-spec run codegen`.
