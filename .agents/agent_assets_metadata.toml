@@ -6,3 +6,9 @@ id = "w0lr5RtPxZOKVr7v21wOu"
 uri = "file://alpha-visual-artists-dist.tar.gz"
 type = "unspecified"
 title = "Updated build with SPA redirects — re-upload to Netlify Drop"
+
+[[outputs]]
+id = "c_sN6hhpE1GsU4Eq3WZwX"
+uri = "file://alpha-visual-artists-dist.zip"
+type = "unspecified"
+title = "Drag THIS .zip into Netlify Drop (replaces tar.gz)"
