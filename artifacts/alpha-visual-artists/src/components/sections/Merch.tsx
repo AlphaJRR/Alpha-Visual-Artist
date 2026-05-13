@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import merchBg from "@/assets/merch-bg.png";
+import merchBg from "@/assets/hero-bg.png";
 import { ShoppingBag } from "lucide-react";
 
 export function Merch() {
