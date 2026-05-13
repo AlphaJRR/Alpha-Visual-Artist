@@ -5,4 +5,4 @@ generated = []
 id = "w0lr5RtPxZOKVr7v21wOu"
 uri = "file://alpha-visual-artists-dist.tar.gz"
 type = "unspecified"
-title = "alphavisualartists.com — updated build with your real photos"
+title = "Updated build with SPA redirects — re-upload to Netlify Drop"
