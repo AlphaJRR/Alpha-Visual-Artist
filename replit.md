@@ -76,3 +76,26 @@ import siteRoutes from "./site.js";
 router.use(siteRoutes);
 pnpm run typecheck
 # Push to Replit
+# Hero image
+POST /api/site/upload/hero
+
+# Portfolio videos
+POST /api/site/upload/portfolio
+
+# Gallery images
+POST /api/site/upload/gallery
+
+# Team photos
+POST /api/site/upload/team
+
+# About media
+POST /api/site/upload/about
+
+# Press kit
+POST /api/site/upload/press
+
+# Downloadables
+POST /api/site/upload/download
+
+# Misc (favicon, etc)
+POST /api/site/upload/misc
