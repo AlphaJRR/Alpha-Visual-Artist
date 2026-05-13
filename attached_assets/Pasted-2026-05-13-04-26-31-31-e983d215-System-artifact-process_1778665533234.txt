@@ -1,0 +1,219 @@
+2026-05-13 04:26:31.31
+e983d215
+System
+artifact process started artifact=artifacts/api-server pid=18
+2026-05-13 04:26:33.57
+e983d215
+User
+> node server/serve.js
+2026-05-13 04:26:33.57
+e983d215
+User
+> @workspace/ava-mobile@0.0.0 serve /home/runner/workspace/artifacts/ava-mobile
+2026-05-13 04:26:33.72
+e983d215
+System
+artifact port detected expected=2 detected=1 port=22224
+2026-05-13 04:26:33.72
+e983d215
+User
+Serving static Expo build on port 22224
+2026-05-13 04:26:33.99
+e983d215
+System
+all artifact ports detected
+2026-05-13 04:26:33.99
+e983d215
+System
+artifact processes running, waiting for signal or process exit
+2026-05-13 04:26:33.99
+e983d215
+System
+artifact port detected expected=2 port=8080 detected=2
+2026-05-13 04:26:33.99
+e983d215
+User
+{"level":30,"time":1778664393995,"pid":18,"hostname":"localhost","port":8080,"msg":"Server listening"}
+2026-05-13 04:26:34.06
+e983d215
+User
+{"level":30,"time":1778664394065,"pid":18,"hostname":"localhost","req":{"id":1,"method":"GET","url":"/api/healthz"},"res":{"statusCode":200},"responseTime":17,"msg":"request completed"}
+2026-05-13 04:29:35.93
+10197685
+System
+sending SIGTERM to artifact process artifact=artifacts/ava-mobile
+2026-05-13 04:29:35.93
+10197685
+System
+received signal, shutting down artifact processes signal=terminated
+2026-05-13 04:29:35.93
+10197685
+System
+sending SIGTERM to artifact process artifact=artifacts/api-server
+2026-05-13 04:29:35.94
+10197685
+System
+artifact process exited with error error=signal: terminated artifact=artifacts/api-server
+2026-05-13 04:29:35.96
+10197685
+User
+/home/runner/workspace/artifacts/ava-mobile:
+2026-05-13 04:29:35.96
+10197685
+User
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/ava-mobile@0.0.0 serve: `node server/serve.js`
+2026-05-13 04:29:35.96
+10197685
+User
+Command failed with signal "SIGTERM"
+2026-05-13 04:35:18.24
+7af8c1ee
+System
+starting up user application
+2026-05-13 04:35:18.24
+7af8c1ee
+System
+artifact mode enabled runnable=2 static=1
+2026-05-13 04:35:18.24
+7af8c1ee
+System
+starting artifact processes for monorepo deployment
+2026-05-13 04:35:18.24
+7af8c1ee
+System
+metasidecar: loaded enterprise status from environment is_enterprise=false
+2026-05-13 04:35:18.25
+7af8c1ee
+System
+registered static handler for artifact path=/ publicDir=artifacts/alpha-visual-artists/dist/public
+2026-05-13 04:35:18.25
+7af8c1ee
+System
+forwarding local port 0 to external port 80 (mapped as 1104)
+2026-05-13 04:35:18.25
+7af8c1ee
+System
+waiting for runnable artifact ports ports=[22224 8080]
+2026-05-13 04:35:18.25
+7af8c1ee
+System
+baseline ports snapshot before artifact start ports=[1104 1105 1106]
+2026-05-13 04:35:18.25
+7af8c1ee
+System
+starting artifact processes count=2
+2026-05-13 04:35:18.26
+7af8c1ee
+System
+starting artifact process artifact=artifacts/ava-mobile args=[pnpm --filter @workspace/ava-mobile run serve] port=22224
+2026-05-13 04:35:18.26
+7af8c1ee
+System
+starting artifact process artifact=artifacts/api-server args=[node --enable-source-maps artifacts/api-server/dist/index.mjs] port=8080
+2026-05-13 04:35:18.28
+7af8c1ee
+System
+artifact process started artifact=artifacts/ava-mobile pid=21
+2026-05-13 04:35:18.29
+7af8c1ee
+System
+artifact process started pid=20 artifact=artifacts/api-server
+2026-05-13 04:35:20.48
+7af8c1ee
+User
+> @workspace/ava-mobile@0.0.0 serve /home/runner/workspace/artifacts/ava-mobile
+2026-05-13 04:35:20.48
+7af8c1ee
+User
+> node server/serve.js
+2026-05-13 04:35:20.63
+7af8c1ee
+System
+artifact port detected detected=1 port=22224 expected=2
+2026-05-13 04:35:20.64
+7af8c1ee
+User
+Serving static Expo build on port 22224
+2026-05-13 04:35:21.09
+7af8c1ee
+System
+all artifact ports detected
+2026-05-13 04:35:21.09
+7af8c1ee
+System
+artifact port detected expected=2 port=8080 detected=2
+2026-05-13 04:35:21.10
+7af8c1ee
+User
+{"level":30,"time":1778664921100,"pid":20,"hostname":"localhost","port":8080,"msg":"Server listening"}
+2026-05-13 04:37:38.64
+e983d215
+System
+received signal, shutting down artifact processes signal=terminated
+2026-05-13 04:37:38.64
+e983d215
+System
+sending SIGTERM to artifact process artifact=artifacts/ava-mobile
+2026-05-13 04:37:38.64
+e983d215
+System
+sending SIGTERM to artifact process artifact=artifacts/api-server
+2026-05-13 04:37:38.66
+e983d215
+System
+artifact process exited with error error=signal: terminated artifact=artifacts/api-server
+2026-05-13 04:37:38.67
+e983d215
+User
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @workspace/ava-mobile@0.0.0 serve: `node server/serve.js`
+2026-05-13 04:37:38.67
+e983d215
+User
+Command failed with signal "SIGTERM"
+2026-05-13 04:37:38.67
+e983d215
+User
+/home/runner/workspace/artifacts/ava-mobile:
+2026-05-13 04:37:54.12
+743fc048
+System
+artifact mode enabled runnable=2 static=1
+2026-05-13 04:37:54.12
+743fc048
+System
+starting up user application
+2026-05-13 04:37:54.12
+743fc048
+System
+metasidecar: loaded enterprise status from environment is_enterprise=false
+2026-05-13 04:37:54.12
+743fc048
+System
+starting artifact processes for monorepo deployment
+2026-05-13 04:37:54.13
+743fc048
+System
+forwarding local port 0 to external port 80 (mapped as 1104)
+2026-05-13 04:37:54.13
+743fc048
+System
+waiting for runnable artifact ports ports=[8080 22224]
+2026-05-13 04:37:54.13
+743fc048
+System
+registered static handler for artifact path=/ publicDir=artifacts/alpha-visual-artists/dist/public
+2026-05-13 04:37:54.13
+743fc048
+System
+baseline ports snapshot before artifact start ports=[]
+2026-05-13 04:37:54.13
+743fc048
+System
+starting artifact processes count=2
+
+Collapse
+
+Wrap
+
+Colors
+
