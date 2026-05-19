@@ -1,4 +1,79 @@
-App # Alpha Visual Artists
+App artifacts/ava-mobile is not on this Mac. The Cursor workspace is empty, and the Alpha Visual Artists mobile app lives in the Replit project Alpha-Visual-Artist (artifacts/ava-mobile inside that monorepo).
+
+What I verified
+Step	Result
+cd artifacts/ava-mobile
+Fails — no such directory under ~ or in common project folders
+eas login
+Already logged in as vertikalapp (also vertikalapps-organization)
+eas init / eas build
+Cannot run without the Expo app at artifacts/ava-mobile
+The only local Expo project with eas.json and a production iOS profile is /Users/alphavisualartists/Vertikal-App (slug vertikal-mobile) — that is a different app than AVA mobile.
+
+Run the build on Replit (recommended)
+In the Alpha-Visual-Artist Repl shell:
+
+cd artifacts/ava-mobile
+eas login          # browser/device login if needed
+eas init           # link to Expo project if not already
+eas build --platform ios --profile production --non-interactive
+Use --non-interactive only if Apple credentials and Expo project linking are already set up in that Repl.
+
+Or run locally after syncing the repo
+In Replit: Tools → Git → connect/push to GitHub (or download the Repl as a zip).
+Clone that repo on your Mac.
+Open the monorepo root (the folder that contains artifacts/ava-mobile and pnpm-workspace.yaml) in Cursor.
+Then the same cd + eas commands will work here.
+If you meant Vertikal instead
+Say so and I can run the production iOS build from /Users/alphavisualartists/Vertikal-App (after moving the workspace there).
+
+Next step: Either open the Replit project and run the commands above in its shell, or sync the Repl to GitHub and tell me the local clone path so I can run the build from your machine.
+
+
+
+
+
+
+Here is what ran and where things stand.
+
+Completed
+Step	Result
+git pull
+Done in /Users/alphavisualartists/Documents/GitHub/vertikal (fast-forward, 104 commits). eas.json is at the repo root, not under artifacts/.
+npm i -g eas-cli
+Installed eas-cli@18.13.1
+eas login
+Already logged in as vertikalapp (joshua@vertikalapp.com)
+npm install
+Installed project deps in the vertikal repo (needed for build)
+Blocker: artifacts/ava-mobile does not exist
+After the pull, there is still no artifacts/ava-mobile in this GitHub repo. The Expo app and eas.json live at the monorepo root:
+
+/Users/alphavisualartists/Documents/GitHub/vertikal/
+├── eas.json
+├── app.json          (slug: vertikal-mobile)
+└── App.tsx
+artifacts/ava-mobile is the Replit monorepo layout (Alpha-Visual-Artist) and is not in AlphaJRR/vertikal on main.
+
+Build attempt
+From the repo root (where eas.json actually is):
+
+eas build --platform ios --profile production --non-interactive
+Failed — iOS credentials are not set up for non-interactive builds:
+
+Credentials are not set up. Run this command again in interactive mode.
+
+What to run in your terminal (interactive)
+If you meant VERTIKAL (this repo):
+
+cd /Users/alphavisualartists/Documents/GitHub/vertikal
+eas credentials:configure-build --platform ios
+eas build --platform ios --profile production
+If you truly need AVA mobile (artifacts/ava-mobile), run the same commands from the Replit project root after that folder exists locally (sync Replit → GitHub, then clone).
+
+eas login is optional here since you are already authenticated; run it only if you want to switch accounts.
+
+I can retry the build after you configure iOS credentials in your terminal, or help sync the Replit artifacts/ava-mobile tree to GitHub if that is the app you want to ship.# Alpha Visual Artists
 
 Chicago video production studio site + Expo mobile app + private client portal (galleries, comments, approvals, reference uploads).
 
