@@ -1,4 +1,4 @@
-# Alpha Visual Artists
+App # Alpha Visual Artists
 
 Chicago video production studio site + Expo mobile app + private client portal (galleries, comments, approvals, reference uploads).
 
