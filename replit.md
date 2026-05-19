@@ -73,7 +73,37 @@ If you truly need AVA mobile (artifacts/ava-mobile), run the same commands from 
 
 eas login is optional here since you are already authenticated; run it only if you want to switch accounts.
 
-I can retry the build after you configure iOS credentials in your terminal, or help sync the Replit artifacts/ava-mobile tree to GitHub if that is the app you want to ship.# Alpha Visual Artists
+I can retry the build after you configure iOS credentials in your terminal, or help sync the Replit artifacts/ava-mobile tree to GitHub if that is the app you want to ship.Last login: Mon May 18 18:40:17 on console
+alphavisualartists@JoshuasacStudio ~ % eas credentials
+Run this command inside a project directory.
+    Error: credentials command failed.
+alphavisualartists@JoshuasacStudio ~ % 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Alpha Visual Artists
 
 Chicago video production studio site + Expo mobile app + private client portal (galleries, comments, approvals, reference uploads).
 
