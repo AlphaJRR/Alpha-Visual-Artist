@@ -1,25 +1,22 @@
 {
   "expo": {
     "name": "Alpha Visual Artists",
-    "slug": "ava-mobile",
+    "slug": "alpha-visual-artists",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo.png",
+    "icon": "./assets/icon.png",
     "scheme": "ava",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/logo.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#0a0a0a"
     },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.alphavisualartists.app",
-      "buildNumber": "1",
-      "associatedDomains": [
-        "applinks:alphavisualartists.com"
-      ],
+      "buildNumber": "8",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "NSAppTransportSecurity": {
@@ -70,7 +67,7 @@
       "package": "com.alphavisualartists.app",
       "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0a0a0a"
       },
       "intentFilters": [
@@ -92,7 +89,7 @@
       ]
     },
     "web": {
-      "favicon": "./assets/images/logo.png"
+      "favicon": "./assets/icon.png"
     },
     "plugins": [
       [
@@ -109,10 +106,11 @@
       "typedRoutes": true,
       "reactCompiler": true
     },
+    "owner": "alpha_jrr",
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "996ba63d-7306-4258-ba98-95b986c3f5d5"
+        "projectId": "39911e65-82a6-47ca-af2b-3769a15817df"
       }
     }
   }

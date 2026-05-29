@@ -11,16 +11,18 @@ import {
   ViewToken,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import { SignedIn, SignedOut, useClerk, useUser } from "@clerk/clerk-expo";
 import * as Haptics from "expo-haptics";
-import * as WebBrowser from "expo-web-browser";
+import { GalleryManager } from "@/components/GalleryManager";
+import { WaymakersBETCollabHighlight } from "@/components/WaymakersBETCollabHighlight";
+import {
+  CLOUDFLARE_STREAM_CUSTOMER,
+  SITE_URL,
+} from "@/constants/site";
+import { openSiteLink } from "@/lib/openSiteLink";
 import { ReelVideoCover } from "../../components/ReelVideoCover";
 import { VideoModal } from "../../components/VideoModal";
-
-const SITE_URL = "https://alphavisualartists.com";
-
-const LOGO = require("../../assets/images/logo.png") as ImageSourcePropType;
 
 type Reel = {
   id: string;
@@ -32,19 +34,66 @@ type Reel = {
   video?: any;
 };
 
-const VIDEO_HOST = process.env.EXPO_PUBLIC_DOMAIN
-  ? `https://${process.env.EXPO_PUBLIC_DOMAIN}`
-  : SITE_URL;
-const videoUri = (filename: string) => ({
-  uri: `${VIDEO_HOST}/api/storage/public-objects/videos/${filename}`,
+const cloudflareHls = (uid: string) => ({
+  uri: `https://${CLOUDFLARE_STREAM_CUSTOMER}/${uid}/manifest/video.m3u8`,
 });
 
-const OPENER_VIDEO = videoUri("opener.mov");
-const WAYMAKER_VIDEO = videoUri("waymaker-promo.mov");
-const IDENTITY_TEENS_VIDEO = videoUri("identity-teens.mp4");
-const REEL_A_VIDEO = videoUri("reel-a.mov");
-const REEL_B_VIDEO = videoUri("reel-b.mov");
-const REEL_C_VIDEO = videoUri("reel-c.mov");
+const FEATURED_VIDEOS = [
+  {
+    id: "9d3d0efed36b71e5f75c7b5e218809d7",
+    title: 'ARGUABLY THE BEST "BURGERS"',
+    subtitle: "Joshua Argue & Black Awesomeness Filmworks",
+    cloudflareUID: "9d3d0efed36b71e5f75c7b5e218809d7",
+  },
+  {
+    id: "106e0a1004f97de68d31ba317010425d",
+    title: "BET ANNIVERSARY DINNER RECAP 2025",
+    subtitle: "Los Angeles Ca Partnership with BAF",
+    cloudflareUID: "106e0a1004f97de68d31ba317010425d",
+  },
+  {
+    id: "c861d85f92202939bb33ebb87bb3a089",
+    title: "CCHS GROUND BREAKING CEREMONY",
+    subtitle: "And Alumni Event",
+    cloudflareUID: "c861d85f92202939bb33ebb87bb3a089",
+  },
+  {
+    id: "c28e7aee6bd7b9d9c9f44f277d2d11fa",
+    title: "FEATURED REEL 828 COLLECTION",
+    subtitle: "Fashion Show Maheem Susie Opera",
+    cloudflareUID: "c28e7aee6bd7b9d9c9f44f277d2d11fa",
+  },
+  {
+    id: "extra-2",
+    title: "WINTER NIGHTS CHICAGO LIGHTS 2025",
+    subtitle: "Additional Reel 2",
+    cloudflareUID: "793c5fad3fa152369bdaacf731049663",
+  },
+  {
+    id: "extra-3",
+    title: "DEEP HEALING CONVERSATIONS",
+    subtitle: "Hosted By Dr. Holly Carter (CLOAQ Production)",
+    cloudflareUID: "25d31f0e020a4759d7e1c2fa0d1945d3",
+  },
+] as const;
+
+const FEATURED_REEL_COVERS: ImageSourcePropType[] = [
+  require("../../assets/images/creator-court.jpg"),
+  require("../../assets/images/cinema-cam.jpg"),
+  require("../../assets/images/director-monitor.jpg"),
+  require("../../assets/images/event-wade.jpg"),
+  require("../../assets/images/chicago-night.jpg"),
+  require("../../assets/images/peace-suit.jpg"),
+];
+
+const FEATURED_REELS: Reel[] = FEATURED_VIDEOS.map((video, index) => ({
+  id: video.id,
+  title: video.title,
+  tag: video.subtitle,
+  cover: FEATURED_REEL_COVERS[index % FEATURED_REEL_COVERS.length],
+  url: `${SITE_URL}/work`,
+  video: cloudflareHls(video.cloudflareUID),
+}));
 
 type Photo = {
   id: string;
@@ -61,20 +110,36 @@ type Tip = {
 
 const REELS: Reel[] = [
   {
-    id: "r0",
-    title: "Arguably The Best",
+    id: "cf-9d3d0efed36b71e5f75c7b5e218809d7",
+    title: "Featured Video #1",
     tag: "Featured · Reel",
     cover: require("../../assets/images/creator-court.jpg"),
     url: `${SITE_URL}/work`,
-    video: OPENER_VIDEO,
+    video: cloudflareHls("9d3d0efed36b71e5f75c7b5e218809d7"),
   },
   {
-    id: "rwm",
-    title: "Waymaker Chicago Promo",
-    tag: "Event · Promo",
+    id: "cf-106e0a1004f97de68d31ba317010425d",
+    title: "BET Video",
+    tag: "Featured · BET",
     cover: require("../../assets/images/cinema-cam.jpg"),
     url: `${SITE_URL}/work`,
-    video: WAYMAKER_VIDEO,
+    video: cloudflareHls("106e0a1004f97de68d31ba317010425d"),
+  },
+  {
+    id: "cf-c861d85f92202939bb33ebb87bb3a089",
+    title: "Featured Video #3",
+    tag: "Featured · Reel",
+    cover: require("../../assets/images/director-monitor.jpg"),
+    url: `${SITE_URL}/work`,
+    video: cloudflareHls("c861d85f92202939bb33ebb87bb3a089"),
+  },
+  {
+    id: "cf-c28e7aee6bd7b9d9c9f44f277d2d11fa",
+    title: "Fashion Show Promo",
+    tag: "Featured · Promo",
+    cover: require("../../assets/images/event-wade.jpg"),
+    url: `${SITE_URL}/work`,
+    video: cloudflareHls("c28e7aee6bd7b9d9c9f44f277d2d11fa"),
   },
   {
     id: "r1",
@@ -105,36 +170,28 @@ const REELS: Reel[] = [
     url: `${SITE_URL}/work`,
   },
   {
-    id: "rfaith",
-    title: "Identity Teens · YAHWEH",
-    tag: "Church Anniversary",
-    cover: require("../../assets/images/red-stage-mic.jpg"),
-    url: `${SITE_URL}/work`,
-    video: IDENTITY_TEENS_VIDEO,
-  },
-  {
-    id: "rclipA",
-    title: "From The Vault — Reel A",
-    tag: "Cinematic · Reel",
+    id: "cf-793c5fad3fa152369bdaacf731049663",
+    title: "Additional Reel #1",
+    tag: "Cloudflare · Extra",
     cover: require("../../assets/images/portrait-dada.jpg"),
     url: `${SITE_URL}/work`,
-    video: REEL_A_VIDEO,
+    video: cloudflareHls("793c5fad3fa152369bdaacf731049663"),
   },
   {
-    id: "rclipB",
-    title: "From The Vault — Reel B",
-    tag: "Cinematic · Reel",
+    id: "cf-25d31f0e020a4759d7e1c2fa0d1945d3",
+    title: "Additional Reel #2",
+    tag: "Cloudflare · Extra",
     cover: require("../../assets/images/peace-suit.jpg"),
     url: `${SITE_URL}/work`,
-    video: REEL_B_VIDEO,
+    video: cloudflareHls("25d31f0e020a4759d7e1c2fa0d1945d3"),
   },
   {
-    id: "rclipC",
-    title: "From The Vault — Reel C",
-    tag: "Cinematic · Reel",
+    id: "cf-29424a48ea60434f3feb6e6cfd12fff4",
+    title: "Additional Reel #3",
+    tag: "Cloudflare · Extra",
     cover: require("../../assets/images/kids-plaid.jpg"),
     url: `${SITE_URL}/work`,
-    video: REEL_C_VIDEO,
+    video: cloudflareHls("29424a48ea60434f3feb6e6cfd12fff4"),
   },
   {
     id: "rkids",
@@ -254,7 +311,8 @@ const TIPS: Tip[] = [
 ];
 
 export default function HomeScreen() {
-  const insets = useSafeAreaInsets();
+  const clerk = useClerk();
+  const { user } = useUser();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [activeVideo, setActiveVideo] = useState<any | null>(null);
 
@@ -263,10 +321,7 @@ export default function HomeScreen() {
 
   const open = (url: string) => {
     Haptics.selectionAsync().catch(() => {});
-    WebBrowser.openBrowserAsync(url, {
-      toolbarColor: "#0a0a0a",
-      controlsColor: "#00d4ff",
-    }).catch(() => {});
+    openSiteLink(url).catch(() => {});
   };
 
   const handleReel = (r: Reel) => {
@@ -334,14 +389,39 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
       >
         {/* HERO */}
-        <View style={[styles.hero, { paddingTop: insets.top + 24 }]}>
-          <Image
-            source={LOGO}
-            style={styles.logo}
-            resizeMode="contain"
-          />
+        <View style={[styles.hero, { paddingTop: 12 }]}>
           <Text style={styles.brand}>ALPHA VISUAL ARTISTS</Text>
           <Text style={styles.tag}>Chicago · Cinematic · Stop The Scroll</Text>
+
+          <View style={styles.authRow}>
+            <SignedOut>
+              <Pressable
+                style={styles.secondaryBtn}
+                onPress={() => clerk.redirectToSignIn()}
+              >
+                <Text style={styles.secondaryBtnTxt}>Sign In</Text>
+              </Pressable>
+              <Pressable
+                style={styles.primaryBtn}
+                onPress={() => clerk.redirectToSignUp()}
+              >
+                <Text style={styles.primaryBtnTxt}>Sign Up</Text>
+              </Pressable>
+            </SignedOut>
+            <SignedIn>
+              <View style={styles.userRow}>
+                <Text style={styles.userLabel}>
+                  {user?.primaryEmailAddress?.emailAddress ?? "Signed In"}
+                </Text>
+                <Pressable
+                  style={styles.secondaryBtn}
+                  onPress={() => clerk.signOut()}
+                >
+                  <Text style={styles.secondaryBtnTxt}>Sign Out</Text>
+                </Pressable>
+              </View>
+            </SignedIn>
+          </View>
 
           <View style={styles.heroBtnRow}>
             <Pressable
@@ -361,15 +441,15 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        {/* RECENT WORK — now virtualized with FlatList */}
+        {/* FEATURED VIDEOS */}
         <SectionHeader
-          eyebrow="Latest"
-          title="Recent Work"
+          eyebrow="Featured"
+          title="Featured Reels"
           action="See All"
           onAction={() => open(`${SITE_URL}/work`)}
         />
         <FlatList
-          data={REELS}
+          data={FEATURED_REELS}
           horizontal
           scrollEnabled
           showsHorizontalScrollIndicator={false}
@@ -383,6 +463,8 @@ export default function HomeScreen() {
           scrollEventThrottle={16}
           decelerationRate="fast"
         />
+
+        <WaymakersBETCollabHighlight onPress={() => open(`${SITE_URL}/work`)} />
 
         {/* GALLERY */}
         <SectionHeader eyebrow="Craft" title="Behind The Lens" />
@@ -409,6 +491,11 @@ export default function HomeScreen() {
             </View>
           ))}
         </View>
+
+        <GalleryManager
+          onPhotoPress={() => open(`${SITE_URL}/work`)}
+          onBetLivePress={() => open(`${SITE_URL}/work`)}
+        />
 
         {/* FOOTER CTA */}
         <View style={styles.footerCta}>
@@ -469,7 +556,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "rgba(255,255,255,0.05)",
   },
-  logo: { width: 110, height: 110, marginBottom: 4 },
   brand: {
     color: "#fff",
     fontSize: 18,
@@ -485,6 +571,31 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     marginTop: 6,
     marginBottom: 20,
+  },
+  authRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+    marginBottom: 14,
+  },
+  userRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: "rgba(0,212,255,0.4)",
+    backgroundColor: "rgba(0,212,255,0.08)",
+  },
+  userLabel: {
+    color: "#00d4ff",
+    fontSize: 12,
+    fontWeight: "700",
+    letterSpacing: 0.6,
+    textTransform: "uppercase",
   },
   heroBtnRow: { flexDirection: "row", gap: 10 },
   primaryBtn: {

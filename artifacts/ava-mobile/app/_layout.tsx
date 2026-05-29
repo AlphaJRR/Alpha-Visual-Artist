@@ -6,8 +6,10 @@ import {
   useFonts,
 } from "@expo-google-fonts/inter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ClerkProvider } from "@clerk/clerk-expo";
 import { Stack } from "expo-router";
 import * as ExpoLinking from "expo-linking";
+import * as SecureStore from "expo-secure-store";
 import * as SplashScreen from "expo-splash-screen";
 import * as WebBrowser from "expo-web-browser";
 import React, { useEffect, useRef } from "react";
@@ -16,13 +18,32 @@ import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { SITE_URL } from "@/constants/site";
+import { openSiteLink } from "@/lib/openSiteLink";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+WebBrowser.maybeCompleteAuthSession();
 
 const queryClient = new QueryClient();
-const SITE_URL = "https://alphavisualartists.com";
-const SITE_HOSTS = new Set([
+const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+const tokenCache = {
+  async getToken(key: string) {
+    try {
+      return await SecureStore.getItemAsync(key);
+    } catch {
+      return null;
+    }
+  },
+  async saveToken(key: string, value: string) {
+    try {
+      await SecureStore.setItemAsync(key, value);
+    } catch {
+      // Ignore secure storage errors to avoid crashing app startup.
+    }
+  },
+};
+const DEEP_LINK_HOSTS = new Set([
   "alphavisualartists.com",
   "www.alphavisualartists.com",
   "shop.alphavisualartists.com",
@@ -65,13 +86,6 @@ function toSiteUrl(linkUrl: string): string | null {
   }
 }
 
-function openInBrowser(url: string) {
-  WebBrowser.openBrowserAsync(url, {
-    toolbarColor: "#0a0a0a",
-    controlsColor: "#00d4ff",
-  }).catch(() => {});
-}
-
 function RootLayoutNav() {
   return (
     <Stack screenOptions={{ headerBackTitle: "Back" }}>
@@ -95,8 +109,9 @@ export default function RootLayout() {
     }
   }, [fontsLoaded, fontError]);
 
-  // Handle deep links at the root so all unmatched inbound URLs (custom
-  // scheme + universal links) route to the in-app browser.
+  // Deep links (custom scheme + universal links) open in the system browser for
+  // the marketing site so Private Replit deployments don't trap users in
+  // expo-web-browser on __replshield.
   useEffect(() => {
     const handle = (linkUrl: string | null | undefined) => {
       if (!linkUrl) return;
@@ -108,12 +123,12 @@ export default function RootLayout() {
       if (linkUrl.startsWith("http")) {
         try {
           const u = new URL(linkUrl);
-          if (!SITE_HOSTS.has(u.hostname)) return;
+          if (!DEEP_LINK_HOSTS.has(u.hostname)) return;
         } catch {
           return;
         }
       }
-      openInBrowser(target);
+      openSiteLink(target).catch(() => {});
     };
 
     ExpoLinking.getInitialURL().then((url) => {
@@ -128,16 +143,21 @@ export default function RootLayout() {
   if (!fontsLoaded && !fontError) return null;
 
   return (
-    <SafeAreaProvider>
-      <ErrorBoundary>
-        <QueryClientProvider client={queryClient}>
-          <GestureHandlerRootView>
-            <KeyboardProvider>
-              <RootLayoutNav />
-            </KeyboardProvider>
-          </GestureHandlerRootView>
-        </QueryClientProvider>
-      </ErrorBoundary>
-    </SafeAreaProvider>
+    <ClerkProvider
+      publishableKey={clerkPublishableKey ?? ""}
+      tokenCache={tokenCache}
+    >
+      <SafeAreaProvider>
+        <ErrorBoundary>
+          <QueryClientProvider client={queryClient}>
+            <GestureHandlerRootView>
+              <KeyboardProvider>
+                <RootLayoutNav />
+              </KeyboardProvider>
+            </GestureHandlerRootView>
+          </QueryClientProvider>
+        </ErrorBoundary>
+      </SafeAreaProvider>
+    </ClerkProvider>
   );
 }

@@ -2,10 +2,12 @@ import { Tabs } from "expo-router";
 import React from "react";
 import { Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { TabScreenLayout } from "../../components/TabScreenLayout";
 
 export default function TabLayout() {
   return (
     <Tabs
+      screenLayout={TabScreenLayout}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: "#00d4ff",
@@ -59,6 +61,15 @@ export default function TabLayout() {
           title: "Edit",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="cut-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="wallpapers"
+        options={{
+          title: "WALLPAPERS",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="image" size={size} color={color} />
           ),
         }}
       />

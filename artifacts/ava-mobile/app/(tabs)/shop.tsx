@@ -12,8 +12,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 import * as WebBrowser from "expo-web-browser";
-
-const SHOP_URL = "https://shop.alphavisualartists.com";
+import { SHOP_URL } from "@/constants/site";
 
 type Product = {
   id: string;
