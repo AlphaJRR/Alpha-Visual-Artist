@@ -1,0 +1,1348 @@
+Found eas-cli in your project dependencies.
+It's recommended to use the "cli.version" field in eas.json to enforce the eas-cli version for your project.
+Learn more: https://github.com/expo/eas-cli#enforcing-eas-cli-version-for-your-project
+
+Error: Cannot find module 'expo-dev-client/package.json'
+Require stack:
+- /Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/noop.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1430:15)
+    at resolveFileName (/opt/homebrew/lib/node_modules/eas-cli/node_modules/resolve-from/index.js:29:39)
+    at resolveFrom (/opt/homebrew/lib/node_modules/eas-cli/node_modules/resolve-from/index.js:43:9)
+    at module.exports (/opt/homebrew/lib/node_modules/eas-cli/node_modules/resolve-from/index.js:46:47)
+    at isExpoDevClientInstalled (/opt/homebrew/lib/node_modules/eas-cli/build/build/utils/devClient.js:77:36)
+    at detectExpoGoProdBuildAsync (/opt/homebrew/lib/node_modules/eas-cli/build/project/discourageExpoGoForProdAsync.js:37:71)
+    at discourageExpoGoForProdAsync (/opt/homebrew/lib/node_modules/eas-cli/build/project/discourageExpoGoForProdAsync.js:15:41)
+    at runBuildAndSubmitAsync (/opt/homebrew/lib/node_modules/eas-cli/build/build/runBuildAndSubmit.js:70:75)
+    at async Build.runAsync (/opt/homebrew/lib/node_modules/eas-cli/build/commands/build/index.js:129:35)
+    at async Build.run (/opt/homebrew/lib/node_modules/eas-cli/build/commandUtils/EasCommand.js:176:16) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/noop.js'
+  ]
+}
+
+⚠️ Detected that your app uses Expo Go for development, this is not recommended when building production apps.
+Learn more: https://expo.fyi/why-not-build-expo-go-for-production
+To suppress this warning, set EAS_BUILD_NO_EXPO_GO_WARNING=true.
+
+Error: Cannot find module 'expo-dev-client/package.json'
+Require stack:
+- /Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/noop.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1430:15)
+    at resolveFileName (/opt/homebrew/lib/node_modules/eas-cli/node_modules/resolve-from/index.js:29:39)
+    at resolveFrom (/opt/homebrew/lib/node_modules/eas-cli/node_modules/resolve-from/index.js:43:9)
+    at module.exports (/opt/homebrew/lib/node_modules/eas-cli/node_modules/resolve-from/index.js:46:47)
+    at isExpoDevClientInstalled (/opt/homebrew/lib/node_modules/eas-cli/build/build/utils/devClient.js:77:36)
+    at ensureExpoDevClientInstalledForDevClientBuildsAsync (/opt/homebrew/lib/node_modules/eas-cli/build/build/utils/devClient.js:18:9)
+    at runBuildAndSubmitAsync (/opt/homebrew/lib/node_modules/eas-cli/build/build/runBuildAndSubmit.js:87:79)
+    at async Build.runAsync (/opt/homebrew/lib/node_modules/eas-cli/build/commands/build/index.js:129:35)
+    at async Build.run (/opt/homebrew/lib/node_modules/eas-cli/build/commandUtils/EasCommand.js:176:16)
+    at async Build._run (/opt/homebrew/lib/node_modules/eas-cli/node_modules/@oclif/core/lib/command.js:183:22) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/noop.js'
+  ]
+}
+Resolved "production" environment for the build. Learn more: https://docs.expo.dev/eas/environment-variables/#setting-the-environment-for-your-builds
+Environment variables with visibility "Plain text" and "Sensitive" loaded from the "production" environment on EAS: EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY.
+
+ITSAppUsesNonExemptEncryption is defined in the app config.
+ios.infoPlist: withIntrospectionBaseMods ➜ withIosBaseMods ➜ withGeneratedBaseMods ➜ withIosInfoPlistBaseMod
+ios.infoPlist: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withVersion ➜ withInfoPlist
+ios.infoPlist: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withBuildNumber ➜ withInfoPlist
+ios.infoPlist: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withUsesNonExemptEncryption ➜ withInfoPlist
+ios.infoPlist: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withScheme ➜ withInfoPlist
+ios.infoPlist: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withRequiresFullScreen ➜ withInfoPlist
+ios.infoPlist: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withOrientation ➜ withInfoPlist
+ios.infoPlist: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withDisplayName ➜ withInfoPlist
+ios.infoPlist: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withGoogle ➜ withInfoPlist
+ios.infoPlist: withStaticPlugin ➜ withRunOnce ➜ withLocation ➜ withIosPermissions ➜ withInfoPlist
+ios.infoPlist: withStaticPlugin ➜ withRunOnce ➜ withImagePicker ➜ withIosPermissions ➜ withInfoPlist
+ios.infoPlist: withSplashScreen ➜ withIosSplashScreen ➜ withPlugins ➜ withStaticPlugin ➜ withIosSplashInfoPlist ➜ withInfoPlist
+ios.infoPlist: withSystemUI ➜ withPlugins ➜ withStaticPlugin ➜ withIosUserInterfaceStyle ➜ withInfoPlist
+ios.infoPlist: withSystemUI ➜ withPlugins ➜ withStaticPlugin ➜ withIosRootViewBackgroundColor ➜ withInfoPlist
+ios.infoPlist: withFallback ➜ withPlugins ➜ withStaticPlugin ➜ withIosAdMob ➜ withInfoPlist
+ios.infoPlist: withFallback ➜ withPlugins ➜ withStaticPlugin ➜ withMaps ➜ withGoogleMapsKey ➜ withInfoPlist
+ios.infoPlist: withConfigPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withExpoVideo ➜ withInfoPlist
+ios.infoPlist: withConfigPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withRouter ➜ withExpoHeadIos ➜ withInfoPlist
+ios.entitlements: withIntrospectionBaseMods ➜ withIosBaseMods ➜ withGeneratedBaseMods ➜ withIosEntitlementsBaseMod
+ios.entitlements: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withAssociatedDomains ➜ withEntitlementsPlist
+ios.entitlements: withStaticPlugin ➜ withExpoContacts ➜ withRunOnce ➜ withAccessesContactNotes ➜ withEntitlementsPlist
+ios.entitlements: withStaticPlugin ➜ withExpoAppleAuthentication ➜ withRunOnce ➜ withAppleSignInWarning ➜ withEntitlementsPlist
+ios.expoPlist: withIntrospectionBaseMods ➜ withIosBaseMods ➜ withGeneratedBaseMods ➜ withIosExpoPlistBaseMod
+ios.expoPlist: withStaticPlugin ➜ withRunOnce ➜ withUnversionedUpdates ➜ withUpdates ➜ withExpoPlist
+ios.splashScreenStoryboard: withPlugins ➜ withStaticPlugin ➜ withIosSplashScreenStoryboardBaseMod ➜ withGeneratedBaseMods ➜ withIosSplashScreenStoryboardBaseMod
+ios.splashScreenStoryboard: withSplashScreen ➜ withIosSplashScreen ➜ withPlugins ➜ withStaticPlugin ➜ withIosSplashScreenImage ➜ withIosSplashScreenStoryboard
+ios.podfileProperties: withIntrospectionBaseMods ➜ withIosBaseMods ➜ withGeneratedBaseMods ➜ withIosPodfilePropertiesBaseMod
+ios.podfileProperties: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withNewArchEnabledPodfileProps ➜ withPodfileProperties
+ios.podfileProperties: withIosExpoPlugins ➜ withPlugins ➜ withStaticPlugin ➜ withJsEnginePodfileProps ➜ withPodfileProperties
+- Incrementing buildNumber from 20 to 21.
+✔ Incremented buildNumber from 20 to 21.
+ios.buildNumber field in app config is ignored when version source is set to remote, but this value will still be in the manifest available via expo-constants. It's recommended to remove this value from app config.
+✔ Using remote iOS credentials (Expo server)
+
+Distribution Certificate is not validated for non-interactive builds.
+Skipping Provisioning Profile validation on Apple Servers because we aren't authenticated.
+
+Project Credentials Configuration
+
+Project                   @alpha_jrr/alpha-visual-artists
+Bundle Identifier         com.alphavisualartists.app
+                          
+App Store Configuration   
+                          
+Distribution Certificate  
+Serial Number             53E7BC9F731D49C714480B2C0EF1D37E
+Expiration Date           Thu, 27 May 2027 14:16:09 CDT
+Apple Team                TAPP492WQA (Joshua Roberts (Individual))
+Updated                   1 day ago
+                          
+Provisioning Profile      
+Developer Portal ID       J4ZWN77JTT
+Status                    active
+Expiration                Thu, 27 May 2027 14:16:09 CDT
+Apple Team                TAPP492WQA (Joshua Roberts (Individual))
+Updated                   1 day ago
+                          
+All credentials are ready to build @alpha_jrr/alpha-visual-artists (com.alphavisualartists.app)
+
+- Compressing project files
+.easignore exists, deleting files that should be ignored {
+  sourceEasignorePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.easignore'
+}
+cachedFilesWeShouldHaveIgnored { cachedFilesWeShouldHaveIgnored: [] }
+initializing ignore mapping with .easignore { ignoreMapping: [ [ '', [Ignore] ], [ '', [Ignore] ] ] }
+deleted .git {
+  destinationPath: '/var/folders/q_/slp7c_l96ws40ddxkjz37fq00000gn/T/eas-cli-nodejs/f596aa64-4ef8-4080-b17f-41f62dea27cc-shallow-clone'
+}
+making shallow copy { requireCommit: false }
+makeShallowCopyAsync {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  dst: '/var/folders/q_/slp7c_l96ws40ddxkjz37fq00000gn/T/eas-cli-nodejs/f596aa64-4ef8-4080-b17f-41f62dea27cc-shallow-clone'
+}
+initializing ignore mapping with .easignore { ignoreMapping: [ [ '', [Ignore] ], [ '', [Ignore] ] ] }
+makeShallowCopyAsync ignoreMapping { ignoreMapping: [ [ '', [Ignore] ], [ '', [Ignore] ] ] }
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/alpha-visual-artists-dist.zip',
+  relativePath: 'alpha-visual-artists-dist.zip'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.config',
+  relativePath: '.config'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.config/eas-cli-nodejs',
+  relativePath: '.config/eas-cli-nodejs'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.config/eas-cli-nodejs/user-settings.json',
+  relativePath: '.config/eas-cli-nodejs/user-settings.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.config/npm',
+  relativePath: '.config/npm'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.config/npm/node_global',
+  relativePath: '.config/npm/node_global'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.config/npm/node_global/lib',
+  relativePath: '.config/npm/node_global/lib'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/pnpm-lock.yaml',
+  relativePath: 'pnpm-lock.yaml'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/ava-netlify-v4-photos.zip',
+  relativePath: 'ava-netlify-v4-photos.zip'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts',
+  relativePath: 'artifacts'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/api-server',
+  relativePath: 'artifacts/api-server'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile',
+  relativePath: 'artifacts/ava-mobile'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.expo',
+  relativePath: 'artifacts/ava-mobile/.expo'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.expo/types',
+  relativePath: 'artifacts/ava-mobile/.expo/types'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.expo/types/router.d.ts',
+  relativePath: 'artifacts/ava-mobile/.expo/types/router.d.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.expo/README.md',
+  relativePath: 'artifacts/ava-mobile/.expo/README.md'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.expo/dev',
+  relativePath: 'artifacts/ava-mobile/.expo/dev'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.expo/dev/logs',
+  relativePath: 'artifacts/ava-mobile/.expo/dev/logs'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.expo/dev/logs/export.log',
+  relativePath: 'artifacts/ava-mobile/.expo/dev/logs/export.log'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.expo/devices.json',
+  relativePath: 'artifacts/ava-mobile/.expo/devices.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app',
+  relativePath: 'artifacts/ava-mobile/app'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/(tabs)',
+  relativePath: 'artifacts/ava-mobile/app/(tabs)'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/(tabs)/index.tsx',
+  relativePath: 'artifacts/ava-mobile/app/(tabs)/index.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/(tabs)/shop.tsx',
+  relativePath: 'artifacts/ava-mobile/app/(tabs)/shop.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/(tabs)/notes.tsx',
+  relativePath: 'artifacts/ava-mobile/app/(tabs)/notes.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/(tabs)/tools.tsx',
+  relativePath: 'artifacts/ava-mobile/app/(tabs)/tools.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/(tabs)/_layout.tsx',
+  relativePath: 'artifacts/ava-mobile/app/(tabs)/_layout.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/(tabs)/wallpapers.tsx',
+  relativePath: 'artifacts/ava-mobile/app/(tabs)/wallpapers.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/(tabs)/edit.tsx',
+  relativePath: 'artifacts/ava-mobile/app/(tabs)/edit.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/+not-found.tsx',
+  relativePath: 'artifacts/ava-mobile/app/+not-found.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app/_layout.tsx',
+  relativePath: 'artifacts/ava-mobile/app/_layout.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/app.json',
+  relativePath: 'artifacts/ava-mobile/app.json'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/dist',
+  relativePath: 'artifacts/ava-mobile/dist'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/constants',
+  relativePath: 'artifacts/ava-mobile/constants'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/constants/colors.ts',
+  relativePath: 'artifacts/ava-mobile/constants/colors.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/constants/site.ts',
+  relativePath: 'artifacts/ava-mobile/constants/site.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/expo-env.d.ts',
+  relativePath: 'artifacts/ava-mobile/expo-env.d.ts'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/build-retry.log',
+  relativePath: 'artifacts/ava-mobile/build-retry.log'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/node_modules',
+  relativePath: 'artifacts/ava-mobile/node_modules'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/server',
+  relativePath: 'artifacts/ava-mobile/server'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/server/serve.js',
+  relativePath: 'artifacts/ava-mobile/server/serve.js'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/server/templates',
+  relativePath: 'artifacts/ava-mobile/server/templates'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/server/templates/landing-page.html',
+  relativePath: 'artifacts/ava-mobile/server/templates/landing-page.html'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/eas.json',
+  relativePath: 'artifacts/ava-mobile/eas.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components',
+  relativePath: 'artifacts/ava-mobile/components'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/VideoModal.tsx',
+  relativePath: 'artifacts/ava-mobile/components/VideoModal.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/KeyboardAwareScrollViewCompat.tsx',
+  relativePath: 'artifacts/ava-mobile/components/KeyboardAwareScrollViewCompat.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/TabScreenLayout.tsx',
+  relativePath: 'artifacts/ava-mobile/components/TabScreenLayout.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/FeaturedPhotosGallery.tsx',
+  relativePath: 'artifacts/ava-mobile/components/FeaturedPhotosGallery.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/ErrorFallback.tsx',
+  relativePath: 'artifacts/ava-mobile/components/ErrorFallback.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/ReelVideoCover.tsx',
+  relativePath: 'artifacts/ava-mobile/components/ReelVideoCover.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/BrandLogoBar.tsx',
+  relativePath: 'artifacts/ava-mobile/components/BrandLogoBar.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/toolkit',
+  relativePath: 'artifacts/ava-mobile/components/toolkit'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/toolkit/PresetsManager.tsx',
+  relativePath: 'artifacts/ava-mobile/components/toolkit/PresetsManager.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/toolkit/ToolkitNavigator.tsx',
+  relativePath: 'artifacts/ava-mobile/components/toolkit/ToolkitNavigator.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/toolkit/ToolkitModules.tsx',
+  relativePath: 'artifacts/ava-mobile/components/toolkit/ToolkitModules.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/toolkit/toolkitStyles.ts',
+  relativePath: 'artifacts/ava-mobile/components/toolkit/toolkitStyles.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/toolkit/SonyShootingModes.tsx',
+  relativePath: 'artifacts/ava-mobile/components/toolkit/SonyShootingModes.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/toolkit/ShootCalculator.tsx',
+  relativePath: 'artifacts/ava-mobile/components/toolkit/ShootCalculator.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/components/ErrorBoundary.tsx',
+  relativePath: 'artifacts/ava-mobile/components/ErrorBoundary.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/metro.config.js',
+  relativePath: 'artifacts/ava-mobile/metro.config.js'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/babel.config.js',
+  relativePath: 'artifacts/ava-mobile/babel.config.js'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.gitignore',
+  relativePath: 'artifacts/ava-mobile/.gitignore'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/package.json',
+  relativePath: 'artifacts/ava-mobile/package.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/hooks',
+  relativePath: 'artifacts/ava-mobile/hooks'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/hooks/useColors.ts',
+  relativePath: 'artifacts/ava-mobile/hooks/useColors.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/scripts',
+  relativePath: 'artifacts/ava-mobile/scripts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/scripts/build.js',
+  relativePath: 'artifacts/ava-mobile/scripts/build.js'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/lib',
+  relativePath: 'artifacts/ava-mobile/lib'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/lib/openSiteLink.ts',
+  relativePath: 'artifacts/ava-mobile/lib/openSiteLink.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/tsconfig.json',
+  relativePath: 'artifacts/ava-mobile/tsconfig.json'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/build-local.log',
+  relativePath: 'artifacts/ava-mobile/build-local.log'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/BUILD-IOS.md',
+  relativePath: 'artifacts/ava-mobile/BUILD-IOS.md'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/data',
+  relativePath: 'artifacts/ava-mobile/data'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/data/presetsData.ts',
+  relativePath: 'artifacts/ava-mobile/data/presetsData.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets',
+  relativePath: 'artifacts/ava-mobile/assets'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/icon.png',
+  relativePath: 'artifacts/ava-mobile/assets/icon.png'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images',
+  relativePath: 'artifacts/ava-mobile/assets/images'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/blackaf-walk.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/blackaf-walk.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/tee-pink.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/tee-pink.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/peace-suit.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/peace-suit.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/marriage-clapper.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/marriage-clapper.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/silhouette-spotlight.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/silhouette-spotlight.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/tee-flex.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/tee-flex.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/icon.png',
+  relativePath: 'artifacts/ava-mobile/assets/images/icon.png'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/tee-chicago.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/tee-chicago.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/bts-ashie.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/bts-ashie.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/chicago-sunset.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/chicago-sunset.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/lens-lineup.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/lens-lineup.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/kids-plaid.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/kids-plaid.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/live-singer.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/live-singer.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/crew-group.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/crew-group.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/dzo-lenses.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/dzo-lenses.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/bts-monitor.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/bts-monitor.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/stage-performer.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/stage-performer.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/speaker-mic.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/speaker-mic.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/portrait-redlight.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/portrait-redlight.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/creator-court.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/creator-court.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/cinema-cam.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/cinema-cam.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/nail-tech.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/nail-tech.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/couple-walk.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/couple-walk.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/couple-kiss.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/couple-kiss.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/red-stage-mic.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/red-stage-mic.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/portrait-suit.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/portrait-suit.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/portrait-bw.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/portrait-bw.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/logo.png',
+  relativePath: 'artifacts/ava-mobile/assets/images/logo.png'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/event-cannon.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/event-cannon.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/ava-logo-transparent.png',
+  relativePath: 'artifacts/ava-mobile/assets/images/ava-logo-transparent.png'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/chicago-night.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/chicago-night.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/clapper.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/clapper.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/bts-papi.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/bts-papi.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/portrait-dada.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/portrait-dada.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/chicago-highway.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/chicago-highway.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/tee-trees.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/tee-trees.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/tee-green.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/tee-green.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/rap-legends.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/rap-legends.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/editorial-flowers.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/editorial-flowers.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/director-monitor.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/director-monitor.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/couple-skyline.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/couple-skyline.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/with-mentor.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/with-mentor.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/event-jayellis.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/event-jayellis.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/event-wade.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/event-wade.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/bts-set.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/bts-set.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/bts-cameras.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/bts-cameras.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/ava-app-logo-2026.png',
+  relativePath: 'artifacts/ava-mobile/assets/images/ava-app-logo-2026.png'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/images/event-drose.jpg',
+  relativePath: 'artifacts/ava-mobile/assets/images/event-drose.jpg'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/splash.png',
+  relativePath: 'artifacts/ava-mobile/assets/splash.png'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/videos',
+  relativePath: 'artifacts/ava-mobile/assets/videos'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/assets/adaptive-icon.png',
+  relativePath: 'artifacts/ava-mobile/assets/adaptive-icon.png'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/.easignore',
+  relativePath: 'artifacts/ava-mobile/.easignore'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/build.log',
+  relativePath: 'artifacts/ava-mobile/build.log'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/alpha-visual-artists',
+  relativePath: 'artifacts/alpha-visual-artists'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/mockup-sandbox',
+  relativePath: 'artifacts/mockup-sandbox'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/ava-site-v3.zip',
+  relativePath: 'ava-site-v3.zip'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/ava-site-final.zip',
+  relativePath: 'ava-site-final.zip'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.replitignore',
+  relativePath: '.replitignore'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/tsconfig.base.json',
+  relativePath: 'tsconfig.base.json'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/ava-netlify-v5-crew.zip',
+  relativePath: 'ava-netlify-v5-crew.zip'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/replit.md',
+  relativePath: 'replit.md'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/node_modules',
+  relativePath: 'node_modules'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.agents',
+  relativePath: '.agents'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.agents/agent_assets_metadata.toml',
+  relativePath: '.agents/agent_assets_metadata.toml'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.npmrc',
+  relativePath: '.npmrc'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/docs',
+  relativePath: 'docs'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/docs/ALPHA-CREATORS-TOOLKIT.md',
+  relativePath: 'docs/ALPHA-CREATORS-TOOLKIT.md'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/ava-netlify-v3-may13.zip',
+  relativePath: 'ava-netlify-v3-may13.zip'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.replit',
+  relativePath: '.replit'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.gitignore',
+  relativePath: '.gitignore'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/package.json',
+  relativePath: 'package.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/scripts',
+  relativePath: 'scripts'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/scripts/node_modules',
+  relativePath: 'scripts/node_modules'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/scripts/post-merge.sh',
+  relativePath: 'scripts/post-merge.sh'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/scripts/package.json',
+  relativePath: 'scripts/package.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/scripts/tsconfig.json',
+  relativePath: 'scripts/tsconfig.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/scripts/src',
+  relativePath: 'scripts/src'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/scripts/src/hello.ts',
+  relativePath: 'scripts/src/hello.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/packages',
+  relativePath: 'packages'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/packages/db',
+  relativePath: 'packages/db'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/packages/db/migrations',
+  relativePath: 'packages/db/migrations'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/packages/db/migrations/0001_add_blog_posts.sql',
+  relativePath: 'packages/db/migrations/0001_add_blog_posts.sql'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.gitattributes',
+  relativePath: '.gitattributes'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/HANDOFF-FOR-CLAUDE.md',
+  relativePath: 'HANDOFF-FOR-CLAUDE.md'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib',
+  relativePath: 'lib'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod',
+  relativePath: 'lib/api-zod'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/tsconfig.tsbuildinfo',
+  relativePath: 'lib/api-zod/tsconfig.tsbuildinfo'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/node_modules',
+  relativePath: 'lib/api-zod/node_modules'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/package.json',
+  relativePath: 'lib/api-zod/package.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/tsconfig.json',
+  relativePath: 'lib/api-zod/tsconfig.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src',
+  relativePath: 'lib/api-zod/src'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src/generated',
+  relativePath: 'lib/api-zod/src/generated'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src/generated/types',
+  relativePath: 'lib/api-zod/src/generated/types'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src/generated/types/uploadUrlResponse.ts',
+  relativePath: 'lib/api-zod/src/generated/types/uploadUrlResponse.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src/generated/types/index.ts',
+  relativePath: 'lib/api-zod/src/generated/types/index.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src/generated/types/uploadUrlRequest.ts',
+  relativePath: 'lib/api-zod/src/generated/types/uploadUrlRequest.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src/generated/types/errorEnvelope.ts',
+  relativePath: 'lib/api-zod/src/generated/types/errorEnvelope.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src/generated/types/healthStatus.ts',
+  relativePath: 'lib/api-zod/src/generated/types/healthStatus.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src/generated/api.ts',
+  relativePath: 'lib/api-zod/src/generated/api.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-zod/src/index.ts',
+  relativePath: 'lib/api-zod/src/index.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/object-storage-web',
+  relativePath: 'lib/object-storage-web'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/object-storage-web/tsconfig.tsbuildinfo',
+  relativePath: 'lib/object-storage-web/tsconfig.tsbuildinfo'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/object-storage-web/node_modules',
+  relativePath: 'lib/object-storage-web/node_modules'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/object-storage-web/package.json',
+  relativePath: 'lib/object-storage-web/package.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/object-storage-web/tsconfig.json',
+  relativePath: 'lib/object-storage-web/tsconfig.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/object-storage-web/src',
+  relativePath: 'lib/object-storage-web/src'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/object-storage-web/src/use-upload.ts',
+  relativePath: 'lib/object-storage-web/src/use-upload.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/object-storage-web/src/ObjectUploader.tsx',
+  relativePath: 'lib/object-storage-web/src/ObjectUploader.tsx'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/object-storage-web/src/index.ts',
+  relativePath: 'lib/object-storage-web/src/index.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db',
+  relativePath: 'lib/db'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/dist',
+  relativePath: 'lib/db/dist'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/tsconfig.tsbuildinfo',
+  relativePath: 'lib/db/tsconfig.tsbuildinfo'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/node_modules',
+  relativePath: 'lib/db/node_modules'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/package.json',
+  relativePath: 'lib/db/package.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/tsconfig.json',
+  relativePath: 'lib/db/tsconfig.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/drizzle.config.ts',
+  relativePath: 'lib/db/drizzle.config.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/src',
+  relativePath: 'lib/db/src'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/src/schema',
+  relativePath: 'lib/db/src/schema'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/src/schema/index.ts',
+  relativePath: 'lib/db/src/schema/index.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/src/schema/portal.ts',
+  relativePath: 'lib/db/src/schema/portal.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/db/src/index.ts',
+  relativePath: 'lib/db/src/index.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react',
+  relativePath: 'lib/api-client-react'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/dist',
+  relativePath: 'lib/api-client-react/dist'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/tsconfig.tsbuildinfo',
+  relativePath: 'lib/api-client-react/tsconfig.tsbuildinfo'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/node_modules',
+  relativePath: 'lib/api-client-react/node_modules'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/package.json',
+  relativePath: 'lib/api-client-react/package.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/tsconfig.json',
+  relativePath: 'lib/api-client-react/tsconfig.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/src',
+  relativePath: 'lib/api-client-react/src'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/src/generated',
+  relativePath: 'lib/api-client-react/src/generated'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/src/generated/api.ts',
+  relativePath: 'lib/api-client-react/src/generated/api.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/src/generated/api.schemas.ts',
+  relativePath: 'lib/api-client-react/src/generated/api.schemas.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/src/custom-fetch.ts',
+  relativePath: 'lib/api-client-react/src/custom-fetch.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-client-react/src/index.ts',
+  relativePath: 'lib/api-client-react/src/index.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-spec',
+  relativePath: 'lib/api-spec'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-spec/node_modules',
+  relativePath: 'lib/api-spec/node_modules'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-spec/orval.config.ts',
+  relativePath: 'lib/api-spec/orval.config.ts'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-spec/package.json',
+  relativePath: 'lib/api-spec/package.json'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/lib/api-spec/openapi.yaml',
+  relativePath: 'lib/api-spec/openapi.yaml'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/tsconfig.json',
+  relativePath: 'tsconfig.json'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.git',
+  relativePath: '.git'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/REPLIT-AGENT-HANDOFF.md',
+  relativePath: 'REPLIT-AGENT-HANDOFF.md'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/alpha-visual-artists-mobile-latest.tar.gz',
+  relativePath: 'alpha-visual-artists-mobile-latest.tar.gz'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/.easignore',
+  relativePath: '.easignore'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/DEPLOY_TO_TESTFLIGHT.md',
+  relativePath: 'DEPLOY_TO_TESTFLIGHT.md'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/SYNC-REPLIT.md',
+  relativePath: 'SYNC-REPLIT.md'
+}
+skipping {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/alpha-visual-artists-dist.tar.gz',
+  relativePath: 'alpha-visual-artists-dist.tar.gz'
+}
+copying {
+  src: '/Users/alphavisualartists/Documents/GitHub/ava-v4',
+  srcFilePath: '/Users/alphavisualartists/Documents/GitHub/ava-v4/pnpm-workspace.yaml',
+  relativePath: 'pnpm-workspace.yaml'
+}
+- Computing project fingerprint
+✔ Computed project fingerprint
+Running local build, using local-build-plugin {
+  command: 'npx',
+  args: [
+    '-y',
+    'eas-cli-local-build-plugin@19.1.0',
+    'eyJqb2IiOnsidHlwZSI6Im1hbmFnZWQiLCJwbGF0Zm9ybSI6ImlvcyIsInByb2plY3RBcmNoaXZlIjp7InR5cGUiOiJQQVRIIiwicGF0aCI6Ii92YXIvZm9sZGVycy9xXy9zbHA3Y19sOTZ3czQwZGR4a2p6MzdmcTAwMDAwZ24vVC9lYXMtY2xpLW5vZGVqcy8wNTM5MjlhYS1kODI3LTQ2YzUtOTJmMi0wNjZhMGY4ZTE5ZTgudGFyLmd6In0sInByb2plY3RSb290RGlyZWN0b3J5IjoiYXJ0aWZhY3RzL2F2YS1tb2JpbGUiLCJidWlsZGVyRW52aXJvbm1lbnQiOnsiZW52Ijp7fX0sImNhY2hlIjp7ImRpc2FibGVkIjpmYWxzZSwicGF0aHMiOltdLCJjbGVhciI6ZmFsc2V9LCJzZWNyZXRzIjp7ImJ1aWxkQ3JlZGVudGlhbHMiOnsiQWxwaGFWaXN1YWxBcnRpc3RzIjp7InByb3Zpc2lvbmluZ1Byb2ZpbGVCYXNlNjQiOiJNSUl3S3dZSktvWklodmNOQVFjQ29JSXdIRENDTUJnQ0FRRXhDekFKQmdVckRnTUNHZ1VBTUlJZ09BWUpLb1pJaHZjTkFRY0JvSUlnS1FTQ0lDVThQM2h0YkNCMlpYSnphVzl1UFNJeExqQWlJR1Z1WTI5a2FXNW5QU0pWVkVZdE9DSS9QZ284SVVSUFExUlpVRVVnY0d4cGMzUWdVRlZDVEVsRElDSXRMeTlCY0hCc1pTOHZSRlJFSUZCTVNWTlVJREV1TUM4dlJVNGlJQ0pvZEhSd09pOHZkM2QzTG1Gd2NHeGxMbU52YlM5RVZFUnpMMUJ5YjNCbGNuUjVUR2x6ZEMweExqQXVaSFJrSWo0S1BIQnNhWE4wSUhabGNuTnBiMjQ5SWpFdU1DSStDanhrYVdOMFBnb0pQR3RsZVQ1QmNIQkpSRTVoYldVOEwydGxlVDRLQ1R4emRISnBibWMrZG1WeWRHbHJZV3hoY0hCaGRtRnRiMkpwYkdVZ1l6WmtPR1EzTWpRMFltTmlPRGRsTWpZeFltSXdZV013WkRnME9URTNOems4TDNOMGNtbHVaejRLQ1R4clpYaytRWEJ3YkdsallYUnBiMjVKWkdWdWRHbG1hV1Z5VUhKbFptbDRQQzlyWlhrK0NnazhZWEp5WVhrK0NnazhjM1J5YVc1blBsUkJVRkEwT1RKWFVVRThMM04wY21sdVp6NEtDVHd2WVhKeVlYaytDZ2s4YTJWNVBrTnlaV0YwYVc5dVJHRjBaVHd2YTJWNVBnb0pQR1JoZEdVK01qQXlOaTB3TlMweU4xUXhPVG95TmpveE5GbzhMMlJoZEdVK0NnazhhMlY1UGxCc1lYUm1iM0p0UEM5clpYaytDZ2s4WVhKeVlYaytDZ2tKUEhOMGNtbHVaejVwVDFNOEwzTjBjbWx1Wno0S0NRazhjM1J5YVc1blBuaHlUMU04TDNOMGNtbHVaejRLQ1FrOGMzUnlhVzVuUG5acGMybHZiazlUUEM5emRISnBibWMrQ2drOEwyRnljbUY1UGdvSlBHdGxlVDVKYzFoamIyUmxUV0Z1WVdkbFpEd3ZhMlY1UGdvSlBHWmhiSE5sTHo0S0NUeHJaWGsrUkdWMlpXeHZjR1Z5UTJWeWRHbG1hV05oZEdWelBDOXJaWGsrQ2drOFlYSnlZWGsrQ2drSlBHUmhkR0UrVFVsSlJuUjZRME5DU2l0blFYZEpRa0ZuU1ZGVksyVTRiak5OWkZOalkxVlRRWE56UkhaSVZHWnFRVTVDWjJ0eGFHdHBSemwzTUVKQlVYTkdRVVJDTVUxVlVYZFJaMWxFVmxGUlJFUkVkRUpqU0VKeldsTkNXR0l6U25OYVNHUndXa2RWWjFKSFZqSmFWM2gyWTBkV2VVbEdTbXhpUjBZd1lWYzVkV041UWtSYVdFb3dZVmRhY0ZreVJqQmhWemwxU1VWR01XUkhhSFpqYld3d1pWUkZURTFCYTBkQk1WVkZRM2QzUTFKNlRYaEZla0ZTUW1kT1ZrSkJiMDFEYTBaM1kwZDRiRWxGYkhWWmVUUjRRM3BCU2tKblRsWkNRVmxVUVd4V1ZFMUNORmhFVkVreVRVUlZlVTU2UlRWTlZGbDRUVVp2V0VSVVNUTk5SRlY1VG5wRk5VMVVXWGRQVm05M1oxcEplRWRxUVZsQ1oyOUthMmxoU21zdlNYTmFRVVZDUkVGd1ZWRldRbEZPUkd0NVZqRkdRazFVYTNkT2QxbEVWbEZSUkVSRVFuQlZSMmgyWW0xVloxSkhiSHBrU0Vwd1dXNVdNR0ZYT1hWUGFVSkxZak5PYjJSWFJXZFZiVGxwV2xoS01HTjVRVzlXUlVaUlZVUlJOVTFzWkZKUlUydDRSWHBCVWtKblRsWkNRWE5OUTJ4U1FsVkdRVEJQVkVwWVZWVkZlRVo2UVZaQ1owNVdRa0Z2VFVScmNIWmpNbWd4V1ZOQ1UySXlTbXhqYmxKNlRWRnpkME5SV1VSV1VWRkhSWGRLVmxWNlEwTkJVMGwzUkZGWlNrdHZXa2xvZG1OT1FWRkZRa0pSUVVSblowVlFRVVJEUTBGUmIwTm5aMFZDUVV4TFprVlZXVTEwVUVoT016SnJhM3BLZEcxMFdsUndTRkpZVGtGeEszbzBkRFZrVFVaMGEwSkNNWEZHZEU1eGQwOUJkR1pKZFd3NFRXaFNVMVY1VkhSSmVFOVNjVGxoVFVWUlRVcHNWRk5KTUVkMVQzTmFNMUZOVkhONFUwMU9VRGd6Ym1NelZXWXhWMVJEUmpFck9HRTNVMGRaVFZwdVkxWjZVa3RsYkRGT1YwbEVMMDF2VlN0S1ZEbHphWEZzVEdsSGVXOHdibW8wU0hoQllrdE5MMVpuV2xoSlJFTkxXbE5sU0dobmVtTnBlSE5tVG5ZMU1qZENaRmhzVUVkMWRXVTJZVkp3WlUxcFJFMWljMmxtWmxWVmFEVkZRVTlwTUdkUk5XZG1UMElyVUZSUE5FSnJObXQ2TkVwTlUySkhaRXczT0ZaMFFVWnpNalZ2ZVhSNWFFeFFlbU5LT0RaQ1NsUnhUMXBwUVcxbFNUZERXaTlWZFZKdVMxZGhlRVJoYVRRNVFXbEZiVXh5VFdnNVZHVjJNRWhJVm5NMmRqZGFaRXRCTmprelFVa3JXUzkwVVhZeWJHd3dhbXhGVFN0U1VFTjJSM1I0WTBOQmQwVkJRV0ZQUTBGcFRYZG5aMGxtVFVGM1IwRXhWV1JGZDBWQ0wzZFJRMDFCUVhkSWQxbEVWbEl3YWtKQ1ozZEdiMEZWUTJZM1FVWmFSRFZ5TWxGTGEyaExOVXBwYUdwRVNtWnpjRGRKZDJOQldVbExkMWxDUWxGVlNFRlJSVVZhUkVKcFRVTXdSME5EYzBkQlVWVkdRbnBCUTJocFJtOWtTRkozVDJrNGRsa3lWbmxrU0UxMVdWaENkMkpIVlhWWk1qbDBURE5rTTFwSVNtNU5lVFZyV2xoSmQwMVJXVWxMZDFsQ1FsRlZTRTFCUjBkS1YyZ3daRWhCTmt4NU9YWlpNMDUzVEcxR2QyTkhlR3hNYlU1MllsTTVkbGt6VG5kTlJFMTBaRE5rYTJOdFkzcE5SRWwzWjJkRlpVSm5UbFpJVTBGRloyZEZWazFKU1VKRlZFTkRRVkV3UjBOVGNVZFRTV0l6V1RKUlJrRlVRMEl2ZWtOQ2QzZFpTVXQzV1VKQ1VWVklRV2RKZDJkaVdVMW5ZazVUV2xkNGNGbFhOV3BhVTBKMlltbENNR0ZIYkhwSlIwNXNZMjVTY0ZwdGJHcFpXRkpzU1VkS05VbEhSblZsVTBKM1dWaEtNR1ZUUW1oak0wNHhZbGRXZWtsSFJtcFpNbFozWkVkR2RWa3lWV2RpTWxsblpFZG9iRWxJVW05YVZ6Um5XVmhDZDJKSGJHcFpWMHB6V2xOQ2VtUkhSblZhUjBaNVdrTkNNRnBZU25SamVVSm9ZbTFSWjFreU9YVmFSMnd3WVZjNWRXTjVRblphYVVJeFl6SlZjMGxIVG14amJsSndXbTFzYWxsWVVteEpTRUoyWWtkc2FtVlRRbWhpYlZGbldUSldlV1JIYkcxaFYwNW9aRWRzZG1KcFFuZGpiVVpxWkVkc2FscFRRbnBrUjBZd1dsY3hiR0p1VW5wTWFrRXpRbWRuY2tKblJVWkNVV05EUVZKWmNtRklVakJqU0UwMlRIazVNMlF6WTNWWldFSjNZa2RWZFZreU9YUk1NazVzWTI1U2NGcHRiR3BaV0ZKc1dWaFdNR0ZIT1hsaFdGSTFUSHBCVjBKblRsWklVMVZDUVdZNFJVUkVRVXRDWjJkeVFtZEZSa0pSWTBSQmVrRmtRbWRPVmtoUk5FVkdaMUZWUjNkbVpVVk1lRnBHVFhCek5EQXJkVkJLT0U1Slp5OVNRUzluZDBSbldVUldVakJRUVZGSUwwSkJVVVJCWjJWQlRVSk5SME5wY1VkVFNXSXpXVEpSUjBGUlVVSkJaamhGUVdkVlFVMUJNRWREVTNGSFUwbGlNMFJSUlVKRGQxVkJRVFJKUWtGUlExSkVNSE5pWkV4UVdscHdTVk5TUTNoTk1tUnBlR0Y2U205cE9XVTNWMVZET0V4Uk5sRjZOVFJKUkZaQldqSXlOM2N3UVhoQlZWRkpTVW94WTFCUU1GUm1VR1pwWkZsNlJITkhlWFJJYUdoT1NURTRNbnBCYjJGUmNHNTBhVVUwYm5GallrWnFNaXQ2VEhGVGJEVlJiMmx0VmpoV05FUXlWMGxSY3paaFdsVklja1pMZEV0cE5EVXpNVTVCV25Gc2ExYzNTR2QyWldWbWMyOHlObTF5WkZaM1ZUZHRTbUZLYlVwTFNuSmFWMmh4WkVKeGRtTnpXRXROYVZGRVFtazNURkJuUXpGSE5IRnRlRWd3VlRsMk1uaGhiakpKUW5RMGEzWTNhR0ZFV0cxU1NuUjBkbEZzTkVoM0syNUphbm93VERFelRIZEthazg0V1hGWVdUUldhRlk1WjB4T2NtVjBVRzlXTTFOMFkyUlFNMlZyTVRkak9IcDRjVGhCVkZjM05FNVNhVnBOUlZjNFpHZHhRVXBuU0RGb2FqRk5VMFZIUVdGNGRuWlBZMlZMWXpBMVpEVTBjSGx3WlRKRlEwMXpTM0EyZUhobVBDOWtZWFJoUGdvSlBDOWhjbkpoZVQ0S0NnazhhMlY1UGtSRlVpMUZibU52WkdWa0xWQnliMlpwYkdVOEwydGxlVDRLQ1R4a1lYUmhQazFKU1U1blFWbEtTMjlhU1doMlkwNUJVV05EYjBsSlRtTlVRME5FVnpCRFFWRkZlRVJVUVV4Q1oyeG5hR3RuUWxwUlRVVkJaMFYzWjJkTkswSm5hM0ZvYTJsSE9YY3dRa0ozUjJkblowMTJRa2xKUkV0NlIwTkJlV04zUkVGM1NGWnRWbmxqTW14MlltZEpRa0ZVUVU1RVFXaFJWVVpHUkdGSFZtcGhkMFZDUVVSQlVVUkJjRlZoVnpGc1ZrYzVUV0ZZV214QlowbENZa1JCVkVSQk5VcGpNV2hxWWpKU2JGUlhSblZaVjJSc1drRkZRa0ZFUVdGRVFXaFZXbGRHZEZSdFJuUmFVWGRQVTIwNWVtRklWbWhKUmtwMldXMVdlV1JJVFhkSVVYZE5VVE5LYkZsWVVuQmlNalZGV1ZoU2JFWjNNSGxPYWtFeFRXcGplRTlVU1RKTlZGSmhUVUkwVFVSc1VteFpWekZLV2tkV2RXUkhiRzFoVjFaNVRVRjNUVU5zVWtKVlJrRXdUMVJLV0ZWVlJYZElkM2RQVWxob2QyRllTbWhrUjJ4MlltdFNhR1JIVlZoRVZFa3pUVVJWZVU1NlJUVk5WRmwzVDFadmQwbEJkMWhWU0VwMldtMXNjMXBWVW5Cak0xSjVZVmRLTVdSSGJIWmliRkkxWTBkVlRVSldUbFZVTVVwR1RVTkZUVU5HUW5OWldGSnRZak5LZEUxQ1ZVMUJNbXhRVlhkM1JXVklTbEJWZDNkSlpHMXNlbUZYT1hWVU1VMTNTM2QzWWxGWVFuZGlSMnhxV1ZoU2NHSXlOVXBhUjFaMVpFZHNiV0ZYVm5sVlNFcHNXbTFzTkUxQmQwMURiRkpDVlVaQk1FOVVTbGhWVlVWM1RFRjNSVlpXVmtwU1FYZHJUbXBWZVZreVdteE5SR3QwV1cxSk1FMXBNREJQVjAweFRGZEdiRTF0VlhST1JHUnBXbXBCTWxsWFZUVk5la1pxVFVSelRVWlZVbXhrYlZaellqTkNiR05yVG14amJsSndXbTFzYWxsWVVteGpla0ZwUWtOQlZERnFMMWQ1SzJwcmNETk1UV3BaVlU1bE5VNHlVSGx1ZENzMWJuRTVSVVpwU2pCT2NUQndTakpOYWtKRFJFRnNRbU5JUWtwU1JUVm9ZbGRWVFU1WVdteGpibEp3WVRKR2MxbFlRbmRaV0Zwb1lsYzVhV0ZYZUd4SlIwMHlXa1JvYTA1NlNUQk9SMHBxV1dwbk0xcFVTVEpOVjBwcFRVZEdhazFIVVRST1JHdDRUbnBqTlUxRmQwMUNSVFZvWWxkVlRWSkRjR0phV0doM1lqRXdaMWt5T1hSTWJVWnpZMGRvYUdSdGJIcGtWMFp6V1ZoS01HRllUakJqZVRWb1kwaEJaMUZZUW5kVk0xSjJZMjFWWjAxcVFYbE9hVEIzVGxNd2VVNHhVWGhQVkc5NVRtcHZlRTE1TkRCUFJGSmhUVWxJTVVSQmVFWmlibEp3WkVkNGJHSlhWblZrU0U1M1oyVlJRMEZSUjNkblpEUjNVSGQzVjFsWVFuZGlSMnhxV1ZoU2NHSXlOSFJoVjFKc1ltNVNjRnB0Ykd4alozZHNWa1ZHVVZWRVVUVk5iR1JTVVZNMWFtSXlNSFZaVjNoM1lVZEdNbUZZVGpGWlYzaG9ZMjVTY0dNelVucE1iVVozWTBSQldVUkNUbWxhV0ZKb1RGaEtiR05IT1hsa1NFMTBXVmRPTUdGWVdteEJVVWd2VFVSRlRVa3lUblppVXpWb1kwaENjMXBUTld0YVdGcHNZa2M1ZDFwWVNYVmtSMVpvWWxNeGNGcEhWblZrUjJ4dFlWZFdlVVJCY0ZWUlZrSlJUa1JyZVZZeFJrSk5RazFOUkcxa2JHUkRNVEJaV0U1eVRGZEdjMkpIT1ROQlVVVkJUVVJyVFVadGRHeGxWMDV2V1Zkc2RVeFhSbXBaTWxaNlkza3hibU50T1RGalNFMTNTSGQzVFZaRlJsRlZSRkUxVFd4a1VsRlROSEZFUVRscVlqSXdkVmxZUW5kaVIxVjFaRWM1Y2xwWE5tZG5aMmM1VFVsSlExRjZRME5CWTIxblFYZEpRa0ZuU1VsTVkxZzRhVTVNUmxNMVZYZERaMWxKUzI5YVNYcHFNRVZCZDAxM1ducEZZazFDYTBkQk1WVkZRWGQzVTFGWVFuZGlSMVZuVlcwNWRtUkRRa1JSVTBGMFNVVmplazFUV1hkS1FWbEVWbEZSVEVSQ01VSmpTRUp6V2xOQ1JGcFlTakJoVjFwd1dUSkdNR0ZYT1hWSlJVWXhaRWRvZG1OdGJEQmxWRVZVVFVKRlIwRXhWVVZEWjNkTFVWaENkMkpIVldkVFZ6VnFUR3BGVEUxQmEwZEJNVlZGUW1oTlExWldUWGRJYUdOT1RWUlJkMDVFVFhkTlZHZDRUMVJCTWxkb1kwNU5lbXQzVGtSTmQwMVVaM2hQVkVFeVYycENiazFTYzNkSFVWbEVWbEZSUkVSQ1NrSmpTRUp6V2xOQ1UySXlPVEJKUlU1Q1NVTXdaMUo2VFhoS2FrRnJRbWRPVmtKQmMwMUlWVVozWTBkNGJFbEZUbXhqYmxKd1dtMXNhbGxZVW5CaU1qUm5VVmhXTUdGSE9YbGhXRkkxVFZKTmQwVlJXVVJXVVZGTFJFRndRbU5JUW5OYVUwSktZbTFOZFUxUmMzZERVVmxFVmxGUlIwVjNTbFpWZWtJeVRVSkJSMEo1Y1VkVFRUUTVRV2RGUjBKVGRVSkNRVUZwUVRKSlFVSkthbkJNZWpGQlkzRlVkR3Q1U25sblVrMWpNMUpEVmpoalYycFVia2hqUmtKaVdrUjFWMjFDVTNBeldraDBabFJxYWxSMWVIaEZkRmd2TVVnM1dYbFpiRE5LTmxsU1lsUjZRbEJGVm05QkwxWm9XVVJMV0RGRWVYaE9RakJqVkdSa2NWaHNOV1IyVFZaNmRFczFNVGRKUkhaWmRWWlVXbGh3Yld0UGJFVkxUV0ZPUTAxRlFYZElVVmxFVmxJd1QwSkNXVVZHVEhWM00zRkdXVTAwYVdGd1NYRmFNM0kyT1RZMkwyRjVlVk55VFVFNFIwRXhWV1JGZDBWQ0wzZFJSazFCVFVKQlpqaDNSR2RaUkZaU01GQkJVVWd2UWtGUlJFRm5SVWROUVc5SFEwTnhSMU5OTkRsQ1FVMUVRVEpuUVUxSFZVTk5VVU5FTm1OSVJVWnNOR0ZZVkZGWk1tVXpkamxIZDA5QlJWcE1kVTRyZVZKb1NFWkVMek50Wlc5NWFIQnRkazkzWjFCVmJsQlhWSGh1VXpSaGRDdHhTWGhWUTAxSE1XMXBhRVJMTVVFelZWUTRNazVSZWpZd2FXMVBiRTB5TjJwaVpHOVlkREpSWm5sR1RXMHJXV2hwWkVSclRFWXhka3hWWVdkTk5rSm5SRFUyUzNsTFJFTkRRWFZaZDJkblNuUnZRVTFEUVZGSlEwTkVUVTQzZG1rdlZFZG5kVTFCYjBkRFEzRkhVMDAwT1VKQlRVUk5SMk40UjNwQldrSm5UbFpDUVUxTlJXdEdkMk5IZUd4SlJrcDJZak5SWjFFd1JXZE1VMEpJVFhwRmJVMURVVWRCTVZWRlEzZDNaRkZZUW5kaVIxVm5VVEpXZVdSSGJHMWhWMDVvWkVkc2RtSnBRa0prV0ZKdllqTktjR1JJYTNoRmVrRlNRbWRPVmtKQmIwMURhMFozWTBkNGJFbEZiSFZaZVRSNFEzcEJTa0puVGxaQ1FWbFVRV3hXVkUxQ05GaEVWRVV6VFVSSmVVMXFTWGxOYWsxNVRXeHZXRVJVVFhsTlJFbDRUMFJCZDAxRVFYZE5SbTkzWTJwRmJVMURVVWRCTVZWRlFYZDNaRkZZUW5kaVIxVm5WVE5zZW1SSFZuUkpSV3gxWkVkV2JtTnRSakJoVnpsMVNVVk9Ra2xFVVhoS2FrRnJRbWRPVmtKQmMwMUlWVVozWTBkNGJFbEZUbXhqYmxKd1dtMXNhbGxZVW5CaU1qUm5VVmhXTUdGSE9YbGhXRkkxVFZKTmQwVlJXVVJXVVZGTFJFRndRbU5JUW5OYVUwSktZbTFOZFUxUmMzZERVVmxFVmxGUlIwVjNTbFpWZWtKYVRVSk5SMEo1Y1VkVFRUUTVRV2RGUjBORGNVZFRUVFE1UVhkRlNFRXdTVUZDUVZweWNFWmFkbVphT0c0d1l6UXlhbkJKWWxaek1WVk9iVkpMZVZwU2IyMW1ja3BKU0RkcE9WWm5VRE5QU25FMmVHeElUSGszZGs4MlVVSjBRVVZVVWtoNFlVcHhNbWR1UTJ0c2FYVlliVUp0T1ZCbVJuRnFaMlpqZDJkbVVYZEVkMWxFVmxJd1ZFRlJTQzlDUVZWM1FYZEZRaTk2UVdaQ1owNVdTRk5OUlVkRVFWZG5RbE0zYzA0MmFGZEVUMGx0Y1ZOTGJXUTJLM1psZFhZeWMzTnJjWHBDUjBKblozSkNaMFZHUWxGalFrRlJVVFpOUkdkM1RtZFpTVXQzV1VKQ1VWVklUVUZIUjB0dGFEQmtTRUUyVEhrNWRsa3pUbmRNYlVaM1kwZDRiRXh0VG5aaVV6bDJXVE5PZDAxRVRYUlpXRUozWWtkV2VXSXlPVEJaTWtadVRYcEJNMEpu'... 19580 more characters
+  ],
+  env: {
+    EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: 'pk_test_bmF0aXZlLWJ1Zy05OS5jbGVyay5hY2NvdW50cy5kZXYk',
+    COMMAND_MODE: 'unix2003',
+    CURSOR_LAYOUT: 'glass',
+    FPATH: '/opt/homebrew/share/zsh/site-functions:/opt/homebrew/share/zsh/site-functions:/usr/local/share/zsh/site-functions:/usr/share/zsh/site-functions:/usr/share/zsh/5.9/functions',
+    HOME: '/Users/alphavisualartists',
+    HOMEBREW_CELLAR: '/opt/homebrew/Cellar',
+    HOMEBREW_PREFIX: '/opt/homebrew',
+    HOMEBREW_REPOSITORY: '/opt/homebrew',
+    INFOPATH: '/opt/homebrew/share/info:/opt/homebrew/share/info:',
+    LANG: 'C.UTF-8',
+    LOGNAME: 'alphavisualartists',
+    MACH_PORT_RENDEZVOUS_PEER_VALDATION: '0',
+    MallocNanoZone: '0',
+    OLDPWD: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile',
+    OSLogRateLimit: '64',
+    PATH: '/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/opt/ImageMagick/bin:/Applications/Cursor.app/Contents/Resources/app/resources/helpers',
+    PWD: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile',
+    SHELL: '/bin/zsh',
+    SHLVL: '1',
+    SSH_AUTH_SOCK: '/var/run/com.apple.launchd.JtQSLM4Yyp/Listeners',
+    TMPDIR: '/var/folders/q_/slp7c_l96ws40ddxkjz37fq00000gn/T/',
+    USER: 'alphavisualartists',
+    VSCODE_CODE_CACHE_PATH: '/Users/alphavisualartists/Library/Application Support/Cursor/CachedData/0cf8b06883f54e26bb4f0fb8647c9500ccb43310',
+    VSCODE_CRASH_REPORTER_PROCESS_TYPE: 'extensionHost',
+    VSCODE_CWD: '/',
+    VSCODE_ESM_ENTRYPOINT: 'vs/workbench/api/node/extensionHostProcess',
+    VSCODE_HANDLES_UNCAUGHT_ERRORS: 'true',
+    VSCODE_IPC_HOOK: '/Users/alphavisualartists/Library/Application Support/Cursor/3.4.-main.sock',
+    VSCODE_NLS_CONFIG: '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/Applications/Cursor.app/Contents/Resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}',
+    VSCODE_PID: '79044',
+    VSCODE_PROCESS_TITLE: 'extension-host  empty [3-3]',
+    XPC_FLAGS: '0x0',
+    XPC_SERVICE_NAME: '0',
+    __CFBundleIdentifier: 'com.todesktop.230313mzl4w4u92',
+    __CF_USER_TEXT_ENCODING: '0x1F5:0x0:0x0',
+    TERM: 'dumb',
+    NO_COLOR: '1',
+    FORCE_COLOR: '0',
+    _ZO_DOCTOR: '0',
+    CURSOR_AGENT: '1',
+    EXPO_DEBUG: '1',
+    _: '/opt/homebrew/bin/eas',
+    EAS_LOCAL_BUILD_WORKINGDIR: undefined,
+    __API_SERVER_URL: 'https://api.expo.dev',
+    EAS_LOCAL_BUILD_ARTIFACT_PATH: '/Users/alphavisualartists/Documents/GitHub/ava-v4/artifacts/ava-mobile/build-output.ipa'
+  }
+}
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@2.4.5: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated lodash.get@4.4.2: This package is deprecated. Use the optional chaining (?.) operator instead.
+npm warn deprecated glob@6.0.4: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated @xmldom/xmldom@0.7.13: this version has critical issues, please update to the latest version
+npm warn deprecated uuid@7.0.3: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@9.0.1: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated tar@7.5.7: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Fastlane is not available, make sure it's installed and in your PATH
+spawn fastlane ENOENT
+Error: spawn fastlane ENOENT
+    at ChildProcess._handle.onexit (node:internal/child_process:285:19)
+    at onErrorNT (node:internal/child_process:483:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+npx -y eas-cli-local-build-plugin@19.1.0 eyJqb2IiOnsidHlwZSI6Im1hbmFnZWQiLCJwbGF0Zm9ybSI6ImlvcyIsInByb2plY3RBcmNoaXZlIjp7InR5cGUiOiJQQVRIIiwicGF0aCI6Ii92YXIvZm9sZGVycy9xXy9zbHA3Y19sOTZ3czQwZGR4a2p6MzdmcTAwMDAwZ24vVC9lYXMtY2xpLW5vZGVqcy8wNTM5MjlhYS1kODI3LTQ2YzUtOTJmMi0wNjZhMGY4ZTE5ZTgudGFyLmd6In0sInByb2plY3RSb290RGlyZWN0b3J5IjoiYXJ0aWZhY3RzL2F2YS1tb2JpbGUiLCJidWlsZGVyRW52aXJvbm1lbnQiOnsiZW52Ijp7fX0sImNhY2hlIjp7ImRpc2FibGVkIjpmYWxzZSwicGF0aHMiOltdLCJjbGVhciI6ZmFsc2V9LCJzZWNyZXRzIjp7ImJ1aWxkQ3JlZGVudGlhbHMiOnsiQWxwaGFWaXN1YWxBcnRpc3RzIjp7InByb3Zpc2lvbmluZ1Byb2ZpbGVCYXNlNjQiOiJNSUl3S3dZSktvWklodmNOQVFjQ29JSXdIRENDTUJnQ0FRRXhDekFKQmdVckRnTUNHZ1VBTUlJZ09BWUpLb1pJaHZjTkFRY0JvSUlnS1FTQ0lDVThQM2h0YkNCMlpYSnphVzl1UFNJeExqQWlJR1Z1WTI5a2FXNW5QU0pWVkVZdE9DSS9QZ284SVVSUFExUlpVRVVnY0d4cGMzUWdVRlZDVEVsRElDSXRMeTlCY0hCc1pTOHZSRlJFSUZCTVNWTlVJREV1TUM4dlJVNGlJQ0pvZEhSd09pOHZkM2QzTG1Gd2NHeGxMbU52YlM5RVZFUnpMMUJ5YjNCbGNuUjVUR2x6ZEMweExqQXVaSFJrSWo0S1BIQnNhWE4wSUhabGNuTnBiMjQ5SWpFdU1DSStDanhrYVdOMFBnb0pQR3RsZVQ1QmNIQkpSRTVoYldVOEwydGxlVDRLQ1R4emRISnBibWMrZG1WeWRHbHJZV3hoY0hCaGRtRnRiMkpwYkdVZ1l6WmtPR1EzTWpRMFltTmlPRGRsTWpZeFltSXdZV013WkRnME9URTNOems4TDNOMGNtbHVaejRLQ1R4clpYaytRWEJ3YkdsallYUnBiMjVKWkdWdWRHbG1hV1Z5VUhKbFptbDRQQzlyWlhrK0NnazhZWEp5WVhrK0NnazhjM1J5YVc1blBsUkJVRkEwT1RKWFVVRThMM04wY21sdVp6NEtDVHd2WVhKeVlYaytDZ2s4YTJWNVBrTnlaV0YwYVc5dVJHRjBaVHd2YTJWNVBnb0pQR1JoZEdVK01qQXlOaTB3TlMweU4xUXhPVG95TmpveE5GbzhMMlJoZEdVK0NnazhhMlY1UGxCc1lYUm1iM0p0UEM5clpYaytDZ2s4WVhKeVlYaytDZ2tKUEhOMGNtbHVaejVwVDFNOEwzTjBjbWx1Wno0S0NRazhjM1J5YVc1blBuaHlUMU04TDNOMGNtbHVaejRLQ1FrOGMzUnlhVzVuUG5acGMybHZiazlUUEM5emRISnBibWMrQ2drOEwyRnljbUY1UGdvSlBHdGxlVDVKYzFoamIyUmxUV0Z1WVdkbFpEd3ZhMlY1UGdvSlBHWmhiSE5sTHo0S0NUeHJaWGsrUkdWMlpXeHZjR1Z5UTJWeWRHbG1hV05oZEdWelBDOXJaWGsrQ2drOFlYSnlZWGsrQ2drSlBHUmhkR0UrVFVsSlJuUjZRME5DU2l0blFYZEpRa0ZuU1ZGVksyVTRiak5OWkZOalkxVlRRWE56UkhaSVZHWnFRVTVDWjJ0eGFHdHBSemwzTUVKQlVYTkdRVVJDTVUxVlVYZFJaMWxFVmxGUlJFUkVkRUpqU0VKeldsTkNXR0l6U25OYVNHUndXa2RWWjFKSFZqSmFWM2gyWTBkV2VVbEdTbXhpUjBZd1lWYzVkV041UWtSYVdFb3dZVmRhY0ZreVJqQmhWemwxU1VWR01XUkhhSFpqYld3d1pWUkZURTFCYTBkQk1WVkZRM2QzUTFKNlRYaEZla0ZTUW1kT1ZrSkJiMDFEYTBaM1kwZDRiRWxGYkhWWmVUUjRRM3BCU2tKblRsWkNRVmxVUVd4V1ZFMUNORmhFVkVreVRVUlZlVTU2UlRWTlZGbDRUVVp2V0VSVVNUTk5SRlY1VG5wRk5VMVVXWGRQVm05M1oxcEplRWRxUVZsQ1oyOUthMmxoU21zdlNYTmFRVVZDUkVGd1ZWRldRbEZPUkd0NVZqRkdRazFVYTNkT2QxbEVWbEZSUkVSRVFuQlZSMmgyWW0xVloxSkhiSHBrU0Vwd1dXNVdNR0ZYT1hWUGFVSkxZak5PYjJSWFJXZFZiVGxwV2xoS01HTjVRVzlXUlVaUlZVUlJOVTFzWkZKUlUydDRSWHBCVWtKblRsWkNRWE5OUTJ4U1FsVkdRVEJQVkVwWVZWVkZlRVo2UVZaQ1owNVdRa0Z2VFVScmNIWmpNbWd4V1ZOQ1UySXlTbXhqYmxKNlRWRnpkME5SV1VSV1VWRkhSWGRLVmxWNlEwTkJVMGwzUkZGWlNrdHZXa2xvZG1OT1FWRkZRa0pSUVVSblowVlFRVVJEUTBGUmIwTm5aMFZDUVV4TFprVlZXVTEwVUVoT016SnJhM3BLZEcxMFdsUndTRkpZVGtGeEszbzBkRFZrVFVaMGEwSkNNWEZHZEU1eGQwOUJkR1pKZFd3NFRXaFNVMVY1VkhSSmVFOVNjVGxoVFVWUlRVcHNWRk5KTUVkMVQzTmFNMUZOVkhONFUwMU9VRGd6Ym1NelZXWXhWMVJEUmpFck9HRTNVMGRaVFZwdVkxWjZVa3RsYkRGT1YwbEVMMDF2VlN0S1ZEbHphWEZzVEdsSGVXOHdibW8wU0hoQllrdE5MMVpuV2xoSlJFTkxXbE5sU0dobmVtTnBlSE5tVG5ZMU1qZENaRmhzVUVkMWRXVTJZVkp3WlUxcFJFMWljMmxtWmxWVmFEVkZRVTlwTUdkUk5XZG1UMElyVUZSUE5FSnJObXQ2TkVwTlUySkhaRXczT0ZaMFFVWnpNalZ2ZVhSNWFFeFFlbU5LT0RaQ1NsUnhUMXBwUVcxbFNUZERXaTlWZFZKdVMxZGhlRVJoYVRRNVFXbEZiVXh5VFdnNVZHVjJNRWhJVm5NMmRqZGFaRXRCTmprelFVa3JXUzkwVVhZeWJHd3dhbXhGVFN0U1VFTjJSM1I0WTBOQmQwVkJRV0ZQUTBGcFRYZG5aMGxtVFVGM1IwRXhWV1JGZDBWQ0wzZFJRMDFCUVhkSWQxbEVWbEl3YWtKQ1ozZEdiMEZWUTJZM1FVWmFSRFZ5TWxGTGEyaExOVXBwYUdwRVNtWnpjRGRKZDJOQldVbExkMWxDUWxGVlNFRlJSVVZhUkVKcFRVTXdSME5EYzBkQlVWVkdRbnBCUTJocFJtOWtTRkozVDJrNGRsa3lWbmxrU0UxMVdWaENkMkpIVlhWWk1qbDBURE5rTTFwSVNtNU5lVFZyV2xoSmQwMVJXVWxMZDFsQ1FsRlZTRTFCUjBkS1YyZ3daRWhCTmt4NU9YWlpNMDUzVEcxR2QyTkhlR3hNYlU1MllsTTVkbGt6VG5kTlJFMTBaRE5rYTJOdFkzcE5SRWwzWjJkRlpVSm5UbFpJVTBGRloyZEZWazFKU1VKRlZFTkRRVkV3UjBOVGNVZFRTV0l6V1RKUlJrRlVRMEl2ZWtOQ2QzZFpTVXQzV1VKQ1VWVklRV2RKZDJkaVdVMW5ZazVUV2xkNGNGbFhOV3BhVTBKMlltbENNR0ZIYkhwSlIwNXNZMjVTY0ZwdGJHcFpXRkpzU1VkS05VbEhSblZsVTBKM1dWaEtNR1ZUUW1oak0wNHhZbGRXZWtsSFJtcFpNbFozWkVkR2RWa3lWV2RpTWxsblpFZG9iRWxJVW05YVZ6Um5XVmhDZDJKSGJHcFpWMHB6V2xOQ2VtUkhSblZhUjBaNVdrTkNNRnBZU25SamVVSm9ZbTFSWjFreU9YVmFSMnd3WVZjNWRXTjVRblphYVVJeFl6SlZjMGxIVG14amJsSndXbTFzYWxsWVVteEpTRUoyWWtkc2FtVlRRbWhpYlZGbldUSldlV1JIYkcxaFYwNW9aRWRzZG1KcFFuZGpiVVpxWkVkc2FscFRRbnBrUjBZd1dsY3hiR0p1VW5wTWFrRXpRbWRuY2tKblJVWkNVV05EUVZKWmNtRklVakJqU0UwMlRIazVNMlF6WTNWWldFSjNZa2RWZFZreU9YUk1NazVzWTI1U2NGcHRiR3BaV0ZKc1dWaFdNR0ZIT1hsaFdGSTFUSHBCVjBKblRsWklVMVZDUVdZNFJVUkVRVXRDWjJkeVFtZEZSa0pSWTBSQmVrRmtRbWRPVmtoUk5FVkdaMUZWUjNkbVpVVk1lRnBHVFhCek5EQXJkVkJLT0U1Slp5OVNRUzluZDBSbldVUldVakJRUVZGSUwwSkJVVVJCWjJWQlRVSk5SME5wY1VkVFNXSXpXVEpSUjBGUlVVSkJaamhGUVdkVlFVMUJNRWREVTNGSFUwbGlNMFJSUlVKRGQxVkJRVFJKUWtGUlExSkVNSE5pWkV4UVdscHdTVk5TUTNoTk1tUnBlR0Y2U205cE9XVTNWMVZET0V4Uk5sRjZOVFJKUkZaQldqSXlOM2N3UVhoQlZWRkpTVW94WTFCUU1GUm1VR1pwWkZsNlJITkhlWFJJYUdoT1NURTRNbnBCYjJGUmNHNTBhVVUwYm5GallrWnFNaXQ2VEhGVGJEVlJiMmx0VmpoV05FUXlWMGxSY3paaFdsVklja1pMZEV0cE5EVXpNVTVCV25Gc2ExYzNTR2QyWldWbWMyOHlObTF5WkZaM1ZUZHRTbUZLYlVwTFNuSmFWMmh4WkVKeGRtTnpXRXROYVZGRVFtazNURkJuUXpGSE5IRnRlRWd3VlRsMk1uaGhiakpKUW5RMGEzWTNhR0ZFV0cxU1NuUjBkbEZzTkVoM0syNUphbm93VERFelRIZEthazg0V1hGWVdUUldhRlk1WjB4T2NtVjBVRzlXTTFOMFkyUlFNMlZyTVRkak9IcDRjVGhCVkZjM05FNVNhVnBOUlZjNFpHZHhRVXBuU0RGb2FqRk5VMFZIUVdGNGRuWlBZMlZMWXpBMVpEVTBjSGx3WlRKRlEwMXpTM0EyZUhobVBDOWtZWFJoUGdvSlBDOWhjbkpoZVQ0S0NnazhhMlY1UGtSRlVpMUZibU52WkdWa0xWQnliMlpwYkdVOEwydGxlVDRLQ1R4a1lYUmhQazFKU1U1blFWbEtTMjlhU1doMlkwNUJVV05EYjBsSlRtTlVRME5FVnpCRFFWRkZlRVJVUVV4Q1oyeG5hR3RuUWxwUlRVVkJaMFYzWjJkTkswSm5hM0ZvYTJsSE9YY3dRa0ozUjJkblowMTJRa2xKUkV0NlIwTkJlV04zUkVGM1NGWnRWbmxqTW14MlltZEpRa0ZVUVU1RVFXaFJWVVpHUkdGSFZtcGhkMFZDUVVSQlVVUkJjRlZoVnpGc1ZrYzVUV0ZZV214QlowbENZa1JCVkVSQk5VcGpNV2hxWWpKU2JGUlhSblZaVjJSc1drRkZRa0ZFUVdGRVFXaFZXbGRHZEZSdFJuUmFVWGRQVTIwNWVtRklWbWhKUmtwMldXMVdlV1JJVFhkSVVYZE5VVE5LYkZsWVVuQmlNalZGV1ZoU2JFWjNNSGxPYWtFeFRXcGplRTlVU1RKTlZGSmhUVUkwVFVSc1VteFpWekZLV2tkV2RXUkhiRzFoVjFaNVRVRjNUVU5zVWtKVlJrRXdUMVJLV0ZWVlJYZElkM2RQVWxob2QyRllTbWhrUjJ4MlltdFNhR1JIVlZoRVZFa3pUVVJWZVU1NlJUVk5WRmwzVDFadmQwbEJkMWhWU0VwMldtMXNjMXBWVW5Cak0xSjVZVmRLTVdSSGJIWmliRkkxWTBkVlRVSldUbFZVTVVwR1RVTkZUVU5HUW5OWldGSnRZak5LZEUxQ1ZVMUJNbXhRVlhkM1JXVklTbEJWZDNkSlpHMXNlbUZYT1hWVU1VMTNTM2QzWWxGWVFuZGlSMnhxV1ZoU2NHSXlOVXBhUjFaMVpFZHNiV0ZYVm5sVlNFcHNXbTFzTkUxQmQwMURiRkpDVlVaQk1FOVVTbGhWVlVWM1RFRjNSVlpXVmtwU1FYZHJUbXBWZVZreVdteE5SR3QwV1cxSk1FMXBNREJQVjAweFRGZEdiRTF0VlhST1JHUnBXbXBCTWxsWFZUVk5la1pxVFVSelRVWlZVbXhrYlZaellqTkNiR05yVG14amJsSndXbTFzYWxsWVVteGpla0ZwUWtOQlZERnFMMWQ1SzJwcmNETk1UV3BaVlU1bE5VNHlVSGx1ZENzMWJuRTVSVVpwU2pCT2NUQndTakpOYWtKRFJFRnNRbU5JUWtwU1JUVm9ZbGRWVFU1WVdteGpibEp3WVRKR2MxbFlRbmRaV0Zwb1lsYzVhV0ZYZUd4SlIwMHlXa1JvYTA1NlNUQk9SMHBxV1dwbk0xcFVTVEpOVjBwcFRVZEdhazFIVVRST1JHdDRUbnBqTlUxRmQwMUNSVFZvWWxkVlRWSkRjR0phV0doM1lqRXdaMWt5T1hSTWJVWnpZMGRvYUdSdGJIcGtWMFp6V1ZoS01HRllUakJqZVRWb1kwaEJaMUZZUW5kVk0xSjJZMjFWWjAxcVFYbE9hVEIzVGxNd2VVNHhVWGhQVkc5NVRtcHZlRTE1TkRCUFJGSmhUVWxJTVVSQmVFWmlibEp3WkVkNGJHSlhWblZrU0U1M1oyVlJRMEZSUjNkblpEUjNVSGQzVjFsWVFuZGlSMnhxV1ZoU2NHSXlOSFJoVjFKc1ltNVNjRnB0Ykd4alozZHNWa1ZHVVZWRVVUVk5iR1JTVVZNMWFtSXlNSFZaVjNoM1lVZEdNbUZZVGpGWlYzaG9ZMjVTY0dNelVucE1iVVozWTBSQldVUkNUbWxhV0ZKb1RGaEtiR05IT1hsa1NFMTBXVmRPTUdGWVdteEJVVWd2VFVSRlRVa3lUblppVXpWb1kwaENjMXBUTld0YVdGcHNZa2M1ZDFwWVNYVmtSMVpvWWxNeGNGcEhWblZrUjJ4dFlWZFdlVVJCY0ZWUlZrSlJUa1JyZVZZeFJrSk5RazFOUkcxa2JHUkRNVEJaV0U1eVRGZEdjMkpIT1ROQlVVVkJUVVJyVFVadGRHeGxWMDV2V1Zkc2RVeFhSbXBaTWxaNlkza3hibU50T1RGalNFMTNTSGQzVFZaRlJsRlZSRkUxVFd4a1VsRlROSEZFUVRscVlqSXdkVmxZUW5kaVIxVjFaRWM1Y2xwWE5tZG5aMmM1VFVsSlExRjZRME5CWTIxblFYZEpRa0ZuU1VsTVkxZzRhVTVNUmxNMVZYZERaMWxKUzI5YVNYcHFNRVZCZDAxM1ducEZZazFDYTBkQk1WVkZRWGQzVTFGWVFuZGlSMVZuVlcwNWRtUkRRa1JSVTBGMFNVVmplazFUV1hkS1FWbEVWbEZSVEVSQ01VSmpTRUp6V2xOQ1JGcFlTakJoVjFwd1dUSkdNR0ZYT1hWSlJVWXhaRWRvZG1OdGJEQmxWRVZVVFVKRlIwRXhWVVZEWjNkTFVWaENkMkpIVldkVFZ6VnFUR3BGVEUxQmEwZEJNVlZGUW1oTlExWldUWGRJYUdOT1RWUlJkMDVFVFhkTlZHZDRUMVJCTWxkb1kwNU5lbXQzVGtSTmQwMVVaM2hQVkVFeVYycENiazFTYzNkSFVWbEVWbEZSUkVSQ1NrSmpTRUp6V2xOQ1UySXlPVEJKUlU1Q1NVTXdaMUo2VFhoS2FrRnJRbWRPVmtKQmMwMUlWVVozWTBkNGJFbEZUbXhqYmxKd1dtMXNhbGxZVW5CaU1qUm5VVmhXTUdGSE9YbGhXRkkxVFZKTmQwVlJXVVJXVVZGTFJFRndRbU5JUW5OYVUwSktZbTFOZFUxUmMzZERVVmxFVmxGUlIwVjNTbFpWZWtJeVRVSkJSMEo1Y1VkVFRUUTVRV2RGUjBKVGRVSkNRVUZwUVRKSlFVSkthbkJNZWpGQlkzRlVkR3Q1U25sblVrMWpNMUpEVmpoalYycFVia2hqUmtKaVdrUjFWMjFDVTNBeldraDBabFJxYWxSMWVIaEZkRmd2TVVnM1dYbFpiRE5LTmxsU1lsUjZRbEJGVm05QkwxWm9XVVJMV0RGRWVYaE9RakJqVkdSa2NWaHNOV1IyVFZaNmRFczFNVGRKUkhaWmRWWlVXbGh3Yld0UGJFVkxUV0ZPUTAxRlFYZElVVmxFVmxJd1QwSkNXVVZHVEhWM00zRkdXVTAwYVdGd1NYRmFNM0kyT1RZMkwyRjVlVk55VFVFNFIwRXhWV1JGZDBWQ0wzZFJSazFCVFVKQlpqaDNSR2RaUkZaU01GQkJVVWd2UWtGUlJFRm5SVWROUVc5SFEwTnhSMU5OTkRsQ1FVMUVRVEpuUVUxSFZVTk5VVU5FTm1OSVJVWnNOR0ZZVkZGWk1tVXpkamxIZDA5QlJWcE1kVTRyZVZKb1NFWkVMek50Wlc5NWFIQnRkazkzWjFCVmJsQlhWSGh1VXpSaGRDdHhTWGhWUTAxSE1XMXBhRVJMTVVFelZWUTRNazVSZWpZd2FXMVBiRTB5TjJwaVpHOVlkREpSWm5sR1RXMHJXV2hwWkVSclRFWXhka3hWWVdkTk5rSm5SRFUyUzNsTFJFTkRRWFZaZDJkblNuUnZRVTFEUVZGSlEwTkVUVTQzZG1rdlZFZG5kVTFCYjBkRFEzRkhVMDAwT1VKQlRVUk5SMk40UjNwQldrSm5UbFpDUVUxTlJXdEdkMk5IZUd4SlJrcDJZak5SWjFFd1JXZE1VMEpJVFhwRmJVMURVVWRCTVZWRlEzZDNaRkZZUW5kaVIxVm5VVEpXZVdSSGJHMWhWMDVvWkVkc2RtSnBRa0prV0ZKdllqTktjR1JJYTNoRmVrRlNRbWRPVmtKQmIwMURhMFozWTBkNGJFbEZiSFZaZVRSNFEzcEJTa0puVGxaQ1FWbFVRV3hXVkUxQ05GaEVWRVV6VFVSSmVVMXFTWGxOYWsxNVRXeHZXRVJVVFhsTlJFbDRUMFJCZDAxRVFYZE5SbTkzWTJwRmJVMURVVWRCTVZWRlFYZDNaRkZZUW5kaVIxVm5WVE5zZW1SSFZuUkpSV3gxWkVkV2JtTnRSakJoVnpsMVNVVk9Ra2xFVVhoS2FrRnJRbWRPVmtKQmMwMUlWVVozWTBkNGJFbEZUbXhqYmxKd1dtMXNhbGxZVW5CaU1qUm5VVmhXTUdGSE9YbGhXRkkxVFZKTmQwVlJXVVJXVVZGTFJFRndRbU5JUW5OYVUwSktZbTFOZFUxUmMzZERVVmxFVmxGUlIwVjNTbFpWZWtKYVRVSk5SMEo1Y1VkVFRUUTVRV2RGUjBORGNVZFRUVFE1UVhkRlNFRXdTVUZDUVZweWNFWmFkbVphT0c0d1l6UXlhbkJKWWxaek1WVk9iVkpMZVZwU2IyMW1ja3BKU0RkcE9WWm5VRE5QU25FMmVHeElUSGszZGs4MlVVSjBRVVZVVWtoNFlVcHhNbWR1UTJ0c2FYVlliVUp0T1ZCbVJuRnFaMlpqZDJkbVVYZEVkMWxFVmxJd1ZFRlJTQzlDUVZWM1FYZEZRaTk2UVdaQ1owNVdTRk5OUlVkRVFWZG5RbE0zYzA0MmFGZEVUMGx0Y1ZOTGJXUTJLM1psZFhZeWMzTnJjWHBDUjBKblozSkNaMFZHUWxGalFrRlJVVFpOUkdkM1RtZFpTVXQzV1VKQ1VWVklUVUZIUjB0dGFEQmtTRUUyVEhrNWRsa3pUbmRNYlVaM1kwZDRiRXh0VG5aaVV6bDJXVE5PZDAxRVRYUlpXRUozWWtkV2VXSXlPVEJaTWtadVRYcEJNMEpuVGxaSVVqaEZUVVJCZFUxRGVXZExjVUZ2YUdsYWIyUklVbmRQYVRoMldUTktjMHh0Um5kalIzaHNURzFPZG1KVE9XaGpTRUp6V2xoS2RtSXpVbXBaVjJONlRHMU9lV0pFUVdSQ1owNVdTRkUwUlVablVWVmxhMlUyVDBsdlZrcEZaMmxTY3pJcmFuaHZhMlY2VVVSTGJXdDNSR2RaUkZaU01GQkJVVWd2UWtGUlJFRm5SVWROUWtGSFEybHhSMU5KWWpOWk1sRkhRV2hGUlVGblZVRk5RVzlIUTBOeFIxTk5ORGxDUVUxRVFUSmpRVTFIVVVOTlFsVk5jVmszUjNJMVduQmhObVZtTTFaNlZVRXhiSE55YkV4VldVMWhUR1IxUXpONFlVeDRRMWg2WjIxMVRuSnpaVTQ0VFdOUmJtVnhaVTlwWmpKeVpIZEpkMWxVVFdjNFUyNHZLMWxqZVhKcGJrbGFSREV5WlRGSGF6Qm5TWFprY2pWblNYQkllREZVY0RFelRGUnBlR2x4Vnk5eldVb3pSWEJRTVZOVWR5OU5jWGxOU1VsRVEwUkRRMEZ4TW1kQmQwbENRV2RKU1dSQmR5dFBaVmRUY1cxQmQwTm5XVWxMYjFwSmVtb3dSVUYzU1hkamFrVnRUVU5SUjBFeFZVVkJkM2RrVVZoQ2QySkhWV2RWTTJ4NlpFZFdkRWxGYkhWa1IxWnVZMjFHTUdGWE9YVkpSVTVDU1VSUmVFcHFRV3RDWjA1V1FrRnpUVWhWUm5kalIzaHNTVVZPYkdOdVVuQmFiV3hxV1ZoU2NHSXlOR2RSV0ZZd1lVYzVlV0ZZVWpWTlVrMTNSVkZaUkZaUlVVdEVRWEJDWTBoQ2MxcFRRa3BpYlUxMVRWRnpkME5SV1VSV1VWRkhSWGRLVmxWNlFXVkdkekI1VG1wQmVFMXFSWGhQVkVrelRXcENZVVozTUhwTlJFRjVUVlJyZUU5VVNUTk5WR3hoVFVVMGVFdHFRVzlDWjA1V1FrRk5UVWxXWkZoU1JrbG5WVWhLZG1SdGJIcGhWemwxWVZjMWJrbEdRbmxpTWxwd1lrZFZaMVV5Ykc1aWJXeDFXbnBGVkUxQ1JVZEJNVlZGUTJkM1MxRllRbmRpUjFWblUxYzFha3hxUlV4TlFXdEhRVEZWUlVKb1RVTldWazEzVjFSQlZFSm5ZM0ZvYTJwUFVGRkpRa0puWjNGb2EycFBVRkZOUWtKM1RrTkJRVk5SUTIwclNubzVUMEpuUkVKVmRHSnpObkIzZFhCeWVXMHlSV1JHZG1zck1pczRNRzVoWlZoSWRXRndNbUpvT0VaU0wybFVlVVJZYWxGT1luUkxTVmRQVDBKT1J5OXdjbkZQY2pWMk5EQkpVVTltVmtVMGJ6UkpRbFI2UTBOQlZYTjNSRUZaUkZaU01GUkJVVWd2UWtGSmQwRkVRV1pDWjA1V1NGTk5SVWRFUVZkblFsSTJVamR2Tkdsb1ZXdFRRMHBIZW1JMlVFZHBVamRPUVUxeFlWUkNRa0puWjNKQ1owVkdRbEZqUWtGUlVURk5SRTEzVFZGWlNVdDNXVUpDVVZWSVRVRkhSMHBYYURCa1NFRTJUSGs1ZGxrelRuZE1iVVozWTBkNGJFeHRUblppVXpsMldUTk9kMDFFVFhSWldFNXdXVEpGTUUxRVRYZG5XbGxIUVRGVlpFbEJVMEpxYWtOQ2FYcERRbWxCV1VwTGIxcEphSFprYWxwQlZVSk5TSE4zWlZGWlNVdDNXVUpDVVZWSVFXZEpkMkpSZUhKV1IyaHdZM2xDYWxwWVNqQmhWMXB3V1RKR01GcFRRbkJqZVVJd1lubENhVnBUUWpGak1sWnJTVWRXTkZreWVERmpNbXd5V2xkNE5VbEhXblpqYVVKdFpGYzFhbVJIYkhaaWJrMW5ZVmMxTUZwWVNuVlpWM2RuWkVjNFoxRllRbmRpUjFWblZVaEtkbHBJVm1wa1NFMW5XVmMxYTB3eU9YbEpSVVozWTBkNGJFbElRbmxpTWs1c1l6Tk9iR041TkhkSVVWbEVWbEl3VDBKQ1dVVkdUMDlTTkZsc01FRlhZV3RvS3pjdmN6RlRURE5VUmt4NFZpOVJUVUUwUjBFeFZXUkVkMFZDTDNkUlJVRjNTVWhuUkVGUVFtZHJjV2hyYVVjNU1rNXJSRUpOUlVGblZVRk5RVzlIUTBOeFIxTk5ORGxDUVUxRFFUQnJRVTFGV1VOSlVVTkxURUZ1Tkc1cmExSk9RMlp5WlhWQ1EwSXJUbWhOYmk5NWFGSnhVRzVHUVhFeVJqSkNNMEl3YzFaUlNXaEJUMFpXYm1KNk5tWXpZVlJwWXpkRVRUWkVSRVI1YXpZNVducDNhME12V2xnd09UUlJibW94VFdSNlZVMVpTVUl4UkVORFFXUkJRMEZSUlhkbWFrSjVUVk5aZDBwQldVUldVVkZFUkVJeFFtTklRbk5hVTBKVVpWaE9NRnBYTUdkVFZ6VXdXbGRrZVZsWVVuQmlNalJuVVRCRlowNUVSVzFOUTFGSFFURlZSVU4zZDJSUldFSjNZa2RWWjFFeVZubGtSMnh0WVZkT2FHUkhiSFppYVVKQ1pGaFNiMkl6U25Ca1NHdDRSWHBCVWtKblRsWkNRVzlOUTJ0R2QyTkhlR3hKUld4MVdYazBlRU42UVVwQ1owNVdRa0ZaVkVGc1ZsUkJaMmd3UkVRME5UVmFTM0ZaUkVGTVFtZHNaMmhyWjBKYVVVMUZRV2RIWjJkbFkzZEhRVmxLUzI5YVNXaDJZMDVCVVd0RVRWRnpSME5UY1VkVFNXSXpSRkZGU0VGVVFXTkNaMnR4YUd0cFJ6bDNNRUpEVVZWNFJIaGpUazFxV1hkT1ZFa3pUVlJyZVU1cVJUQlhha0Z2UW1kcmNXaHJhVWM1ZHpCQ1ExUlJlRWQ2UVZwTlFYTkhRMWREUjFOQlJteEJkMUZEUVdGRlMwSm5aM0ZvYTJwUFVGRlJSRUZxUVhaQ1oydHhhR3RwUnpsM01FSkRVVkY0U1dkUloyRTNURWhwWTB0dk5sSjZRa3g0Y2pVMGFFSnFjRWxpU1RCeE1IbEZXSFE0VWpWcmEyODBabU40TkRSM1ZXZFpTa3R2V2tsb2RtTk9RVkZyVUUxVlZYZFJla0ZMUW1kbmNXaHJhVWM1ZHpCRVFucEJUMEpuWjNGb2EybEhPWGN3UkVGblNVTkJTVUYzUkZGWlNVdHZXa2xvZG1OT1FYZEpRMEZWUVhkQ2QxbEdTM2MwUkVGblkzZEVVVmxKUzI5YVNXaDJZMDVCZDBsRFFWTm5kME5uV1VsTGIxcEplbW93UlVGM1NVVlRSRUpIUVdsRlFUTlJhMmt6TlU1VGFGVkNWa1F6Tmpkd1N6bE5MMHBaWVhvcmFTOHlPRWQxTmpOSGRuVjRSMFkwTDFsRFNWRkVaMUF6UXk5MlYxQnlhR2xKTUZOVmJHVlRkVll5VFdnMmFYZ3JSSFpvTjFFNGIwTkhja1ZtVG5aU1VUMDlQQzlrWVhSaFBnb0pDUWtKQ1FrSkNRa0pDUWtLQ1FrSlBHdGxlVDVRVUZGRGFHVmphend2YTJWNVBnb0pQR1poYkhObEx6NEtDZ2s4YTJWNVBrVnVkR2wwYkdWdFpXNTBjend2YTJWNVBnb0pQR1JwWTNRK0Nna0pQR3RsZVQ1aVpYUmhMWEpsY0c5eWRITXRZV04wYVhabFBDOXJaWGsrQ2drSlBIUnlkV1V2UGdvSkNRa0pDZ2tKQ1FrOGEyVjVQbUZ3Y0d4cFkyRjBhVzl1TFdsa1pXNTBhV1pwWlhJOEwydGxlVDRLQ1FrOGMzUnlhVzVuUGxSQlVGQTBPVEpYVVVFdVkyOXRMbUZzY0doaGRtbHpkV0ZzWVhKMGFYTjBjeTVoY0hBOEwzTjBjbWx1Wno0S0NRa0pDUW9KQ1FrSlBHdGxlVDVyWlhsamFHRnBiaTFoWTJObGMzTXRaM0p2ZFhCelBDOXJaWGsrQ2drSlBHRnljbUY1UGdvSkNRa0pQSE4wY21sdVp6NVVRVkJRTkRreVYxRkJMaW84TDNOMGNtbHVaejRLQ1FrSkNUeHpkSEpwYm1jK1kyOXRMbUZ3Y0d4bExuUnZhMlZ1UEM5emRISnBibWMrQ2drSlBDOWhjbkpoZVQ0S0NRa0pDUW9KQ1FrSlBHdGxlVDVuWlhRdGRHRnpheTFoYkd4dmR6d3ZhMlY1UGdvSkNUeG1ZV3h6WlM4K0Nna0pDUWtLQ1FrSkNUeHJaWGsrWTI5dExtRndjR3hsTG1SbGRtVnNiM0JsY2k1MFpXRnRMV2xrWlc1MGFXWnBaWEk4TDJ0bGVUNEtDUWs4YzNSeWFXNW5QbFJCVUZBME9USlhVVUU4TDNOMGNtbHVaejRLQ1FrS0NUd3ZaR2xqZEQ0S0NUeHJaWGsrUlhod2FYSmhkR2x2YmtSaGRHVThMMnRsZVQ0S0NUeGtZWFJsUGpJd01qY3RNRFV0TWpkVU1UazZNVFk2TURsYVBDOWtZWFJsUGdvSlBHdGxlVDVPWVcxbFBDOXJaWGsrQ2drOGMzUnlhVzVuUGlwYlpYaHdiMTBnWTI5dExtRnNjR2hoZG1semRXRnNZWEowYVhOMGN5NWhjSEFnUVhCd1UzUnZjbVVnTWpBeU5pMHdOUzB5TjFReE9Ub3lOam94TXk0ME9EUmFQQzl6ZEhKcGJtYytDZ2s4YTJWNVBsUmxZVzFKWkdWdWRHbG1hV1Z5UEM5clpYaytDZ2s4WVhKeVlYaytDZ2tKUEhOMGNtbHVaejVVUVZCUU5Ea3lWMUZCUEM5emRISnBibWMrQ2drOEwyRnljbUY1UGdvSlBHdGxlVDVVWldGdFRtRnRaVHd2YTJWNVBnb0pQSE4wY21sdVp6NUtiM05vZFdFZ1VtOWlaWEowY3p3dmMzUnlhVzVuUGdvSlBHdGxlVDVVYVcxbFZHOU1hWFpsUEM5clpYaytDZ2s4YVc1MFpXZGxjajR6TmpROEwybHVkR1ZuWlhJK0NnazhhMlY1UGxWVlNVUThMMnRsZVQ0S0NUeHpkSEpwYm1jK05qVXlZMlpsTURrdFltSTBNaTAwT1dNMUxXRmxNbVV0TkRkaVpqQTJZV1U1TXpGalBDOXpkSEpwYm1jK0NnazhhMlY1UGxabGNuTnBiMjQ4TDJ0bGVUNEtDVHhwYm5SbFoyVnlQakU4TDJsdWRHVm5aWEkrQ2p3dlpHbGpkRDRLUEM5d2JHbHpkRDZnZ2cwL01JSUVORENDQXh5Z0F3SUJBZ0lJUmlBdHZBTlBqN1l3RFFZSktvWklodmNOQVFFTEJRQXdjekV0TUNzR0ExVUVBd3drUVhCd2JHVWdhVkJvYjI1bElFTmxjblJwWm1sallYUnBiMjRnUVhWMGFHOXlhWFI1TVNBd0hnWURWUVFMREJkRFpYSjBhV1pwWTJGMGFXOXVJRUYxZEdodmNtbDBlVEVUTUJFR0ExVUVDZ3dLUVhCd2JHVWdTVzVqTGpFTE1Ba0dBMVVFQmhNQ1ZWTXdIaGNOTWpZd01USTRNVGsxTlRVeVdoY05NekF4TWpNeE1EQXdNREF3V2pCWk1UVXdNd1lEVlFRRERDeEJjSEJzWlNCcFVHaHZibVVnVDFNZ1VISnZkbWx6YVc5dWFXNW5JRkJ5YjJacGJHVWdVMmxuYm1sdVp6RVRNQkVHQTFVRUNnd0tRWEJ3YkdVZ1NXNWpMakVMTUFrR0ExVUVCaE1DVlZNd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUM0QWNZQ3Avb3RJS3ZPUnEwVldITXU2YncxWmVXc2N0a0dXQjBabHpvRG9wQWQ1NnBCZmV2NTVBTmVhd25pcUhTUEQ3TkNNOFZIbmRQVGhheUxLbUl1YlN4TmpvbDZ5Z3hUNmQya0htNmxBbW44ZHVnRWJEZzlMZktxTTNXQkk4dUhDZDdtMi85Nm1SS2ZuRktEY1RGVitYNnRPeVYxVWxQZ01yTmdZVTRacTNzRVJieXJWMnNJRDVUT2xUSkVBbHVLclhJZ3dLcG5PekxQTjRkVlJhT1RvdUllY1Ara2I0SUZoTUdaUG1uV2FuY1RDbGxCTkZvUkRhUXVFTm14eG1zL1lWVWdBMEtqVGtHSytUeEYzOVdYQkw5TktFMThFTGwrYlN3K3NDTjYzV2lXazJrbldvNm51WFFSZ2VmQklOdjhuWnRreWc4dHpBMlpWRE1ERjc1OUFnTUJBQUdqZ2VVd2dlSXdEQVlEVlIwVEFRSC9CQUl3QURBZkJnTlZIU01FR0RBV2dCUnY4WlVZWWx6Z3lQSEY3V3dZeWVEVFpGS1lJREJBQmdnckJnRUZCUWNCQVFRME1ESXdNQVlJS3dZQkJRVUhNQUdHSkdoMGRIQTZMeTl2WTNOd0xtRndjR3hsTG1OdmJTOXZZM053TURNdFlXbHdZMkV3TnpBdkJnTlZIUjhFS0RBbU1DU2dJcUFnaGg1b2RIUndPaTh2WTNKc0xtRndjR3hsTG1OdmJTOWhhWEJqWVM1amNtd3dIUVlEVlIwT0JCWUVGRHNVYUJCUEppMk8yZ3RKVUJkdHJtUSsvNVlSTUE0R0ExVWREd0VCL3dRRUF3SUhnREFQQmdrcWhraUc5Mk5rQmpvRUFnVUFNQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUJBUUE2UUhpcHhXd0xISTdnOGY0U2JUTk92bTRQMGxiT0w3NEpOdUsyYVpGSnNRcWpmR2dTUTFoNitXUEg0NTdyQjM1RVJwYndkYWVrZkhvZS9qMzgzMEwydkhPTXMwREtVVG5SUXZQaDk0cDkxc2huYWo3ekpNRDFUY0ljSi9jNjY0VmU1dTg3WXh0OFNBYXlNSWpEdHdCWmFQVkE3WVhQbUJyaDF0SmlMVXlWbTlJdVMrUXQ2aDNCZ1VTZWFqT0JMaFpMOGxkUWpRN09DVGFZRnlBOS9nVGdzdnljMHpwanBTTCswNEF3NHlKakQ1MTNRQTZqYk9MSTVocTNXWTAxSWRqeW5qZWRQRVZOMmpHR1U2c2VrdkZKWWdBbHNFNFBER0lSTU90aWRIRDg2QVRaaGxlaFhpalQ0dVhhaWhoNUZ1Und3WG1ZdVVPTXo4Y0YzOTRxY2FlL01JSUVSRENDQXl5Z0F3SUJBZ0lJWEdQSzVFbzNVOGt3RFFZSktvWklodmNOQVFFTEJRQXdZakVMTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFvVENrRndjR3hsSUVsdVl5NHhKakFrQmdOVkJBc1RIVUZ3Y0d4bElFTmxjblJwWm1sallYUnBiMjRnUVhWMGFHOXlhWFI1TVJZd0ZBWURWUVFERXcxQmNIQnNaU0JTYjI5MElFTkJNQjRYRFRFM01EVXhNREl4TWpjek1Gb1hEVE13TVRJek1UQXdNREF3TUZvd2N6RXRNQ3NHQTFVRUF3d2tRWEJ3YkdVZ2FWQm9iMjVsSUVObGNuUnBabWxqWVhScGIyNGdRWFYwYUc5eWFYUjVNU0F3SGdZRFZRUUxEQmREWlhKMGFXWnBZMkYwYVc5dUlFRjFkR2h2Y21sMGVURVRNQkVHQTFVRUNnd0tRWEJ3YkdVZ1NXNWpMakVMTUFrR0ExVUVCaE1DVlZNd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUURKUldvQkR6NkRCSWJIL0wvY1h2QWVnZTRYTUhOakppN2VQWG9relpNK1R6bEh1blcrODhEUzhWbWlxeC8rQ29ZODJTMmFCL0lPYTdrcGtScGZJZ3FMOFhKWUJhNU1TMFRGZWFlQVBMQ0k0SXdNSjRSZEdlV0hHVGJMNDhWMnQ3RDBRWEpSOUFWY2cwdWliYVpSdVBFbTMzdGVyV1VNeHJLWVVZeTdmUnRNd1U3SUNNZlM3V1FMdE4wYmpVOUFmUnVQU0phU1cvUFFtSDdadktRWkRwbGh1MEZkQWN4YmQzcDlKTkRjMDFQL3c5ekZsQ3kyV2syT0dDTTV2ZG5HVWo3Ujh2UWxpcUVxaC8zWURFWXBVZi90RjJ5SkpXdUh2NHBwRko5M244TVZ0Mml6aUVXOWhPWUdBa0ZrRDYwcUtMZ1Z5ZUNzcDRxNmNnUTBzbmlNK0xLRkFnTUJBQUdqZ2V3d2dla3dEd1lEVlIwVEFRSC9CQVV3QXdFQi96QWZCZ05WSFNNRUdEQVdnQlFyMEdsSGxIWUovdlJyalM1QXB2ZEhUWDhJWGpCRUJnZ3JCZ0VGQlFjQkFRUTRNRFl3TkFZSUt3WUJCUVVITUFHR0tHaDBkSEE2THk5dlkzTndMbUZ3Y0d4bExtTnZiUzl2WTNOd01ETXRZWEJ3YkdWeWIyOTBZMkV3TGdZRFZSMGZCQ2N3SlRBam9DR2dINFlkYUhSMGNEb3ZMMk55YkM1aGNIQnNaUzVqYjIwdmNtOXZkQzVqY213d0hRWURWUjBPQkJZRUZHL3hsUmhpWE9ESThjWHRiQmpKNE5Oa1VwZ2dNQTRHQTFVZER3RUIvd1FFQXdJQkJqQVFCZ29xaGtpRzkyTmtCZ0lTQkFJRkFEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFPcytzbUkyK2tpQWhDYTJWODdGY0lmbzJMVmNnUkhSelpKSUlzNWFzOTIyWCtsczBPQ2ZQRWtiVFBCSHdCOG1aa0xIUjZCRUpwZU9sYTJ4akNEK2VKZnJWbVp4TTV1WE9qckpOYU95THE2T2lUNG9SRlQ3Y0ZDc2N4a1MyYjJmRlcwK1ZLUzJIWEQvY2d4NTNUKzNhVktjdDV4T0J3V1BFVkFzYlN3cHFLQ0lJMURlU2ZIOW5LRit2UFQrM3JGa2RPRFJrV3U0elNobENSQ25FeWhocjRjRlRMUzMwVGNJVjlqTXlHSGp4Sm0rS1RldVVUS1BvL3crekE0dGwydXN1MkdWUW45eWZpdDh4cUlSVTNGSlNRZEt5RXgweFJrZUlYejd1dy9LTUl3U1Y2NnlLUG9Kc0JwOHU0NHREbW1KYk5BMzBtYzhzN3JweWhoa2pwZnlPdFRDQ0JMc3dnZ09qb0FNQ0FRSUNBUUl3RFFZSktvWklodmNOQVFFRkJRQXdZakVMTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFvVENrRndjR3hsSUVsdVl5NHhKakFrQmdOVkJBc1RIVUZ3Y0d4bElFTmxjblJwWm1sallYUnBiMjRnUVhWMGFHOXlhWFI1TVJZd0ZBWURWUVFERXcxQmNIQnNaU0JTYjI5MElFTkJNQjRYRFRBMk1EUXlOVEl4TkRBek5sb1hEVE0xTURJd09USXhOREF6Tmxvd1lqRUxNQWtHQTFVRUJoTUNWVk14RXpBUkJnTlZCQW9UQ2tGd2NHeGxJRWx1WXk0eEpqQWtCZ05WQkFzVEhVRndjR3hsSUVObGNuUnBabWxqWVhScGIyNGdRWFYwYUc5eWFYUjVNUll3RkFZRFZRUURFdzFCY0hCc1pTQlNiMjkwSUVOQk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBNUpHcENSK1IyeDVIVU9zRjdWNTVoQzNyTnFKWFRGWHNpeG1KM3ZsTGJQVUhxeUl3QXVnWVB2aFFDZE4vUWFpWStkSEtacHdrYXhIUW83dmtHeXJESDVXZWVneWtSNHRiMUJZM004dkVEMDNPRkduUnlSbHk5VjBPMVg5Zm0vSWxBN3BWajAxZERmRmtOU01WU3hWWkhiT1U5L2FjbnM5UXVzRllVR2VQQ0xRZzk4dXNMQ0J2Y0xZL0FUQ010MFBQRDUwOTh5dEpLQnJJL3M2MXVRN1pYaHpXeXoyMU9xMzBEdzRBa2d1eElSWXVkTlU4RGR0aUZxdWpjWkpIVTFYQnJ5OUJzL2o3NDNETjVxTk1SWDRmVEd0UWxrR0p4SFJpQ3hDRFFZY3ppb0d4TUZqc1dnUXlqR2l6angzZVpYUC9aMTVsdkVuWWRwOHpGR1doZDVUSkxRSURBUUFCbzRJQmVqQ0NBWFl3RGdZRFZSMFBBUUgvQkFRREFnRUdNQThHQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGQ3ZRYVVlVWRnbis5R3VOTGtDbTkwZE5md2hlTUI4R0ExVWRJd1FZTUJhQUZDdlFhVWVVZGduKzlHdU5Ma0NtOTBkTmZ3aGVNSUlCRVFZRFZSMGdCSUlCQ0RDQ0FRUXdnZ0VBQmdrcWhraUc5Mk5rQlFFd2dmSXdLZ1lJS3dZQkJRVUhBZ0VXSG1oMGRIQnpPaTh2ZDNkM0xtRndjR3hsTG1OdmJTOWhjSEJzWldOaEx6Q0J3d1lJS3dZQkJRVUhBZ0l3Z2JZYWdiTlNaV3hwWVc1alpTQnZiaUIwYUdseklHTmxjblJwWm1sallYUmxJR0o1SUdGdWVTQndZWEowZVNCaGMzTjFiV1Z6SUdGalkyVndkR0Z1WTJVZ2IyWWdkR2hsSUhSb1pXNGdZWEJ3YkdsallXSnNaU0J6ZEdGdVpHRnlaQ0IwWlhKdGN5QmhibVFnWTI5dVpHbDBhVzl1Y3lCdlppQjFjMlVzSUdObGNuUnBabWxqWVhSbElIQnZiR2xqZVNCaGJtUWdZMlZ5ZEdsbWFXTmhkR2x2YmlCd2NtRmpkR2xqWlNCemRHRjBaVzFsYm5SekxqQU5CZ2txaGtpRzl3MEJBUVVGQUFPQ0FRRUFYRGFaVEMxNHQrMk1tOXp6ZDV2eWR0SjNNRS9CSDRXRGhSdVpQVWMzOHFtYlFJNHMxTEdRRXRpKzlIT2I3dEprRDh0NVR6VFlvajc1ZVA5cnlBZnNmVG1EaTFNZzB6akVzYithVHdwci95djhXYWNGQ1h3WFFGWVJIblRUdDRzak8wZWoxVzhrNHV2UnQzRGZEMFhoSjhyeGJYanQ1N1VYRjZqY2ZpSTF5aVhWMlEvV2E5U2lKQ01SOTZHc2ozT0JZTVliV3drdmtyTDRSRWp3WURpZUZmVTlKbWNnaWpOcTl3MkN6OTdyb3kvNVUycGJaTUJqTTNmM09nY3NWdXZhRHlFTzJycHpHVSsxMlRaL3dZZFYyYWVadVRKQys5alZjWjUrb1ZLM0c3MlRRaVFTS3NjUEhiWk5uRjVqeUV1QUYxQ3FpdFhhNVB6UUNRYzNzSFYxSVRHQ0FvVXdnZ0tCQWdFQk1IOHdjekV0TUNzR0ExVUVBd3drUVhCd2JHVWdhVkJvYjI1bElFTmxjblJwWm1sallYUnBiMjRnUVhWMGFHOXlhWFI1TVNBd0hnWURWUVFMREJkRFpYSjBhV1pwWTJGMGFXOXVJRUYxZEdodmNtbDBlVEVUTUJFR0ExVUVDZ3dLUVhCd2JHVWdTVzVqTGpFTE1Ba0dBMVVFQmhNQ1ZWTUNDRVlnTGJ3RFQ0KzJNQWtHQlNzT0F3SWFCUUNnZ2R3d0dBWUpLb1pJaHZjTkFRa0RNUXNHQ1NxR1NJYjNEUUVIQVRBY0Jna3Foa2lHOXcwQkNRVXhEeGNOTWpZd05USTNNVGt5TmpFMFdqQWpCZ2txaGtpRzl3MEJDUVF4RmdRVXRoOFljdXNrcEV1SXRsSWZMZ2NqUEU5MUhrVXdLUVlKS29aSWh2Y05BUWswTVJ3d0dqQUpCZ1VyRGdNQ0dnVUFvUTBHQ1NxR1NJYjNEUUVCQVFVQU1GSUdDU3FHU0liM0RRRUpEekZGTUVNd0NnWUlLb1pJaHZjTkF3Y3dEZ1lJS29aSWh2Y05Bd0lDQWdDQU1BMEdDQ3FHU0liM0RRTUNBZ0ZBTUFjR0JTc09Bd0lITUEwR0NDcUdTSWIzRFFNQ0FnRW9NQTBHQ1NxR1NJYjNEUUVCQVFVQUJJSUJBRVd0QTd0R1ZjSkJOL0FyZkJuZ2hCT1JNaGNlbnJyeDJNN2ppZEtKd1dZMXBydVc1SVBUT1pRRVhvTXZyNUwrZ2EvUWVubGYxL0t3VitlYjdQV2V5ZitEbFNSTkVON3ZseTZMR2hNM1ZjTDd4SWowM0VURXpaUlZybit6ZmtJYWF1V2RDQk9CTlN6OXJzd3gwb1B4UUt4aGRoOEpNdGNLa2dWVTVTdVQ2bXdBZGc5czEvWGFBbnpQVys5NHVqTTFnVFZES1E3Qk01T0pVOUhYVXlQWExQNXB6dVhsWFhFSVJ6ZGpuNFdkTEFtb0hKNm5PSnpYSkVSeGpVTlF4d3pETThZVC8rbFNSWURWSXlDemQzaDhNWUh3dlc5MTdUWjYxWXFpb09idWpvczk3RHdTOEFmOHJvQXFPV2VwLzBNcEhjSXhOdTcxMGN6SjBhM09MSEpGc1NBPSIsImRpc3RyaWJ1dGlvbkNlcnRpZmljYXRlIjp7ImRhdGFCYXNlNjQiOiJNSUlMN2dJQkF6Q0NDN1FHQ1NxR1NJYjNEUUVIQWFDQ0M2VUVnZ3VoTUlJTG5UQ0NCajBHQ1NxR1NJYjNEUUVIQWFDQ0JpNEVnZ1lxTUlJR0pqQ0NCaUlHQ3lxR1NJYjNEUUVNQ2dFRG9JSUYwekNDQmM4R0NpcUdTSWIzRFFFSkZnR2dnZ1cvQklJRnV6Q0NCYmN3Z2dTZm9BTUNBUUlDRUZQbnZKOXpIVW5IRkVnTExBN3gwMzR3RFFZSktvWklodmNOQVFFTEJRQXdkVEZFTUVJR0ExVUVBd3c3UVhCd2JHVWdWMjl5YkdSM2FXUmxJRVJsZG1Wc2IzQmxjaUJTWld4aGRHbHZibk1nUTJWeWRHbG1hV05oZEdsdmJpQkJkWFJvYjNKcGRIa3hDekFKQmdOVkJBc01Ba2N6TVJNd0VRWURWUVFLREFwQmNIQnNaU0JKYm1NdU1Rc3dDUVlEVlFRR0V3SlZVekFlRncweU5qQTFNamN4T1RFMk1UQmFGdzB5TnpBMU1qY3hPVEUyTURsYU1JR1NNUm93R0FZS0NaSW1pWlB5TEdRQkFRd0tWRUZRVURRNU1sZFJRVEU1TURjR0ExVUVBd3d3YVZCb2IyNWxJRVJwYzNSeWFXSjFkR2x2YmpvZ1NtOXphSFZoSUZKdlltVnlkSE1nS0ZSQlVGQTBPVEpYVVVFcE1STXdFUVlEVlFRTERBcFVRVkJRTkRreVYxRkJNUmN3RlFZRFZRUUtEQTVLYjNOb2RXRWdVbTlpWlhKMGN6RUxNQWtHQTFVRUJoTUNWVk13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRQ3lueEZHRExUeHpkOXBKTXliWnJXVTZSMFZ6UUt2cytMZVhUQmJaQVFkYWhiVGFzRGdMWHlMcGZESVVVbE1rN1NNVGthdldqQkVEQ1pVMGlOQnJqckdkMERFN01VakRUL041M04xSDlWa3doZGZ2R3UwaG1ER1ozRmMwU25wZFRWaUEvektGUGlVL2JJcXBTNGhzcU5KNCtCOFFHeWpQMVlHVnlBd2ltVW5oNFlNM0lzYkh6YitkdXdYVjVUeHJybnVta2FYaklnekc3SW4zMUZJZVJBRG90SUVPWUh6Z2ZqMHp1QVpPcE0rQ1RFbXhuUysvRmJRQmJOdWFNcmNvU3o4M0NmT2dTVTZqbVlnSm5pT3dtZjFMa1p5bG1zUTJvdVBRSWhKaTZ6SWZVM3I5QngxYk9yKzJYU2dPdmR3Q1BtUDdVTDlwWmRJNVJEUGtUd3J4cmNYQWdNQkFBR2pnZ0lqTUlJQ0h6QU1CZ05WSFJNQkFmOEVBakFBTUI4R0ExVWRJd1FZTUJhQUZBbit3QldRK2E5a0NwSVN1U1lvWXd5WDdLZXlNSEFHQ0NzR0FRVUZCd0VCQkdRd1lqQXRCZ2dyQmdFRkJRY3dBb1loYUhSMGNEb3ZMMk5sY25SekxtRndjR3hsTG1OdmJTOTNkMlJ5WnpNdVpHVnlNREVHQ0NzR0FRVUZCekFCaGlWb2RIUndPaTh2YjJOemNDNWhjSEJzWlM1amIyMHZiMk56Y0RBekxYZDNaSEpuTXpBeU1JSUJIZ1lEVlIwZ0JJSUJGVENDQVJFd2dnRU5CZ2txaGtpRzkyTmtCUUV3Z2Y4d2djTUdDQ3NHQVFVRkJ3SUNNSUcyRElHelVtVnNhV0Z1WTJVZ2IyNGdkR2hwY3lCalpYSjBhV1pwWTJGMFpTQmllU0JoYm5rZ2NHRnlkSGtnWVhOemRXMWxjeUJoWTJObGNIUmhibU5sSUc5bUlIUm9aU0IwYUdWdUlHRndjR3hwWTJGaWJHVWdjM1JoYm1SaGNtUWdkR1Z5YlhNZ1lXNWtJR052Ym1ScGRHbHZibk1nYjJZZ2RYTmxMQ0JqWlhKMGFXWnBZMkYwWlNCd2IyeHBZM2tnWVc1a0lHTmxjblJwWm1sallYUnBiMjRnY0hKaFkzUnBZMlVnYzNSaGRHVnRaVzUwY3k0d053WUlLd1lCQlFVSEFnRVdLMmgwZEhCek9pOHZkM2QzTG1Gd2NHeGxMbU52YlM5alpYSjBhV1pwWTJGMFpXRjFkR2h2Y21sMGVTOHdGZ1lEVlIwbEFRSC9CQXd3Q2dZSUt3WUJCUVVIQXdNd0hRWURWUjBPQkJZRUZCc0gzaEM4V1JUS2JPTlByanlmRFNJUDBRUDRNQTRHQTFVZER3RUIvd1FFQXdJSGdEQVRCZ29xaGtpRzkyTmtCZ0VFQVFIL0JBSUZBREFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBa1E5TEczU3oyV2FTRWtRc1RObllzV3N5YUl2WHUxbEF2QzBPa00rZUNBMVFHZHR1OE5BTVFGRUNDQ2RYRHo5RTN6MzRuV013N0JzclI0WVRTTmZOc3dLR2tLWjdZaE9KNm5HeFk5dnN5NmtwZVVLSXBsZkZlQTlsaUVMT21tVkI2eFNyU291T2Q5VFFHYXBaRnV4NEwzbm43S051cHEzVmNGTzVpV2laaVNpYTJWb2FuUWFyM0xGeWpJa0F3WXV5ejRBdFJ1S3BzUjlGUGI5c1dwOWlBYmVKTCs0V2cxNWtTYmJiMEplQjhQcHlJODlDOWR5OENZenZHS2wyT0ZZVmZZQ3phM3JUNkZkMHJYSFQ5M3BOZTNQTThhdkFFMXUrRFVZbVRCRnZIWUtnQ1lCOVlZOVRFaEJnR3NiN3puSGluTk9YZWVLY3FYdGhBakxDcWVzY1h6RThNQ01HQ1NxR1NJYjNEUUVKRlRFV0JCUUVaWjFDd1ZUREIyMVltWUpCM3B0b3BTYi9PakFWQmdrcWhraUc5dzBCQ1JReENCNEdBR3NBWlFCNU1JSUZXQVlKS29aSWh2Y05BUWNCb0lJRlNRU0NCVVV3Z2dWQk1JSUZQUVlMS29aSWh2Y05BUXdLQVFLZ2dnVHVNSUlFNmpBY0Jnb3Foa2lHOXcwQkRBRURNQTRFQ0VkNTdOUkk1Zzg2QWdJSUFBU0NCTWpKTGtaUHBqSko5T1dKeFdwSDlQcjhheWVOcFBPR2s0Q2g0ZkV1UEc0L09wNW9sR3BPS1hBbHNqK2xxRWZuaTlvSE1YOGRaL1VFVjdSRkNRVFV1SGtLZmJXNjA2Y1lSelZLOFdBb3J3WTc5d3AwR09CUjEyUHpmQzZlclBqdi9UaGk5Qk8wbEd1Y2Q1dzZqdnBWL0wzQlJseFN3cVlIS1BYeXQ3MUFSSWhYL0hraWhDOWVnTm9FWEZmSWdrenk3a3p4L3JRZDBYWDBueWxrclcvT29WK3M0ZkdWUVFab2dNak5QUXJvcjI5Qi8rZ3hyL2tQWUtJM1VVSFN1YndIRkVyR1Y0c1JUWXo2czZYeE8xOTRQbStEdW9UcVpycUJHbWRzUHFZaDVXSFMxTXZaVlMyZ2p0bUFhcTN3RkhJcll1b2IwWUNmbkpFdzdJeUhvTHdVTGRGeUN2NWswSDJ4MEVNZ2J5Ty9PWUNBYkMzc1ZjY3hvMkQxOTJwR0c1NmZhclRPZDRVVU1JRTROQmhtWHV3OGJkak03SVBuQmFVQ1lOaEFrR0IxYnRUZVFnK2ZyL0JZaWwvaTFORDhXRUxMN083eWkrSlZrWFZrVE1uQSsxeUo3bFNDcStPUUVhYkszTlIzTFNROWk1dkRhUlhPRFpRd1VUcHpaelE0cGNxQ2dybXJUbWRZYkJJb2t0RlhLci9uTDIzTitaK0Q3NXh4L2N5aUFsbXdYTVlNUkFKN0xtR2tlTGt5cnF3TEx0SDZjaDU0ZExDR1dQS2dWSnh3czJlYkpiZy9acUhnajNWenoyaFVQcDhBRjJoU1V5cDdSRmVTSUpIZy9JRVpkOXRCUTZOeXFITWxsNnBQajFzM2JiZit3c0NXT2t6VWxHTW5RYk9CTmdvb1cvKzNnZUM3SGtubUV4L1RLeUtUaUQ0bUZNUDZYaFhKaUc2YVlmc0RwNW53SkJTanQwVGVlaGsvZnJtKzRvZytQWDF0U0ozM2ZuSlFXVDlIZHd3UlNPdjh4UFRjQ3IwbUZwSFU4L0dnTHpDeFRqUEhCZkMxWVFxUjlERGQzRTh1eCtWRTh0MWw0N3dxaG1rZ0dhaW4vaTE1VVd0bVFMeGZ1amtrNndPMW9ZM3hmdi9RM2VoVEgrR3lHQW1zTVdkVERzYmRFUExmTGQ2UWxia3c1TnVhdTF2VHJUMlZKbmVoWFl4N3VjNitreHFGR1M0S3czV0V0dVZNdGNlVGpWMFU4eUJTUmhaUjZEWHNMc1loSm1ySGkrd0hEeEVTemJEQ2ZIQVJ6L0tWaUhXbjV6bFUvN094NUc3OEhNOUM5UjB3SVcrRitPR0c0R1V5VkFZNG5HUDMxS0Qrbk53aTlSL3V0K3IvS2ZWdVB0d08yMEpzUnpUWWJqVjcrTElEYUxMZmp6MjQxMENrQTAvWHJEL01zQmV6ZkFmVklsYWZPcGpvd0twSDN0VzRXNSs4WlB3alFsamdkalViTm8vb1pkTzBvK3ozVG1lbGlzd2JUVEFFd29GR2pBdDc2eDdoMVcvQk96Y050M25uR3dOaldkSUJRR0IwUi9iOXl3V3JYSmVzYWJKWFJHSmVXR005YmhTd0NzUE5KcTQrUEVNZi85bVNJMVFpQmVkR2VQQWd3bHM2RE90ZXhoeFFCc3hxNVZYMEUxWXJCdnRFbVVIS2xaV3o1NTlwV09FWjFWaVBPM21QT0o4VVhncWpjZ3BXeHA3TnNVNVRod1BhM3pNaHkya2s2L1JNY3RhUDZ2QXU1ckRQdXJ4RDEwZ0JyRnEzT3F0MWpHVUlTVGZWUWcyNUN4VGdOUHNHdnRFLzlCQmhCL3hQaFZFNjZidmtUSVhrYlp6ODBhUkV2M0ExOE9hdW1XZ1FSTnpPNTRxTFVad0h1VXpKMGs1NmxBaWxMZFFhQm9Nd01xdXNtVXhOckVWbEFBNWF3TWYrNGF0REx4THNyOUVzWS9uTHUwRnQ0SnR3R1l5cSs1czBaL3NyUk83dkNyY3N1akNkak1iNUgzcjV5VzEwU2NEQ1JzOGdzTEgrSWRxNEc5VkUzMXZOOW1kekRtY3VqcGdSVzh4TWFvck5WcFVEZ1ppMVArVFZEcW44V2Fxak1LZGJ1L3pSS2oySDdqbHJha1VuTEwzbWJFWWFTem1BQXBYeHpRV3V6Qm94UERBakJna3Foa2lHOXcwQkNSVXhGZ1FVQkdXZFFzRlV3d2R0V0ptQ1FkNmJhS1VtL3pvd0ZRWUpLb1pJaHZjTkFRa1VNUWdlQmdCckFHVUFlVEF4TUNFd0NRWUZLdzREQWhvRkFBUVVGZyt5ZUxaN1lhempKS2R2ZnZ2MVhucVhDRlFFQ0VPL1d5QkVjT0NVQWdJSUFBPT0iLCJwYXNzd29yZCI6InZxdjdNNUJpVXdGcjVNbHgzN3dmN3c9PSJ9fX19LCJ1cGRhdGVzIjp7fSwic2NoZW1lIjoiQWxwaGFWaXN1YWxBcnRpc3RzIiwidXNlcm5hbWUiOiJhbHBoYV9qcnIiLCJ2ZXJzaW9uIjp7ImJ1aWxkTnVtYmVyIjoiMjEifSwiZXhwZXJpbWVudGFsIjp7fSwibW9kZSI6ImJ1aWxkIiwidHJpZ2dlcmVkQnkiOiJFQVNfQ0xJIiwibG9nZ2VyTGV2ZWwiOiJkZWJ1ZyIsImFwcElkIjoiMzk5MTFlNjUtODJhNi00N2NhLWFmMmItMzc2OWExNTgxN2RmIiwiaW5pdGlhdGluZ1VzZXJJZCI6ImM0M2JhYjE5LTAxN2EtNDBjOS1iNTU2LTYwNWQ5ZWQ1ZWNlYSJ9LCJtZXRhZGF0YSI6eyJ0cmFja2luZ0NvbnRleHQiOnsidHJhY2tpbmdfaWQiOiI4ODllYjU0NS1iNTYxLTQ2YTQtYTA5MS0yNWI5ZjA0MDkyNjQiLCJwbGF0Zm9ybSI6ImlvcyIsInNka192ZXJzaW9uIjoiNTQuMC4wIiwiYWNjb3VudF9pZCI6IjIyOTFlYWI2LTM3NWEtNDIyZS1hYmJjLWVkNTg3MGI2YTVhNSIsInByb2plY3RfaWQiOiIzOTkxMWU2NS04MmE2LTQ3Y2EtYWYyYi0zNzY5YTE1ODE3ZGYiLCJwcm9qZWN0X3R5cGUiOiJtYW5hZ2VkIiwiZGV2X2NsaWVudCI6ZmFsc2UsIm5vX3dhaXQiOmZhbHNlLCJydW5fZnJvbV9jaSI6ZmFsc2UsImxvY2FsIjp0cnVlfSwiYXBwQnVpbGRWZXJzaW9uIjoiMjEiLCJhcHBWZXJzaW9uIjoiMS4wLjAiLCJjbGlWZXJzaW9uIjoiMTkuMS4wIiwid29ya2Zsb3ciOiJtYW5hZ2VkIiwiY3JlZGVudGlhbHNTb3VyY2UiOiJyZW1vdGUiLCJzZGtWZXJzaW9uIjoiNTQuMC4wIiwiZmluZ2VycHJpbnRIYXNoIjoiZjgwOGJkNWIyODU5YjIxOWNmMzNlNjJkZjFlZmFjMDg2ZTc5MGVlMiIsInJlYWN0TmF0aXZlVmVyc2lvbiI6IjAuODEuNSIsImV4cG9QYWNrYWdlVmVyc2lvbiI6IjU0LjAuMzQiLCJkaXN0cmlidXRpb24iOiJzdG9yZSIsImFwcE5hbWUiOiJBbHBoYSBWaXN1YWwgQXJ0aXN0cyIsImFwcElkZW50aWZpZXIiOiJjb20uYWxwaGF2aXN1YWxhcnRpc3RzLmFwcCIsImJ1aWxkUHJvZmlsZSI6InByb2R1Y3Rpb24iLCJpc0dpdFdvcmtpbmdUcmVlRGlydHkiOnRydWUsInVzZXJuYW1lIjoiYWxwaGFfanJyIiwicnVuV2l0aE5vV2FpdEZsYWciOmZhbHNlLCJydW5Gcm9tQ0kiOmZhbHNlLCJkZXZlbG9wbWVudENsaWVudCI6ZmFsc2UsInJlcXVpcmVkUGFja2FnZU1hbmFnZXIiOiJwbnBtIiwic2ltdWxhdG9yIjpmYWxzZX19 exited with non-zero code: 1
+Error: npx -y eas-cli-local-build-plugin@19.1.0 eyJqb2IiOnsidHlwZSI6Im1hbmFnZWQiLCJwbGF0Zm9ybSI6ImlvcyIsInByb2plY3RBcmNoaXZlIjp7InR5cGUiOiJQQVRIIiwicGF0aCI6Ii92YXIvZm9sZGVycy9xXy9zbHA3Y19sOTZ3czQwZGR4a2p6MzdmcTAwMDAwZ24vVC9lYXMtY2xpLW5vZGVqcy8wNTM5MjlhYS1kODI3LTQ2YzUtOTJmMi0wNjZhMGY4ZTE5ZTgudGFyLmd6In0sInByb2plY3RSb290RGlyZWN0b3J5IjoiYXJ0aWZhY3RzL2F2YS1tb2JpbGUiLCJidWlsZGVyRW52aXJvbm1lbnQiOnsiZW52Ijp7fX0sImNhY2hlIjp7ImRpc2FibGVkIjpmYWxzZSwicGF0aHMiOltdLCJjbGVhciI6ZmFsc2V9LCJzZWNyZXRzIjp7ImJ1aWxkQ3JlZGVudGlhbHMiOnsiQWxwaGFWaXN1YWxBcnRpc3RzIjp7InByb3Zpc2lvbmluZ1Byb2ZpbGVCYXNlNjQiOiJNSUl3S3dZSktvWklodmNOQVFjQ29JSXdIRENDTUJnQ0FRRXhDekFKQmdVckRnTUNHZ1VBTUlJZ09BWUpLb1pJaHZjTkFRY0JvSUlnS1FTQ0lDVThQM2h0YkNCMlpYSnphVzl1UFNJeExqQWlJR1Z1WTI5a2FXNW5QU0pWVkVZdE9DSS9QZ284SVVSUFExUlpVRVVnY0d4cGMzUWdVRlZDVEVsRElDSXRMeTlCY0hCc1pTOHZSRlJFSUZCTVNWTlVJREV1TUM4dlJVNGlJQ0pvZEhSd09pOHZkM2QzTG1Gd2NHeGxMbU52YlM5RVZFUnpMMUJ5YjNCbGNuUjVUR2x6ZEMweExqQXVaSFJrSWo0S1BIQnNhWE4wSUhabGNuTnBiMjQ5SWpFdU1DSStDanhrYVdOMFBnb0pQR3RsZVQ1QmNIQkpSRTVoYldVOEwydGxlVDRLQ1R4emRISnBibWMrZG1WeWRHbHJZV3hoY0hCaGRtRnRiMkpwYkdVZ1l6WmtPR1EzTWpRMFltTmlPRGRsTWpZeFltSXdZV013WkRnME9URTNOems4TDNOMGNtbHVaejRLQ1R4clpYaytRWEJ3YkdsallYUnBiMjVKWkdWdWRHbG1hV1Z5VUhKbFptbDRQQzlyWlhrK0NnazhZWEp5WVhrK0NnazhjM1J5YVc1blBsUkJVRkEwT1RKWFVVRThMM04wY21sdVp6NEtDVHd2WVhKeVlYaytDZ2s4YTJWNVBrTnlaV0YwYVc5dVJHRjBaVHd2YTJWNVBnb0pQR1JoZEdVK01qQXlOaTB3TlMweU4xUXhPVG95TmpveE5GbzhMMlJoZEdVK0NnazhhMlY1UGxCc1lYUm1iM0p0UEM5clpYaytDZ2s4WVhKeVlYaytDZ2tKUEhOMGNtbHVaejVwVDFNOEwzTjBjbWx1Wno0S0NRazhjM1J5YVc1blBuaHlUMU04TDNOMGNtbHVaejRLQ1FrOGMzUnlhVzVuUG5acGMybHZiazlUUEM5emRISnBibWMrQ2drOEwyRnljbUY1UGdvSlBHdGxlVDVKYzFoamIyUmxUV0Z1WVdkbFpEd3ZhMlY1UGdvSlBHWmhiSE5sTHo0S0NUeHJaWGsrUkdWMlpXeHZjR1Z5UTJWeWRHbG1hV05oZEdWelBDOXJaWGsrQ2drOFlYSnlZWGsrQ2drSlBHUmhkR0UrVFVsSlJuUjZRME5DU2l0blFYZEpRa0ZuU1ZGVksyVTRiak5OWkZOalkxVlRRWE56UkhaSVZHWnFRVTVDWjJ0eGFHdHBSemwzTUVKQlVYTkdRVVJDTVUxVlVYZFJaMWxFVmxGUlJFUkVkRUpqU0VKeldsTkNXR0l6U25OYVNHUndXa2RWWjFKSFZqSmFWM2gyWTBkV2VVbEdTbXhpUjBZd1lWYzVkV041UWtSYVdFb3dZVmRhY0ZreVJqQmhWemwxU1VWR01XUkhhSFpqYld3d1pWUkZURTFCYTBkQk1WVkZRM2QzUTFKNlRYaEZla0ZTUW1kT1ZrSkJiMDFEYTBaM1kwZDRiRWxGYkhWWmVUUjRRM3BCU2tKblRsWkNRVmxVUVd4V1ZFMUNORmhFVkVreVRVUlZlVTU2UlRWTlZGbDRUVVp2V0VSVVNUTk5SRlY1VG5wRk5VMVVXWGRQVm05M1oxcEplRWRxUVZsQ1oyOUthMmxoU21zdlNYTmFRVVZDUkVGd1ZWRldRbEZPUkd0NVZqRkdRazFVYTNkT2QxbEVWbEZSUkVSRVFuQlZSMmgyWW0xVloxSkhiSHBrU0Vwd1dXNVdNR0ZYT1hWUGFVSkxZak5PYjJSWFJXZFZiVGxwV2xoS01HTjVRVzlXUlVaUlZVUlJOVTFzWkZKUlUydDRSWHBCVWtKblRsWkNRWE5OUTJ4U1FsVkdRVEJQVkVwWVZWVkZlRVo2UVZaQ1owNVdRa0Z2VFVScmNIWmpNbWd4V1ZOQ1UySXlTbXhqYmxKNlRWRnpkME5SV1VSV1VWRkhSWGRLVmxWNlEwTkJVMGwzUkZGWlNrdHZXa2xvZG1OT1FWRkZRa0pSUVVSblowVlFRVVJEUTBGUmIwTm5aMFZDUVV4TFprVlZXVTEwVUVoT016SnJhM3BLZEcxMFdsUndTRkpZVGtGeEszbzBkRFZrVFVaMGEwSkNNWEZHZEU1eGQwOUJkR1pKZFd3NFRXaFNVMVY1VkhSSmVFOVNjVGxoVFVWUlRVcHNWRk5KTUVkMVQzTmFNMUZOVkhONFUwMU9VRGd6Ym1NelZXWXhWMVJEUmpFck9HRTNVMGRaVFZwdVkxWjZVa3RsYkRGT1YwbEVMMDF2VlN0S1ZEbHphWEZzVEdsSGVXOHdibW8wU0hoQllrdE5MMVpuV2xoSlJFTkxXbE5sU0dobmVtTnBlSE5tVG5ZMU1qZENaRmhzVUVkMWRXVTJZVkp3WlUxcFJFMWljMmxtWmxWVmFEVkZRVTlwTUdkUk5XZG1UMElyVUZSUE5FSnJObXQ2TkVwTlUySkhaRXczT0ZaMFFVWnpNalZ2ZVhSNWFFeFFlbU5LT0RaQ1NsUnhUMXBwUVcxbFNUZERXaTlWZFZKdVMxZGhlRVJoYVRRNVFXbEZiVXh5VFdnNVZHVjJNRWhJVm5NMmRqZGFaRXRCTmprelFVa3JXUzkwVVhZeWJHd3dhbXhGVFN0U1VFTjJSM1I0WTBOQmQwVkJRV0ZQUTBGcFRYZG5aMGxtVFVGM1IwRXhWV1JGZDBWQ0wzZFJRMDFCUVhkSWQxbEVWbEl3YWtKQ1ozZEdiMEZWUTJZM1FVWmFSRFZ5TWxGTGEyaExOVXBwYUdwRVNtWnpjRGRKZDJOQldVbExkMWxDUWxGVlNFRlJSVVZhUkVKcFRVTXdSME5EYzBkQlVWVkdRbnBCUTJocFJtOWtTRkozVDJrNGRsa3lWbmxrU0UxMVdWaENkMkpIVlhWWk1qbDBURE5rTTFwSVNtNU5lVFZyV2xoSmQwMVJXVWxMZDFsQ1FsRlZTRTFCUjBkS1YyZ3daRWhCTmt4NU9YWlpNMDUzVEcxR2QyTkhlR3hNYlU1MllsTTVkbGt6VG5kTlJFMTBaRE5rYTJOdFkzcE5SRWwzWjJkRlpVSm5UbFpJVTBGRloyZEZWazFKU1VKRlZFTkRRVkV3UjBOVGNVZFRTV0l6V1RKUlJrRlVRMEl2ZWtOQ2QzZFpTVXQzV1VKQ1VWVklRV2RKZDJkaVdVMW5ZazVUV2xkNGNGbFhOV3BhVTBKMlltbENNR0ZIYkhwSlIwNXNZMjVTY0ZwdGJHcFpXRkpzU1VkS05VbEhSblZsVTBKM1dWaEtNR1ZUUW1oak0wNHhZbGRXZWtsSFJtcFpNbFozWkVkR2RWa3lWV2RpTWxsblpFZG9iRWxJVW05YVZ6Um5XVmhDZDJKSGJHcFpWMHB6V2xOQ2VtUkhSblZhUjBaNVdrTkNNRnBZU25SamVVSm9ZbTFSWjFreU9YVmFSMnd3WVZjNWRXTjVRblphYVVJeFl6SlZjMGxIVG14amJsSndXbTFzYWxsWVVteEpTRUoyWWtkc2FtVlRRbWhpYlZGbldUSldlV1JIYkcxaFYwNW9aRWRzZG1KcFFuZGpiVVpxWkVkc2FscFRRbnBrUjBZd1dsY3hiR0p1VW5wTWFrRXpRbWRuY2tKblJVWkNVV05EUVZKWmNtRklVakJqU0UwMlRIazVNMlF6WTNWWldFSjNZa2RWZFZreU9YUk1NazVzWTI1U2NGcHRiR3BaV0ZKc1dWaFdNR0ZIT1hsaFdGSTFUSHBCVjBKblRsWklVMVZDUVdZNFJVUkVRVXRDWjJkeVFtZEZSa0pSWTBSQmVrRmtRbWRPVmtoUk5FVkdaMUZWUjNkbVpVVk1lRnBHVFhCek5EQXJkVkJLT0U1Slp5OVNRUzluZDBSbldVUldVakJRUVZGSUwwSkJVVVJCWjJWQlRVSk5SME5wY1VkVFNXSXpXVEpSUjBGUlVVSkJaamhGUVdkVlFVMUJNRWREVTNGSFUwbGlNMFJSUlVKRGQxVkJRVFJKUWtGUlExSkVNSE5pWkV4UVdscHdTVk5TUTNoTk1tUnBlR0Y2U205cE9XVTNWMVZET0V4Uk5sRjZOVFJKUkZaQldqSXlOM2N3UVhoQlZWRkpTVW94WTFCUU1GUm1VR1pwWkZsNlJITkhlWFJJYUdoT1NURTRNbnBCYjJGUmNHNTBhVVUwYm5GallrWnFNaXQ2VEhGVGJEVlJiMmx0VmpoV05FUXlWMGxSY3paaFdsVklja1pMZEV0cE5EVXpNVTVCV25Gc2ExYzNTR2QyWldWbWMyOHlObTF5WkZaM1ZUZHRTbUZLYlVwTFNuSmFWMmh4WkVKeGRtTnpXRXROYVZGRVFtazNURkJuUXpGSE5IRnRlRWd3VlRsMk1uaGhiakpKUW5RMGEzWTNhR0ZFV0cxU1NuUjBkbEZzTkVoM0syNUphbm93VERFelRIZEthazg0V1hGWVdUUldhRlk1WjB4T2NtVjBVRzlXTTFOMFkyUlFNMlZyTVRkak9IcDRjVGhCVkZjM05FNVNhVnBOUlZjNFpHZHhRVXBuU0RGb2FqRk5VMFZIUVdGNGRuWlBZMlZMWXpBMVpEVTBjSGx3WlRKRlEwMXpTM0EyZUhobVBDOWtZWFJoUGdvSlBDOWhjbkpoZVQ0S0NnazhhMlY1UGtSRlVpMUZibU52WkdWa0xWQnliMlpwYkdVOEwydGxlVDRLQ1R4a1lYUmhQazFKU1U1blFWbEtTMjlhU1doMlkwNUJVV05EYjBsSlRtTlVRME5FVnpCRFFWRkZlRVJVUVV4Q1oyeG5hR3RuUWxwUlRVVkJaMFYzWjJkTkswSm5hM0ZvYTJsSE9YY3dRa0ozUjJkblowMTJRa2xKUkV0NlIwTkJlV04zUkVGM1NGWnRWbmxqTW14MlltZEpRa0ZVUVU1RVFXaFJWVVpHUkdGSFZtcGhkMFZDUVVSQlVVUkJjRlZoVnpGc1ZrYzVUV0ZZV214QlowbENZa1JCVkVSQk5VcGpNV2hxWWpKU2JGUlhSblZaVjJSc1drRkZRa0ZFUVdGRVFXaFZXbGRHZEZSdFJuUmFVWGRQVTIwNWVtRklWbWhKUmtwMldXMVdlV1JJVFhkSVVYZE5VVE5LYkZsWVVuQmlNalZGV1ZoU2JFWjNNSGxPYWtFeFRXcGplRTlVU1RKTlZGSmhUVUkwVFVSc1VteFpWekZLV2tkV2RXUkhiRzFoVjFaNVRVRjNUVU5zVWtKVlJrRXdUMVJLV0ZWVlJYZElkM2RQVWxob2QyRllTbWhrUjJ4MlltdFNhR1JIVlZoRVZFa3pUVVJWZVU1NlJUVk5WRmwzVDFadmQwbEJkMWhWU0VwMldtMXNjMXBWVW5Cak0xSjVZVmRLTVdSSGJIWmliRkkxWTBkVlRVSldUbFZVTVVwR1RVTkZUVU5HUW5OWldGSnRZak5LZEUxQ1ZVMUJNbXhRVlhkM1JXVklTbEJWZDNkSlpHMXNlbUZYT1hWVU1VMTNTM2QzWWxGWVFuZGlSMnhxV1ZoU2NHSXlOVXBhUjFaMVpFZHNiV0ZYVm5sVlNFcHNXbTFzTkUxQmQwMURiRkpDVlVaQk1FOVVTbGhWVlVWM1RFRjNSVlpXVmtwU1FYZHJUbXBWZVZreVdteE5SR3QwV1cxSk1FMXBNREJQVjAweFRGZEdiRTF0VlhST1JHUnBXbXBCTWxsWFZUVk5la1pxVFVSelRVWlZVbXhrYlZaellqTkNiR05yVG14amJsSndXbTFzYWxsWVVteGpla0ZwUWtOQlZERnFMMWQ1SzJwcmNETk1UV3BaVlU1bE5VNHlVSGx1ZENzMWJuRTVSVVpwU2pCT2NUQndTakpOYWtKRFJFRnNRbU5JUWtwU1JUVm9ZbGRWVFU1WVdteGpibEp3WVRKR2MxbFlRbmRaV0Zwb1lsYzVhV0ZYZUd4SlIwMHlXa1JvYTA1NlNUQk9SMHBxV1dwbk0xcFVTVEpOVjBwcFRVZEdhazFIVVRST1JHdDRUbnBqTlUxRmQwMUNSVFZvWWxkVlRWSkRjR0phV0doM1lqRXdaMWt5T1hSTWJVWnpZMGRvYUdSdGJIcGtWMFp6V1ZoS01HRllUakJqZVRWb1kwaEJaMUZZUW5kVk0xSjJZMjFWWjAxcVFYbE9hVEIzVGxNd2VVNHhVWGhQVkc5NVRtcHZlRTE1TkRCUFJGSmhUVWxJTVVSQmVFWmlibEp3WkVkNGJHSlhWblZrU0U1M1oyVlJRMEZSUjNkblpEUjNVSGQzVjFsWVFuZGlSMnhxV1ZoU2NHSXlOSFJoVjFKc1ltNVNjRnB0Ykd4alozZHNWa1ZHVVZWRVVUVk5iR1JTVVZNMWFtSXlNSFZaVjNoM1lVZEdNbUZZVGpGWlYzaG9ZMjVTY0dNelVucE1iVVozWTBSQldVUkNUbWxhV0ZKb1RGaEtiR05IT1hsa1NFMTBXVmRPTUdGWVdteEJVVWd2VFVSRlRVa3lUblppVXpWb1kwaENjMXBUTld0YVdGcHNZa2M1ZDFwWVNYVmtSMVpvWWxNeGNGcEhWblZrUjJ4dFlWZFdlVVJCY0ZWUlZrSlJUa1JyZVZZeFJrSk5RazFOUkcxa2JHUkRNVEJaV0U1eVRGZEdjMkpIT1ROQlVVVkJUVVJyVFVadGRHeGxWMDV2V1Zkc2RVeFhSbXBaTWxaNlkza3hibU50T1RGalNFMTNTSGQzVFZaRlJsRlZSRkUxVFd4a1VsRlROSEZFUVRscVlqSXdkVmxZUW5kaVIxVjFaRWM1Y2xwWE5tZG5aMmM1VFVsSlExRjZRME5CWTIxblFYZEpRa0ZuU1VsTVkxZzRhVTVNUmxNMVZYZERaMWxKUzI5YVNYcHFNRVZCZDAxM1ducEZZazFDYTBkQk1WVkZRWGQzVTFGWVFuZGlSMVZuVlcwNWRtUkRRa1JSVTBGMFNVVmplazFUV1hkS1FWbEVWbEZSVEVSQ01VSmpTRUp6V2xOQ1JGcFlTakJoVjFwd1dUSkdNR0ZYT1hWSlJVWXhaRWRvZG1OdGJEQmxWRVZVVFVKRlIwRXhWVVZEWjNkTFVWaENkMkpIVldkVFZ6VnFUR3BGVEUxQmEwZEJNVlZGUW1oTlExWldUWGRJYUdOT1RWUlJkMDVFVFhkTlZHZDRUMVJCTWxkb1kwNU5lbXQzVGtSTmQwMVVaM2hQVkVFeVYycENiazFTYzNkSFVWbEVWbEZSUkVSQ1NrSmpTRUp6V2xOQ1UySXlPVEJKUlU1Q1NVTXdaMUo2VFhoS2FrRnJRbWRPVmtKQmMwMUlWVVozWTBkNGJFbEZUbXhqYmxKd1dtMXNhbGxZVW5CaU1qUm5VVmhXTUdGSE9YbGhXRkkxVFZKTmQwVlJXVVJXVVZGTFJFRndRbU5JUW5OYVUwSktZbTFOZFUxUmMzZERVVmxFVmxGUlIwVjNTbFpWZWtJeVRVSkJSMEo1Y1VkVFRUUTVRV2RGUjBKVGRVSkNRVUZwUVRKSlFVSkthbkJNZWpGQlkzRlVkR3Q1U25sblVrMWpNMUpEVmpoalYycFVia2hqUmtKaVdrUjFWMjFDVTNBeldraDBabFJxYWxSMWVIaEZkRmd2TVVnM1dYbFpiRE5LTmxsU1lsUjZRbEJGVm05QkwxWm9XVVJMV0RGRWVYaE9RakJqVkdSa2NWaHNOV1IyVFZaNmRFczFNVGRKUkhaWmRWWlVXbGh3Yld0UGJFVkxUV0ZPUTAxRlFYZElVVmxFVmxJd1QwSkNXVVZHVEhWM00zRkdXVTAwYVdGd1NYRmFNM0kyT1RZMkwyRjVlVk55VFVFNFIwRXhWV1JGZDBWQ0wzZFJSazFCVFVKQlpqaDNSR2RaUkZaU01GQkJVVWd2UWtGUlJFRm5SVWROUVc5SFEwTnhSMU5OTkRsQ1FVMUVRVEpuUVUxSFZVTk5VVU5FTm1OSVJVWnNOR0ZZVkZGWk1tVXpkamxIZDA5QlJWcE1kVTRyZVZKb1NFWkVMek50Wlc5NWFIQnRkazkzWjFCVmJsQlhWSGh1VXpSaGRDdHhTWGhWUTAxSE1XMXBhRVJMTVVFelZWUTRNazVSZWpZd2FXMVBiRTB5TjJwaVpHOVlkREpSWm5sR1RXMHJXV2hwWkVSclRFWXhka3hWWVdkTk5rSm5SRFUyUzNsTFJFTkRRWFZaZDJkblNuUnZRVTFEUVZGSlEwTkVUVTQzZG1rdlZFZG5kVTFCYjBkRFEzRkhVMDAwT1VKQlRVUk5SMk40UjNwQldrSm5UbFpDUVUxTlJXdEdkMk5IZUd4SlJrcDJZak5SWjFFd1JXZE1VMEpJVFhwRmJVMURVVWRCTVZWRlEzZDNaRkZZUW5kaVIxVm5VVEpXZVdSSGJHMWhWMDVvWkVkc2RtSnBRa0prV0ZKdllqTktjR1JJYTNoRmVrRlNRbWRPVmtKQmIwMURhMFozWTBkNGJFbEZiSFZaZVRSNFEzcEJTa0puVGxaQ1FWbFVRV3hXVkUxQ05GaEVWRVV6VFVSSmVVMXFTWGxOYWsxNVRXeHZXRVJVVFhsTlJFbDRUMFJCZDAxRVFYZE5SbTkzWTJwRmJVMURVVWRCTVZWRlFYZDNaRkZZUW5kaVIxVm5WVE5zZW1SSFZuUkpSV3gxWkVkV2JtTnRSakJoVnpsMVNVVk9Ra2xFVVhoS2FrRnJRbWRPVmtKQmMwMUlWVVozWTBkNGJFbEZUbXhqYmxKd1dtMXNhbGxZVW5CaU1qUm5VVmhXTUdGSE9YbGhXRkkxVFZKTmQwVlJXVVJXVVZGTFJFRndRbU5JUW5OYVUwSktZbTFOZFUxUmMzZERVVmxFVmxGUlIwVjNTbFpWZWtKYVRVSk5SMEo1Y1VkVFRUUTVRV2RGUjBORGNVZFRUVFE1UVhkRlNFRXdTVUZDUVZweWNFWmFkbVphT0c0d1l6UXlhbkJKWWxaek1WVk9iVkpMZVZwU2IyMW1ja3BKU0RkcE9WWm5VRE5QU25FMmVHeElUSGszZGs4MlVVSjBRVVZVVWtoNFlVcHhNbWR1UTJ0c2FYVlliVUp0T1ZCbVJuRnFaMlpqZDJkbVVYZEVkMWxFVmxJd1ZFRlJTQzlDUVZWM1FYZEZRaTk2UVdaQ1owNVdTRk5OUlVkRVFWZG5RbE0zYzA0MmFGZEVUMGx0Y1ZOTGJXUTJLM1psZFhZeWMzTnJjWHBDUjBKblozSkNaMFZHUWxGalFrRlJVVFpOUkdkM1RtZFpTVXQzV1VKQ1VWVklUVUZIUjB0dGFEQmtTRUUyVEhrNWRsa3pUbmRNYlVaM1kwZDRiRXh0VG5aaVV6bDJXVE5PZDAxRVRYUlpXRUozWWtkV2VXSXlPVEJaTWtadVRYcEJNMEpuVGxaSVVqaEZUVVJCZFUxRGVXZExjVUZ2YUdsYWIyUklVbmRQYVRoMldUTktjMHh0Um5kalIzaHNURzFPZG1KVE9XaGpTRUp6V2xoS2RtSXpVbXBaVjJONlRHMU9lV0pFUVdSQ1owNVdTRkUwUlVablVWVmxhMlUyVDBsdlZrcEZaMmxTY3pJcmFuaHZhMlY2VVVSTGJXdDNSR2RaUkZaU01GQkJVVWd2UWtGUlJFRm5SVWROUWtGSFEybHhSMU5KWWpOWk1sRkhRV2hGUlVGblZVRk5RVzlIUTBOeFIxTk5ORGxDUVUxRVFUSmpRVTFIVVVOTlFsVk5jVmszUjNJMVduQmhObVZtTTFaNlZVRXhiSE55YkV4VldVMWhUR1IxUXpONFlVeDRRMWg2WjIxMVRuSnpaVTQ0VFdOUmJtVnhaVTlwWmpKeVpIZEpkMWxVVFdjNFUyNHZLMWxqZVhKcGJrbGFSREV5WlRGSGF6Qm5TWFprY2pWblNYQkllREZVY0RFelRGUnBlR2x4Vnk5eldVb3pSWEJRTVZOVWR5OU5jWGxOU1VsRVEwUkRRMEZ4TW1kQmQwbENRV2RKU1dSQmR5dFBaVmRUY1cxQmQwTm5XVWxMYjFwSmVtb3dSVUYzU1hkamFrVnRUVU5SUjBFeFZVVkJkM2RrVVZoQ2QySkhWV2RWTTJ4NlpFZFdkRWxGYkhWa1IxWnVZMjFHTUdGWE9YVkpSVTVDU1VSUmVFcHFRV3RDWjA1V1FrRnpUVWhWUm5kalIzaHNTVVZPYkdOdVVuQmFiV3hxV1ZoU2NHSXlOR2RSV0ZZd1lVYzVlV0ZZVWpWTlVrMTNSVkZaUkZaUlVVdEVRWEJDWTBoQ2MxcFRRa3BpYlUxMVRWRnpkME5SV1VSV1VWRkhSWGRLVmxWNlFXVkdkekI1VG1wQmVFMXFSWGhQVkVrelRXcENZVVozTUhwTlJFRjVUVlJyZUU5VVNUTk5WR3hoVFVVMGVFdHFRVzlDWjA1V1FrRk5UVWxXWkZoU1JrbG5WVWhLZG1SdGJIcGhWemwxWVZjMWJrbEdRbmxpTWxwd1lrZFZaMVV5Ykc1aWJXeDFXbnBGVkUxQ1JVZEJNVlZGUTJkM1MxRllRbmRpUjFWblUxYzFha3hxUlV4TlFXdEhRVEZWUlVKb1RVTldWazEzVjFSQlZFSm5ZM0ZvYTJwUFVGRkpRa0puWjNGb2EycFBVRkZOUWtKM1RrTkJRVk5SUTIwclNubzVUMEpuUkVKVmRHSnpObkIzZFhCeWVXMHlSV1JHZG1zck1pczRNRzVoWlZoSWRXRndNbUpvT0VaU0wybFVlVVJZYWxGT1luUkxTVmRQVDBKT1J5OXdjbkZQY2pWMk5EQkpVVTltVmtVMGJ6UkpRbFI2UTBOQlZYTjNSRUZaUkZaU01GUkJVVWd2UWtGSmQwRkVRV1pDWjA1V1NGTk5SVWRFUVZkblFsSTJVamR2Tkdsb1ZXdFRRMHBIZW1JMlVFZHBVamRPUVUxeFlWUkNRa0puWjNKQ1owVkdRbEZqUWtGUlVURk5SRTEzVFZGWlNVdDNXVUpDVVZWSVRVRkhSMHBYYURCa1NFRTJUSGs1ZGxrelRuZE1iVVozWTBkNGJFeHRUblppVXpsMldUTk9kMDFFVFhSWldFNXdXVEpGTUUxRVRYZG5XbGxIUVRGVlpFbEJVMEpxYWtOQ2FYcERRbWxCV1VwTGIxcEphSFprYWxwQlZVSk5TSE4zWlZGWlNVdDNXVUpDVVZWSVFXZEpkMkpSZUhKV1IyaHdZM2xDYWxwWVNqQmhWMXB3V1RKR01GcFRRbkJqZVVJd1lubENhVnBUUWpGak1sWnJTVWRXTkZreWVERmpNbXd5V2xkNE5VbEhXblpqYVVKdFpGYzFhbVJIYkhaaWJrMW5ZVmMxTUZwWVNuVlpWM2RuWkVjNFoxRllRbmRpUjFWblZVaEtkbHBJVm1wa1NFMW5XVmMxYTB3eU9YbEpSVVozWTBkNGJFbElRbmxpTWs1c1l6Tk9iR041TkhkSVVWbEVWbEl3VDBKQ1dVVkdUMDlTTkZsc01FRlhZV3RvS3pjdmN6RlRURE5VUmt4NFZpOVJUVUUwUjBFeFZXUkVkMFZDTDNkUlJVRjNTVWhuUkVGUVFtZHJjV2hyYVVjNU1rNXJSRUpOUlVGblZVRk5RVzlIUTBOeFIxTk5ORGxDUVUxRFFUQnJRVTFGV1VOSlVVTkxURUZ1Tkc1cmExSk9RMlp5WlhWQ1EwSXJUbWhOYmk5NWFGSnhVRzVHUVhFeVJqSkNNMEl3YzFaUlNXaEJUMFpXYm1KNk5tWXpZVlJwWXpkRVRUWkVSRVI1YXpZNVducDNhME12V2xnd09UUlJibW94VFdSNlZVMVpTVUl4UkVORFFXUkJRMEZSUlhkbWFrSjVUVk5aZDBwQldVUldVVkZFUkVJeFFtTklRbk5hVTBKVVpWaE9NRnBYTUdkVFZ6VXdXbGRrZVZsWVVuQmlNalJuVVRCRlowNUVSVzFOUTFGSFFURlZSVU4zZDJSUldFSjNZa2RWWjFFeVZubGtSMnh0WVZkT2FHUkhiSFppYVVKQ1pGaFNiMkl6U25Ca1NHdDRSWHBCVWtKblRsWkNRVzlOUTJ0R2QyTkhlR3hKUld4MVdYazBlRU42UVVwQ1owNVdRa0ZaVkVGc1ZsUkJaMmd3UkVRME5UVmFTM0ZaUkVGTVFtZHNaMmhyWjBKYVVVMUZRV2RIWjJkbFkzZEhRVmxLUzI5YVNXaDJZMDVCVVd0RVRWRnpSME5UY1VkVFNXSXpSRkZGU0VGVVFXTkNaMnR4YUd0cFJ6bDNNRUpEVVZWNFJIaGpUazFxV1hkT1ZFa3pUVlJyZVU1cVJUQlhha0Z2UW1kcmNXaHJhVWM1ZHpCQ1ExUlJlRWQ2UVZwTlFYTkhRMWREUjFOQlJteEJkMUZEUVdGRlMwSm5aM0ZvYTJwUFVGRlJSRUZxUVhaQ1oydHhhR3RwUnpsM01FSkRVVkY0U1dkUloyRTNURWhwWTB0dk5sSjZRa3g0Y2pVMGFFSnFjRWxpU1RCeE1IbEZXSFE0VWpWcmEyODBabU40TkRSM1ZXZFpTa3R2V2tsb2RtTk9RVkZyVUUxVlZYZFJla0ZMUW1kbmNXaHJhVWM1ZHpCRVFucEJUMEpuWjNGb2EybEhPWGN3UkVGblNVTkJTVUYzUkZGWlNVdHZXa2xvZG1OT1FYZEpRMEZWUVhkQ2QxbEdTM2MwUkVGblkzZEVVVmxKUzI5YVNXaDJZMDVCZDBsRFFWTm5kME5uV1VsTGIxcEplbW93UlVGM1NVVlRSRUpIUVdsRlFUTlJhMmt6TlU1VGFGVkNWa1F6Tmpkd1N6bE5MMHBaWVhvcmFTOHlPRWQxTmpOSGRuVjRSMFkwTDFsRFNWRkVaMUF6UXk5MlYxQnlhR2xKTUZOVmJHVlRkVll5VFdnMmFYZ3JSSFpvTjFFNGIwTkhja1ZtVG5aU1VUMDlQQzlrWVhSaFBnb0pDUWtKQ1FrSkNRa0pDUWtLQ1FrSlBHdGxlVDVRVUZGRGFHVmphend2YTJWNVBnb0pQR1poYkhObEx6NEtDZ2s4YTJWNVBrVnVkR2wwYkdWdFpXNTBjend2YTJWNVBnb0pQR1JwWTNRK0Nna0pQR3RsZVQ1aVpYUmhMWEpsY0c5eWRITXRZV04wYVhabFBDOXJaWGsrQ2drSlBIUnlkV1V2UGdvSkNRa0pDZ2tKQ1FrOGEyVjVQbUZ3Y0d4cFkyRjBhVzl1TFdsa1pXNTBhV1pwWlhJOEwydGxlVDRLQ1FrOGMzUnlhVzVuUGxSQlVGQTBPVEpYVVVFdVkyOXRMbUZzY0doaGRtbHpkV0ZzWVhKMGFYTjBjeTVoY0hBOEwzTjBjbWx1Wno0S0NRa0pDUW9KQ1FrSlBHdGxlVDVyWlhsamFHRnBiaTFoWTJObGMzTXRaM0p2ZFhCelBDOXJaWGsrQ2drSlBHRnljbUY1UGdvSkNRa0pQSE4wY21sdVp6NVVRVkJRTkRreVYxRkJMaW84TDNOMGNtbHVaejRLQ1FrSkNUeHpkSEpwYm1jK1kyOXRMbUZ3Y0d4bExuUnZhMlZ1UEM5emRISnBibWMrQ2drSlBDOWhjbkpoZVQ0S0NRa0pDUW9KQ1FrSlBHdGxlVDVuWlhRdGRHRnpheTFoYkd4dmR6d3ZhMlY1UGdvSkNUeG1ZV3h6WlM4K0Nna0pDUWtLQ1FrSkNUeHJaWGsrWTI5dExtRndjR3hsTG1SbGRtVnNiM0JsY2k1MFpXRnRMV2xrWlc1MGFXWnBaWEk4TDJ0bGVUNEtDUWs4YzNSeWFXNW5QbFJCVUZBME9USlhVVUU4TDNOMGNtbHVaejRLQ1FrS0NUd3ZaR2xqZEQ0S0NUeHJaWGsrUlhod2FYSmhkR2x2YmtSaGRHVThMMnRsZVQ0S0NUeGtZWFJsUGpJd01qY3RNRFV0TWpkVU1UazZNVFk2TURsYVBDOWtZWFJsUGdvSlBHdGxlVDVPWVcxbFBDOXJaWGsrQ2drOGMzUnlhVzVuUGlwYlpYaHdiMTBnWTI5dExtRnNjR2hoZG1semRXRnNZWEowYVhOMGN5NWhjSEFnUVhCd1UzUnZjbVVnTWpBeU5pMHdOUzB5TjFReE9Ub3lOam94TXk0ME9EUmFQQzl6ZEhKcGJtYytDZ2s4YTJWNVBsUmxZVzFKWkdWdWRHbG1hV1Z5UEM5clpYaytDZ2s4WVhKeVlYaytDZ2tKUEhOMGNtbHVaejVVUVZCUU5Ea3lWMUZCUEM5emRISnBibWMrQ2drOEwyRnljbUY1UGdvSlBHdGxlVDVVWldGdFRtRnRaVHd2YTJWNVBnb0pQSE4wY21sdVp6NUtiM05vZFdFZ1VtOWlaWEowY3p3dmMzUnlhVzVuUGdvSlBHdGxlVDVVYVcxbFZHOU1hWFpsUEM5clpYaytDZ2s4YVc1MFpXZGxjajR6TmpROEwybHVkR1ZuWlhJK0NnazhhMlY1UGxWVlNVUThMMnRsZVQ0S0NUeHpkSEpwYm1jK05qVXlZMlpsTURrdFltSTBNaTAwT1dNMUxXRmxNbVV0TkRkaVpqQTJZV1U1TXpGalBDOXpkSEpwYm1jK0NnazhhMlY1UGxabGNuTnBiMjQ4TDJ0bGVUNEtDVHhwYm5SbFoyVnlQakU4TDJsdWRHVm5aWEkrQ2p3dlpHbGpkRDRLUEM5d2JHbHpkRDZnZ2cwL01JSUVORENDQXh5Z0F3SUJBZ0lJUmlBdHZBTlBqN1l3RFFZSktvWklodmNOQVFFTEJRQXdjekV0TUNzR0ExVUVBd3drUVhCd2JHVWdhVkJvYjI1bElFTmxjblJwWm1sallYUnBiMjRnUVhWMGFHOXlhWFI1TVNBd0hnWURWUVFMREJkRFpYSjBhV1pwWTJGMGFXOXVJRUYxZEdodmNtbDBlVEVUTUJFR0ExVUVDZ3dLUVhCd2JHVWdTVzVqTGpFTE1Ba0dBMVVFQmhNQ1ZWTXdIaGNOTWpZd01USTRNVGsxTlRVeVdoY05NekF4TWpNeE1EQXdNREF3V2pCWk1UVXdNd1lEVlFRRERDeEJjSEJzWlNCcFVHaHZibVVnVDFNZ1VISnZkbWx6YVc5dWFXNW5JRkJ5YjJacGJHVWdVMmxuYm1sdVp6RVRNQkVHQTFVRUNnd0tRWEJ3YkdVZ1NXNWpMakVMTUFrR0ExVUVCaE1DVlZNd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUM0QWNZQ3Avb3RJS3ZPUnEwVldITXU2YncxWmVXc2N0a0dXQjBabHpvRG9wQWQ1NnBCZmV2NTVBTmVhd25pcUhTUEQ3TkNNOFZIbmRQVGhheUxLbUl1YlN4TmpvbDZ5Z3hUNmQya0htNmxBbW44ZHVnRWJEZzlMZktxTTNXQkk4dUhDZDdtMi85Nm1SS2ZuRktEY1RGVitYNnRPeVYxVWxQZ01yTmdZVTRacTNzRVJieXJWMnNJRDVUT2xUSkVBbHVLclhJZ3dLcG5PekxQTjRkVlJhT1RvdUllY1Ara2I0SUZoTUdaUG1uV2FuY1RDbGxCTkZvUkRhUXVFTm14eG1zL1lWVWdBMEtqVGtHSytUeEYzOVdYQkw5TktFMThFTGwrYlN3K3NDTjYzV2lXazJrbldvNm51WFFSZ2VmQklOdjhuWnRreWc4dHpBMlpWRE1ERjc1OUFnTUJBQUdqZ2VVd2dlSXdEQVlEVlIwVEFRSC9CQUl3QURBZkJnTlZIU01FR0RBV2dCUnY4WlVZWWx6Z3lQSEY3V3dZeWVEVFpGS1lJREJBQmdnckJnRUZCUWNCQVFRME1ESXdNQVlJS3dZQkJRVUhNQUdHSkdoMGRIQTZMeTl2WTNOd0xtRndjR3hsTG1OdmJTOXZZM053TURNdFlXbHdZMkV3TnpBdkJnTlZIUjhFS0RBbU1DU2dJcUFnaGg1b2RIUndPaTh2WTNKc0xtRndjR3hsTG1OdmJTOWhhWEJqWVM1amNtd3dIUVlEVlIwT0JCWUVGRHNVYUJCUEppMk8yZ3RKVUJkdHJtUSsvNVlSTUE0R0ExVWREd0VCL3dRRUF3SUhnREFQQmdrcWhraUc5Mk5rQmpvRUFnVUFNQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUJBUUE2UUhpcHhXd0xISTdnOGY0U2JUTk92bTRQMGxiT0w3NEpOdUsyYVpGSnNRcWpmR2dTUTFoNitXUEg0NTdyQjM1RVJwYndkYWVrZkhvZS9qMzgzMEwydkhPTXMwREtVVG5SUXZQaDk0cDkxc2huYWo3ekpNRDFUY0ljSi9jNjY0VmU1dTg3WXh0OFNBYXlNSWpEdHdCWmFQVkE3WVhQbUJyaDF0SmlMVXlWbTlJdVMrUXQ2aDNCZ1VTZWFqT0JMaFpMOGxkUWpRN09DVGFZRnlBOS9nVGdzdnljMHpwanBTTCswNEF3NHlKakQ1MTNRQTZqYk9MSTVocTNXWTAxSWRqeW5qZWRQRVZOMmpHR1U2c2VrdkZKWWdBbHNFNFBER0lSTU90aWRIRDg2QVRaaGxlaFhpalQ0dVhhaWhoNUZ1Und3WG1ZdVVPTXo4Y0YzOTRxY2FlL01JSUVSRENDQXl5Z0F3SUJBZ0lJWEdQSzVFbzNVOGt3RFFZSktvWklodmNOQVFFTEJRQXdZakVMTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFvVENrRndjR3hsSUVsdVl5NHhKakFrQmdOVkJBc1RIVUZ3Y0d4bElFTmxjblJwWm1sallYUnBiMjRnUVhWMGFHOXlhWFI1TVJZd0ZBWURWUVFERXcxQmNIQnNaU0JTYjI5MElFTkJNQjRYRFRFM01EVXhNREl4TWpjek1Gb1hEVE13TVRJek1UQXdNREF3TUZvd2N6RXRNQ3NHQTFVRUF3d2tRWEJ3YkdVZ2FWQm9iMjVsSUVObGNuUnBabWxqWVhScGIyNGdRWFYwYUc5eWFYUjVNU0F3SGdZRFZRUUxEQmREWlhKMGFXWnBZMkYwYVc5dUlFRjFkR2h2Y21sMGVURVRNQkVHQTFVRUNnd0tRWEJ3YkdVZ1NXNWpMakVMTUFrR0ExVUVCaE1DVlZNd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUURKUldvQkR6NkRCSWJIL0wvY1h2QWVnZTRYTUhOakppN2VQWG9relpNK1R6bEh1blcrODhEUzhWbWlxeC8rQ29ZODJTMmFCL0lPYTdrcGtScGZJZ3FMOFhKWUJhNU1TMFRGZWFlQVBMQ0k0SXdNSjRSZEdlV0hHVGJMNDhWMnQ3RDBRWEpSOUFWY2cwdWliYVpSdVBFbTMzdGVyV1VNeHJLWVVZeTdmUnRNd1U3SUNNZlM3V1FMdE4wYmpVOUFmUnVQU0phU1cvUFFtSDdadktRWkRwbGh1MEZkQWN4YmQzcDlKTkRjMDFQL3c5ekZsQ3kyV2syT0dDTTV2ZG5HVWo3Ujh2UWxpcUVxaC8zWURFWXBVZi90RjJ5SkpXdUh2NHBwRko5M244TVZ0Mml6aUVXOWhPWUdBa0ZrRDYwcUtMZ1Z5ZUNzcDRxNmNnUTBzbmlNK0xLRkFnTUJBQUdqZ2V3d2dla3dEd1lEVlIwVEFRSC9CQVV3QXdFQi96QWZCZ05WSFNNRUdEQVdnQlFyMEdsSGxIWUovdlJyalM1QXB2ZEhUWDhJWGpCRUJnZ3JCZ0VGQlFjQkFRUTRNRFl3TkFZSUt3WUJCUVVITUFHR0tHaDBkSEE2THk5dlkzTndMbUZ3Y0d4bExtTnZiUzl2WTNOd01ETXRZWEJ3YkdWeWIyOTBZMkV3TGdZRFZSMGZCQ2N3SlRBam9DR2dINFlkYUhSMGNEb3ZMMk55YkM1aGNIQnNaUzVqYjIwdmNtOXZkQzVqY213d0hRWURWUjBPQkJZRUZHL3hsUmhpWE9ESThjWHRiQmpKNE5Oa1VwZ2dNQTRHQTFVZER3RUIvd1FFQXdJQkJqQVFCZ29xaGtpRzkyTmtCZ0lTQkFJRkFEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFPcytzbUkyK2tpQWhDYTJWODdGY0lmbzJMVmNnUkhSelpKSUlzNWFzOTIyWCtsczBPQ2ZQRWtiVFBCSHdCOG1aa0xIUjZCRUpwZU9sYTJ4akNEK2VKZnJWbVp4TTV1WE9qckpOYU95THE2T2lUNG9SRlQ3Y0ZDc2N4a1MyYjJmRlcwK1ZLUzJIWEQvY2d4NTNUKzNhVktjdDV4T0J3V1BFVkFzYlN3cHFLQ0lJMURlU2ZIOW5LRit2UFQrM3JGa2RPRFJrV3U0elNobENSQ25FeWhocjRjRlRMUzMwVGNJVjlqTXlHSGp4Sm0rS1RldVVUS1BvL3crekE0dGwydXN1MkdWUW45eWZpdDh4cUlSVTNGSlNRZEt5RXgweFJrZUlYejd1dy9LTUl3U1Y2NnlLUG9Kc0JwOHU0NHREbW1KYk5BMzBtYzhzN3JweWhoa2pwZnlPdFRDQ0JMc3dnZ09qb0FNQ0FRSUNBUUl3RFFZSktvWklodmNOQVFFRkJRQXdZakVMTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFvVENrRndjR3hsSUVsdVl5NHhKakFrQmdOVkJBc1RIVUZ3Y0d4bElFTmxjblJwWm1sallYUnBiMjRnUVhWMGFHOXlhWFI1TVJZd0ZBWURWUVFERXcxQmNIQnNaU0JTYjI5MElFTkJNQjRYRFRBMk1EUXlOVEl4TkRBek5sb1hEVE0xTURJd09USXhOREF6Tmxvd1lqRUxNQWtHQTFVRUJoTUNWVk14RXpBUkJnTlZCQW9UQ2tGd2NHeGxJRWx1WXk0eEpqQWtCZ05WQkFzVEhVRndjR3hsSUVObGNuUnBabWxqWVhScGIyNGdRWFYwYUc5eWFYUjVNUll3RkFZRFZRUURFdzFCY0hCc1pTQlNiMjkwSUVOQk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBNUpHcENSK1IyeDVIVU9zRjdWNTVoQzNyTnFKWFRGWHNpeG1KM3ZsTGJQVUhxeUl3QXVnWVB2aFFDZE4vUWFpWStkSEtacHdrYXhIUW83dmtHeXJESDVXZWVneWtSNHRiMUJZM004dkVEMDNPRkduUnlSbHk5VjBPMVg5Zm0vSWxBN3BWajAxZERmRmtOU01WU3hWWkhiT1U5L2FjbnM5UXVzRllVR2VQQ0xRZzk4dXNMQ0J2Y0xZL0FUQ010MFBQRDUwOTh5dEpLQnJJL3M2MXVRN1pYaHpXeXoyMU9xMzBEdzRBa2d1eElSWXVkTlU4RGR0aUZxdWpjWkpIVTFYQnJ5OUJzL2o3NDNETjVxTk1SWDRmVEd0UWxrR0p4SFJpQ3hDRFFZY3ppb0d4TUZqc1dnUXlqR2l6angzZVpYUC9aMTVsdkVuWWRwOHpGR1doZDVUSkxRSURBUUFCbzRJQmVqQ0NBWFl3RGdZRFZSMFBBUUgvQkFRREFnRUdNQThHQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGQ3ZRYVVlVWRnbis5R3VOTGtDbTkwZE5md2hlTUI4R0ExVWRJd1FZTUJhQUZDdlFhVWVVZGduKzlHdU5Ma0NtOTBkTmZ3aGVNSUlCRVFZRFZSMGdCSUlCQ0RDQ0FRUXdnZ0VBQmdrcWhraUc5Mk5rQlFFd2dmSXdLZ1lJS3dZQkJRVUhBZ0VXSG1oMGRIQnpPaTh2ZDNkM0xtRndjR3hsTG1OdmJTOWhjSEJzWldOaEx6Q0J3d1lJS3dZQkJRVUhBZ0l3Z2JZYWdiTlNaV3hwWVc1alpTQnZiaUIwYUdseklHTmxjblJwWm1sallYUmxJR0o1SUdGdWVTQndZWEowZVNCaGMzTjFiV1Z6SUdGalkyVndkR0Z1WTJVZ2IyWWdkR2hsSUhSb1pXNGdZWEJ3YkdsallXSnNaU0J6ZEdGdVpHRnlaQ0IwWlhKdGN5QmhibVFnWTI5dVpHbDBhVzl1Y3lCdlppQjFjMlVzSUdObGNuUnBabWxqWVhSbElIQnZiR2xqZVNCaGJtUWdZMlZ5ZEdsbWFXTmhkR2x2YmlCd2NtRmpkR2xqWlNCemRHRjBaVzFsYm5SekxqQU5CZ2txaGtpRzl3MEJBUVVGQUFPQ0FRRUFYRGFaVEMxNHQrMk1tOXp6ZDV2eWR0SjNNRS9CSDRXRGhSdVpQVWMzOHFtYlFJNHMxTEdRRXRpKzlIT2I3dEprRDh0NVR6VFlvajc1ZVA5cnlBZnNmVG1EaTFNZzB6akVzYithVHdwci95djhXYWNGQ1h3WFFGWVJIblRUdDRzak8wZWoxVzhrNHV2UnQzRGZEMFhoSjhyeGJYanQ1N1VYRjZqY2ZpSTF5aVhWMlEvV2E5U2lKQ01SOTZHc2ozT0JZTVliV3drdmtyTDRSRWp3WURpZUZmVTlKbWNnaWpOcTl3MkN6OTdyb3kvNVUycGJaTUJqTTNmM09nY3NWdXZhRHlFTzJycHpHVSsxMlRaL3dZZFYyYWVadVRKQys5alZjWjUrb1ZLM0c3MlRRaVFTS3NjUEhiWk5uRjVqeUV1QUYxQ3FpdFhhNVB6UUNRYzNzSFYxSVRHQ0FvVXdnZ0tCQWdFQk1IOHdjekV0TUNzR0ExVUVBd3drUVhCd2JHVWdhVkJvYjI1bElFTmxjblJwWm1sallYUnBiMjRnUVhWMGFHOXlhWFI1TVNBd0hnWURWUVFMREJkRFpYSjBhV1pwWTJGMGFXOXVJRUYxZEdodmNtbDBlVEVUTUJFR0ExVUVDZ3dLUVhCd2JHVWdTVzVqTGpFTE1Ba0dBMVVFQmhNQ1ZWTUNDRVlnTGJ3RFQ0KzJNQWtHQlNzT0F3SWFCUUNnZ2R3d0dBWUpLb1pJaHZjTkFRa0RNUXNHQ1NxR1NJYjNEUUVIQVRBY0Jna3Foa2lHOXcwQkNRVXhEeGNOTWpZd05USTNNVGt5TmpFMFdqQWpCZ2txaGtpRzl3MEJDUVF4RmdRVXRoOFljdXNrcEV1SXRsSWZMZ2NqUEU5MUhrVXdLUVlKS29aSWh2Y05BUWswTVJ3d0dqQUpCZ1VyRGdNQ0dnVUFvUTBHQ1NxR1NJYjNEUUVCQVFVQU1GSUdDU3FHU0liM0RRRUpEekZGTUVNd0NnWUlLb1pJaHZjTkF3Y3dEZ1lJS29aSWh2Y05Bd0lDQWdDQU1BMEdDQ3FHU0liM0RRTUNBZ0ZBTUFjR0JTc09Bd0lITUEwR0NDcUdTSWIzRFFNQ0FnRW9NQTBHQ1NxR1NJYjNEUUVCQVFVQUJJSUJBRVd0QTd0R1ZjSkJOL0FyZkJuZ2hCT1JNaGNlbnJyeDJNN2ppZEtKd1dZMXBydVc1SVBUT1pRRVhvTXZyNUwrZ2EvUWVubGYxL0t3VitlYjdQV2V5ZitEbFNSTkVON3ZseTZMR2hNM1ZjTDd4SWowM0VURXpaUlZybit6ZmtJYWF1V2RDQk9CTlN6OXJzd3gwb1B4UUt4aGRoOEpNdGNLa2dWVTVTdVQ2bXdBZGc5czEvWGFBbnpQVys5NHVqTTFnVFZES1E3Qk01T0pVOUhYVXlQWExQNXB6dVhsWFhFSVJ6ZGpuNFdkTEFtb0hKNm5PSnpYSkVSeGpVTlF4d3pETThZVC8rbFNSWURWSXlDemQzaDhNWUh3dlc5MTdUWjYxWXFpb09idWpvczk3RHdTOEFmOHJvQXFPV2VwLzBNcEhjSXhOdTcxMGN6SjBhM09MSEpGc1NBPSIsImRpc3RyaWJ1dGlvbkNlcnRpZmljYXRlIjp7ImRhdGFCYXNlNjQiOiJNSUlMN2dJQkF6Q0NDN1FHQ1NxR1NJYjNEUUVIQWFDQ0M2VUVnZ3VoTUlJTG5UQ0NCajBHQ1NxR1NJYjNEUUVIQWFDQ0JpNEVnZ1lxTUlJR0pqQ0NCaUlHQ3lxR1NJYjNEUUVNQ2dFRG9JSUYwekNDQmM4R0NpcUdTSWIzRFFFSkZnR2dnZ1cvQklJRnV6Q0NCYmN3Z2dTZm9BTUNBUUlDRUZQbnZKOXpIVW5IRkVnTExBN3gwMzR3RFFZSktvWklodmNOQVFFTEJRQXdkVEZFTUVJR0ExVUVBd3c3UVhCd2JHVWdWMjl5YkdSM2FXUmxJRVJsZG1Wc2IzQmxjaUJTWld4aGRHbHZibk1nUTJWeWRHbG1hV05oZEdsdmJpQkJkWFJvYjNKcGRIa3hDekFKQmdOVkJBc01Ba2N6TVJNd0VRWURWUVFLREFwQmNIQnNaU0JKYm1NdU1Rc3dDUVlEVlFRR0V3SlZVekFlRncweU5qQTFNamN4T1RFMk1UQmFGdzB5TnpBMU1qY3hPVEUyTURsYU1JR1NNUm93R0FZS0NaSW1pWlB5TEdRQkFRd0tWRUZRVURRNU1sZFJRVEU1TURjR0ExVUVBd3d3YVZCb2IyNWxJRVJwYzNSeWFXSjFkR2x2YmpvZ1NtOXphSFZoSUZKdlltVnlkSE1nS0ZSQlVGQTBPVEpYVVVFcE1STXdFUVlEVlFRTERBcFVRVkJRTkRreVYxRkJNUmN3RlFZRFZRUUtEQTVLYjNOb2RXRWdVbTlpWlhKMGN6RUxNQWtHQTFVRUJoTUNWVk13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRQ3lueEZHRExUeHpkOXBKTXliWnJXVTZSMFZ6UUt2cytMZVhUQmJaQVFkYWhiVGFzRGdMWHlMcGZESVVVbE1rN1NNVGthdldqQkVEQ1pVMGlOQnJqckdkMERFN01VakRUL041M04xSDlWa3doZGZ2R3UwaG1ER1ozRmMwU25wZFRWaUEvektGUGlVL2JJcXBTNGhzcU5KNCtCOFFHeWpQMVlHVnlBd2ltVW5oNFlNM0lzYkh6YitkdXdYVjVUeHJybnVta2FYaklnekc3SW4zMUZJZVJBRG90SUVPWUh6Z2ZqMHp1QVpPcE0rQ1RFbXhuUysvRmJRQmJOdWFNcmNvU3o4M0NmT2dTVTZqbVlnSm5pT3dtZjFMa1p5bG1zUTJvdVBRSWhKaTZ6SWZVM3I5QngxYk9yKzJYU2dPdmR3Q1BtUDdVTDlwWmRJNVJEUGtUd3J4cmNYQWdNQkFBR2pnZ0lqTUlJQ0h6QU1CZ05WSFJNQkFmOEVBakFBTUI4R0ExVWRJd1FZTUJhQUZBbit3QldRK2E5a0NwSVN1U1lvWXd5WDdLZXlNSEFHQ0NzR0FRVUZCd0VCQkdRd1lqQXRCZ2dyQmdFRkJRY3dBb1loYUhSMGNEb3ZMMk5sY25SekxtRndjR3hsTG1OdmJTOTNkMlJ5WnpNdVpHVnlNREVHQ0NzR0FRVUZCekFCaGlWb2RIUndPaTh2YjJOemNDNWhjSEJzWlM1amIyMHZiMk56Y0RBekxYZDNaSEpuTXpBeU1JSUJIZ1lEVlIwZ0JJSUJGVENDQVJFd2dnRU5CZ2txaGtpRzkyTmtCUUV3Z2Y4d2djTUdDQ3NHQVFVRkJ3SUNNSUcyRElHelVtVnNhV0Z1WTJVZ2IyNGdkR2hwY3lCalpYSjBhV1pwWTJGMFpTQmllU0JoYm5rZ2NHRnlkSGtnWVhOemRXMWxjeUJoWTJObGNIUmhibU5sSUc5bUlIUm9aU0IwYUdWdUlHRndjR3hwWTJGaWJHVWdjM1JoYm1SaGNtUWdkR1Z5YlhNZ1lXNWtJR052Ym1ScGRHbHZibk1nYjJZZ2RYTmxMQ0JqWlhKMGFXWnBZMkYwWlNCd2IyeHBZM2tnWVc1a0lHTmxjblJwWm1sallYUnBiMjRnY0hKaFkzUnBZMlVnYzNSaGRHVnRaVzUwY3k0d053WUlLd1lCQlFVSEFnRVdLMmgwZEhCek9pOHZkM2QzTG1Gd2NHeGxMbU52YlM5alpYSjBhV1pwWTJGMFpXRjFkR2h2Y21sMGVTOHdGZ1lEVlIwbEFRSC9CQXd3Q2dZSUt3WUJCUVVIQXdNd0hRWURWUjBPQkJZRUZCc0gzaEM4V1JUS2JPTlByanlmRFNJUDBRUDRNQTRHQTFVZER3RUIvd1FFQXdJSGdEQVRCZ29xaGtpRzkyTmtCZ0VFQVFIL0JBSUZBREFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBa1E5TEczU3oyV2FTRWtRc1RObllzV3N5YUl2WHUxbEF2QzBPa00rZUNBMVFHZHR1OE5BTVFGRUNDQ2RYRHo5RTN6MzRuV013N0JzclI0WVRTTmZOc3dLR2tLWjdZaE9KNm5HeFk5dnN5NmtwZVVLSXBsZkZlQTlsaUVMT21tVkI2eFNyU291T2Q5VFFHYXBaRnV4NEwzbm43S051cHEzVmNGTzVpV2laaVNpYTJWb2FuUWFyM0xGeWpJa0F3WXV5ejRBdFJ1S3BzUjlGUGI5c1dwOWlBYmVKTCs0V2cxNWtTYmJiMEplQjhQcHlJODlDOWR5OENZenZHS2wyT0ZZVmZZQ3phM3JUNkZkMHJYSFQ5M3BOZTNQTThhdkFFMXUrRFVZbVRCRnZIWUtnQ1lCOVlZOVRFaEJnR3NiN3puSGluTk9YZWVLY3FYdGhBakxDcWVzY1h6RThNQ01HQ1NxR1NJYjNEUUVKRlRFV0JCUUVaWjFDd1ZUREIyMVltWUpCM3B0b3BTYi9PakFWQmdrcWhraUc5dzBCQ1JReENCNEdBR3NBWlFCNU1JSUZXQVlKS29aSWh2Y05BUWNCb0lJRlNRU0NCVVV3Z2dWQk1JSUZQUVlMS29aSWh2Y05BUXdLQVFLZ2dnVHVNSUlFNmpBY0Jnb3Foa2lHOXcwQkRBRURNQTRFQ0VkNTdOUkk1Zzg2QWdJSUFBU0NCTWpKTGtaUHBqSko5T1dKeFdwSDlQcjhheWVOcFBPR2s0Q2g0ZkV1UEc0L09wNW9sR3BPS1hBbHNqK2xxRWZuaTlvSE1YOGRaL1VFVjdSRkNRVFV1SGtLZmJXNjA2Y1lSelZLOFdBb3J3WTc5d3AwR09CUjEyUHpmQzZlclBqdi9UaGk5Qk8wbEd1Y2Q1dzZqdnBWL0wzQlJseFN3cVlIS1BYeXQ3MUFSSWhYL0hraWhDOWVnTm9FWEZmSWdrenk3a3p4L3JRZDBYWDBueWxrclcvT29WK3M0ZkdWUVFab2dNak5QUXJvcjI5Qi8rZ3hyL2tQWUtJM1VVSFN1YndIRkVyR1Y0c1JUWXo2czZYeE8xOTRQbStEdW9UcVpycUJHbWRzUHFZaDVXSFMxTXZaVlMyZ2p0bUFhcTN3RkhJcll1b2IwWUNmbkpFdzdJeUhvTHdVTGRGeUN2NWswSDJ4MEVNZ2J5Ty9PWUNBYkMzc1ZjY3hvMkQxOTJwR0c1NmZhclRPZDRVVU1JRTROQmhtWHV3OGJkak03SVBuQmFVQ1lOaEFrR0IxYnRUZVFnK2ZyL0JZaWwvaTFORDhXRUxMN083eWkrSlZrWFZrVE1uQSsxeUo3bFNDcStPUUVhYkszTlIzTFNROWk1dkRhUlhPRFpRd1VUcHpaelE0cGNxQ2dybXJUbWRZYkJJb2t0RlhLci9uTDIzTitaK0Q3NXh4L2N5aUFsbXdYTVlNUkFKN0xtR2tlTGt5cnF3TEx0SDZjaDU0ZExDR1dQS2dWSnh3czJlYkpiZy9acUhnajNWenoyaFVQcDhBRjJoU1V5cDdSRmVTSUpIZy9JRVpkOXRCUTZOeXFITWxsNnBQajFzM2JiZit3c0NXT2t6VWxHTW5RYk9CTmdvb1cvKzNnZUM3SGtubUV4L1RLeUtUaUQ0bUZNUDZYaFhKaUc2YVlmc0RwNW53SkJTanQwVGVlaGsvZnJtKzRvZytQWDF0U0ozM2ZuSlFXVDlIZHd3UlNPdjh4UFRjQ3IwbUZwSFU4L0dnTHpDeFRqUEhCZkMxWVFxUjlERGQzRTh1eCtWRTh0MWw0N3dxaG1rZ0dhaW4vaTE1VVd0bVFMeGZ1amtrNndPMW9ZM3hmdi9RM2VoVEgrR3lHQW1zTVdkVERzYmRFUExmTGQ2UWxia3c1TnVhdTF2VHJUMlZKbmVoWFl4N3VjNitreHFGR1M0S3czV0V0dVZNdGNlVGpWMFU4eUJTUmhaUjZEWHNMc1loSm1ySGkrd0hEeEVTemJEQ2ZIQVJ6L0tWaUhXbjV6bFUvN094NUc3OEhNOUM5UjB3SVcrRitPR0c0R1V5VkFZNG5HUDMxS0Qrbk53aTlSL3V0K3IvS2ZWdVB0d08yMEpzUnpUWWJqVjcrTElEYUxMZmp6MjQxMENrQTAvWHJEL01zQmV6ZkFmVklsYWZPcGpvd0twSDN0VzRXNSs4WlB3alFsamdkalViTm8vb1pkTzBvK3ozVG1lbGlzd2JUVEFFd29GR2pBdDc2eDdoMVcvQk96Y050M25uR3dOaldkSUJRR0IwUi9iOXl3V3JYSmVzYWJKWFJHSmVXR005YmhTd0NzUE5KcTQrUEVNZi85bVNJMVFpQmVkR2VQQWd3bHM2RE90ZXhoeFFCc3hxNVZYMEUxWXJCdnRFbVVIS2xaV3o1NTlwV09FWjFWaVBPM21QT0o4VVhncWpjZ3BXeHA3TnNVNVRod1BhM3pNaHkya2s2L1JNY3RhUDZ2QXU1ckRQdXJ4RDEwZ0JyRnEzT3F0MWpHVUlTVGZWUWcyNUN4VGdOUHNHdnRFLzlCQmhCL3hQaFZFNjZidmtUSVhrYlp6ODBhUkV2M0ExOE9hdW1XZ1FSTnpPNTRxTFVad0h1VXpKMGs1NmxBaWxMZFFhQm9Nd01xdXNtVXhOckVWbEFBNWF3TWYrNGF0REx4THNyOUVzWS9uTHUwRnQ0SnR3R1l5cSs1czBaL3NyUk83dkNyY3N1akNkak1iNUgzcjV5VzEwU2NEQ1JzOGdzTEgrSWRxNEc5VkUzMXZOOW1kekRtY3VqcGdSVzh4TWFvck5WcFVEZ1ppMVArVFZEcW44V2Fxak1LZGJ1L3pSS2oySDdqbHJha1VuTEwzbWJFWWFTem1BQXBYeHpRV3V6Qm94UERBakJna3Foa2lHOXcwQkNSVXhGZ1FVQkdXZFFzRlV3d2R0V0ptQ1FkNmJhS1VtL3pvd0ZRWUpLb1pJaHZjTkFRa1VNUWdlQmdCckFHVUFlVEF4TUNFd0NRWUZLdzREQWhvRkFBUVVGZyt5ZUxaN1lhempKS2R2ZnZ2MVhucVhDRlFFQ0VPL1d5QkVjT0NVQWdJSUFBPT0iLCJwYXNzd29yZCI6InZxdjdNNUJpVXdGcjVNbHgzN3dmN3c9PSJ9fX19LCJ1cGRhdGVzIjp7fSwic2NoZW1lIjoiQWxwaGFWaXN1YWxBcnRpc3RzIiwidXNlcm5hbWUiOiJhbHBoYV9qcnIiLCJ2ZXJzaW9uIjp7ImJ1aWxkTnVtYmVyIjoiMjEifSwiZXhwZXJpbWVudGFsIjp7fSwibW9kZSI6ImJ1aWxkIiwidHJpZ2dlcmVkQnkiOiJFQVNfQ0xJIiwibG9nZ2VyTGV2ZWwiOiJkZWJ1ZyIsImFwcElkIjoiMzk5MTFlNjUtODJhNi00N2NhLWFmMmItMzc2OWExNTgxN2RmIiwiaW5pdGlhdGluZ1VzZXJJZCI6ImM0M2JhYjE5LTAxN2EtNDBjOS1iNTU2LTYwNWQ5ZWQ1ZWNlYSJ9LCJtZXRhZGF0YSI6eyJ0cmFja2luZ0NvbnRleHQiOnsidHJhY2tpbmdfaWQiOiI4ODllYjU0NS1iNTYxLTQ2YTQtYTA5MS0yNWI5ZjA0MDkyNjQiLCJwbGF0Zm9ybSI6ImlvcyIsInNka192ZXJzaW9uIjoiNTQuMC4wIiwiYWNjb3VudF9pZCI6IjIyOTFlYWI2LTM3NWEtNDIyZS1hYmJjLWVkNTg3MGI2YTVhNSIsInByb2plY3RfaWQiOiIzOTkxMWU2NS04MmE2LTQ3Y2EtYWYyYi0zNzY5YTE1ODE3ZGYiLCJwcm9qZWN0X3R5cGUiOiJtYW5hZ2VkIiwiZGV2X2NsaWVudCI6ZmFsc2UsIm5vX3dhaXQiOmZhbHNlLCJydW5fZnJvbV9jaSI6ZmFsc2UsImxvY2FsIjp0cnVlfSwiYXBwQnVpbGRWZXJzaW9uIjoiMjEiLCJhcHBWZXJzaW9uIjoiMS4wLjAiLCJjbGlWZXJzaW9uIjoiMTkuMS4wIiwid29ya2Zsb3ciOiJtYW5hZ2VkIiwiY3JlZGVudGlhbHNTb3VyY2UiOiJyZW1vdGUiLCJzZGtWZXJzaW9uIjoiNTQuMC4wIiwiZmluZ2VycHJpbnRIYXNoIjoiZjgwOGJkNWIyODU5YjIxOWNmMzNlNjJkZjFlZmFjMDg2ZTc5MGVlMiIsInJlYWN0TmF0aXZlVmVyc2lvbiI6IjAuODEuNSIsImV4cG9QYWNrYWdlVmVyc2lvbiI6IjU0LjAuMzQiLCJkaXN0cmlidXRpb24iOiJzdG9yZSIsImFwcE5hbWUiOiJBbHBoYSBWaXN1YWwgQXJ0aXN0cyIsImFwcElkZW50aWZpZXIiOiJjb20uYWxwaGF2aXN1YWxhcnRpc3RzLmFwcCIsImJ1aWxkUHJvZmlsZSI6InByb2R1Y3Rpb24iLCJpc0dpdFdvcmtpbmdUcmVlRGlydHkiOnRydWUsInVzZXJuYW1lIjoiYWxwaGFfanJyIiwicnVuV2l0aE5vV2FpdEZsYWciOmZhbHNlLCJydW5Gcm9tQ0kiOmZhbHNlLCJkZXZlbG9wbWVudENsaWVudCI6ZmFsc2UsInJlcXVpcmVkUGFja2FnZU1hbmFnZXIiOiJwbnBtIiwic2ltdWxhdG9yIjpmYWxzZX19 exited with non-zero code: 1
+    at ChildProcess.completionListener (/opt/homebrew/lib/node_modules/eas-cli/node_modules/@expo/spawn-async/build/spawnAsync.js:42:23)
+    at Object.onceWrapper (node:events:634:26)
+    at ChildProcess.emit (node:events:519:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at maybeClose (node:internal/child_process:1101:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:304:5)
+    ...
+    at spawnAsync (/opt/homebrew/lib/node_modules/eas-cli/node_modules/@expo/spawn-async/build/spawnAsync.js:7:23)
+    at runLocalBuildAsync (/opt/homebrew/lib/node_modules/eas-cli/build/build/local.js:64:56)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /opt/homebrew/lib/node_modules/eas-cli/build/build/build.js:97:13
+    at async startBuildAsync (/opt/homebrew/lib/node_modules/eas-cli/build/build/runBuildAndSubmit.js:334:12)
+    at async prepareAndStartBuildAsync (/opt/homebrew/lib/node_modules/eas-cli/build/build/runBuildAndSubmit.js:320:19)
+    at async runBuildAndSubmitAsync (/opt/homebrew/lib/node_modules/eas-cli/build/build/runBuildAndSubmit.js:118:49)
+    at async Build.runAsync (/opt/homebrew/lib/node_modules/eas-cli/build/commands/build/index.js:129:35)
+    at async Build.run (/opt/homebrew/lib/node_modules/eas-cli/build/commandUtils/EasCommand.js:176:16)
+    at async Build._run (/opt/homebrew/lib/node_modules/eas-cli/node_modules/@oclif/core/lib/command.js:183:22) {
+  pid: 51240,
+  output: [ '', '' ],
+  stdout: '',
+  stderr: '',
+  status: 1,
+  signal: null
+}
+    Error: build command failed.
