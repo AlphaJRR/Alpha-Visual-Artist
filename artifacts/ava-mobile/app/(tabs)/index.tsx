@@ -395,7 +395,7 @@ export default function HomeScreen() {
         {/* HERO */}
         <View style={[styles.hero, { paddingTop: 12 }]}>
           <Text style={styles.brand}>ALPHA VISUAL ARTISTS</Text>
-          <Text style={styles.tag}>Chicago · Cinematic · Stop The Scroll</Text>
+          <Text style={styles.tag}>Inspire. Connect. Create Impact.</Text>
 
           <View style={styles.authRow}>
             <SignedOut>

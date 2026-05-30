@@ -43,7 +43,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10"
         >
-          Short-form content, commercials, and event coverage designed to stop the scroll and convert. Based in Chicago — available worldwide.
+          Inspire. Connect. Create Impact.
         </motion.p>
 
         <motion.div
