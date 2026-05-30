@@ -53,6 +53,13 @@ export const menuItems: ToolkitMenuItem[] = [
     color: "#3a86ff",
   },
   {
+    id: "invoice",
+    title: "Invoice Builder",
+    description: "Line items, rates, and export-ready summaries",
+    icon: "document-text-outline",
+    color: "#fb5607",
+  },
+  {
     id: "checklists",
     title: "Production Checklists",
     description: "Pre-shoot, on-set, and delivery checklists",
@@ -65,13 +72,6 @@ export const menuItems: ToolkitMenuItem[] = [
     description: "Sony custom buttons and menu quick reference",
     icon: "flash-outline",
     color: "#ffbe0b",
-  },
-  {
-    id: "invoice",
-    title: "Invoice Builder",
-    description: "Line items, rates, and export-ready summaries",
-    icon: "document-text-outline",
-    color: "#fb5607",
   },
 ];
 

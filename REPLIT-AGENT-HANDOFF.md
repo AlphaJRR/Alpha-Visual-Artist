@@ -1,3 +1,7 @@
+---
+Build sections in this order: 1) Creator Training 2) Invoice Builder 3) Production Checklists. Use any images found in /public/assets/toolkit/ as-is — do not reorganize or rename them. If an image slot has no matching asset, use a dark #111111 placeholder.
+---
+
 # Replit Agent Handoff — Alpha Visual Artists (AVA)
 
 **Read this first.** Do not tell the user the Creators Toolkit is missing.
@@ -59,10 +63,10 @@ There is **no** web page named "Alpha Creators Toolkit". The marketing site has 
 - `calculator` — Shoot Calculator  
 - `presets` — Equipment Presets  
 - `shooting-modes` — Sony Shooting Modes  
-- `training` — Creator Training  
-- `checklists` — Production Checklists  
+- `training` — Creator Training *(section order: 1)*  
+- `invoice` — Invoice Builder *(section order: 2)*  
+- `checklists` — Production Checklists *(section order: 3)*  
 - `shortcuts` — Camera Shortcuts  
-- `invoice` — Invoice Builder  
 
 ---
 

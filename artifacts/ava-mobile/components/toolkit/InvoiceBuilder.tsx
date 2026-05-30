@@ -13,6 +13,11 @@ import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+import {
+  ToolkitSectionImage,
+  toolkitSectionImageStyle,
+} from "./ToolkitSectionImage";
+
 type LineItem = {
   id: string;
   description: string;
@@ -131,6 +136,11 @@ export function InvoiceBuilder({ onBack }: InvoiceBuilderProps) {
           <Text style={styles.backTxt}>← Toolkit</Text>
         </Pressable>
       ) : null}
+
+      <ToolkitSectionImage
+        filename="invoice-builder.png"
+        style={[toolkitSectionImageStyle, { marginHorizontal: 16 }]}
+      />
 
       <View style={styles.header}>
         <View style={styles.logoBox}>

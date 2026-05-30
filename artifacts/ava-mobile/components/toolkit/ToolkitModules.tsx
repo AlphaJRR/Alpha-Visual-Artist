@@ -2,6 +2,10 @@ import React from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { InvoiceBuilder } from "./InvoiceBuilder";
+import {
+  ToolkitSectionImage,
+  toolkitSectionImageStyle,
+} from "./ToolkitSectionImage";
 import { toolkitStyles as s } from "./toolkitStyles";
 
 interface ModuleProps {
@@ -38,6 +42,10 @@ function ToolkitModuleShell({
 export function TrainingModule({ onBack }: ModuleProps) {
   return (
     <ToolkitModuleShell title="Creator Training" subtitle="Workflow fundamentals" onBack={onBack}>
+      <ToolkitSectionImage
+        filename="creator-training.png"
+        style={toolkitSectionImageStyle}
+      />
       <Text style={s.placeholder}>
         <Text style={{ fontWeight: "700" }}>Module 1:</Text> Client intake — scope,
         deliverables, timeline, usage rights.
@@ -72,6 +80,10 @@ const CHECKLIST = [
 export function ChecklistsModule({ onBack }: ModuleProps) {
   return (
     <ToolkitModuleShell title="Production Checklists" onBack={onBack}>
+      <ToolkitSectionImage
+        filename="production-checklists.png"
+        style={toolkitSectionImageStyle}
+      />
       {CHECKLIST.map((item) => (
         <Text key={item} style={s.listItem}>
           ☐ {item}
