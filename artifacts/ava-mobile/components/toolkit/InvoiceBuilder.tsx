@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
   backTxt: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 15,
     fontWeight: "600",
   },

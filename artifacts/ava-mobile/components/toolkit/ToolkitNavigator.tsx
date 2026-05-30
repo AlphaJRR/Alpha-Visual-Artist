@@ -29,7 +29,7 @@ export const menuItems: ToolkitMenuItem[] = [
     title: "Shoot Calculator",
     description: "Aspect ratios and storage estimates",
     icon: "calculator-outline",
-    color: "#00d4ff",
+    color: "#E8000A",
   },
   {
     id: "presets",
@@ -92,7 +92,7 @@ export function ToolkitNavigator({ onSelect }: ToolkitNavigatorProps) {
       showsVerticalScrollIndicator={false}
     >
       <View style={s.header}>
-        <Text style={{ color: "#00d4ff", fontSize: 11, fontWeight: "700", letterSpacing: 2 }}>
+        <Text style={{ color: "#E8000A", fontSize: 11, fontWeight: "700", letterSpacing: 2 }}>
           CREATOR TOOLS
         </Text>
         <Text style={s.title}>Alpha Creators Toolkit</Text>

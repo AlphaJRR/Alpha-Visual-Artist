@@ -1,10 +1,11 @@
+import { BebasNeue_400Regular } from "@expo-google-fonts/bebas-neue";
+import { DMMono_400Regular } from "@expo-google-fonts/dm-mono";
 import {
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
+  SpaceGrotesk_400Regular,
+  SpaceGrotesk_500Medium,
+  SpaceGrotesk_600SemiBold,
   useFonts,
-} from "@expo-google-fonts/inter";
+} from "@expo-google-fonts/space-grotesk";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ClerkProvider } from "@clerk/clerk-expo";
 import { Stack } from "expo-router";
@@ -96,10 +97,11 @@ function RootLayoutNav() {
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
+    BebasNeue_400Regular,
+    SpaceGrotesk_400Regular,
+    SpaceGrotesk_500Medium,
+    SpaceGrotesk_600SemiBold,
+    DMMono_400Regular,
   });
   const handledInitial = useRef(false);
 

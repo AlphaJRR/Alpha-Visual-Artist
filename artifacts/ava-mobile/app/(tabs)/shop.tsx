@@ -91,8 +91,8 @@ export default function ShopScreen() {
   const open = (url: string) => {
     Haptics.selectionAsync().catch(() => {});
     WebBrowser.openBrowserAsync(url, {
-      toolbarColor: "#0a0a0a",
-      controlsColor: "#00d4ff",
+      toolbarColor: "#0D0D0D",
+      controlsColor: "#E8000A",
     }).catch(() => {
       Linking.openURL(url).catch(() => {});
     });
@@ -255,14 +255,14 @@ export default function ShopScreen() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: "#0a0a0a" },
-  cyan: { color: "#00d4ff" },
+  root: { flex: 1, backgroundColor: "#0D0D0D" },
+  cyan: { color: "#E8000A" },
 
   // HERO
   hero: { paddingHorizontal: 24, paddingBottom: 40, alignItems: "center" },
   eyebrow: {
     fontSize: 11,
-    color: "#00d4ff",
+    color: "#E8000A",
     fontWeight: "700",
     letterSpacing: 1.5,
     textTransform: "uppercase",
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
   },
   heroBtns: { flexDirection: "row", gap: 10, flexWrap: "wrap", justifyContent: "center" },
   btnPrimary: {
-    backgroundColor: "#00d4ff",
+    backgroundColor: "#E8000A",
     paddingHorizontal: 24,
     paddingVertical: 14,
     borderRadius: 8,
@@ -304,10 +304,10 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: "#00d4ff",
+    borderColor: "#E8000A",
   },
   btnSecondaryTxt: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 13,
     fontWeight: "700",
     letterSpacing: 0.5,
@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
   },
   statItem: { width: "50%", alignItems: "center", paddingVertical: 12 },
   statNum: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 36,
     fontWeight: "800",
     marginBottom: 4,
@@ -347,7 +347,7 @@ const styles = StyleSheet.create({
     padding: 24,
     backgroundColor: "#111",
     borderLeftWidth: 4,
-    borderLeftColor: "#00d4ff",
+    borderLeftColor: "#E8000A",
     borderRadius: 4,
   },
   quoteH: {
@@ -397,13 +397,13 @@ const styles = StyleSheet.create({
   productName: { color: "#fff", fontSize: 13, fontWeight: "700", marginBottom: 4 },
   productDesc: { color: "#999", fontSize: 11, marginBottom: 8 },
   productPrice: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 16,
     fontWeight: "800",
     marginBottom: 12,
   },
   productBtn: {
-    backgroundColor: "#00d4ff",
+    backgroundColor: "#E8000A",
     paddingVertical: 9,
     borderRadius: 6,
     alignItems: "center",
@@ -467,7 +467,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   badge: {
-    backgroundColor: "#00d4ff",
+    backgroundColor: "#E8000A",
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 4,

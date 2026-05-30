@@ -73,7 +73,7 @@ export function ShootCalculator({ onBack }: ShootCalculatorProps) {
     >
       {onBack ? (
         <Pressable onPress={onBack} style={styles.backRow}>
-          <Ionicons name="chevron-back" size={20} color="#00d4ff" />
+          <Ionicons name="chevron-back" size={20} color="#E8000A" />
           <Text style={styles.backTxt}>Toolkit</Text>
         </Pressable>
       ) : null}
@@ -88,7 +88,7 @@ export function ShootCalculator({ onBack }: ShootCalculatorProps) {
 
       <View style={styles.card}>
         <View style={styles.cardHead}>
-          <Ionicons name="resize-outline" size={18} color="#00d4ff" />
+          <Ionicons name="resize-outline" size={18} color="#E8000A" />
           <Text style={styles.cardTitle}>Aspect Ratio</Text>
         </View>
 
@@ -131,7 +131,7 @@ export function ShootCalculator({ onBack }: ShootCalculatorProps) {
 
       <View style={styles.card}>
         <View style={styles.cardHead}>
-          <Ionicons name="server-outline" size={18} color="#00d4ff" />
+          <Ionicons name="server-outline" size={18} color="#E8000A" />
           <Text style={styles.cardTitle}>Storage Estimator</Text>
         </View>
 
@@ -173,7 +173,7 @@ export function ShootCalculator({ onBack }: ShootCalculatorProps) {
 
       <View style={styles.card}>
         <View style={styles.cardHead}>
-          <Ionicons name="bulb-outline" size={18} color="#00d4ff" />
+          <Ionicons name="bulb-outline" size={18} color="#E8000A" />
           <Text style={styles.cardTitle}>Hooks That Convert</Text>
         </View>
         <Text style={styles.tip}>• First 1.5 seconds decide the scroll.</Text>
@@ -189,12 +189,12 @@ export function ShootCalculator({ onBack }: ShootCalculatorProps) {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: "#0a0a0a" },
+  root: { flex: 1, backgroundColor: "#0D0D0D" },
   backRow: { flexDirection: "row", alignItems: "center", gap: 4, marginBottom: 8 },
-  backTxt: { color: "#00d4ff", fontSize: 15, fontWeight: "600" },
+  backTxt: { color: "#E8000A", fontSize: 15, fontWeight: "600" },
   header: { marginBottom: 24 },
   eyebrow: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 11,
     fontWeight: "700",
     letterSpacing: 2,
@@ -240,10 +240,10 @@ const styles = StyleSheet.create({
   },
   chipActive: {
     backgroundColor: "rgba(0,212,255,0.15)",
-    borderColor: "#00d4ff",
+    borderColor: "#E8000A",
   },
   chipTxt: { color: "#aaa", fontSize: 12, fontWeight: "600" },
-  chipTxtActive: { color: "#00d4ff" },
+  chipTxtActive: { color: "#E8000A" },
   platformHint: {
     color: "#666",
     fontSize: 11,
@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     borderColor: "rgba(0,212,255,0.25)",
   },
   resultLabel: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 10,
     fontWeight: "700",
     letterSpacing: 1.5,

@@ -3,6 +3,7 @@ import React from "react";
 import { Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { TabScreenLayout } from "../../components/TabScreenLayout";
+import { brandColors } from "@/constants/brand";
 
 export default function TabLayout() {
   return (
@@ -10,10 +11,10 @@ export default function TabLayout() {
       screenLayout={TabScreenLayout}
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#00d4ff",
+        tabBarActiveTintColor: brandColors.alphaRed,
         tabBarInactiveTintColor: "#666",
         tabBarStyle: {
-          backgroundColor: "#0a0a0a",
+          backgroundColor: brandColors.deepBlack,
           borderTopColor: "rgba(255,255,255,0.06)",
           borderTopWidth: 1,
           height: Platform.OS === "ios" ? 88 : 64,
@@ -25,7 +26,7 @@ export default function TabLayout() {
           letterSpacing: 0.4,
           textTransform: "uppercase",
         },
-        sceneStyle: { backgroundColor: "#0a0a0a" },
+        sceneStyle: { backgroundColor: brandColors.deepBlack },
       }}
     >
       <Tabs.Screen

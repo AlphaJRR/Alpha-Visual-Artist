@@ -1,4 +1,5 @@
 import React from "react";
+import { brandColors } from "@/constants/brand";
 import { StyleSheet, View } from "react-native";
 import { BrandLogoBar } from "./BrandLogoBar";
 
@@ -13,6 +14,6 @@ export function TabScreenLayout({ children }: { children: React.ReactNode }) {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: "#0a0a0a" },
+  root: { flex: 1, backgroundColor: brandColors.deepBlack },
   body: { flex: 1 },
 });

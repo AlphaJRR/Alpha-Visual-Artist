@@ -1,11 +1,12 @@
 import { Linking } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 
+import { brandColors } from "@/constants/brand";
 import { SITE_HOSTS } from "@/constants/site";
 
 const WEB_BROWSER_OPTS = {
-  toolbarColor: "#0a0a0a",
-  controlsColor: "#00d4ff",
+  toolbarColor: brandColors.deepBlack,
+  controlsColor: brandColors.alphaRed,
 } as const;
 
 /** True for alphavisualartists.com (and www); those routes 307 to Replit __replshield when deployment is Private. */

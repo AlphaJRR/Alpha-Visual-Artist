@@ -16,10 +16,14 @@ import { SignedIn, SignedOut, useClerk, useUser } from "@clerk/clerk-expo";
 import * as Haptics from "expo-haptics";
 import { GalleryManager } from "@/components/GalleryManager";
 import { WaymakersBETCollabHighlight } from "@/components/WaymakersBETCollabHighlight";
+import { brandColors, fontFamilies } from "@/constants/brand";
 import {
   CLOUDFLARE_STREAM_CUSTOMER,
   SITE_URL,
 } from "@/constants/site";
+
+const C = brandColors;
+const F = fontFamilies;
 import { openSiteLink } from "@/lib/openSiteLink";
 import { ReelVideoCover } from "../../components/ReelVideoCover";
 import { VideoModal } from "../../components/VideoModal";
@@ -356,7 +360,7 @@ export default function HomeScreen() {
           />
           <View style={styles.reelOverlay}>
             <View style={[styles.playBadge, styles.playBadgeVideo]}>
-              <Ionicons name="play" size={24} color="#00d4ff" />
+              <Ionicons name="play" size={24} color="#E8000A" />
             </View>
           </View>
           <View style={styles.videoBadge}>
@@ -436,7 +440,7 @@ export default function HomeScreen() {
               style={styles.secondaryBtn}
             >
               <Text style={styles.secondaryBtnTxt}>Visit Site</Text>
-              <Ionicons name="arrow-forward" size={14} color="#00d4ff" />
+              <Ionicons name="arrow-forward" size={14} color="#E8000A" />
             </Pressable>
           </View>
         </View>
@@ -546,7 +550,7 @@ function SectionHeader({
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: "#0a0a0a" },
+  root: { flex: 1, backgroundColor: C.deepBlack },
 
   // HERO
   hero: {
@@ -557,14 +561,15 @@ const styles = StyleSheet.create({
     borderBottomColor: "rgba(255,255,255,0.05)",
   },
   brand: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "800",
+    color: C.pureWhite,
+    fontSize: 20,
+    fontFamily: F.display,
     letterSpacing: 3,
     textAlign: "center",
+    textTransform: "uppercase",
   },
   tag: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 11,
     fontWeight: "600",
     letterSpacing: 1.5,
@@ -587,11 +592,11 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: "rgba(0,212,255,0.4)",
-    backgroundColor: "rgba(0,212,255,0.08)",
+    borderColor: "rgba(232,0,10,0.4)",
+    backgroundColor: "rgba(232,0,10,0.08)",
   },
   userLabel: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 12,
     fontWeight: "700",
     letterSpacing: 0.6,
@@ -602,7 +607,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 6,
-    backgroundColor: "#00d4ff",
+    backgroundColor: "#E8000A",
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderRadius: 999,
@@ -622,10 +627,10 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: "rgba(0,212,255,0.4)",
+    borderColor: "rgba(232,0,10,0.4)",
   },
   secondaryBtnTxt: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 13,
     fontWeight: "700",
     letterSpacing: 0.5,
@@ -641,7 +646,7 @@ const styles = StyleSheet.create({
     paddingBottom: 14,
   },
   sectionEyebrow: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 10,
     fontWeight: "700",
     letterSpacing: 2,
@@ -649,13 +654,14 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   sectionTitle: {
-    color: "#fff",
-    fontSize: 22,
-    fontWeight: "800",
-    letterSpacing: -0.3,
+    color: C.pureWhite,
+    fontSize: 24,
+    fontFamily: F.display,
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
   },
   sectionAction: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 12,
     fontWeight: "700",
     letterSpacing: 0.5,
@@ -684,11 +690,11 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 26,
-    backgroundColor: "#00d4ff",
+    backgroundColor: "#E8000A",
     alignItems: "center",
     justifyContent: "center",
     paddingLeft: 4,
-    shadowColor: "#00d4ff",
+    shadowColor: "#E8000A",
     shadowOpacity: 0.6,
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 0 },
@@ -696,13 +702,13 @@ const styles = StyleSheet.create({
   playBadgeVideo: {
     backgroundColor: "rgba(0,0,0,0.55)",
     borderWidth: 2,
-    borderColor: "#00d4ff",
+    borderColor: "#E8000A",
   },
   videoBadge: {
     position: "absolute",
     top: 10,
     left: 10,
-    backgroundColor: "#00d4ff",
+    backgroundColor: "#E8000A",
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 4,
@@ -716,7 +722,7 @@ const styles = StyleSheet.create({
   reelMeta: { padding: 12 },
 
   reelTag: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 10,
     fontWeight: "700",
     letterSpacing: 1.2,
@@ -785,14 +791,14 @@ const styles = StyleSheet.create({
     margin: 20,
     marginTop: 32,
     padding: 24,
-    backgroundColor: "rgba(0,212,255,0.08)",
+    backgroundColor: "rgba(232,0,10,0.08)",
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: "rgba(0,212,255,0.25)",
+    borderColor: "rgba(232,0,10,0.25)",
     alignItems: "center",
   },
   footerEyebrow: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 11,
     fontWeight: "700",
     letterSpacing: 2,
@@ -809,7 +815,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
-    backgroundColor: "#00d4ff",
+    backgroundColor: "#E8000A",
     paddingHorizontal: 24,
     paddingVertical: 14,
     borderRadius: 999,

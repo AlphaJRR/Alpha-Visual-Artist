@@ -1,19 +1,34 @@
 import { StyleSheet } from "react-native";
 
+import { brandColors, fontFamilies } from "@/constants/brand";
+
+const C = brandColors;
+const F = fontFamilies;
+
 export const toolkitStyles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: "#0a0a0a" },
+  screen: { flex: 1, backgroundColor: C.deepBlack },
   content: { paddingHorizontal: 20, paddingBottom: 32 },
   header: { marginBottom: 20 },
   backBtn: { marginBottom: 12 },
-  backTxt: { color: "#00d4ff", fontSize: 15, fontWeight: "600" },
+  backTxt: {
+    color: C.alphaRed,
+    fontSize: 15,
+    fontFamily: F.bodySemiBold,
+  },
   title: {
-    color: "#fff",
+    color: C.pureWhite,
     fontSize: 28,
-    fontWeight: "800",
-    letterSpacing: -0.5,
+    fontFamily: F.display,
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
     marginBottom: 6,
   },
-  subtitle: { color: "#888", fontSize: 14, lineHeight: 20 },
+  subtitle: {
+    color: C.subtleText,
+    fontSize: 14,
+    lineHeight: 20,
+    fontFamily: F.body,
+  },
   menuCard: {
     flexDirection: "row",
     alignItems: "center",
@@ -74,14 +89,18 @@ export const toolkitStyles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 8,
   },
-  btnPrimary: { backgroundColor: "#00d4ff" },
+  btnPrimary: { backgroundColor: C.alphaRed },
   btnSecondary: {
     backgroundColor: "rgba(255,255,255,0.06)",
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.12)",
   },
   btnDanger: { backgroundColor: "rgba(255,0,110,0.2)" },
-  btnTxtPrimary: { color: "#000", fontWeight: "700", fontSize: 15 },
+  btnTxtPrimary: {
+    color: C.pureWhite,
+    fontFamily: F.bodySemiBold,
+    fontSize: 15,
+  },
   btnTxtSecondary: { color: "#fff", fontWeight: "600", fontSize: 14 },
   btnTxtDanger: { color: "#ff006e", fontWeight: "600", fontSize: 14 },
   card: {
@@ -95,10 +114,11 @@ export const toolkitStyles = StyleSheet.create({
   cardTitle: { color: "#fff", fontSize: 16, fontWeight: "700", marginBottom: 6 },
   cardBody: { color: "#aaa", fontSize: 13, lineHeight: 19 },
   tag: {
-    color: "#00d4ff",
+    color: C.alphaRed,
     fontSize: 11,
-    fontWeight: "600",
-    backgroundColor: "rgba(0,212,255,0.12)",
+    fontFamily: F.mono,
+    letterSpacing: 1,
+    backgroundColor: "rgba(232,0,10,0.12)",
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 6,

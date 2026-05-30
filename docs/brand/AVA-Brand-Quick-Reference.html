@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AVA Brand Quick Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ava-black: #080808;
+      --deep-black: #0D0D0D;
+      --graphite: #111111;
+      --border: #1C1C1C;
+      --alpha-red: #E8000A;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background: var(--deep-black);
+      color: var(--white);
+      line-height: 1.5;
+      padding: 40px 48px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .logo-block {
+      border: 2px solid var(--alpha-red);
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .logo-block h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 52px;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+    .logo-block .sub {
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--alpha-red);
+      margin-top: 8px;
+    }
+    .tagline {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 28px;
+      color: var(--alpha-red);
+      margin: 24px 0 8px;
+      letter-spacing: 0.04em;
+    }
+    .positioning {
+      font-size: 15px;
+      color: #bbb;
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin: 28px 0 16px;
+    }
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .swatch {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .swatch .chip { height: 56px; }
+    .swatch .meta {
+      padding: 8px 10px;
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--graphite);
+    }
+    .type-samples { margin: 16px 0; }
+    .bebas {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 42px;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+    }
+    .grotesk {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    .grotesk-p {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #ccc;
+      margin-top: 8px;
+      max-width: 520px;
+    }
+    .mono {
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--alpha-red);
+      margin-top: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+    }
+    th {
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--graphite);
+      color: var(--alpha-red);
+    }
+    tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .footer {
+      margin-top: 40px;
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #666;
+    }
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+        padding: 24px 32px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .logo-block { border-color: #E8000A; }
+      .tagline { color: #E8000A; }
+      h2 { border-color: #ccc; }
+      th { background: #f0f0f0; color: #E8000A; }
+      .swatch .meta { background: #f5f5f5; color: #111; }
+      .positioning, .grotesk-p { color: #444; }
+    }
+  </style>
+</head>
+<body>
+  <header class="logo-block">
+    <h1>ALPHA VISUAL ARTISTS</h1>
+    <p class="sub">Creative Authority Brand</p>
+  </header>
+
+  <p class="tagline">CREATE WITHOUT LIMITS</p>
+  <p class="positioning">Cinematic production · platform-native strategy · audience psychology — artist-first, premium, emotionally powerful.</p>
+
+  <h2>Primary colors</h2>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#080808"></div><div class="meta">AVA Black<br>#080808</div></div>
+    <div class="swatch"><div class="chip" style="background:#0D0D0D"></div><div class="meta">Deep Black<br>#0D0D0D</div></div>
+    <div class="swatch"><div class="chip" style="background:#111111"></div><div class="meta">Graphite<br>#111111</div></div>
+    <div class="swatch"><div class="chip" style="background:#1C1C1C"></div><div class="meta">Border Gray<br>#1C1C1C</div></div>
+    <div class="swatch"><div class="chip" style="background:#1E1E1E"></div><div class="meta">Border Light<br>#1E1E1E</div></div>
+    <div class="swatch"><div class="chip" style="background:#E8000A"></div><div class="meta">Alpha Red<br>#E8000A</div></div>
+    <div class="swatch"><div class="chip" style="background:#FFFFFF;border:1px solid #ccc"></div><div class="meta">Pure White<br>#FFFFFF</div></div>
+  </div>
+  <p style="font-size:12px;color:#888;margin-bottom:24px">Rule: 80% black / gray / white · 20% Alpha Red (CTAs, highlights, progress)</p>
+
+  <h2>Typography</h2>
+  <div class="type-samples">
+    <p class="bebas">HEADLINES — BEBAS NEUE</p>
+    <p class="grotesk">Subheads &amp; UI — Space Grotesk SemiBold</p>
+    <p class="grotesk-p">Body copy uses Space Grotesk Regular at 14–16px with generous line height for cinematic readability on dark surfaces.</p>
+    <p class="mono">METADATA · 00:01:24:12 · BUILD 25</p>
+  </div>
+
+  <h2>Quick reference</h2>
+  <table>
+    <thead>
+      <tr><th>Element</th><th>Spec</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Display / hero</td><td>Bebas Neue · ALL CAPS · 40–48px</td></tr>
+      <tr><td>Body</td><td>Space Grotesk · 14–16px</td></tr>
+      <tr><td>Meta / timecode</td><td>DM Mono · uppercase · letter-spacing 2+</td></tr>
+      <tr><td>Primary CTA</td><td>Alpha Red fill · white or black label</td></tr>
+      <tr><td>Screen background</td><td>Deep Black #0D0D0D or AVA Black #080808</td></tr>
+      <tr><td>Cards</td><td>Graphite #111111 · Border #1C1C1C</td></tr>
+      <tr><td>Film accents</td><td>Teal / blue / purple etc. — toolkit &amp; social only</td></tr>
+      <tr><td>Motion</td><td>Slow, confident · minimal clutter</td></tr>
+      <tr><td>Photo</td><td>Deep blacks · cool shadows · warm highlights</td></tr>
+    </tbody>
+  </table>
+
+  <p class="footer">Alpha Visual Artists · Brand v1.0 · Print this page → Save as PDF</p>
+</body>
+</html>

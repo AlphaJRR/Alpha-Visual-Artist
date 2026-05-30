@@ -327,10 +327,10 @@ export default function ShootScreen() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: "#0a0a0a" },
+  root: { flex: 1, backgroundColor: "#0D0D0D" },
   header: { paddingHorizontal: 20, paddingBottom: 16 },
   eyebrow: {
-    color: "#00d4ff",
+    color: "#E8000A",
     fontSize: 11,
     fontWeight: "700",
     letterSpacing: 2,
@@ -361,7 +361,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     textTransform: "uppercase",
   },
-  segTxtActive: { color: "#00d4ff" },
+  segTxtActive: { color: "#E8000A" },
   progressRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -375,7 +375,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.08)",
     overflow: "hidden",
   },
-  progressFill: { height: "100%", backgroundColor: "#00d4ff" },
+  progressFill: { height: "100%", backgroundColor: "#E8000A" },
   progressTxt: { color: "#888", fontSize: 11, fontWeight: "600" },
   list: { flex: 1, marginTop: 8 },
   empty: { alignItems: "center", paddingVertical: 60, gap: 16 },
@@ -393,7 +393,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "rgba(0,212,255,0.3)",
   },
-  resetTxt: { color: "#00d4ff", fontWeight: "700", fontSize: 13 },
+  resetTxt: { color: "#E8000A", fontWeight: "700", fontSize: 13 },
   row: {
     flexDirection: "row",
     alignItems: "center",
@@ -411,7 +411,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  checkDone: { backgroundColor: "#00d4ff", borderColor: "#00d4ff" },
+  checkDone: { backgroundColor: "#E8000A", borderColor: "#E8000A" },
   shotTxt: { flex: 1, color: "#eee", fontSize: 15, lineHeight: 21 },
   shotTxtDone: { color: "#555", textDecorationLine: "line-through" },
   actionsRow: {
@@ -445,7 +445,7 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     borderTopWidth: 1,
     borderTopColor: "rgba(255,255,255,0.06)",
-    backgroundColor: "#0a0a0a",
+    backgroundColor: "#0D0D0D",
   },
   input: {
     flex: 1,
@@ -462,7 +462,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 14,
-    backgroundColor: "#00d4ff",
+    backgroundColor: "#E8000A",
     alignItems: "center",
     justifyContent: "center",
   },
