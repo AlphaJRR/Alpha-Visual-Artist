@@ -17,6 +17,10 @@ import {
   ToolkitSectionImage,
   toolkitSectionImageStyle,
 } from "./ToolkitSectionImage";
+import { brandColors, fontFamilies } from "@/constants/brand";
+
+const C = brandColors;
+const F = fontFamilies;
 
 type LineItem = {
   id: string;
@@ -86,14 +90,14 @@ export function InvoiceBuilder({ onBack }: InvoiceBuilderProps) {
       <TextInput
         style={styles.descriptionInput}
         placeholder="Description"
-        placeholderTextColor="#888888"
+        placeholderTextColor={C.subtleText}
         value={item.description}
         onChangeText={(text) => updateLineItem(item.id, "description", text)}
       />
       <TextInput
         style={styles.numericInput}
         placeholder="Qty"
-        placeholderTextColor="#888888"
+        placeholderTextColor={C.subtleText}
         keyboardType="number-pad"
         value={String(item.quantity)}
         onChangeText={(text) =>
@@ -103,7 +107,7 @@ export function InvoiceBuilder({ onBack }: InvoiceBuilderProps) {
       <TextInput
         style={styles.numericInput}
         placeholder="Rate"
-        placeholderTextColor="#888888"
+        placeholderTextColor={C.subtleText}
         keyboardType="decimal-pad"
         value={String(item.rate)}
         onChangeText={(text) =>
@@ -174,14 +178,14 @@ export function InvoiceBuilder({ onBack }: InvoiceBuilderProps) {
         <TextInput
           style={styles.clientInput}
           placeholder="Client Name"
-          placeholderTextColor="#888888"
+          placeholderTextColor={C.subtleText}
           value={clientName}
           onChangeText={setClientName}
         />
         <TextInput
           style={styles.clientInput}
           placeholder="Client Email"
-          placeholderTextColor="#888888"
+          placeholderTextColor={C.subtleText}
           keyboardType="email-address"
           autoCapitalize="none"
           value={clientEmail}
@@ -193,7 +197,7 @@ export function InvoiceBuilder({ onBack }: InvoiceBuilderProps) {
         <View style={styles.itemsHeader}>
           <Text style={styles.sectionTitle}>ITEMS</Text>
           <Pressable onPress={addLineItem} style={styles.addButton}>
-            <Ionicons name="add-circle" size={20} color="#9B7FD4" />
+            <Ionicons name="add-circle" size={20} color={C.alphaRed} />
             <Text style={styles.addButtonText}>Add Item</Text>
           </Pressable>
         </View>
@@ -230,11 +234,11 @@ export function InvoiceBuilder({ onBack }: InvoiceBuilderProps) {
 
       <View style={styles.actionsSection}>
         <Pressable style={styles.downloadButton} onPress={handleDownloadPDF}>
-          <Ionicons name="download-outline" size={18} color="#FFFFFF" />
+          <Ionicons name="download-outline" size={18} color={C.pureWhite} />
           <Text style={styles.buttonText}>DOWNLOAD PDF</Text>
         </Pressable>
         <Pressable style={styles.emailButton} onPress={handleEmailInvoice}>
-          <Ionicons name="mail" size={18} color="#FFFFFF" />
+          <Ionicons name="mail" size={18} color={C.pureWhite} />
           <Text style={styles.buttonText}>EMAIL INVOICE</Text>
         </Pressable>
       </View>
@@ -251,15 +255,16 @@ export function InvoiceBuilder({ onBack }: InvoiceBuilderProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0D0D0D",
+    backgroundColor: C.deepBlack,
   },
   backRow: {
     paddingHorizontal: 16,
     paddingBottom: 4,
   },
   backTxt: {
-    color: "#E8000A",
+    color: C.alphaRed,
     fontSize: 15,
+    fontFamily: F.bodySemiBold,
     fontWeight: "600",
   },
   header: {
@@ -267,12 +272,12 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     alignItems: "center",
     borderBottomWidth: 1,
-    borderBottomColor: "#1A1A1A",
+    borderBottomColor: C.graphite,
   },
   logoBox: {
     width: 60,
     height: 60,
-    backgroundColor: "#2D1B4E",
+    backgroundColor: C.borderGray,
     borderRadius: 4,
     justifyContent: "center",
     alignItems: "center",
@@ -286,14 +291,16 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 18,
+    fontFamily: F.display,
     fontWeight: "900",
-    color: "#FFFFFF",
+    color: C.pureWhite,
     letterSpacing: 1,
     marginBottom: 4,
   },
   headerSubtitle: {
     fontSize: 12,
-    color: "#CCCCCC",
+    fontFamily: F.body,
+    color: C.secondaryText,
   },
   metaSection: {
     flexDirection: "row",
@@ -306,50 +313,55 @@ const styles = StyleSheet.create({
   },
   metaLabel: {
     fontSize: 10,
-    color: "#888888",
+    fontFamily: F.mono,
+    color: C.subtleText,
     fontWeight: "600",
     marginBottom: 4,
   },
   metaInput: {
-    backgroundColor: "#1A1A1A",
-    color: "#FFFFFF",
+    backgroundColor: C.graphite,
+    color: C.pureWhite,
     padding: 8,
     borderRadius: 4,
     fontSize: 12,
+    fontFamily: F.body,
   },
   metaValue: {
-    backgroundColor: "#1A1A1A",
-    color: "#FFFFFF",
+    backgroundColor: C.graphite,
+    color: C.pureWhite,
     padding: 8,
     borderRadius: 4,
     fontSize: 12,
+    fontFamily: F.body,
   },
   clientSection: {
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderTopWidth: 1,
-    borderTopColor: "#1A1A1A",
+    borderTopColor: C.graphite,
   },
   sectionTitle: {
     fontSize: 11,
+    fontFamily: F.mono,
     fontWeight: "900",
-    color: "#CCCCCC",
+    color: C.secondaryText,
     letterSpacing: 0.5,
     marginBottom: 8,
   },
   clientInput: {
-    backgroundColor: "#1A1A1A",
-    color: "#FFFFFF",
+    backgroundColor: C.graphite,
+    color: C.pureWhite,
     padding: 10,
     borderRadius: 4,
     fontSize: 13,
+    fontFamily: F.body,
     marginBottom: 8,
   },
   itemsSection: {
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderTopWidth: 1,
-    borderTopColor: "#1A1A1A",
+    borderTopColor: C.graphite,
   },
   itemsHeader: {
     flexDirection: "row",
@@ -364,7 +376,8 @@ const styles = StyleSheet.create({
   },
   addButtonText: {
     fontSize: 11,
-    color: "#9B7FD4",
+    fontFamily: F.bodySemiBold,
+    color: C.alphaRed,
     fontWeight: "600",
   },
   itemsColumnHeader: {
@@ -372,11 +385,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     paddingBottom: 8,
     borderBottomWidth: 1,
-    borderBottomColor: "#2D1B4E",
+    borderBottomColor: C.borderGray,
   },
   columnLabel: {
     fontSize: 10,
-    color: "#888888",
+    fontFamily: F.mono,
+    color: C.subtleText,
     fontWeight: "600",
     flex: 1,
   },
@@ -391,24 +405,27 @@ const styles = StyleSheet.create({
   },
   descriptionInput: {
     flex: 2,
-    backgroundColor: "#1A1A1A",
-    color: "#FFFFFF",
+    backgroundColor: C.graphite,
+    color: C.pureWhite,
     padding: 8,
     borderRadius: 4,
     fontSize: 12,
+    fontFamily: F.body,
   },
   numericInput: {
     flex: 1,
-    backgroundColor: "#1A1A1A",
-    color: "#FFFFFF",
+    backgroundColor: C.graphite,
+    color: C.pureWhite,
     padding: 8,
     borderRadius: 4,
     fontSize: 12,
+    fontFamily: F.body,
   },
   lineItemTotal: {
     flex: 1,
-    color: "#FFFFFF",
+    color: C.pureWhite,
     fontSize: 12,
+    fontFamily: F.bodySemiBold,
     fontWeight: "600",
   },
   deleteButton: {
@@ -418,7 +435,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderTopWidth: 1,
-    borderTopColor: "#1A1A1A",
+    borderTopColor: C.graphite,
   },
   totalRow: {
     flexDirection: "row",
@@ -427,28 +444,32 @@ const styles = StyleSheet.create({
   },
   totalLabel: {
     fontSize: 12,
-    color: "#CCCCCC",
+    fontFamily: F.body,
+    color: C.secondaryText,
   },
   totalValue: {
     fontSize: 12,
-    color: "#FFFFFF",
+    fontFamily: F.bodySemiBold,
+    color: C.pureWhite,
     fontWeight: "600",
   },
   finalTotal: {
-    backgroundColor: "#2D1B4E",
+    backgroundColor: C.alphaRed,
     paddingHorizontal: 12,
     paddingVertical: 12,
     borderRadius: 4,
   },
   finalTotalLabel: {
     fontSize: 13,
+    fontFamily: F.display,
     fontWeight: "900",
-    color: "#FFFFFF",
+    color: C.pureWhite,
   },
   finalTotalValue: {
     fontSize: 16,
+    fontFamily: F.display,
     fontWeight: "900",
-    color: "#FFFFFF",
+    color: C.pureWhite,
   },
   actionsSection: {
     paddingHorizontal: 16,
@@ -456,7 +477,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   downloadButton: {
-    backgroundColor: "#2D1B4E",
+    backgroundColor: C.alphaRed,
     paddingVertical: 12,
     borderRadius: 4,
     flexDirection: "row",
@@ -465,7 +486,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   emailButton: {
-    backgroundColor: "#2D1B4E",
+    backgroundColor: C.alphaRed,
     paddingVertical: 12,
     borderRadius: 4,
     flexDirection: "row",
@@ -475,8 +496,9 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 12,
+    fontFamily: F.bodySemiBold,
     fontWeight: "900",
-    color: "#FFFFFF",
+    color: C.pureWhite,
     letterSpacing: 0.5,
   },
   footer: {
@@ -484,11 +506,12 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     alignItems: "center",
     borderTopWidth: 1,
-    borderTopColor: "#1A1A1A",
+    borderTopColor: C.graphite,
   },
   footerText: {
     fontSize: 11,
-    color: "#888888",
+    fontFamily: F.body,
+    color: C.subtleText,
     textAlign: "center",
   },
 });

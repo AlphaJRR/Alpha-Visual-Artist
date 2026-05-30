@@ -16,15 +16,14 @@ import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import * as Haptics from "expo-haptics";
 import { SITE_URL } from "@/constants/site";
+import { brandColors, fontFamilies } from "@/constants/brand";
 import { WALLPAPERS, WALLPAPER_COUNT, type WallpaperItem } from "@/data/mediaStorage";
 import { openSiteLink } from "@/lib/openSiteLink";
 
-const DONATE_URL = `${SITE_URL}/donate`;
+const C = brandColors;
+const F = fontFamilies;
 
-const PURPLE = "#2D1B4E";
-const BG = "#0D0D0D";
-const CARD = "#1A1A1A";
-const TEXT = "#FFFFFF";
+const DONATE_URL = `${SITE_URL}/donate`;
 
 const H_PADDING = 16;
 const GAP = 10;
@@ -102,9 +101,9 @@ export default function WallpapersScreen() {
             disabled={busy}
           >
             {busy ? (
-              <ActivityIndicator size="small" color={TEXT} />
+              <ActivityIndicator size="small" color={C.pureWhite} />
             ) : (
-              <Ionicons name="download-outline" size={18} color={TEXT} />
+              <Ionicons name="download-outline" size={18} color={C.pureWhite} />
             )}
           </Pressable>
         </View>
@@ -134,7 +133,7 @@ export default function WallpapersScreen() {
           accessibilityRole="button"
           accessibilityLabel="Support and donate"
         >
-          <Ionicons name="heart" size={16} color={TEXT} />
+          <Ionicons name="heart" size={16} color={C.pureWhite} />
           <Text style={styles.donateTxt}>SUPPORT & DONATE</Text>
         </Pressable>
       </View>
@@ -164,7 +163,7 @@ export default function WallpapersScreen() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: BG,
+    backgroundColor: C.deepBlack,
     overflow: "hidden",
   },
   listContent: {
@@ -174,8 +173,9 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   eyebrow: {
-    color: TEXT,
+    color: C.pureWhite,
     fontSize: 10,
+    fontFamily: F.mono,
     fontWeight: "700",
     letterSpacing: 2,
     textTransform: "uppercase",
@@ -183,8 +183,9 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   h1: {
-    color: TEXT,
+    color: C.pureWhite,
     fontSize: 28,
+    fontFamily: F.display,
     fontWeight: "800",
     letterSpacing: -0.5,
     marginBottom: 10,
@@ -192,6 +193,7 @@ const styles = StyleSheet.create({
   sub: {
     color: "rgba(255,255,255,0.65)",
     fontSize: 13,
+    fontFamily: F.body,
     lineHeight: 19,
     marginBottom: 16,
   },
@@ -207,7 +209,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 8,
     alignSelf: "stretch",
-    backgroundColor: PURPLE,
+    backgroundColor: C.alphaRed,
     paddingVertical: 14,
     paddingHorizontal: 20,
     borderRadius: 12,
@@ -218,8 +220,9 @@ const styles = StyleSheet.create({
     opacity: 0.9,
   },
   donateTxt: {
-    color: TEXT,
+    color: C.pureWhite,
     fontSize: 13,
+    fontFamily: F.bodySemiBold,
     fontWeight: "800",
     letterSpacing: 1.2,
   },
@@ -230,7 +233,7 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 12,
     overflow: "hidden",
-    backgroundColor: CARD,
+    backgroundColor: C.graphite,
   },
   cardImage: {
     width: "100%",

@@ -1,5 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { brandColors, fontFamilies } from "@/constants/brand";
+
+const C = brandColors;
+const F = fontFamilies;
 import { BETLiveGallery } from "./BETLiveGallery";
 import {
   FeaturedPhoto,
@@ -50,8 +54,9 @@ const styles = StyleSheet.create({
     paddingBottom: 14,
   },
   eyebrow: {
-    color: "#FFFFFF",
+    color: C.pureWhite,
     fontSize: 10,
+    fontFamily: F.mono,
     fontWeight: "700",
     letterSpacing: 2,
     textTransform: "uppercase",
@@ -59,23 +64,25 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   title: {
-    color: "#FFFFFF",
+    color: C.pureWhite,
     fontSize: 22,
+    fontFamily: F.display,
     fontWeight: "800",
     letterSpacing: -0.3,
   },
   emptyState: {
     minHeight: 72,
     borderRadius: 10,
-    backgroundColor: "#1A1A1A",
+    backgroundColor: C.graphite,
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.08)",
     padding: 16,
     justifyContent: "center",
   },
   emptyText: {
-    color: "#CCCCCC",
+    color: C.secondaryText,
     fontSize: 13,
+    fontFamily: F.body,
     lineHeight: 18,
     textAlign: "center",
   },

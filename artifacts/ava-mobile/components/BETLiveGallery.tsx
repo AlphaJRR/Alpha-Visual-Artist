@@ -9,6 +9,10 @@ import {
   useWindowDimensions,
 } from "react-native";
 import * as Haptics from "expo-haptics";
+import { brandColors, fontFamilies } from "@/constants/brand";
+
+const C = brandColors;
+const F = fontFamilies;
 
 const COLS = 2;
 const H_PADDING = 16;
@@ -122,8 +126,9 @@ const styles = StyleSheet.create({
     paddingBottom: 14,
   },
   eyebrow: {
-    color: "#FFFFFF",
+    color: C.pureWhite,
     fontSize: 10,
+    fontFamily: F.mono,
     fontWeight: "700",
     letterSpacing: 2,
     textTransform: "uppercase",
@@ -131,8 +136,9 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   title: {
-    color: "#FFFFFF",
+    color: C.pureWhite,
     fontSize: 22,
+    fontFamily: F.display,
     fontWeight: "800",
     letterSpacing: -0.3,
   },
@@ -144,7 +150,7 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 10,
     overflow: "hidden",
-    backgroundColor: "#1A1A1A",
+    backgroundColor: C.graphite,
   },
   image: {
     width: "100%",
@@ -159,8 +165,9 @@ const styles = StyleSheet.create({
     left: 8,
     right: 8,
     bottom: 8,
-    color: "#FFFFFF",
+    color: C.pureWhite,
     fontSize: 10,
+    fontFamily: F.mono,
     fontWeight: "800",
     letterSpacing: 0.4,
     textTransform: "uppercase",
