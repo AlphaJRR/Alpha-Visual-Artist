@@ -2,12 +2,16 @@ import { type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
 import { Show, RedirectToSignIn, UserButton, useUser } from "@clerk/react";
 import { useQuery } from "@tanstack/react-query";
-import { apiFetch, type PortalUser } from "@/lib/api";
+import { apiFetch, isPortalApiExpected, type PortalUser } from "@/lib/api";
+import { isClerkConfigured } from "@/lib/clerkConfig";
+import PortalUnavailable from "./PortalUnavailable";
 
 export function usePortalUser() {
   return useQuery({
     queryKey: ["portal", "me"],
     queryFn: () => apiFetch<PortalUser>("/portal/me"),
+    enabled: isClerkConfigured && isPortalApiExpected,
+    retry: false,
   });
 }
 
@@ -15,6 +19,14 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
   const [location] = useLocation();
   const { user } = useUser();
   const me = usePortalUser();
+
+  if (!isClerkConfigured) {
+    return <PortalUnavailable />;
+  }
+
+  if (!isPortalApiExpected) {
+    return <PortalUnavailable />;
+  }
 
   return (
     <>

@@ -1,3 +1,7 @@
+/** Static Cloudflare Pages deploy has no Replit API unless proxied separately. */
+export const isPortalApiExpected =
+  import.meta.env.VITE_PORTAL_API_ENABLED === "true";
+
 export async function apiFetch<T = unknown>(
   path: string,
   init?: RequestInit,

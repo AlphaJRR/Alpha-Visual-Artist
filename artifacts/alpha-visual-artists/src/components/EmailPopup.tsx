@@ -13,7 +13,6 @@ export function EmailPopup() {
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
   const armed = useRef(false);
 
   useEffect(() => {
@@ -39,7 +38,7 @@ export function EmailPopup() {
     } catch {}
   };
 
-  const onSubmit = async (e: React.FormEvent) => {
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
@@ -50,22 +49,8 @@ export function EmailPopup() {
       setError("Emails do not match.");
       return;
     }
-    setSubmitting(true);
-    try {
-      const body = new URLSearchParams({
-        "form-name": "ava-discount",
-        email,
-        confirm,
-      }).toString();
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body,
-      }).catch(() => {});
-    } finally {
-      setSubmitting(false);
-      setSubmitted(true);
-    }
+    // No backend on Cloudflare static deploy — reveal code locally (no silent 405).
+    setSubmitted(true);
   };
 
   const copyCode = async () => {
@@ -107,18 +92,11 @@ export function EmailPopup() {
                 15% <span className="text-primary">OFF</span>
               </h2>
               <p className="text-white/60 text-sm">
-                Sign up to unlock your code for the Alpha Crew Collection.
+                Confirm your email to unlock your Alpha Crew Collection code.
               </p>
             </div>
 
-            <form
-              onSubmit={onSubmit}
-              name="ava-discount"
-              data-netlify="true"
-              method="POST"
-              className="space-y-3"
-            >
-              <input type="hidden" name="form-name" value="ava-discount" />
+            <form onSubmit={onSubmit} className="space-y-3">
               <input
                 type="email"
                 name="email"
@@ -126,6 +104,7 @@ export function EmailPopup() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email"
                 required
+                autoComplete="email"
                 className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-primary/60 focus:bg-white/10 transition"
               />
               <input
@@ -135,20 +114,25 @@ export function EmailPopup() {
                 onChange={(e) => setConfirm(e.target.value)}
                 placeholder="Confirm email"
                 required
+                autoComplete="email"
                 className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-primary/60 focus:bg-white/10 transition"
               />
-              {error && (
-                <p className="text-red-400 text-xs">{error}</p>
-              )}
+              {error && <p className="text-red-400 text-xs">{error}</p>}
               <button
                 type="submit"
-                disabled={submitting}
-                className="w-full rounded-lg bg-primary text-black font-semibold uppercase tracking-wider text-sm py-3 hover:bg-primary/90 transition disabled:opacity-50"
+                className="w-full rounded-lg bg-primary text-black font-semibold uppercase tracking-wider text-sm py-3 hover:bg-primary/90 transition"
               >
-                {submitting ? "Sending..." : "Get My 15% Off"}
+                Get My 15% Off
               </button>
               <p className="text-[10px] text-white/40 text-center pt-2">
-                No spam. Unsubscribe anytime.
+                Code shown on this device only — join our list via{" "}
+                <a
+                  href="mailto:hello@alphavisualartists.com?subject=Newsletter"
+                  className="underline hover:text-white/60"
+                >
+                  email
+                </a>{" "}
+                for updates.
               </p>
             </form>
           </>
@@ -164,6 +148,7 @@ export function EmailPopup() {
               Use this at checkout for 15% off the Alpha Crew Collection.
             </p>
             <button
+              type="button"
               onClick={copyCode}
               className="w-full flex items-center justify-center gap-3 rounded-lg border-2 border-dashed border-primary/60 bg-primary/5 px-4 py-4 hover:bg-primary/10 transition group"
             >
@@ -180,6 +165,7 @@ export function EmailPopup() {
               {copied ? "Copied to clipboard" : "Click to copy"}
             </p>
             <button
+              type="button"
               onClick={close}
               className="mt-6 text-xs text-white/60 hover:text-white uppercase tracking-widest"
             >

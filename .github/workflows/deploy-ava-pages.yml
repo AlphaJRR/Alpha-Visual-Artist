@@ -1,0 +1,63 @@
+name: Deploy AVA to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - GIT
+    paths:
+      - "artifacts/alpha-visual-artists/**"
+      - "lib/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - ".github/workflows/deploy-ava-pages.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-ava-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build AVA site
+        working-directory: artifacts/alpha-visual-artists
+        env:
+          PORT: "18606"
+          BASE_PATH: "/"
+          VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
+          VITE_PORTAL_API_ENABLED: "false"
+        run: pnpm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy artifacts/alpha-visual-artists/dist/public --project-name=alpha-visual-artists --branch=GIT
+
+# Required GitHub repository secrets:
+#   CLOUDFLARE_API_TOKEN — Pages Edit + Account read (or broader deploy token)
+#   CLOUDFLARE_ACCOUNT_ID — 3c47537fe9d7f57294883824a59b42fc (example; use your account)
+#   VITE_CLERK_PUBLISHABLE_KEY — pk_live_... or pk_test_... from Clerk Dashboard (build-time)
