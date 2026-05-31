@@ -6,6 +6,8 @@ packages:
 
 autoInstallPeers: false
 
+strictDepBuilds: false
+
 catalog:
   '@replit/vite-plugin-cartographer': ^0.5.1
   '@replit/vite-plugin-dev-banner': ^0.1.1
@@ -36,11 +38,12 @@ minimumReleaseAgeExclude:
   - '@replit/*'
   - stripe-replit-sync
 
-onlyBuiltDependencies:
-  - '@swc/core'
-  - esbuild
-  - msw
-  - unrs-resolver
+allowBuilds:
+  '@swc/core': true
+  esbuild: true
+  msw: true
+  unrs-resolver: true
+
 
 overrides:
   '@esbuild-kit/esm-loader': npm:tsx@^4.21.0

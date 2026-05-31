@@ -40,6 +40,11 @@ Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `VITE_CLERK_PUBLISHABL
 - **api-server** (`artifacts/api-server`) — portal, blog admin, storage APIs still target Replit.
 - Portal UI shows “Coming soon” until `VITE_PORTAL_API_ENABLED=true` and `/api` is proxied.
 
+
+## Cloudflare Git integration
+
+If the **alpha-visual-artists** Pages project is connected to GitHub in the Cloudflare dashboard, turn off automatic production deploys for branch `GIT` (or disconnect Git) so this workflow is the single deploy path. Running both causes duplicate builds and conflicting releases.
+
 ## Manual deploy
 
 ```bash
