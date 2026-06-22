@@ -20,6 +20,11 @@ import AdminIndex from "@/pages/admin/AdminIndex";
 import { BlogListPage } from "@/pages/blog/BlogListPage";
 import { BlogPostPage } from "@/pages/blog/BlogPostPage";
 import { BlogEditorPage } from "@/pages/blog/BlogEditorPage";
+import RedeemLanding from "@/pages/RedeemLanding";
+import AppLandingPage from "@/pages/AppLandingPage";
+import { TeaserProvider } from "@/context/TeaserContext";
+import { TeaserBanner } from "@/components/app/TeaserBanner";
+import { AnnouncementModal } from "@/components/app/AnnouncementModal";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +50,8 @@ function Router() {
       <Route path="/blog" component={BlogListPage} />
       <Route path="/blog/new" component={BlogEditorPage} />
       <Route path="/blog/:slug" component={BlogPostPage} />
+      <Route path="/r/:code" component={RedeemLanding} />
+      <Route path="/app" component={AppLandingPage} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -54,11 +61,15 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
-        </WouterRouter>
-        <EmailPopup />
-        <Toaster />
+        <TeaserProvider>
+          <TeaserBanner />
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <Router />
+          </WouterRouter>
+          <AnnouncementModal />
+          <EmailPopup />
+          <Toaster />
+        </TeaserProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

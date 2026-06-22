@@ -7,8 +7,14 @@ import { Services } from "@/components/sections/Services";
 import { Retainers } from "@/components/sections/Retainers";
 import { Podcasts } from "@/components/sections/Podcasts";
 import { CTA } from "@/components/sections/CTA";
+import { APP_LAUNCH_LIVE } from "@/config/app";
+import { AppLanding } from "@/components/app/AppLanding";
 
 export default function Home() {
+  if (APP_LAUNCH_LIVE) {
+    return <AppLanding />;
+  }
+
   return (
     <div className="min-h-[100dvh] bg-background flex flex-col">
       <Header />

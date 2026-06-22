@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Primary — dark base, AVA is always dark */
+  --ava-black-1: #080808;
+  --ava-black-2: #0d0d0d;
+  --ava-black-3: #111111;
+  --ava-black-4: #161616;
+  --ava-white: #ffffff;
+
+  /* Accents */
+  --ava-cyan: #00bfff;
+  --ava-red: #e8000a;
+  --ava-blue: #4a7fd4;
+  --ava-purple: #6b3fa0;
+  --ava-gold: #c9a84c;
+
+  --ava-border: rgba(255, 255, 255, 0.08);
+
+  /* Landing page aliases (match approved HTML) */
+  --ink: #070707;
+  --panel: #0c0c0c;
+  --card: #101010;
+  --white: #fff;
+  --mist: rgba(255, 255, 255, 0.56);
+  --line: rgba(255, 255, 255, 0.08);
+  --red: #e8000a;
+  --spectrum: linear-gradient(90deg, #e8000a, #e0218a, #8a2be2, #1e6fff, #00bfd8);
+}

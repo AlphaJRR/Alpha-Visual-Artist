@@ -1,0 +1,31 @@
+.ava-app-download-pill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  background: var(--ava-red, #e8000a);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 11px;
+  font-family: "Space Grotesk", sans-serif;
+  text-decoration: none;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.ava-app-download-pill:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.ava-app-download-pill__cta {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.ava-app-download-pill__tag {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}

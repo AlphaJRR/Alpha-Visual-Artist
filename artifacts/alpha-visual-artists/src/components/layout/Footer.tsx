@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "@/assets/logo.png";
 import { Instagram, Youtube } from "lucide-react";
+import { AppDownloadPill } from "@/components/app/AppDownloadPill";
 
 export function Footer() {
   return (
@@ -11,13 +12,16 @@ export function Footer() {
             <img src={logo} alt="Alpha Visual Artists" className="h-10 object-contain opacity-80" />
             <p className="text-white/50 text-sm">Based in Chicago — available for travel worldwide</p>
           </div>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-white/50 hover:text-primary transition-colors">
-              <Instagram className="w-6 h-6" />
-            </a>
-            <a href="#" className="text-white/50 hover:text-primary transition-colors">
-              <Youtube className="w-6 h-6" />
-            </a>
+          <div className="flex flex-col sm:flex-row items-center gap-6">
+            <AppDownloadPill />
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-white/50 hover:text-primary transition-colors">
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a href="#" className="text-white/50 hover:text-primary transition-colors">
+                <Youtube className="w-6 h-6" />
+              </a>
+            </div>
           </div>
         </div>
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-xs text-white/40">

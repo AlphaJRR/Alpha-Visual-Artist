@@ -1,0 +1,211 @@
+.ava-teaser-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 7, 7, 0.92);
+  border-bottom: 1px solid var(--ava-border);
+  backdrop-filter: blur(12px);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.ava-teaser-banner__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 10px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.ava-teaser-banner__copy {
+  margin: 0;
+  font-size: 13px;
+  color: var(--mist, rgba(255, 255, 255, 0.72));
+  letter-spacing: 0.02em;
+}
+
+.ava-teaser-banner__link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--ava-cyan);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+
+.ava-teaser-banner__form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ava-teaser-banner__input {
+  background: var(--ava-black-4);
+  border: 1px solid var(--ava-border);
+  border-radius: 8px;
+  color: var(--ava-white);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  padding: 8px 12px;
+  min-width: 180px;
+}
+
+.ava-teaser-banner__submit {
+  background: var(--ava-red);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  padding: 9px 14px;
+  text-transform: uppercase;
+}
+
+.ava-teaser-banner__success {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: var(--ava-cyan);
+}
+
+.ava-teaser-banner__error {
+  font-size: 11px;
+  color: var(--ava-red);
+}
+
+.ava-teaser-banner__dismiss {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.ava-announcement-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.ava-announcement-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  border: none;
+  cursor: pointer;
+}
+
+.ava-announcement-modal__panel {
+  position: relative;
+  width: min(440px, 100%);
+  background: var(--ava-black-2);
+  border: 1px solid var(--ava-border);
+  border-radius: 18px;
+  padding: 36px 28px 32px;
+  text-align: center;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.65);
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ava-white);
+}
+
+.ava-announcement-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.ava-announcement-modal__eyebrow {
+  margin: 0 0 8px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ava-red);
+}
+
+.ava-announcement-modal__panel h2 {
+  margin: 0 0 12px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(42px, 10vw, 64px);
+  letter-spacing: 2px;
+  line-height: 0.9;
+}
+
+.ava-announcement-modal__lede {
+  margin: 0 0 22px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.55;
+}
+
+.ava-announcement-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ava-announcement-modal__input {
+  background: var(--ava-black-4);
+  border: 1px solid var(--ava-border);
+  border-radius: 10px;
+  color: var(--ava-white);
+  font-size: 14px;
+  padding: 12px 14px;
+}
+
+.ava-announcement-modal__submit {
+  background: var(--ava-red);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  padding: 13px 16px;
+  text-transform: uppercase;
+}
+
+.ava-announcement-modal__error {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--ava-red);
+}
+
+.ava-announcement-modal__success .ava-announcement-modal__panel h2 {
+  color: var(--ava-cyan);
+}
+
+@media (max-width: 640px) {
+  .ava-teaser-banner__inner {
+    padding-right: 44px;
+    padding-left: 16px;
+  }
+
+  .ava-teaser-banner__form {
+    width: 100%;
+  }
+
+  .ava-teaser-banner__input {
+    flex: 1;
+    min-width: 0;
+  }
+}
