@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { joinList } from "@/lib/klaviyo";
 import { useTeaser } from "@/context/TeaserContext";
+import { APP_LAUNCH_LIVE } from "@/config/app";
 import "@/styles/ava-tokens.css";
 import "./teaser.css";
 
@@ -10,27 +10,48 @@ export function AnnouncementModal() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
+  const emailRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (modalShownThisSession) return;
-    const t = window.setTimeout(() => {
+    if (APP_LAUNCH_LIVE || modalShownThisSession) return;
+    const timer = window.setTimeout(() => {
       openModal();
       markModalShown();
-    }, 4000);
-    return () => window.clearTimeout(t);
+    }, 3500);
+    return () => window.clearTimeout(timer);
   }, [modalShownThisSession, openModal, markModalShown]);
 
-  if (!modalOpen) return null;
+  useEffect(() => {
+    if (!modalOpen) return;
 
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeModal();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [modalOpen, closeModal]);
+
+  useEffect(() => {
+    if (!modalOpen) return;
+    const timer = window.setTimeout(() => emailRef.current?.focus(), 300);
+    return () => window.clearTimeout(timer);
+  }, [modalOpen]);
+
+  if (APP_LAUNCH_LIVE || !modalOpen) return null;
+
+  const onSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
     setError("");
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      setError("Enter a valid email.");
+
+    const trimmed = email.trim();
+    if (!trimmed || !trimmed.includes("@")) {
+      emailRef.current?.focus();
       return;
     }
+
     setStatus("loading");
-    const result = await joinList(email);
+    const result = await joinList(trimmed);
     if (result.ok) {
       setStatus("success");
       return;
@@ -40,41 +61,54 @@ export function AnnouncementModal() {
   };
 
   return (
-    <div className="ava-announcement-modal" role="dialog" aria-modal="true" aria-labelledby="ava-announcement-title">
-      <button type="button" className="ava-announcement-modal__backdrop" onClick={closeModal} aria-label="Close" />
-      <div className="ava-announcement-modal__panel">
-        <button type="button" className="ava-announcement-modal__close" onClick={closeModal} aria-label="Close">
-          <X size={18} />
+    <div
+      id="ava-modal"
+      className="ava-announcement-modal open"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Announcement signup"
+    >
+      <div className="reveal">
+        <div className="halo" aria-hidden />
+        <button type="button" className="close-x" aria-label="Close" onClick={closeModal}>
+          ×
         </button>
+        <div className="iris" aria-hidden />
+        <span className="eyebrow">Alpha Visual Artists</span>
+
         {status === "success" ? (
-          <div className="ava-announcement-modal__success">
-            <p className="ava-announcement-modal__eyebrow">Confirmed</p>
-            <h2 id="ava-announcement-title">YOU&apos;RE IN.</h2>
-            <p className="ava-announcement-modal__lede">We&apos;ll see you Sunday.</p>
+          <div className="success show">
+            <h2>YOU&apos;RE IN.</h2>
+            <div className="chk">✓</div>
+            <p>You&apos;re on the list. Watch your inbox Sunday — you&apos;ll see it before anyone.</p>
           </div>
         ) : (
-          <>
-            <p className="ava-announcement-modal__eyebrow">SOMETHING IS COMING</p>
-            <h2 id="ava-announcement-title">THIS SUNDAY</h2>
-            <p className="ava-announcement-modal__lede">
-              Be first to know when ALPHA Creators goes live. Drop your email — no spam, just the reveal.
-            </p>
-            <form className="ava-announcement-modal__form" onSubmit={onSubmit}>
+          <div id="ava-form-wrap">
+            <h2>
+              SOMETHING
+              <br />
+              IS COMING.
+            </h2>
+            <div className="when">— THIS SUNDAY —</div>
+            <p>A new chapter for AVA. Be the first to see it the moment it drops.</p>
+            <form className="form" onSubmit={onSubmit}>
               <input
+                ref={emailRef}
+                id="ava-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="ava-announcement-modal__input"
                 aria-label="Email address"
                 disabled={status === "loading"}
               />
-              <button type="submit" className="ava-announcement-modal__submit" disabled={status === "loading"}>
-                {status === "loading" ? "Joining…" : "Join the list"}
+              <button type="submit" disabled={status === "loading"}>
+                {status === "loading" ? "…" : "Notify me"}
               </button>
             </form>
             {error ? <p className="ava-announcement-modal__error">{error}</p> : null}
-          </>
+            <div className="note">No spam. One reveal. You&apos;ll know first.</div>
+          </div>
         )}
       </div>
     </div>

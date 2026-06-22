@@ -18,12 +18,12 @@
   --ava-border: rgba(255, 255, 255, 0.08);
 
   /* Landing page aliases (match approved HTML) */
-  --ink: #070707;
-  --panel: #0c0c0c;
-  --card: #101010;
+  --ink: #080808;
+  --panel: #0d0d0d;
+  --card: #111;
   --white: #fff;
-  --mist: rgba(255, 255, 255, 0.56);
-  --line: rgba(255, 255, 255, 0.08);
+  --mist: rgba(255, 255, 255, 0.58);
+  --line: rgba(255, 255, 255, 0.09);
   --red: #e8000a;
   --spectrum: linear-gradient(90deg, #e8000a, #e0218a, #8a2be2, #1e6fff, #00bfd8);
 }

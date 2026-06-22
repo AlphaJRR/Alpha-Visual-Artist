@@ -2,6 +2,15 @@ import { useState } from "react";
 import { Link, useRoute } from "wouter";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useUpload } from "@workspace/object-storage-web";
+
+type UploadSuccessResponse = {
+  objectPath: string;
+  metadata: {
+    name: string;
+    contentType: string;
+    size: number;
+  };
+};
 import PortalLayout, { usePortalUser } from "./PortalLayout";
 import {
   apiFetch,
@@ -263,7 +272,7 @@ function UploadsBlock({ projectId }: { projectId: string }) {
   });
 
   const upload = useUpload({
-    onSuccess: (resp) => {
+    onSuccess: (resp: UploadSuccessResponse) => {
       register.mutate({
         objectPath: resp.objectPath,
         name: resp.metadata.name,
@@ -350,7 +359,7 @@ function AdminVideoUploader({ projectId }: { projectId: string }) {
   });
 
   const upload = useUpload({
-    onSuccess: (resp) => {
+    onSuccess: (resp: UploadSuccessResponse) => {
       setPendingPath(resp.objectPath);
       setPendingType(resp.metadata.contentType);
     },

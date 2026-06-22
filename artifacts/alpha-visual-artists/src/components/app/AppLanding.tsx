@@ -259,6 +259,7 @@ export function AppLanding() {
           <span className="eyebrow">Free to start</span>
           <h2>YOUR STORY&apos;S NEXT.</h2>
           <div className="spec" aria-hidden />
+          <p>Download ALPHA Creators and start where the work actually happens.</p>
           <StoreButton style={{ margin: "0 auto" }} />
         </div>
       </section>
