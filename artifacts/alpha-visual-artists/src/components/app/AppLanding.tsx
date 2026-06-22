@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { FaApple } from "react-icons/fa";
 import { APP_STORE_URL } from "@/config/app";
+import { EmailCaptureForm } from "@/components/app/EmailCaptureForm";
 import "@/styles/ava-tokens.css";
 import "@/styles/app-landing.css";
 
@@ -260,7 +261,14 @@ export function AppLanding() {
           <h2>YOUR STORY&apos;S NEXT.</h2>
           <div className="spec" aria-hidden />
           <p>Download ALPHA Creators and start where the work actually happens.</p>
-          <StoreButton style={{ margin: "0 auto" }} />
+          <div className="waitlist-block reveal-up">
+            <span className="eyebrow">Waitlist</span>
+            <p className="waitlist-lede">
+              Get launch updates and early access news before the next drop.
+            </p>
+            <EmailCaptureForm source="ACP landing — waitlist" />
+          </div>
+          <StoreButton style={{ margin: "28px auto 0" }} />
         </div>
       </section>
 

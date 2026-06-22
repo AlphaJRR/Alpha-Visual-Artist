@@ -101,6 +101,9 @@ section{padding:84px 0;position:relative;z-index:2}
 .close h2{font-family:'Bebas Neue';font-size:clamp(48px,9vw,110px);letter-spacing:2px;line-height:.88}
 .close .spec{height:3px;width:170px;margin:24px auto;background:var(--spectrum);border-radius:2px}
 .close p{color:var(--mist);margin-bottom:28px}
+.waitlist-block{margin:36px auto 0;max-width:560px;text-align:left}
+.waitlist-block .eyebrow{display:block;margin-bottom:10px}
+.waitlist-lede{font-size:15px;color:var(--mist);margin-bottom:18px;text-align:center}
 
 footer{border-top:1px solid var(--line);padding:46px 0;position:relative;z-index:2}
 .foot-in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}

@@ -1,8 +1,14 @@
+/** Klaviyo Client Subscribe API revision — see developers.klaviyo.com Create Client Subscription */
+const KLAVIYO_CLIENT_REVISION = "2026-04-15";
+
 export type JoinListResult =
   | { ok: true }
   | { ok: false; message: string };
 
-export async function joinList(email: string): Promise<JoinListResult> {
+export async function joinList(
+  email: string,
+  customSource = "AVA website",
+): Promise<JoinListResult> {
   const LIST_ID = import.meta.env.VITE_KLAVIYO_LIST_ID;
   const PUBLIC_KEY = import.meta.env.VITE_KLAVIYO_PUBLIC_KEY;
 
@@ -13,21 +19,32 @@ export async function joinList(email: string): Promise<JoinListResult> {
 
   try {
     const response = await fetch(
-      `https://a.klaviyo.com/client/subscriptions/?company_id=${PUBLIC_KEY}`,
+      `https://a.klaviyo.com/client/subscriptions/?company_id=${encodeURIComponent(PUBLIC_KEY)}`,
       {
         method: "POST",
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json",
-          revision: "2024-07-15",
+          revision: KLAVIYO_CLIENT_REVISION,
         },
         body: JSON.stringify({
           data: {
             type: "subscription",
             attributes: {
+              custom_source: customSource,
               profile: {
                 data: {
                   type: "profile",
-                  attributes: { email },
+                  attributes: {
+                    email,
+                    subscriptions: {
+                      email: {
+                        marketing: {
+                          consent: "SUBSCRIBED",
+                        },
+                      },
+                    },
+                  },
                 },
               },
             },
@@ -41,11 +58,17 @@ export async function joinList(email: string): Promise<JoinListResult> {
       },
     );
 
-    if (!response.ok) {
+    // Klaviyo returns 202 Accepted on success
+    if (!response.ok && response.status !== 202) {
       const text = await response.text().catch(() => "");
       console.error("[klaviyo] subscribe failed:", response.status, text);
       return { ok: false, message: "Something went wrong. Please try again." };
     }
+
+    console.log("[analytics] klaviyo_waitlist_signup", {
+      source: customSource,
+      listId: LIST_ID,
+    });
 
     return { ok: true };
   } catch (error) {
