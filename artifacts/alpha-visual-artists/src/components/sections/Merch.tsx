@@ -7,7 +7,7 @@ import { ShoppingBag } from "lucide-react";
 export function Merch() {
   return (
     <section id="merch" className="py-24 bg-background relative border-t border-white/5 overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="marketing-wrap">
         <div className="rounded-3xl overflow-hidden relative">
           {/* Background image */}
           <div className="absolute inset-0 z-0">

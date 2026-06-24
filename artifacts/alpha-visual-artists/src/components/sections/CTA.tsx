@@ -8,7 +8,7 @@ export function CTA() {
     <section id="join-crew" className="py-32 bg-black relative border-t border-white/5 overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl aspect-square bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="marketing-wrap relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

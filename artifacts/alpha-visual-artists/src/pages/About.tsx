@@ -39,6 +39,24 @@ export default function About() {
         alt="Creative Portfolio Highlights — BET Experience, WayMaker, Love and Marriage"
         loading="lazy"
       />
+      <div className="bio-videos" aria-label="JR Roberts promo reels">
+        <video
+          src="/assets/bio/jrr-star.mp4"
+          controls
+          playsInline
+          preload="metadata"
+          poster="/assets/bio/page4.png"
+          aria-label="JR Roberts — creative edits promo"
+        />
+        <video
+          src="/assets/bio/jrr-solo.mp4"
+          controls
+          playsInline
+          preload="metadata"
+          poster="/assets/bio/page4.png"
+          aria-label="JR Roberts — solo cutouts promo"
+        />
+      </div>
       <img
         src="/assets/bio/page5.png"
         alt="Impact — JR's creative philosophy"

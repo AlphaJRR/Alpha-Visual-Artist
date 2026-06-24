@@ -17,7 +17,8 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-4 text-center max-w-5xl">
+      <div className="marketing-wrap relative z-10">
+        <div className="text-center max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -63,6 +64,7 @@ export function Hero() {
             </a>
           </Button>
         </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}

@@ -8,7 +8,7 @@ export function Podcasts() {
       {/* Abstract Background Element */}
       <div className="absolute -right-[20%] top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="marketing-wrap relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}

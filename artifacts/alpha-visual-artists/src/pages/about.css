@@ -12,3 +12,23 @@
   width: 100%;
   height: auto;
 }
+
+.bio-videos {
+  line-height: normal;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #0d0d0d;
+}
+
+.bio-videos video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  background-color: #000;
+}
