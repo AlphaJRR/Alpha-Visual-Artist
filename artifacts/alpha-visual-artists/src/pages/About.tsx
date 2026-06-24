@@ -24,6 +24,17 @@ export default function About() {
         alt="Joshua JR Roberts — Founder, Cinematographer, Photographer, Creative Director, Alpha Visual Artists"
         loading="eager"
       />
+      <div className="bio-video-block" aria-label="JR Roberts creative edits promo">
+        <video
+          src="/assets/bio/jrr-star.mp4"
+          controls
+          muted
+          playsInline
+          preload="metadata"
+          poster="/assets/bio/page1.png"
+          aria-label="JR Roberts — creative edits promo"
+        />
+      </div>
       <img
         src="/assets/bio/page2.png"
         alt="A Visual Storyteller — JR's roots in music and emotion"
@@ -39,29 +50,22 @@ export default function About() {
         alt="Creative Portfolio Highlights — BET Experience, WayMaker, Love and Marriage"
         loading="lazy"
       />
-      <div className="bio-videos" aria-label="JR Roberts promo reels">
-        <video
-          src="/assets/bio/jrr-star.mp4"
-          controls
-          playsInline
-          preload="metadata"
-          poster="/assets/bio/page4.png"
-          aria-label="JR Roberts — creative edits promo"
-        />
-        <video
-          src="/assets/bio/jrr-solo.mp4"
-          controls
-          playsInline
-          preload="metadata"
-          poster="/assets/bio/page4.png"
-          aria-label="JR Roberts — solo cutouts promo"
-        />
-      </div>
       <img
         src="/assets/bio/page5.png"
         alt="Impact — JR's creative philosophy"
         loading="lazy"
       />
+      <div className="bio-video-block" aria-label="JR Roberts solo cutouts promo">
+        <video
+          src="/assets/bio/jrr-solo.mp4"
+          controls
+          muted
+          playsInline
+          preload="metadata"
+          poster="/assets/bio/page5.png"
+          aria-label="JR Roberts — solo cutouts promo"
+        />
+      </div>
       <img
         src="/assets/bio/page6.png"
         alt="Let's Create Together — Contact Alpha Visual Artists"

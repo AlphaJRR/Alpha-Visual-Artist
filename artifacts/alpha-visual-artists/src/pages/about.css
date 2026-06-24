@@ -13,22 +13,22 @@
   height: auto;
 }
 
-.bio-videos {
+.bio-video-block {
   line-height: normal;
   width: 100%;
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  padding: 1.25rem 1.5rem 1.5rem;
   background-color: #0d0d0d;
 }
 
-.bio-videos video {
+.bio-video-block video {
   display: block;
   width: 100%;
+  max-height: min(54vh, 520px);
   height: auto;
-  border-radius: 0.5rem;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 0.25rem;
   background-color: #000;
 }
