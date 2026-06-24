@@ -14,7 +14,7 @@ export function TeaserBanner() {
       <div className="bin">
         <span className="dot" aria-hidden />
         <span className="msg">
-          <b>Big announcement coming Sunday.</b>
+          <b>COMING SOON!</b>
           &nbsp;Be the first to see it.
         </span>
         <button type="button" className="blink" onClick={openModal}>

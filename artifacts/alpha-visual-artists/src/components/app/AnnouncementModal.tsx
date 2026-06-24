@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { joinList } from "@/lib/klaviyo";
 import { useTeaser } from "@/context/TeaserContext";
 import { APP_LAUNCH_LIVE } from "@/config/app";
-import logo from "@/assets/logo.png";
+import creatorsAppLogo from "@/assets/ava-creators-app-logo.png";
 import "@/styles/ava-tokens.css";
 import "./teaser.css";
 
@@ -74,14 +74,14 @@ export function AnnouncementModal() {
         <button type="button" className="close-x" aria-label="Close" onClick={closeModal}>
           ×
         </button>
-        <img src={logo} alt="" className="iris" aria-hidden />
-        <span className="eyebrow">Alpha Visual Artists</span>
+        <img src={creatorsAppLogo} alt="" className="iris" aria-hidden />
+        <span className="eyebrow">Alpha Creators App</span>
 
         {status === "success" ? (
           <div className="success show">
             <h2>YOU&apos;RE IN.</h2>
             <div className="chk">✓</div>
-            <p>You&apos;re on the list. Watch your inbox Sunday — you&apos;ll see it before anyone.</p>
+            <p>You&apos;re on the list. We&apos;ll notify you the moment it drops.</p>
           </div>
         ) : (
           <div id="ava-form-wrap">

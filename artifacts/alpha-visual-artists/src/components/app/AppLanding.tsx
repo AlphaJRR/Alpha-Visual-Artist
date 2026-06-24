@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { FaApple } from "react-icons/fa";
 import { APP_STORE_URL } from "@/config/app";
 import { EmailCaptureForm } from "@/components/app/EmailCaptureForm";
+import creatorsAppLogo from "@/assets/ava-creators-app-logo.png";
 import "@/styles/ava-tokens.css";
 import "@/styles/app-landing.css";
 
@@ -97,7 +98,11 @@ export function AppLanding() {
       <nav>
         <div className="wrap nav-in">
           <div className="brand">
-            ALPHA<b>·</b>CREATORS
+            <img
+              src={creatorsAppLogo}
+              alt="Alpha Creators App"
+              className="brand-logo"
+            />
           </div>
           <a href={APP_STORE_URL} className="nav-cta" target="_blank" rel="noopener noreferrer">
             Download
