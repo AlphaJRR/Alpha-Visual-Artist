@@ -97,6 +97,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          packageManager: npm
           command: pages deploy artifacts/alpha-visual-artists/dist/public --project-name=alpha-visual-artists --branch=GIT
 
 # GitHub Actions secrets (Settings → Secrets and variables → Actions):
