@@ -1,7 +1,11 @@
 import React, { useCallback } from "react";
+import { BioStreamEmbed } from "@/components/BioStreamEmbed";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./about.css";
+
+const JR_INTV_2 = "c48302f9ae0cff4019c0519aefdd2ea6";
+const JR_INTV_3 = "f8927ec99093a48580e3f6213abf8e2a";
 
 function BioVideo({
   src,
@@ -71,6 +75,10 @@ export default function About() {
         alt="A Visual Storyteller — JR's roots in music and emotion"
         loading="lazy"
       />
+      <BioStreamEmbed
+        videoId={JR_INTV_2}
+        label="JR Roberts — interview clip 2"
+      />
       <img
         src="/assets/bio/page3.png"
         alt="Alpha Visual Artists — Inspire. Connect. Create Impact."
@@ -93,6 +101,10 @@ export default function About() {
           label="JR Roberts — solo cutouts promo"
         />
       </div>
+      <BioStreamEmbed
+        videoId={JR_INTV_3}
+        label="JR Roberts — interview clip 3"
+      />
       <img
         src="/assets/bio/page6.png"
         alt="Let's Create Together — Contact Alpha Visual Artists"
