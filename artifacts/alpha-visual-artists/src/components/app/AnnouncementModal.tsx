@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { joinList } from "@/lib/klaviyo";
 import { useTeaser } from "@/context/TeaserContext";
 import { APP_LAUNCH_LIVE } from "@/config/app";
+import logo from "@/assets/logo.png";
 import "@/styles/ava-tokens.css";
 import "./teaser.css";
 
@@ -73,7 +74,7 @@ export function AnnouncementModal() {
         <button type="button" className="close-x" aria-label="Close" onClick={closeModal}>
           ×
         </button>
-        <div className="iris" aria-hidden />
+        <img src={logo} alt="" className="iris" aria-hidden />
         <span className="eyebrow">Alpha Visual Artists</span>
 
         {status === "success" ? (
@@ -89,7 +90,7 @@ export function AnnouncementModal() {
               <br />
               IS COMING.
             </h2>
-            <div className="when">— THIS SUNDAY —</div>
+            <div className="when">— COMING SOON —</div>
             <p>A new chapter for AVA. Be the first to see it the moment it drops.</p>
             <form className="form" onSubmit={onSubmit}>
               <input

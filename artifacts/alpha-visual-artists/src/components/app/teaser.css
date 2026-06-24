@@ -165,18 +165,9 @@
 .ava-announcement-modal .iris {
   width: 46px;
   height: 46px;
-  border-radius: 50%;
   margin: 0 auto 22px;
-  background: conic-gradient(#e8000a, #e0218a, #8a2be2, #1e6fff, #00bfd8, #e8000a);
-  position: relative;
-}
-
-.ava-announcement-modal .iris::after {
-  content: "";
-  position: absolute;
-  inset: 34%;
-  border-radius: 50%;
-  background: #0a0a0a;
+  display: block;
+  object-fit: contain;
 }
 
 .ava-announcement-modal .eyebrow {
