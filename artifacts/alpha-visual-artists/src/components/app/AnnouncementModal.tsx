@@ -25,12 +25,19 @@ export function AnnouncementModal() {
   useEffect(() => {
     if (!modalOpen) return;
 
+    const prev = document.body.style.overflow;
+    document.body.classList.add("modal-open");
+
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeModal();
     };
 
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [modalOpen, closeModal]);
 
   useEffect(() => {

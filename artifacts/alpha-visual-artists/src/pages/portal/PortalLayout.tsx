@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { apiFetch, isPortalApiExpected, type PortalUser } from "@/lib/api";
 import { isClerkConfigured } from "@/lib/clerkConfig";
 import PortalUnavailable from "./PortalUnavailable";
+import PortalSignedInNoApi from "./PortalSignedInNoApi";
 
 export function usePortalUser() {
   return useQuery({
@@ -25,7 +26,16 @@ export default function PortalLayout({ children }: { children: ReactNode }) {
   }
 
   if (!isPortalApiExpected) {
-    return <PortalUnavailable />;
+    return (
+      <>
+        <Show when="signed-out">
+          <RedirectToSignIn />
+        </Show>
+        <Show when="signed-in">
+          <PortalSignedInNoApi />
+        </Show>
+      </>
+    );
   }
 
   return (

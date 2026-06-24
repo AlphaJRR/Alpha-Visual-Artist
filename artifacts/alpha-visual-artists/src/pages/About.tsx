@@ -7,38 +7,60 @@ import "./about.css";
 const JR_INTV_2 = "c48302f9ae0cff4019c0519aefdd2ea6";
 const JR_INTV_3 = "f8927ec99093a48580e3f6213abf8e2a";
 
-function BioVideo({
-  src,
-  poster,
-  label,
-}: {
-  src: string;
-  poster: string;
-  label: string;
-}) {
-  const enforceMuted = useCallback((el: HTMLVideoElement | null) => {
-    if (el) el.muted = true;
+function BioSilentPromo({ src, label }: { src: string; label: string }) {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = React.useState(false);
+
+  const togglePlay = useCallback(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    el.muted = true;
+    el.volume = 0;
+    if (el.paused) {
+      void el.play();
+      setPlaying(true);
+    } else {
+      el.pause();
+      setPlaying(false);
+    }
   }, []);
 
-  const onVideoEvent = useCallback((e: React.SyntheticEvent<HTMLVideoElement>) => {
+  const onPlay = useCallback((e: React.SyntheticEvent<HTMLVideoElement>) => {
     e.currentTarget.muted = true;
     e.currentTarget.volume = 0;
+    setPlaying(true);
   }, []);
 
+  const onPause = useCallback(() => setPlaying(false), []);
+
   return (
-    <video
-      ref={enforceMuted}
-      src={src}
-      controls
-      muted
-      defaultMuted
-      playsInline
-      preload="metadata"
-      poster={poster}
-      aria-label={label}
-      onPlay={onVideoEvent}
-      onVolumeChange={onVideoEvent}
-    />
+    <div className="iphone-mockup">
+      <button
+        type="button"
+        className="bio-silent-promo"
+        onClick={togglePlay}
+        aria-label={playing ? `Pause ${label}` : `Play ${label}`}
+      >
+        <div className="iphone-mockup__bezel">
+          <div className="iphone-mockup__notch" aria-hidden />
+          <div className="iphone-mockup__screen">
+            <video
+              ref={videoRef}
+              src={src}
+              muted
+              playsInline
+              preload="metadata"
+              aria-hidden
+              onPlay={onPlay}
+              onPause={onPause}
+            />
+          </div>
+        </div>
+        {!playing && (
+          <span className="bio-silent-promo__hint">Tap to play</span>
+        )}
+      </button>
+    </div>
   );
 }
 
@@ -63,22 +85,48 @@ export default function About() {
         alt="Joshua JR Roberts — Founder, Cinematographer, Photographer, Creative Director, Alpha Visual Artists"
         loading="eager"
       />
-      <div className="bio-video-block" aria-label="JR Roberts creative edits promo">
-        <BioVideo
-          src="/assets/bio/jrr-star.mp4"
-          poster="/assets/bio/page1.png"
-          label="JR Roberts — creative edits promo"
-        />
+      <div
+        className="bio-video-row bio-video-row--phones"
+        aria-label="JR Roberts photo edit promos"
+      >
+        <div className="bio-video-block bio-video-block--phone">
+          <BioSilentPromo
+            src="/assets/bio/jrr-star.mp4"
+            label="JR Roberts — creative edits promo"
+          />
+        </div>
+        <div className="bio-video-block bio-video-block--portrait bio-portrait-center">
+          <img
+            src="/assets/bio/jr-black-portrait.png"
+            alt="Joshua JR Roberts — black shirt portrait"
+            loading="lazy"
+          />
+        </div>
+        <div className="bio-video-block bio-video-block--phone">
+          <BioSilentPromo
+            src="/assets/bio/jrr-solo.mp4"
+            label="JR Roberts — solo cutouts promo"
+          />
+        </div>
       </div>
       <img
         src="/assets/bio/page2.png"
         alt="A Visual Storyteller — JR's roots in music and emotion"
         loading="lazy"
       />
-      <BioStreamEmbed
-        videoId={JR_INTV_2}
-        label="JR Roberts — interview clip 2"
-      />
+      <div
+        className="bio-video-row bio-video-row--stream"
+        aria-label="JR Roberts interviews"
+      >
+        <BioStreamEmbed
+          videoId={JR_INTV_2}
+          label="JR Roberts — interview clip 2"
+        />
+        <BioStreamEmbed
+          videoId={JR_INTV_3}
+          label="JR Roberts — interview clip 3"
+        />
+      </div>
       <img
         src="/assets/bio/page3.png"
         alt="Alpha Visual Artists — Inspire. Connect. Create Impact."
@@ -93,17 +141,6 @@ export default function About() {
         src="/assets/bio/page5.png"
         alt="Impact — JR's creative philosophy"
         loading="lazy"
-      />
-      <div className="bio-video-block" aria-label="JR Roberts solo cutouts promo">
-        <BioVideo
-          src="/assets/bio/jrr-solo.mp4"
-          poster="/assets/bio/page5.png"
-          label="JR Roberts — solo cutouts promo"
-        />
-      </div>
-      <BioStreamEmbed
-        videoId={JR_INTV_3}
-        label="JR Roberts — interview clip 3"
       />
       <img
         src="/assets/bio/page6.png"

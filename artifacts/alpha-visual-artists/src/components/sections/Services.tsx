@@ -46,7 +46,7 @@ export function Services() {
           <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">
             Our <span className="text-primary">Services</span>
           </h2>
-          <p className="text-white/60 max-w-xl mx-auto">
+          <p className="text-white/60 section-lead">
             From quick-hit social content to full-scale commercial productions.
           </p>
         </motion.div>
@@ -59,7 +59,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-primary/30 transition-all duration-300 relative group overflow-hidden"
+              className="bg-white/5 rounded-2xl p-8 marketing-card hover:border-primary/30 transition-all duration-300 relative group overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               

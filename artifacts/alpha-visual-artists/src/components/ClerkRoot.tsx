@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import { ClerkProvider } from "@clerk/react";
 import { dark } from "@clerk/themes";
+import { getPostAuthRedirectUrl } from "@/lib/api";
 import { clerkPublishableKey, isClerkConfigured } from "@/lib/clerkConfig";
 
 /** Shared Clerk theme — applied via ClerkProvider (SignIn/SignUp inherit). */
@@ -33,20 +34,47 @@ export const clerkAppearance = {
       color: "#A3A3A3",
     },
     socialButtonsBlockButton: {
-      backgroundColor: "#171717",
-      border: "1px solid rgba(255, 255, 255, 0.14)",
+      backgroundColor: "#1A1A1A",
+      border: "1px solid rgba(255, 255, 255, 0.32)",
       color: "#FFFFFF",
+      opacity: 1,
       boxShadow: "none",
       "&:hover": {
-        backgroundColor: "#262626",
-        borderColor: "rgba(0, 230, 255, 0.35)",
+        backgroundColor: "#2A2A2A",
+        borderColor: "rgba(255, 255, 255, 0.5)",
+      },
+    },
+    /** Apple HIG: white button on dark UI — cancel dark theme icon invert */
+    providerIcon__apple: {
+      filter: "none",
+      opacity: 1,
+    },
+    socialButtonsBlockButton__apple: {
+      backgroundColor: "#FFFFFF",
+      border: "none",
+      color: "#000000",
+      opacity: 1,
+      boxShadow: "none",
+      "&:hover": {
+        backgroundColor: "#F5F5F7",
+        opacity: 1,
       },
     },
     socialButtonsBlockButtonText: {
-      color: "#FFFFFF",
-      fontWeight: "500",
+      color: "inherit",
+      fontWeight: "600",
+      opacity: 1,
+    },
+    socialButtonsBlockButtonText__apple: {
+      color: "#000000",
+      fontWeight: "600",
+      opacity: 1,
     },
     socialButtonsProviderIcon: {
+      filter: "none",
+      opacity: 1,
+    },
+    socialButtonsProviderIcon__apple: {
       filter: "none",
       opacity: 1,
     },
@@ -124,8 +152,8 @@ export function ClerkRoot({ children }: { children: ReactNode }) {
       publishableKey={clerkPublishableKey}
       appearance={clerkAppearance}
       localization={clerkLocalization}
-      signInFallbackRedirectUrl="/portal"
-      signUpFallbackRedirectUrl="/portal"
+      signInFallbackRedirectUrl={getPostAuthRedirectUrl()}
+      signUpFallbackRedirectUrl={getPostAuthRedirectUrl()}
     >
       {children}
     </ClerkProvider>

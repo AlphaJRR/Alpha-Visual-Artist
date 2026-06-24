@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Palette, Layers, SlidersHorizontal, FileText } from "lucide-react";
+import { Palette, Layers, SlidersHorizontal, FileText, Smartphone } from "lucide-react";
+import creatorsAppLogo from "@/assets/ava-creators-app-logo.png";
 
 type Product = {
   title: string;
@@ -72,6 +74,37 @@ export default function DigitalDownloads() {
       <Header />
       <main className="flex-1 pt-32 pb-24">
         <div className="marketing-wrap">
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 rounded-2xl border border-white/10 bg-white/[0.03] p-8 md:p-10 flex flex-col md:flex-row items-center gap-8"
+          >
+            <img
+              src={creatorsAppLogo}
+              alt="Alpha Creators App"
+              className="h-16 w-16 object-contain shrink-0"
+            />
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-mono text-xs uppercase tracking-widest mb-4">
+                <Smartphone className="w-3.5 h-3.5" />
+                Alpha Creators App
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-white mb-2">
+                Lessons, tools, and the business of the craft.
+              </h2>
+              <p className="text-white/65 text-sm leading-relaxed max-w-xl">
+                108-lesson Creators Toolkit, production checklists, rate calculator, and the AVA drop — built on real sets.
+              </p>
+            </div>
+            <Link
+              href="/app"
+              className="shrink-0 inline-flex items-center justify-center rounded-full bg-primary hover:bg-primary/90 text-black font-semibold uppercase tracking-wider text-sm px-6 py-3 shadow-[0_0_20px_rgba(0,230,255,0.4)] transition-all"
+            >
+              View the App
+            </Link>
+          </motion.section>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

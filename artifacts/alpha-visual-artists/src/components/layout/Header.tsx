@@ -12,6 +12,7 @@ const NAV = [
   { href: "/services", label: "Services" },
   { href: "/podcast", label: "Podcast" },
   { href: "/digital-downloads", label: "Downloads" },
+  { href: "/app", label: "App" },
   { href: "/apparel", label: "Apparel" },
   { href: "/about", label: "About" },
 ];
@@ -32,8 +33,8 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5" style={{ height: "var(--header-height)" }}>
+      <div className="marketing-wrap h-full flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <img src={logo} alt="Alpha Visual Artists" className="h-8 object-contain" />
         </Link>
@@ -102,7 +103,7 @@ export function Header() {
 
       {open && (
         <div className="md:hidden border-t border-white/5 bg-background/95 backdrop-blur-md">
-          <nav className="container mx-auto px-4 py-6 flex flex-col gap-1">
+          <nav className="marketing-wrap py-6 flex flex-col gap-1">
             {NAV.map((n) => (
               <Link
                 key={n.href}

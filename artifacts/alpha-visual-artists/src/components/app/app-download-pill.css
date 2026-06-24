@@ -1,14 +1,16 @@
 .ava-app-download-pill {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 4px;
   background: var(--ava-red, #e8000a);
   color: #fff;
-  padding: 12px 18px;
+  padding: 12px 20px;
   border-radius: 11px;
   font-family: "Space Grotesk", sans-serif;
   text-decoration: none;
+  text-align: center;
   transition: filter 0.2s, transform 0.2s;
 }
 
@@ -28,4 +30,6 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   opacity: 0.85;
+  text-align: center;
+  width: 100%;
 }

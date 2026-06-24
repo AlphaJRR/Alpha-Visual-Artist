@@ -18,9 +18,9 @@ export function ApparelTeaser() {
         </div>
 
         <div className="relative flex items-center justify-center px-6 md:px-16 py-16 md:py-24">
-          <div className="max-w-lg">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-mono text-[10px] uppercase tracking-widest mb-6">
-              New Drop
+          <div className="max-w-lg w-full text-center md:text-left">
+            <div className="flex justify-center md:justify-start mb-6">
+              <span className="section-eyebrow text-[10px]">New Drop</span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white leading-[1.05] mb-6">
               The Apparel Collection is{" "}
@@ -30,7 +30,7 @@ export function ApparelTeaser() {
               Built for the crew, the creators, and everyone behind the lens.
               Limited run, premium fabric, signature Alpha details.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               <Link
                 href="/apparel"
                 className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-black font-semibold uppercase tracking-wider text-sm shadow-[0_0_30px_rgba(0,212,255,0.4)] hover:shadow-[0_0_40px_rgba(0,212,255,0.6)] transition-all"

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "wouter";
 import { FaApple } from "react-icons/fa";
 import { APP_STORE_URL } from "@/config/app";
 import { EmailCaptureForm } from "@/components/app/EmailCaptureForm";
@@ -97,12 +98,17 @@ export function AppLanding() {
 
       <nav>
         <div className="wrap nav-in">
-          <div className="brand">
-            <img
-              src={creatorsAppLogo}
-              alt="Alpha Creators App"
-              className="brand-logo"
-            />
+          <div className="nav-left">
+            <Link href="/" className="nav-back" aria-label="Back to Alpha Visual Artists website">
+              ← Back to Site
+            </Link>
+            <Link href="/" className="brand" aria-label="Alpha Visual Artists — home">
+              <img
+                src={creatorsAppLogo}
+                alt="Alpha Creators App"
+                className="brand-logo"
+              />
+            </Link>
           </div>
           <a href={APP_STORE_URL} className="nav-cta" target="_blank" rel="noopener noreferrer">
             Download
@@ -281,10 +287,10 @@ export function AppLanding() {
         <div className="wrap foot-in">
           <div>
             <div className="foot-brand">ALPHA VISUAL ARTISTS</div>
-            <div className="foot-tag">Inspire. Connect. Create Impact.</div>
           </div>
           <a href={APP_STORE_URL} className="get-app store" target="_blank" rel="noopener noreferrer">
-            ↓ Get the App
+            <span>↓ Get the App</span>
+            <span className="foot-tag">Inspire. Connect. Create Impact.</span>
           </a>
         </div>
       </footer>

@@ -1,6 +1,8 @@
 import { SignUp } from "@clerk/react";
+import { clerkAppearance } from "@/components/ClerkRoot";
 import { isClerkConfigured } from "@/lib/clerkConfig";
 import { ClerkUnavailable } from "@/components/ClerkUnavailable";
+import { getPostAuthRedirectUrl } from "@/lib/api";
 
 export default function SignUpPage() {
   if (!isClerkConfigured) {
@@ -13,7 +15,8 @@ export default function SignUpPage() {
         routing="path"
         path="/sign-up"
         signInUrl="/sign-in"
-        forceRedirectUrl="/portal"
+        forceRedirectUrl={getPostAuthRedirectUrl()}
+        appearance={clerkAppearance}
       />
     </div>
   );

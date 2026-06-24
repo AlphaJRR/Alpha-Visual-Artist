@@ -2,6 +2,11 @@
 export const isPortalApiExpected =
   import.meta.env.VITE_PORTAL_API_ENABLED === "true";
 
+/** After Clerk sign-in: portal when API is live, home when static Pages only. */
+export function getPostAuthRedirectUrl(): string {
+  return isPortalApiExpected ? "/portal" : "/";
+}
+
 export async function apiFetch<T = unknown>(
   path: string,
   init?: RequestInit,

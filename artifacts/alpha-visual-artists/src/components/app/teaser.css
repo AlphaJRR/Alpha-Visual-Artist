@@ -90,7 +90,7 @@
 .ava-announcement-modal {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 250;
   display: none;
   align-items: center;
   justify-content: center;

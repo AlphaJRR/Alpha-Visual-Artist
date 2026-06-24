@@ -82,17 +82,15 @@ export default function Services() {
   return (
     <div className="min-h-[100dvh] bg-background flex flex-col">
       <Header />
-      <main className="flex-1 pt-32 pb-24">
+      <main className="flex-1 pt-[calc(var(--header-height)+2rem)] pb-24">
         <div className="marketing-wrap">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-20 text-center max-w-3xl mx-auto"
+            className="mb-20 section-heading max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-mono text-xs uppercase tracking-widest mb-6">
-              Our Services
-            </div>
+            <span className="section-eyebrow">Our Services</span>
             <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-6 text-white">
               Built to <span className="text-primary">Convert.</span>
             </h1>
@@ -101,7 +99,7 @@ export default function Services() {
             </p>
           </motion.div>
 
-          <div className="space-y-20">
+          <div className="space-y-24">
             {services.map((s, i) => (
               <motion.section
                 key={s.title}
@@ -109,52 +107,61 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start"
               >
-                <div>
-                  <div className="w-14 h-14 rounded-xl bg-black border border-white/10 flex items-center justify-center mb-6 shadow-[0_0_30px_-10px_rgba(0,230,255,0.4)]">
+                <div className="flex items-start gap-4 mb-10">
+                  <div className="w-14 h-14 shrink-0 rounded-xl bg-black border border-white/10 flex items-center justify-center shadow-[0_0_30px_-10px_rgba(0,230,255,0.4)]">
                     {s.icon}
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight text-white mb-4">{s.title}</h2>
-                  <p className="text-white/70 leading-relaxed mb-8">{s.blurb}</p>
-
-                  <h3 className="text-xs uppercase tracking-[0.2em] text-primary font-mono mb-4">Deliverables Include</h3>
-                  <ul className="space-y-2.5 mb-8">
-                    {s.deliverables.map((d) => (
-                      <li key={d} className="flex items-start gap-3 text-white/85">
-                        <Check className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                        <span>{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="rounded-2xl bg-white/[0.03] border border-white/10 p-6 mb-6">
-                    <h4 className="text-[10px] uppercase tracking-[0.25em] text-white/50 font-mono mb-2">Turnaround</h4>
-                    <p className="text-white/80 text-sm leading-relaxed">{s.turnaround}</p>
-                  </div>
-
-                  <div className="rounded-2xl bg-primary/5 border border-primary/30 p-6 mb-8">
-                    <h4 className="text-[10px] uppercase tracking-[0.25em] text-primary font-mono mb-2">Investment</h4>
-                    <p className="text-2xl font-bold text-white">{s.investment}</p>
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight text-white mb-3">{s.title}</h2>
+                    <p className="text-white/70 leading-relaxed max-w-2xl">{s.blurb}</p>
                   </div>
                 </div>
 
-                <div className="lg:sticky lg:top-32">
-                  <div className="rounded-3xl bg-gradient-to-br from-primary/15 via-white/5 to-transparent border border-white/10 p-10 h-full">
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-mono mb-6">Why Choose This?</div>
-                    <p className="text-2xl md:text-3xl font-bold text-white leading-tight mb-10" style={{ fontFamily: "Sora, sans-serif" }}>
-                      {s.why}
-                    </p>
-                    <Button
-                      asChild
-                      size="lg"
-                      className="rounded-full bg-primary hover:bg-primary/90 text-black px-8 h-14 text-base font-bold shadow-[0_0_30px_rgba(0,230,255,0.4)] hover:shadow-[0_0_40px_rgba(0,230,255,0.6)] transition-all"
-                    >
-                      <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-                        {s.cta}
-                        <ArrowRight className="w-4 h-4" />
-                      </a>
-                    </Button>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+                  <div className="flex flex-col gap-8">
+                    <div>
+                      <h3 className="text-xs uppercase tracking-[0.2em] text-primary font-mono mb-4">Deliverables Include</h3>
+                      <ul className="space-y-2.5">
+                        {s.deliverables.map((d) => (
+                          <li key={d} className="flex items-start gap-3 text-white/85">
+                            <Check className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                            <span>{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="rounded-2xl bg-white/[0.03] border border-white/10 p-6">
+                      <h4 className="text-[10px] uppercase tracking-[0.25em] text-white/50 font-mono mb-2">Turnaround</h4>
+                      <p className="text-white/80 text-sm leading-relaxed">{s.turnaround}</p>
+                    </div>
+
+                    <div className="rounded-2xl bg-primary/5 border border-primary/30 p-6">
+                      <h4 className="text-[10px] uppercase tracking-[0.25em] text-primary font-mono mb-2">Investment</h4>
+                      <p className="text-2xl font-bold text-white">{s.investment}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex">
+                    <div className="flex flex-col justify-between rounded-3xl bg-gradient-to-br from-primary/15 via-white/5 to-transparent border border-white/10 p-10 w-full">
+                      <div>
+                        <div className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-mono mb-6">Why Choose This?</div>
+                        <p className="text-2xl md:text-3xl font-bold text-white leading-tight" style={{ fontFamily: "Sora, sans-serif" }}>
+                          {s.why}
+                        </p>
+                      </div>
+                      <Button
+                        asChild
+                        size="lg"
+                        className="btn-marketing mt-10 w-full sm:w-auto bg-primary hover:bg-primary/90 text-black font-bold shadow-[0_0_30px_rgba(0,230,255,0.4)] hover:shadow-[0_0_40px_rgba(0,230,255,0.6)] transition-all"
+                      >
+                        <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2">
+                          {s.cta}
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </motion.section>
@@ -170,13 +177,13 @@ export default function Services() {
             <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight mb-4 text-white">
               Not sure what you <span className="text-primary">need?</span>
             </h2>
-            <p className="text-white/70 mb-8 max-w-xl mx-auto">
+            <p className="section-lead text-white/70 mb-8">
               Every brand is different. Let's hop on a quick call to figure out the best content strategy for your goals.
             </p>
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-primary hover:bg-primary/90 text-black px-10 h-14 text-base font-bold shadow-[0_0_30px_rgba(0,230,255,0.4)]"
+              className="btn-marketing bg-primary hover:bg-primary/90 text-black font-bold shadow-[0_0_30px_rgba(0,230,255,0.4)]"
             >
               <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer">
                 Get a Free Consultation

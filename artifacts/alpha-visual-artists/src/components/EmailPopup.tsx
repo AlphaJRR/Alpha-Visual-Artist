@@ -30,6 +30,16 @@ export function EmailPopup() {
     return () => clearTimeout(t);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.classList.add("modal-open");
+    return () => {
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   const close = () => {
     setOpen(false);
     popupShownThisSession = true;
@@ -65,13 +75,13 @@ export function EmailPopup() {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
+      className="modal-overlay flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={close}
       role="dialog"
       aria-modal="true"
     >
       <div
-        className="relative w-full max-w-md rounded-2xl border border-primary/30 bg-[#0a0a0a] shadow-[0_0_60px_rgba(0,212,255,0.25)] p-8"
+        className="relative w-full max-w-md rounded-2xl border border-primary/30 bg-[#0a0a0a] shadow-[0_0_60px_rgba(0,212,255,0.25)] p-8 sm:p-10"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -96,7 +106,7 @@ export function EmailPopup() {
               </p>
             </div>
 
-            <form onSubmit={onSubmit} className="space-y-3">
+            <form onSubmit={onSubmit} className="space-y-4">
               <input
                 type="email"
                 name="email"
@@ -105,7 +115,7 @@ export function EmailPopup() {
                 placeholder="Your email"
                 required
                 autoComplete="email"
-                className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-primary/60 focus:bg-white/10 transition"
+                className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3.5 min-h-11 text-white placeholder:text-white/40 focus:outline-none focus:border-primary/60 focus:bg-white/10 transition"
               />
               <input
                 type="email"
@@ -115,12 +125,12 @@ export function EmailPopup() {
                 placeholder="Confirm email"
                 required
                 autoComplete="email"
-                className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-primary/60 focus:bg-white/10 transition"
+                className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3.5 min-h-11 text-white placeholder:text-white/40 focus:outline-none focus:border-primary/60 focus:bg-white/10 transition"
               />
-              {error && <p className="text-red-400 text-xs">{error}</p>}
+              {error && <p className="text-red-400 text-xs text-center">{error}</p>}
               <button
                 type="submit"
-                className="w-full rounded-lg bg-primary text-black font-semibold uppercase tracking-wider text-sm py-3 hover:bg-primary/90 transition"
+                className="btn-marketing w-full rounded-lg bg-primary text-black font-semibold uppercase tracking-wider text-sm hover:bg-primary/90 transition"
               >
                 Get My 15% Off
               </button>

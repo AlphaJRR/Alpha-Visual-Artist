@@ -1,4 +1,6 @@
 import React from "react";
+import { StreamEmbed } from "@/components/StreamEmbed";
+import { APPAREL_PROMO_STREAM_ID } from "@/config/streamVideos";
 import productChicago from "@/assets/ava-tee-chicago-back.jpg";
 import productPink from "@/assets/ava-tee-pink.jpg";
 import productGreen from "@/assets/ava-tee-green.jpg";
@@ -14,13 +16,42 @@ export function ApparelSection() {
       <style>{`
         .ava-crew * { margin: 0; padding: 0; box-sizing: border-box; }
         .ava-crew { background: #0a0a0a; color: #e0e0e0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
-        .ava-crew .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        .ava-crew .container { max-width: 1400px; margin: 0 auto; padding: 0 1rem; }
 
         .ava-crew .hero { padding: 100px 0 80px; text-align: center; }
         .ava-crew .hero-tag { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: #00d4ff; margin-bottom: 24px; font-weight: 600; }
         .ava-crew .hero h1 { font-size: clamp(42px, 8vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 24px; color: #fff; font-family: 'Sora', sans-serif; }
         .ava-crew .hero h1 span { color: #00d4ff; }
         .ava-crew .hero p { font-size: 18px; color: #b0b0b0; max-width: 700px; margin: 0 auto 40px; line-height: 1.7; }
+        .ava-crew .promo-video { max-width: 900px; margin: 0 auto 60px; border-radius: 12px; overflow: hidden; }
+        .ava-crew .promo-video-placeholder { max-width: 900px; margin: 0 auto 60px; aspect-ratio: 16/9; border-radius: 12px; border: 1px dashed #333; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px; text-align: center; padding: 24px; }
+
+        .ava-crew .apparel-stack {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          max-width: min(480px, 92vw);
+          aspect-ratio: 1024 / 1725;
+          height: auto;
+          margin: 0 auto 60px;
+          gap: 0;
+          border-radius: 12px;
+          overflow: hidden;
+          border: 1px solid #1a1a1a;
+        }
+        .ava-crew .apparel-stack__panel {
+          flex: 1 1 33.333%;
+          width: 100%;
+          min-height: 0;
+          overflow: hidden;
+        }
+        .ava-crew .apparel-stack__panel img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+        }
 
         .ava-crew .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
         .ava-crew .btn { padding: 14px 32px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; text-decoration: none; }
@@ -61,7 +92,13 @@ export function ApparelSection() {
         .ava-crew .divider h3 { font-size: clamp(32px, 5vw, 56px); font-weight: 700; color: #fff; font-family: 'Sora', sans-serif; line-height: 1.2; }
         .ava-crew .divider h3 span { color: #00d4ff; }
 
-        .ava-crew .footer-cta { text-align: center; padding: 100px 0; }
+        .ava-crew .footer-cta {
+          text-align: center;
+          padding: 100px 0;
+          max-width: 1400px;
+          margin-left: auto;
+          margin-right: auto;
+        }
         .ava-crew .footer-cta h2 { font-size: clamp(40px, 8vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 32px; color: #fff; font-family: 'Sora', sans-serif; }
         .ava-crew .footer-cta h2 span { color: #00d4ff; }
         .ava-crew .footer-cta p { font-size: 16px; color: #999; max-width: 700px; margin: 0 auto 40px; line-height: 1.7; }
@@ -88,6 +125,43 @@ export function ApparelSection() {
             <div className="cta-group">
               <a href="#products" className="btn btn-primary">Shop the collection</a>
               <a href="https://shop.alphavisualartists.com" target="_blank" rel="noreferrer" className="btn btn-secondary">Browse all</a>
+            </div>
+          </div>
+
+          {APPAREL_PROMO_STREAM_ID ? (
+            <div className="promo-video">
+              <StreamEmbed
+                videoId={APPAREL_PROMO_STREAM_ID}
+                label="Alpha Apparel — collection promo"
+                autoplay
+                muted
+                className="rounded-none ring-0"
+              />
+            </div>
+          ) : (
+            <div className="promo-video-placeholder" aria-hidden>
+              Apparel promo video slot — add Cloudflare Stream ID in streamVideos.ts
+            </div>
+          )}
+
+          <div className="apparel-stack" aria-label="Alpha Apparel — crew looks">
+            <div className="apparel-stack__panel">
+              <img
+                src="/assets/apparel/woman-alpha-hoodie.png"
+                alt="Woman in ALPHA hoodie — crew streetwear"
+              />
+            </div>
+            <div className="apparel-stack__panel">
+              <img
+                src="/assets/apparel/boy-tan-tee.png"
+                alt="Young creator in tan ALPHA tee"
+              />
+            </div>
+            <div className="apparel-stack__panel">
+              <img
+                src="/assets/apparel/boy-green-cap-collage.png"
+                alt="Young creator in ALPHA green cap — lifestyle collage"
+              />
             </div>
           </div>
 

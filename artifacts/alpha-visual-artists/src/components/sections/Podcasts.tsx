@@ -1,16 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Mic2 } from "lucide-react";
+import { StreamEmbed } from "@/components/StreamEmbed";
+import { PodcastCoverCarousel } from "@/components/PodcastCoverCarousel";
+import { DHC_LIVE_KIRK_FRANKLIN_ID } from "@/config/streamVideos";
+
+const DHC_LIVE_LABEL =
+  "DHC LIVE! Hosted By Dr. Holly Carter (Kirk Franklin Ep)";
 
 export function Podcasts() {
   return (
     <section id="podcasts" className="py-24 bg-background relative overflow-hidden border-t border-white/5">
-      {/* Abstract Background Element */}
       <div className="absolute -right-[20%] top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
       <div className="marketing-wrap relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -43,32 +48,29 @@ export function Podcasts() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            className="space-y-6"
           >
-            {/* Visual representation of a studio setup */}
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-black ring-1 ring-white/10 relative p-8 flex flex-col justify-end">
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-50" />
-              
-              {/* Fake Audio Waveform */}
-              <div className="flex items-center gap-1 h-32 opacity-30 mb-8">
-                {Array.from({ length: 40 }).map((_, i) => (
-                  <motion.div 
-                    key={i}
-                    className="w-2 bg-primary rounded-full"
-                    animate={{ height: ["20%", `${Math.random() * 80 + 20}%`, "20%"] }}
-                    transition={{ repeat: Infinity, duration: Math.random() * 1.5 + 0.5, ease: "easeInOut" }}
-                  />
-                ))}
+            <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-black">
+              <div className="px-4 py-3 border-b border-white/10 bg-white/[0.03]">
+                <div className="text-primary font-mono text-[10px] uppercase tracking-widest mb-1">On Air</div>
+                <div className="text-lg font-bold text-white leading-snug">{DHC_LIVE_LABEL}</div>
               </div>
-              
-              <div className="relative z-10">
-                <div className="text-primary font-mono text-sm tracking-widest mb-2">ON AIR</div>
-                <div className="text-3xl font-bold text-white">Studio Alpha</div>
+              <StreamEmbed
+                videoId={DHC_LIVE_KIRK_FRANKLIN_ID}
+                label={DHC_LIVE_LABEL}
+                className="rounded-none ring-0"
+              />
+            </div>
+
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.25em] font-mono text-white/50 mb-3">
+                Show Covers
               </div>
+              <PodcastCoverCarousel />
             </div>
           </motion.div>
         </div>

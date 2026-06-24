@@ -38,7 +38,8 @@ Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `VITE_CLERK_PUBLISHABL
 ## Not on static Pages (yet)
 
 - **api-server** (`artifacts/api-server`) — portal, blog admin, storage APIs still target Replit.
-- Portal UI shows “Coming soon” until `VITE_PORTAL_API_ENABLED=true` and `/api` is proxied.
+- With `VITE_CLERK_PUBLISHABLE_KEY` set and `VITE_PORTAL_API_ENABLED=false`, `/portal` uses Clerk sign-in and a signed-in acknowledgment (not “available soon”).
+- Full project dashboard requires `VITE_PORTAL_API_ENABLED=true` and `/api` proxied to the api-server.
 
 
 ## Cloudflare Git integration

@@ -51,20 +51,18 @@ export function Retainers() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16 max-w-2xl mx-auto"
+          className="section-heading mb-16 max-w-2xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-mono text-xs uppercase tracking-widest mb-6">
-            Monthly Retainers
-          </div>
+          <span className="section-eyebrow">Monthly Retainers</span>
           <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">
             Production <span className="text-primary">Retainers</span>
           </h2>
-          <p className="text-white/60">
-            Consistent content, predictable budget. Lock in monthly capacity and skip the project-by-project chase.
+          <p className="section-lead text-white/60">
+            Consistent content, predictable budget. Lock in monthly capacity and skip chasing projects one at a time.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="pricing-cards">
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.name}
@@ -72,10 +70,10 @@ export function Retainers() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`relative rounded-2xl p-8 border transition-all duration-300 ${
+              className={`pricing-card relative p-8 transition-all duration-300 marketing-card ${
                 tier.featured
-                  ? "bg-primary/5 border-primary/40 shadow-[0_0_40px_-10px_rgba(0,230,255,0.4)]"
-                  : "bg-white/5 border-white/10 hover:border-white/20"
+                  ? "marketing-card--featured bg-primary/5"
+                  : "bg-white/5 hover:border-white/20"
               }`}
             >
               {tier.featured && (
@@ -83,13 +81,13 @@ export function Retainers() {
                   Most Popular
                 </div>
               )}
-              <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
-              <div className="flex items-baseline gap-1 mb-4">
+              <h3 className="text-2xl font-bold text-white">{tier.name}</h3>
+              <div className="flex items-baseline gap-1 min-h-[2.75rem]">
                 <span className="text-4xl font-bold text-white">{tier.price}</span>
                 <span className="text-white/50 text-sm">{tier.cadence}</span>
               </div>
-              <p className="text-white/60 text-sm mb-6 leading-relaxed">{tier.description}</p>
-              <ul className="space-y-3 mb-8">
+              <p className="text-white/60 text-sm leading-relaxed">{tier.description}</p>
+              <ul className="pricing-card__features space-y-3">
                 {tier.features.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm text-white/80">
                     <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
@@ -99,10 +97,11 @@ export function Retainers() {
               </ul>
               <Button
                 asChild
-                className={`w-full rounded-full ${
+                size="lg"
+                className={`pricing-card__cta btn-marketing w-full font-semibold ${
                   tier.featured
                     ? "bg-primary hover:bg-primary/90 text-black shadow-[0_0_20px_rgba(0,230,255,0.4)]"
-                    : "bg-white/10 hover:bg-white/20 text-white border border-white/20"
+                    : "bg-white/10 hover:bg-white/20 text-white border-2 border-white/20"
                 }`}
               >
                 <a href="https://cal.com/alphavisualartists/video-call" target="_blank" rel="noreferrer">

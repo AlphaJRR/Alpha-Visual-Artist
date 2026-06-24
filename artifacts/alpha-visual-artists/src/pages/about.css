@@ -13,6 +13,126 @@
   height: auto;
 }
 
+.bio-video-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 1.5rem;
+  background-color: #0d0d0d;
+  line-height: normal;
+}
+
+.bio-video-row .bio-video-block {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.bio-video-row--phones {
+  --iphone-mockup-width: min(100%, 220px);
+  --iphone-mockup-height: calc(var(--iphone-mockup-width) * 19.5 / 9);
+  max-width: 1080px;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 220px) minmax(0, 1fr);
+  align-items: stretch;
+  padding: 1.5rem 1rem 1.5rem;
+}
+
+.bio-video-row--phones .bio-video-block--phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.bio-video-row--phones .iphone-mockup {
+  width: var(--iphone-mockup-width);
+  height: var(--iphone-mockup-height);
+  margin: 0 auto;
+}
+
+.bio-video-block--portrait {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: var(--iphone-mockup-height);
+  min-height: var(--iphone-mockup-height);
+  padding: 0;
+  line-height: 0;
+  background: transparent;
+}
+
+.bio-portrait-center {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  height: var(--iphone-mockup-height);
+  min-height: var(--iphone-mockup-height);
+  align-self: center;
+}
+
+.bio-page .bio-portrait-center img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  min-height: var(--iphone-mockup-height);
+  object-fit: cover;
+  object-position: center top;
+  mix-blend-mode: lighten;
+  background: transparent;
+}
+
+.bio-video-row--stream {
+  max-width: 1080px;
+}
+
+.bio-video-row--stream .bio-video-block iframe {
+  max-height: min(36vh, 280px);
+}
+
+@media (max-width: 639px) {
+  .bio-video-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 480px;
+  }
+
+  .bio-video-row--phones {
+    --iphone-mockup-width: min(100%, 280px);
+    --iphone-mockup-height: calc(var(--iphone-mockup-width) * 19.5 / 9);
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .bio-video-row--phones .iphone-mockup {
+    width: var(--iphone-mockup-width);
+  }
+
+  .bio-video-block--portrait,
+  .bio-portrait-center {
+    height: var(--iphone-mockup-height);
+    min-height: var(--iphone-mockup-height);
+  }
+
+  .bio-page .bio-portrait-center img {
+    width: auto;
+    max-width: min(100%, 280px);
+    height: 100%;
+    min-height: var(--iphone-mockup-height);
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .bio-video-row--stream .bio-video-block iframe {
+    max-height: min(54vh, 320px);
+  }
+}
+
 .bio-video-block {
   line-height: normal;
   width: 100%;
@@ -22,7 +142,6 @@
   background-color: #0d0d0d;
 }
 
-.bio-video-block video,
 .bio-video-block iframe {
   display: block;
   width: 100%;
@@ -34,4 +153,86 @@
   border: 0;
   border-radius: 0.25rem;
   background-color: #000;
+}
+
+.bio-video-block--phone {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1.5rem 2.5rem;
+}
+
+.iphone-mockup {
+  width: min(100%, 280px);
+  margin: 0 auto;
+}
+
+.iphone-mockup__bezel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  background: linear-gradient(145deg, #2a2a2e 0%, #121214 45%, #0a0a0c 100%);
+  border-radius: 2.75rem;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 18px 48px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.iphone-mockup__notch {
+  position: absolute;
+  top: 0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 1.35rem;
+  background: #0a0a0c;
+  border-radius: 0 0 1rem 1rem;
+  z-index: 2;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.iphone-mockup__screen {
+  position: absolute;
+  inset: 0.55rem;
+  overflow: hidden;
+  border-radius: 2.25rem;
+  background: #000;
+}
+
+.bio-silent-promo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  line-height: 0;
+}
+
+.bio-silent-promo video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  background: #000;
+}
+
+.bio-silent-promo__hint {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  line-height: normal;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(8, 8, 8, 0.72);
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 3;
 }
