@@ -46,7 +46,7 @@ const tiers = [
 export function Retainers() {
   return (
     <section id="retainers" className="py-24 bg-background relative border-t border-white/5">
-      <div className="container mx-auto px-4">
+      <div className="marketing-wrap">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
