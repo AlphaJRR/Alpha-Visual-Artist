@@ -12,6 +12,7 @@ import Shop from "@/pages/Shop";
 import Apparel from "@/pages/Apparel";
 import Work from "@/pages/Work";
 import Privacy from "@/pages/Privacy";
+import About from "@/pages/About";
 import SignInPage from "@/pages/SignIn";
 import SignUpPage from "@/pages/SignUp";
 import PortalIndex from "@/pages/portal/PortalIndex";
@@ -40,6 +41,7 @@ function Router() {
       <Route path="/crew-collection" component={Apparel} />
       <Route path="/work" component={Work} />
       <Route path="/privacy" component={Privacy} />
+      <Route path="/about" component={About} />
       <Route path="/sign-in" component={SignInPage} />
       <Route path="/sign-in/:rest*" component={SignInPage} />
       <Route path="/sign-up" component={SignUpPage} />

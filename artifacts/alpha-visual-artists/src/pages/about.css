@@ -1,0 +1,14 @@
+.bio-page {
+  display: block;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  line-height: 0;
+  background-color: #0d0d0d;
+}
+
+.bio-page img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
