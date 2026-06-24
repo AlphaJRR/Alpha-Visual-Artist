@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./about.css";
+
+function BioVideo({
+  src,
+  poster,
+  label,
+}: {
+  src: string;
+  poster: string;
+  label: string;
+}) {
+  const enforceMuted = useCallback((el: HTMLVideoElement | null) => {
+    if (el) el.muted = true;
+  }, []);
+
+  const onVideoEvent = useCallback((e: React.SyntheticEvent<HTMLVideoElement>) => {
+    e.currentTarget.muted = true;
+    e.currentTarget.volume = 0;
+  }, []);
+
+  return (
+    <video
+      ref={enforceMuted}
+      src={src}
+      controls
+      muted
+      defaultMuted
+      playsInline
+      preload="metadata"
+      poster={poster}
+      aria-label={label}
+      onPlay={onVideoEvent}
+      onVolumeChange={onVideoEvent}
+    />
+  );
+}
 
 export default function About() {
   React.useEffect(() => {
@@ -25,14 +60,10 @@ export default function About() {
         loading="eager"
       />
       <div className="bio-video-block" aria-label="JR Roberts creative edits promo">
-        <video
+        <BioVideo
           src="/assets/bio/jrr-star.mp4"
-          controls
-          muted
-          playsInline
-          preload="metadata"
           poster="/assets/bio/page1.png"
-          aria-label="JR Roberts — creative edits promo"
+          label="JR Roberts — creative edits promo"
         />
       </div>
       <img
@@ -56,14 +87,10 @@ export default function About() {
         loading="lazy"
       />
       <div className="bio-video-block" aria-label="JR Roberts solo cutouts promo">
-        <video
+        <BioVideo
           src="/assets/bio/jrr-solo.mp4"
-          controls
-          muted
-          playsInline
-          preload="metadata"
           poster="/assets/bio/page5.png"
-          aria-label="JR Roberts — solo cutouts promo"
+          label="JR Roberts — solo cutouts promo"
         />
       </div>
       <img
