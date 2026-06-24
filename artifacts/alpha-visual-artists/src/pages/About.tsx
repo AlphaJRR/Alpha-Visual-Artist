@@ -1,4 +1,6 @@
 import React from "react";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import "./about.css";
 
 export default function About() {
@@ -14,7 +16,9 @@ export default function About() {
   }, []);
 
   return (
-    <main className="bio-page">
+    <div className="min-h-[100dvh] bg-background flex flex-col">
+      <Header />
+      <main className="flex-1 pt-20 bio-page">
       <img
         src="/assets/bio/page1.png"
         alt="Joshua JR Roberts — Founder, Cinematographer, Photographer, Creative Director, Alpha Visual Artists"
@@ -45,6 +49,8 @@ export default function About() {
         alt="Let's Create Together — Contact Alpha Visual Artists"
         loading="lazy"
       />
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }

@@ -19,13 +19,13 @@ export function WorkGallery() {
 
   return (
     <section id="work" className="py-24 bg-background relative border-t border-white/5">
-      <div className="container mx-auto px-4">
-        <div className="mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
-          <div>
+      <div className="marketing-wrap">
+        <div className="mb-16 text-center">
+          <div className="mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">
               Selected <span className="text-primary">Work</span>
             </h2>
-            <p className="text-white/60 max-w-xl">
+            <p className="text-white/60 max-w-xl mx-auto">
               From high-energy vertical shorts to premium cinematic commercials.
             </p>
           </div>

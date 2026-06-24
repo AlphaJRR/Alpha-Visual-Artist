@@ -130,7 +130,7 @@ export default function Podcast() {
     <div className="min-h-[100dvh] bg-background flex flex-col">
       <Header />
       <main className="flex-1 pt-32 pb-24">
-        <div className="container mx-auto px-4 max-w-6xl">
+        <div className="marketing-wrap">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -175,13 +175,13 @@ export default function Podcast() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="mb-10 flex items-start gap-6">
+                <div className="mb-10 flex flex-col items-center text-center gap-6">
                   {show.portrait && (
                     <div className="hidden md:block flex-shrink-0 w-28 h-28 rounded-full overflow-hidden ring-2 ring-primary/30">
                       <img src={show.portrait} alt={show.name} className="w-full h-full object-cover" />
                     </div>
                   )}
-                  <div className="max-w-2xl">
+                  <div className="max-w-2xl mx-auto">
                     <div className="text-[10px] uppercase tracking-[0.3em] text-primary font-mono mb-3">Show {String(si + 1).padStart(2, "0")}</div>
                     <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight text-white mb-3">{show.name}</h2>
                     <p className="text-white/65 text-lg">{show.tagline}</p>

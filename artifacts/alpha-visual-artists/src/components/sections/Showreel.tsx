@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export function Showreel() {
   return (
     <section id="showreel" className="py-24 bg-black relative">
-      <div className="container mx-auto px-4">
+      <div className="marketing-wrap">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
